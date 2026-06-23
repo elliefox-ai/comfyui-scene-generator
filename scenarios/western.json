@@ -1,0 +1,77 @@
+{
+  "name": "western",
+  "description": "American frontier — dust, sun, showdowns",
+  "setting_pool": [
+    "A dusty frontier town at high noon",
+    "A sunbaked main street with wooden storefronts",
+    "A lonesome ranch on the high desert",
+    "A rail stop at the edge of the territory",
+    "A box canyon lit by orange dusk"
+  ],
+  "background_pool": [
+    {
+      "text": "The wide-open spaces of {setting}, rutted wagon tracks cutting through hard-packed earth, heat shimmer distorting the horizon, wooden false-front buildings leaning against an empty sky",
+      "shot": "wide"
+    },
+    {
+      "text": "The sun-bleached expanse around {setting}, split-rail cedar fences enclosing a dusty corral, windmill skeleton creaking, dry grass and scrubland stretching to distant mesas",
+      "shot": "wide"
+    },
+    {
+      "text": "The intimate approach to {setting}, a crude platform of stacked ties and rough-sawn lumber, a weathered water tower, telegraph poles marching away into flat grassland",
+      "shot": "medium"
+    },
+    {
+      "text": "The dramatic geology of {setting}, sheer sandstone walls glowing burnt orange and deep red, boulders strewn across a sandy floor, deep shadows pooling in alcoves and overhangs",
+      "shot": "medium"
+    },
+    {
+      "text": "The rugged terrain surrounding {setting}, sun-bleached boulders and bleached skeletons of brush, a switchback trail climbing through foothill country, haze and distance blurring the peaks beyond",
+      "shot": "wide"
+    },
+    {
+      "text": "The close, sweltering interior of {setting}, rough-sawn planking and a single kerosene lamp casting a hard amber circle, dust motes suspended in the still air, the texture of grain and whorl visible in the wood",
+      "shot": "close"
+    },
+    {
+      "text": "The general store counter within {setting}, bolts of calico and a jar of peppermint sticks, the shopkeeper's ledger and brass scale, dust motes turning in a blade of sunlight from the window",
+      "shot": "close"
+    },
+    {
+      "text": "The livery stable at {setting}, stall partitions of rough-sawn pine, the smell of hay and horse, tack hung from pegs, a lantern throwing long shadows across the hard-packed dirt floor",
+      "shot": "close"
+    },
+    {
+      "text": "The saloon bar of {setting}, a long counter of polished but scarred walnut, bottles ranked on shelves behind, a mirror tarnished with age, the piano in the corner with keys yellowed and chipped",
+      "shot": "medium"
+    }
+  ],
+  "subject_pool": [
+    "a lawman with a tin star and stubble",
+    "a gunslinger in a long duster coat",
+    "a saloon keeper in a stained waistcoat",
+    "a cowhand in chaps and a dust-caked hat",
+    "a preacher with a weathered bible",
+    "a prospecter with a mule and a pickaxe",
+    "a cattle baron in tailored frontier finery",
+    "a deputy with a nervous hand near his holster",
+    "a riverboat gambler with a brocade vest and a derringer up his sleeve",
+    "a cavalry scout with a sun-cracked face and field glasses",
+    "a blacksmith with hammer-scale burns on his forearms",
+    "a saloon girl with a feathered hat and a knowing look"
+  ],
+  "action_pool": [
+    "spitting into the dust",
+    "squinting against the glare",
+    "rolling a cigarette with one hand",
+    "resting a hand on a holstered revolver",
+    "wiping sweat from a sunburned brow",
+    "leaning against a porch rail, watching",
+    "adjusting a saddle on a stamping horse",
+    "staring down an opponent from across the street",
+    "shuffling a deck of cards one-handed",
+    "studying distant dust on the horizon",
+    "pounding a horseshoe on an anvil, sparks flying",
+    "leaning in a doorway, fanning herself slowly"
+  ]
+}

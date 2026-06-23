@@ -1,0 +1,40 @@
+{
+  "name": "Close Portrait",
+  "scene_type": "close_group",
+  "shot_width": "close",
+  "description": "Tight single or dual portrait. Face and upper body dominant.",
+  "min_subjects": 1,
+  "max_subjects": 2,
+  "hld_patterns": [
+    "{setting}. A tight portrait, the figure filling the frame.",
+    "{setting}. A close composition — face and shoulders, background dissolved.",
+    "{setting}. An intimate portrait crop, subject dominant in frame."
+  ],
+  "element_descriptions": {
+    "1": [
+      "{subject}, centered, filling the frame, upper body and face dominant."
+    ],
+    "2": [
+      "{subject}, left, facing right, close together.",
+      "{subject}, right, facing left, close together."
+    ]
+  },
+  "background_pool": [
+    "A softly blurred interior wall, warm bokeh from string lights or candles creating golden circles behind the subject, the suggestion of a cozy room without any distinct features, shallow depth of field dissolving everything to color",
+    "A natural out-of-focus backdrop of green foliage, dappled light creating soft bokeh circles, the hint of a garden or forest behind, cool tones blending into a wash of sage and amber",
+    "A neutral studio-esque wall in muted earth tones, a single soft light source creating a gentle gradient from light to shadow, the background reduced to a smooth tonal field with no distraction",
+    "A darkened room behind the subject, shadow dominate, the faint suggestion of a window with sheer fabric diffusing the light, a soft glow rimming one edge, everything else fading to black"
+  ],
+  "action_pool": [
+    "head tilted slightly to one side",
+    "eyes downturned, lashes casting shadows",
+    "lips just parting",
+    "chin dipping, looking up through their lashes",
+    "turning their face slowly toward the light",
+    "a strand of hair caught between their fingers",
+    "shoulders relaxed, a slow exhale",
+    "eyes closing, a faint smile forming",
+    "touching their own collarbone",
+    "gaze drifting just past the camera"
+  ]
+}

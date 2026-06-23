@@ -1,0 +1,48 @@
+{
+  "name": "Medium Expedition",
+  "scene_type": "hero_journey",
+  "shot_width": "medium",
+  "description": "A party moving through terrain, mid-stride composition.",
+  "min_subjects": 2,
+  "max_subjects": 4,
+  "hld_patterns": [
+    "{setting}. A party of figures moving through the terrain, mid-journey.",
+    "{setting}. Travellers in transit, the path stretching behind them.",
+    "{setting}. A group on the move, framed against the landscape they cross."
+  ],
+  "element_descriptions": {
+    "2": [
+      "{subject}, foreground, leading, facing away from camera.",
+      "{subject}, behind, following, profile view."
+    ],
+    "3": [
+      "{subject}, foreground, leading, back to camera.",
+      "{subject}, center, mid-stride, three-quarter view.",
+      "{subject}, behind, following, profile."
+    ],
+    "4": [
+      "{subject}, foreground, leading, back to camera.",
+      "{subject}, left-center, mid-stride.",
+      "{subject}, right-center, slightly behind.",
+      "{subject}, furthest back, following."
+    ]
+  },
+  "background_pool": [
+    "A mountain switchback trail cutting across a steep grassy slope, scree and loose rock bordering the path, distant peaks visible beyond the figures, wildflowers clinging to the hillside, late afternoon light casting long shadows",
+    "A dense forest path of packed earth and exposed roots, shafts of sunlight breaking through the canopy overhead, ferns and moss covering the ground to either side, the trail curving out of sight ahead",
+    "A desert canyon passage, smooth sandstone walls narrowing around a sandy floor, the trail winding between boulders, heat distortion in the air, a sliver of intense blue sky overhead",
+    "A snow-covered ridge line, wind-sculpted drifts and exposed rock, boot prints trailing behind the figures, the white expanse stretching to grey clouds on the horizon, ice crystals catching the low sun"
+  ],
+  "action_pool": [
+    "mid-stride, weight forward on the uphill foot",
+    "consulting a compass in their palm",
+    "adjusting a slipping pack strap",
+    "reaching back to help the person behind",
+    "wiping sweat from their forehead",
+    "pausing to scan the trail ahead",
+    "pushing through low branches",
+    "trudging, shoulders rounded under the weight",
+    "unwrapping a scarf in the heat",
+    "planting a walking stick firmly in front"
+  ]
+}

@@ -1,0 +1,51 @@
+{
+  "name": "Close Revelation",
+  "scene_type": "atmospheric",
+  "shot_width": "close",
+  "description": "A moment of discovery or dawning realization, tight on face and hands.",
+  "min_subjects": 1,
+  "max_subjects": 3,
+  "hld_patterns": [
+    "{setting}. A discovery hangs in the air, the full weight of it still settling.",
+    "{setting}. Something half-glimpsed snaps into terrible focus.",
+    "{setting}. The answer was always right here, waiting to be found."
+  ],
+  "element_descriptions": {
+    "1": [
+      "{subject}, centered in frame, facing three-quarter toward camera."
+    ],
+    "2": [
+      "{subject}, left third of frame, facing right.",
+      "{subject}, right third of frame, facing left, slightly behind the first."
+    ],
+    "3": [
+      "{subject}, left third of frame, facing right.",
+      "{subject}, center frame, facing camera, closest to lens.",
+      "{subject}, right edge of frame, facing left, partially cropped."
+    ],
+    "4": [
+      "{subject}, left third of frame, facing right.",
+      "{subject}, center-left, facing right, mid-depth.",
+      "{subject}, center-right, facing left, mid-depth.",
+      "{subject}, right edge of frame, facing left, furthest from lens."
+    ]
+  },
+  "background_pool": [
+    "Dimly lit interior with deep amber shadows and a single overhead light source casting harsh gradients",
+    "Rain-streaked window glowing faintly behind gauze curtains, the outside world reduced to blurred halos",
+    "Cluttered desk surface receding into darkness, scattered papers and photographs visible only as edge-lit shapes",
+    "Underground concrete wall, moisture glistening, a cold industrial palette of grey and rust"
+  ],
+  "action_pool": [
+    "Eyes widening, pupils dilating",
+    "Lips parting slightly, breath held",
+    "Head tilting downward, gaze fixed",
+    "Eyebrows drawing together, forehead creasing",
+    "Fingers curling slowly inward to a fist",
+    "Jaw tightening, swallowing hard",
+    "Eyes narrowing, gaze sharpening",
+    "Head turning sharply to one side",
+    "One hand rising slowly to the mouth",
+    "Stillness, every muscle locked in place"
+  ]
+}

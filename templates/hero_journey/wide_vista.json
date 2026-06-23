@@ -1,0 +1,45 @@
+{
+  "name": "Wide Vista",
+  "scene_type": "hero_journey",
+  "shot_width": "wide",
+  "description": "Figure(s) overlooking a vast landscape from an elevated position.",
+  "min_subjects": 1,
+  "max_subjects": 3,
+  "hld_patterns": [
+    "{setting}. A figure on a height, surveying the expanse below.",
+    "{setting}. A figure at the overlook, the world stretching away beneath them.",
+    "{setting}. An elevated vantage — the figure dwarfed by the view."
+  ],
+  "element_descriptions": {
+    "1": [
+      "{subject}, foreground, at the overlook's edge, back to camera, small in frame."
+    ],
+    "2": [
+      "{subject}, foreground, at the edge, back to camera.",
+      "{subject}, beside the first, slightly further back."
+    ],
+    "3": [
+      "{subject}, foreground, closest to the edge.",
+      "{subject}, center, behind the first.",
+      "{subject}, further back, turned slightly away."
+    ]
+  },
+  "background_pool": [
+    "A vast mountain valley spread below the cliff edge, layers of blue ridges receding into haze, a river glinting like silver thread through pine forest far below, wisps of cloud clinging to the peaks, the foreground rock sun-warmed and rough",
+    "An endless desert basin from a high mesa, dune fields rippling toward the horizon, distant mesas and buttes standing like monuments, heat shimmer distorting the air, the sky an enormous dome of faded blue",
+    "A coastal cliff overlooking a wild sea, white waves crashing against black rocks hundreds of feet below, a stretch of sandy beach curving away, seabirds wheeling in the updraft, salt spray catching the light",
+    "A frozen tundra expanse from a ridge of blue ice, snowfields rolling to a jagged mountain range on the horizon, the sky streaked with aurora light, ice crystals glittering in the foreground"
+  ],
+  "action_pool": [
+    "one hand shielding their eyes, scanning the distance",
+    "pointing toward something far below",
+    "adjusting the strap of a heavy pack",
+    "planting a walking staff in front, leaning on it",
+    "turning to speak over their shoulder",
+    "wind whipping their hair and clothes",
+    "arms spread wide, taking it all in",
+    "consulting a weathered map",
+    "removing a hat to wipe their brow",
+    "crouching low for a better view"
+  ]
+}

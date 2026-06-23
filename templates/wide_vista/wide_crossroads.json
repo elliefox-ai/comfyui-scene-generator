@@ -1,0 +1,51 @@
+{
+  "name": "Wide Crossroads",
+  "scene_type": "wide_vista",
+  "shot_width": "wide",
+  "description": "A junction or intersection point, figures at a decision space.",
+  "min_subjects": 1,
+  "max_subjects": 4,
+  "hld_patterns": [
+    "{setting}. A crossroads — paths converging, figures at the junction.",
+    "{setting}. An intersection of routes, figures distributed at the meeting point.",
+    "{setting}. A decision point in the landscape, figures arrivals from different directions."
+  ],
+  "element_descriptions": {
+    "1": [
+      "{subject}, center, at the intersection, small in frame."
+    ],
+    "2": [
+      "{subject}, left side, approaching the center.",
+      "{subject}, right side, approaching the center."
+    ],
+    "3": [
+      "{subject}, left, facing the intersection.",
+      "{subject}, center, at the junction.",
+      "{subject}, right, facing the intersection."
+    ],
+    "4": [
+      "{subject}, far left, approaching.",
+      "{subject}, left-center, near the junction.",
+      "{subject}, right-center, near the junction.",
+      "{subject}, far right, approaching."
+    ]
+  },
+  "background_pool": [
+    "A rural crossroads where two dirt roads meet at a weathered wooden signpost, oak trees casting dappled shade at the junction, overgrown hedgerows lining the lanes, wildflowers in the verge, rolling farmland visible down each path under a soft afternoon sky",
+    "A desert intersection of trails marked by a cairn of stacked stones, the paths branching across cracked earth in different directions, distant mesas visible along each route, heat haze distorting the air, a single twisted juniper providing the only shade",
+    "A medieval town square where three streets converge on a central well, half-timbered buildings leaning overhead, cobblestones worn smooth, market stalls pushed to the edges, a stone cross on a plinth marking the center point",
+    "A mountain pass junction where switchbacks branch in different directions, a rusted iron marker post at the fork, scree slopes and alpine grass surrounding the paths, peaks visible down each route, wind-bent pines clinging to the rocks"
+  ],
+  "action_pool": [
+    "looking down each path in turn",
+    "consulting a map or compass",
+    "gesturing down one of the routes",
+    "standing at the marker, reading it",
+    "pausing with one foot on the path, hesitating",
+    "turning to face a different direction",
+    "arms folded, weighing the options",
+    "removing a pack to sit at the junction",
+    "pointing out a feature on the horizon",
+    "conferring with a companion, both facing the fork"
+  ]
+}

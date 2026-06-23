@@ -1,0 +1,48 @@
+{
+  "name": "Medium Quiet",
+  "scene_type": "close_group",
+  "shot_width": "medium",
+  "description": "A small group in close confidence, heads together, apart from the world.",
+  "min_subjects": 2,
+  "max_subjects": 4,
+  "hld_patterns": [
+    "{setting}. A small group drawn close together, apart from their surroundings.",
+    "{setting}. Figures in tight cluster, the space around them irrelevant.",
+    "{setting}. A private moment — figures huddled, close-framed."
+  ],
+  "element_descriptions": {
+    "2": [
+      "{subject}, left, toward center.",
+      "{subject}, right, toward center."
+    ],
+    "3": [
+      "{subject}, left, close to center.",
+      "{subject}, center, foremost.",
+      "{subject}, right, close to center."
+    ],
+    "4": [
+      "{subject}, far left, tilted inward.",
+      "{subject}, left-center, close.",
+      "{subject}, right-center, close.",
+      "{subject}, far right, tilted inward."
+    ]
+  },
+  "background_pool": [
+    "A dim corner booth in a quiet bar, worn leather seating curving around the figures, a single pendant light hanging low over the table, the rest of the room out of focus and empty, amber tones and deep shadow",
+    "A church pew in a side chapel, stone columns and stained glass behind the figures, dust motes floating in a shaft of colored light, the vast nave blurring into soft darkness beyond, the space hushed and ancient",
+    "A back porch at dusk, peeling paint and wicker furniture, fireflies rising from the grass, the sky a deepening indigo behind the figures, the silhouette of trees at the edge of the yard",
+    "A fireside circle at a camp, logs arranged as seating, the low fire between them, surrounding forest vanishing into darkness, stars beginning to show overhead, the warmth of firelight on the figures"
+  ],
+  "action_pool": [
+    "heads bowed together, whispering",
+    "hands clasped in their lap",
+    "eyes cast down, listening intently",
+    "nodding slowly",
+    "one hand on the other's knee",
+    "looking over their shoulder, checking they're alone",
+    "lips pursed, choosing words carefully",
+    "arm around the other's back, holding close",
+    " wiping a tear with the back of their hand",
+    "sighing, shoulders dropping"
+  ]
+}

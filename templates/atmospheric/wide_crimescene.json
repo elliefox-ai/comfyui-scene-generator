@@ -1,0 +1,51 @@
+{
+  "name": "Wide Crime Scene",
+  "scene_type": "atmospheric",
+  "shot_width": "wide",
+  "description": "Figures scattered across a space thick with evidence, the environment telling its own story.",
+  "min_subjects": 2,
+  "max_subjects": 4,
+  "hld_patterns": [
+    "{setting}. The space speaks louder than anything its occupants could say.",
+    "{setting}. Figures dot the landscape like punctuation in a sentence no one has finished reading.",
+    "{setting}. Every object here is a question; the answers are still being gathered."
+  ],
+  "element_descriptions": {
+    "1": [
+      "{subject}, center of frame, facing away from camera, small in frame."
+    ],
+    "2": [
+      "{subject}, left third of frame, facing right, small in frame.",
+      "{subject}, right third of frame, facing left, small in frame, slightly further from lens."
+    ],
+    "3": [
+      "{subject}, far left of frame, facing right, foreground, mid-scale.",
+      "{subject}, center of frame, facing away, furthest from lens, smallest in frame.",
+      "{subject}, far right of frame, facing left, mid-depth."
+    ],
+    "4": [
+      "{subject}, far left of frame, facing right, foreground.",
+      "{subject}, center-left, facing right, mid-depth.",
+      "{subject}, center-right, facing left, mid-depth.",
+      "{subject}, far right of frame, facing away from camera, furthest from lens."
+    ]
+  },
+  "background_pool": [
+    "Vast abandoned warehouse, shafts of daylight cutting through broken skylights, debris scattered across concrete floors in patterns that feel deliberate",
+    "Snow-covered field at dusk, a trail of disturbances leading toward a dark tree line, the sky bruised purple and grey",
+    "Apartment interior frozen mid-disarray, drawers pulled out, contents strewn across the floor, a single lamp still burning warm against the cold palette",
+    "Underground parking garage, fluorescent lights buzzing and flickering, water pooling on the oil-stained concrete, support pillars creating rhythmic shadows into the distance"
+  ],
+  "action_pool": [
+    "Standing motionless, arms at sides, head down",
+    "crouching low, one knee lowered, torso bent forward",
+    "One arm raised, hand shielding the eyes",
+    "Torso turned fully to one side, weight on the back foot",
+    "Both hands in pockets, shoulders raised high",
+    "Head tilted back, staring upward",
+    "Walking slowly, one foot placed deliberately ahead of the other",
+    "Arms hanging loose, body completely still",
+    "One hand raised to the chin, elbow supported by the other arm",
+    "Back to the camera, shoulders slack, head turned slightly to one side"
+  ]
+}

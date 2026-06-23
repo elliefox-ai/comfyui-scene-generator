@@ -1,0 +1,55 @@
+{
+  "name": "Wide Gathering",
+  "scene_type": "candid_moment",
+  "shot_width": "wide",
+  "description": "Multiple figures scattered across a shared space.",
+  "min_subjects": 2,
+  "max_subjects": 5,
+  "hld_patterns": [
+    "{setting}. Several figures scattered across a shared space.",
+    "{setting}. A gathering — figures distributed across the frame, at various distances.",
+    "{setting}. A wide shot of a communal space, figures spread throughout."
+  ],
+  "element_descriptions": {
+    "2": [
+      "{subject}, to the left.",
+      "{subject}, to the right."
+    ],
+    "3": [
+      "{subject}, to the left.",
+      "{subject}, center, facing forward.",
+      "{subject}, to the right."
+    ],
+    "4": [
+      "{subject}, far left.",
+      "{subject}, left-center.",
+      "{subject}, right-center.",
+      "{subject}, far right."
+    ],
+    "5": [
+      "{subject}, far left.",
+      "{subject}, left-center.",
+      "{subject}, center, facing forward.",
+      "{subject}, right-center.",
+      "{subject}, far right."
+    ]
+  },
+  "background_pool": [
+    "A spacious living room with high ceilings, a stone fireplace on one wall, large windows letting in afternoon light, bookshelves lining the walls, mismatched armchairs and a threadbare rug, plants on the windowsill, the space warm and lived-in",
+    "A community courtyard between apartment buildings, string lights crisscrossing overhead, potted plants on balconies, a communal table and benches, children's chalk drawings on the flagstones, laundry hanging from upper windows",
+    "A village green under a large oak tree, wooden benches around the perimeter, a stone well at one end, cottages with thatched roofs visible behind low hedges, dappled shade and summer light",
+    "A beachside fire pit at dusk, driftwood logs arranged as seating, the sand pale in the fading light, waves visible in the middle distance, the sky turning orange and purple, a chill in the air"
+  ],
+  "action_pool": [
+    "standing with a drink in hand",
+    "sitting cross-legged, plate on their lap",
+    "arms crossed, weight on one leg",
+    "crouching, hands busy with something small",
+    "gesturing broadly while telling a story",
+    "looking at their phone",
+    "passing something to someone nearby",
+    "stretching, arms overhead",
+    "sitting, knees drawn up",
+    "turning to face someone who just arrived"
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "name": "Wide Arrival",
+  "scene_type": "hero_journey",
+  "shot_width": "wide",
+  "description": "Figure(s) arriving at a destination, environment revealing itself before them.",
+  "min_subjects": 1,
+  "max_subjects": 3,
+  "hld_patterns": [
+    "{setting}. A figure arriving, the destination spread before them.",
+    "{setting}. A figure at the edge of a new space, taking it in.",
+    "{setting}. An arrival — the figure small against what they've reached."
+  ],
+  "element_descriptions": {
+    "1": [
+      "{subject}, foreground, at the edge, facing away from camera."
+    ],
+    "2": [
+      "{subject}, foreground, facing away, silhouette against the destination.",
+      "{subject}, beside the first, shoulder-to-shoulder, same orientation."
+    ],
+    "3": [
+      "{subject}, foreground, closest to camera, facing away.",
+      "{subject}, beside the first, slightly back.",
+      "{subject}, further back, turned toward the scene."
+    ]
+  },
+  "background_pool": [
+    "A hidden valley opening before the figures, terraced fields of green climbing the opposite slope, a waterfall plunging from a cliff into a misty pool, a distant village with smoke rising, the foreground path worn smooth by ancient feet",
+    "The gates of a massive city wall rising from the plain, towers and battlements silhouetted against the sky, banners catching the wind, the road widening as it approaches the arched entrance, figures and carts in the distance",
+    "A harbor spread before the arriving figures, ships with furled sails at anchor, stone quays stretching into blue water, a town climbing the hill behind in layers of tile and plaster, gulls circling overhead",
+    "The edge of a great forest, ancient trees rising like a wall of green, shafts of light piercing the canopy, a path of mossy stones leading inward, the air thick with mist and the smell of earth"
+  ],
+  "action_pool": [
+    "stepping forward, weight on the lead foot",
+    "looking up, mouth slightly open",
+    "gesturing ahead with an outstretched arm",
+    "pausing mid-step, taking it in",
+    "resting both hands on their hips",
+    "removing a hood, revealing their face",
+    "gripping the strap of a pack",
+    "turning to check behind them",
+    "brushing road dust from their clothes",
+    "reaching for a waterskin"
+  ]
+}

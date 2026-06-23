@@ -1,0 +1,80 @@
+{
+  "name": "medieval_tavern",
+  "description": "Medieval interiors — taverns, halls, inns",
+  "setting_pool": [
+    "A crowded medieval tavern at night",
+    "A smoky tavern room lit by hearth fire",
+    "A waypoint inn on a muddy road",
+    "A drafty great hall with trestle tables"
+  ],
+  "background_pool": [
+    {
+      "text": "The interior of {setting}, heavy exposed oak beams spanning a low ceiling blackened by decades of smoke, rough-hewn tables and benches crowded together, the glow of the hearth casting long shadows across the room",
+      "shot": "medium"
+    },
+    {
+      "text": "The close confines of {setting}, haze from the hearth fire pooling against the low ceiling, condensation on the rough plaster walls, the press of warm bodies and spilled ale",
+      "shot": "close"
+    },
+    {
+      "text": "The worn common room of {setting}, rough floorboards dark with age and stains, a few narrow windows letting in cold drafts, the bar lined with mismatched earthenware mugs",
+      "shot": "medium"
+    },
+    {
+      "text": "The cavernous space of {setting}, high ceiling supported by heavy arched wooden beams, a central hearth smoking into a roof gap, trestle tables arranged in long rows",
+      "shot": "wide"
+    },
+    {
+      "text": "The dim storage areas behind {setting}, low vaulted stone ceiling requiring a stoop, barrels and sacks stacked against walls, a single tallow candle providing meager light",
+      "shot": "close"
+    },
+    {
+      "text": "The bench-and-table corner of {setting}, a clay jug and half-eaten trencher at arm's reach, the grain of the oak table scarred by knife marks, a dog sleeping beneath the bench",
+      "shot": "close"
+    },
+    {
+      "text": "The hearth of {setting}, iron spit and blackened cauldron, flames licking against soot-stained stonework, the face of the fire casting a warm pulsing glow on everything within a few feet",
+      "shot": "close"
+    },
+    {
+      "text": "The bar and serving area of {setting}, tapped barrels ranged along the back wall, a bored keeper polishing mugs, the scratched and stained counter separating staff from patrons",
+      "shot": "medium"
+    },
+    {
+      "text": "The full hall of {setting} during a busy evening, patrons and serving staff moving between tables, the room abuzz with conversation and the clatter of earthenware, minstrels tuning instruments in the corner",
+      "shot": "wide"
+    },
+    {
+      "text": "The exterior courtyard of {setting} at dusk, rough stone walls glowing amber in the last light, horses tethered at a post, warm firelight spilling from the open doorway and shuttered windows",
+      "shot": "wide"
+    }
+  ],
+  "subject_pool": [
+    "a tavern keeper wiping down the bar",
+    "a traveling merchant in road-worn finery",
+    "a hooded mercenary nursing an ale",
+    "a serving girl carrying a tray of tankards",
+    "a bard tuning a lute by the fire",
+    "a grizzled hunter at a corner table",
+    "a knight errant in dented armor",
+    "a cook in a flour-dusted apron",
+    "a traveling merchant with a heavy purse",
+    "a bard tuning a lute",
+    "a stablehand lingering near the door",
+    "a off-duty guard still wearing chainmail"
+  ],
+  "action_pool": [
+    "draining a tankard and slamming it down",
+    "leaning back with a tired sigh",
+    "haggling over a map spread on the table",
+    "shouting for another round",
+    "quietly picking at a plate of stew",
+    "gazing into the fire, lost in thought",
+    "sharpening a blade with a whetstone",
+    "laughing at a bawdy joke",
+    "counting coins on the table",
+    "strumming a tentative chord",
+    "draining a tankard in long gulps",
+    "leaning back in a chair, boots on the table"
+  ]
+}

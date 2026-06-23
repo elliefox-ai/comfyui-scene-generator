@@ -1,0 +1,51 @@
+{
+  "name": "Medium Ensemble",
+  "scene_type": "spotlight",
+  "shot_width": "medium",
+  "description": "Performers in coordinated action, feeding off each other's energy.",
+  "min_subjects": 2,
+  "max_subjects": 4,
+  "hld_patterns": [
+    "{setting}. Bodies move in shared rhythm, a single organism made of many.",
+    "{setting}. The energy between them is its own kind of music.",
+    "{setting}. Each performer a thread, the pattern emerging from their weave."
+  ],
+  "element_descriptions": {
+    "1": [
+      "{subject}, center frame, facing camera at a three-quarter angle."
+    ],
+    "2": [
+      "{subject}, left third of frame, facing right.",
+      "{subject}, right third of frame, facing left, mirrored position."
+    ],
+    "3": [
+      "{subject}, left third of frame, facing right, slightly forward of the others.",
+      "{subject}, center frame, facing camera, mid-depth.",
+      "{subject}, right third of frame, facing left, slightly behind."
+    ],
+    "4": [
+      "{subject}, far left of frame, facing right, foreground.",
+      "{subject}, center-left, facing right, mid-depth.",
+      "{subject}, center-right, facing left, mid-depth.",
+      "{subject}, far right of frame, facing left, slightly behind the others."
+    ]
+  },
+  "background_pool": [
+    "Concert stage with vertical light bars in cyan and magenta, haze machines creating volumetric beams between the figures",
+    "Dance studio with wooden floor and floor-to-ceiling windows, late afternoon sun casting long warm rectangles across the space",
+    "Underground venue with brick walls, string lights crisscrossing overhead, the close crowd suggested by blurred foreground shapes",
+    "Theater stage with heavy velvet curtains partially drawn, a single warm wash light covering the performing area"
+  ],
+  "action_pool": [
+    "Arms raised overhead, hands clasped together",
+    "Torso twisted dynamically, one shoulder leading",
+    "mid-leap, feet lifted, knees tucked",
+    "Head thrown back, both arms outstretched to the sides",
+    "One leg extended fully, arms carved in opposition",
+    "Body curved in a deep arc, spine flexed",
+    "Shoulders popping in quick succession, arms loose",
+    "Spinning, hair and limbs centrifuged outward",
+    "dropping low, thighs parallel, chest upright",
+    "Hands locked together at center, elbows driven outward"
+  ]
+}

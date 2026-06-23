@@ -1,0 +1,80 @@
+{
+  "name": "pirate_ship",
+  "description": "Age of sail — ships, crews, sea",
+  "setting_pool": [
+    "A pirate ship at sea",
+    "The deck of a pirate vessel under sail",
+    "A smuggler's ship anchored in a cove",
+    "A weathered galleon on the open ocean"
+  ],
+  "background_pool": [
+    {
+      "text": "The deck of {setting}, tar-stained oak planks stretched between heavy railings, coils of rope and barrels lashed to the mast, rigging creaking overhead under full sail",
+      "shot": "any"
+    },
+    {
+      "text": "The waist of {setting}, awash with seawater and spray, deck cargo lashed beneath tarpaulins, iron-swivel guns mounted on the bulwarks, the horizon pitching with the swell",
+      "shot": "wide"
+    },
+    {
+      "text": "The moonlit anchorage of {setting}, gentle swell at slack tide, lanterns casting amber pools on the wet deck, dark cliffs or jungle visible on the shoreline behind",
+      "shot": "wide"
+    },
+    {
+      "text": "Below the main deck of {setting}, in the gun battery, rows of iron cannon secured with heavy breeching ropes, lantern light glinting off damp ironwork, the smell of powder and bilge",
+      "shot": "close"
+    },
+    {
+      "text": "The high sterncastle of {setting}, draped in signal flags, ornate gilded woodwork beneath peeling paint, the ship's wheel and binnacle commanding a view over the wake",
+      "shot": "medium"
+    },
+    {
+      "text": "The captain's cabin within {setting}, charts and navigation instruments spread on a table scarred by knife marks, a lantern swinging overhead, the close wood-paneled walls hung with weapons and curiosities",
+      "shot": "close"
+    },
+    {
+      "text": "The ship's wheel and binnacle at the stern of {setting}, spokes worn smooth by years of hands, the compass bowl gimbaled in its housing, a narrow view of the wake through taffrail and rigging",
+      "shot": "close"
+    },
+    {
+      "text": "The fo'c'sle deck of {setting}, a cramped space between the foremast and the bowsprit, anchor cable coiled in a puddle of seawater, the crew's hammocks and sea chests stowed below",
+      "shot": "medium"
+    },
+    {
+      "text": "The orlop deck within {setting}, low ceiling and dim lantern light, sail canvas and spare cordage piled between the knees of the hull, the creak of timber and lap of water against the outer planking",
+      "shot": "medium"
+    },
+    {
+      "text": "A view across the full length of {setting} from bow to stern, deck busy with crew hauling lines and working the sails, the horizon tilting as the ship heels, canvas billowing overhead against a wide sky",
+      "shot": "wide"
+    }
+  ],
+  "subject_pool": [
+    "a weathered captain in a long coat",
+    "a first mate with a scarred jaw",
+    "a barefoot sailor with rolled sleeves",
+    "a cutlass-wielding boarding party member",
+    "a navigator hunched over charts",
+    "a young cabin boy with wide eyes",
+    "a hardened gunner with a slow match",
+    "a smuggler with a hidden pistol",
+    "a cabin boy with bare feet and a tangled mop of hair",
+    "a quartermaster with a ledger and a pistol in his belt",
+    "a captured officer in a torn navy uniform",
+    "a cook with a cleaver and a bloody apron"
+  ],
+  "action_pool": [
+    "bellowing orders into the wind",
+    "hauling on a rope with braced feet",
+    "scanning the horizon through a spyglass",
+    "splicing rope with a marlinspike",
+    "heaving on a capstan bar",
+    "staring down at charts by candlelight",
+    "loading a pistol with measured powder",
+    "leaning on the rail, watching the sea",
+    "coiling a rope with practiced hands",
+    "squinting through a brass spyglass",
+    "scrubbing the deck on hands and knees",
+    "sharpening a cutlass on a whetstone"
+  ]
+}

@@ -1,0 +1,60 @@
+{
+  "name": "Wide Standoff",
+  "scene_type": "face_off",
+  "shot_width": "wide",
+  "description": "Larger groups facing off across an open space.",
+  "min_subjects": 3,
+  "max_subjects": 6,
+  "hld_patterns": [
+    "{setting}. Two groups facing off across open ground.",
+    "{setting}. A standoff at scale — figures lined on opposite sides.",
+    "{setting}. A divided frame, clusters of figures on either side."
+  ],
+  "element_descriptions": {
+    "3": [
+      "{subject}, far left, facing right.",
+      "{subject}, center, between the groups.",
+      "{subject}, far right, facing left."
+    ],
+    "4": [
+      "{subject}, far left, facing right.",
+      "{subject}, left-center, facing right.",
+      "{subject}, right-center, facing left.",
+      "{subject}, far right, facing left."
+    ],
+    "5": [
+      "{subject}, far left, facing right.",
+      "{subject}, left-center, facing right.",
+      "{subject}, center, facing forward.",
+      "{subject}, right-center, facing left.",
+      "{subject}, far right, facing left."
+    ],
+    "6": [
+      "{subject}, far left, facing right.",
+      "{subject}, left, facing right.",
+      "{subject}, left-center, facing right.",
+      "{subject}, right-center, facing left.",
+      "{subject}, right, facing left.",
+      "{subject}, far right, facing left."
+    ]
+  },
+  "background_pool": [
+    "A wide dusty street between two rows of weathered wooden buildings, late afternoon sun casting long shadows across the packed dirt, tumbleweed debris in the foreground, distant mountains under a haze",
+    "An abandoned warehouse floor, concrete pillars casting geometric shadows, shafts of light from broken skylights, scattered debris and old pallets, vast empty space between metal walls",
+    "A sprawling plaza of cracked stone tiles, bordered by crumbling neo-classical facades, overcast sky pressing down, puddles reflecting grey light, scattered rubble along the edges",
+    "A dry riverbed cutting through a canyon, sheer rock walls rising on both sides, boulders strewn across the flat sandy floor, harsh midday sun bleaching the stone, distant thunderclouds building",
+    "A ruined city boulevard, burned-out car husks lining the curb, shattered glass glinting on asphalt, collapsed overpass in the background, smoke drifting across the frame"
+  ],
+  "action_pool": [
+    "reaching for a holster",
+    "squaring shoulders, weight shifted forward",
+    "scanning the opposing side",
+    "hands raised, palms out, slowing the tension",
+    "stepping back, creating distance",
+    "cracking knuckles",
+    "jaw set, eyes locked on the opposition",
+    "adjusting stance, feet planted wide",
+    "fingers twitching at their side",
+    "spitting to the side"
+  ]
+}

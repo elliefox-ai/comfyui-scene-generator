@@ -1,0 +1,59 @@
+{
+  "name": "Wide Market",
+  "scene_type": "candid_moment",
+  "shot_width": "wide",
+  "description": "Figures distributed through a commercial or market space, environment rich.",
+  "min_subjects": 3,
+  "max_subjects": 6,
+  "hld_patterns": [
+    "{setting}. A market scene — figures spread among stalls and goods.",
+    "{setting}. A wide commercial space, figures at various depths among wares.",
+    "{setting}. A bustling environment, figures scattered through the frame at different distances."
+  ],
+  "element_descriptions": {
+    "3": [
+      "{subject}, foreground left.",
+      "{subject}, center, mid-distance.",
+      "{subject}, background right, smaller in frame."
+    ],
+    "4": [
+      "{subject}, foreground left.",
+      "{subject}, foreground right.",
+      "{subject}, center, mid-distance.",
+      "{subject}, far background, small."
+    ],
+    "5": [
+      "{subject}, far left foreground.",
+      "{subject}, left-center, mid-distance.",
+      "{subject}, center, further back.",
+      "{subject}, right-center, mid-distance.",
+      "{subject}, far right background, small."
+    ],
+    "6": [
+      "{subject}, far left foreground.",
+      "{subject}, left, mid-distance.",
+      "{subject}, left-center, further back.",
+      "{subject}, right-center, further back.",
+      "{subject}, right, mid-distance.",
+      "{subject}, far right background."
+    ]
+  },
+  "background_pool": [
+    "An open-air market square with rows of canvas-covered stalls, wooden crates overflowing with produce, hanging textiles and pottery, cobblestone ground worn smooth, surrounding buildings of plaster and timber, morning light slanting between the stalls",
+    "A bustling bazaar corridor with arched stone ceiling, stalls jammed floor to ceiling with spices, carpets, and brassware, lanterns hanging from chains, the passage crowded with barrels and baskets, shafts of light from high windows cutting through the dust",
+    "A harbour-side fish market, wooden trestle tables with crushed ice and the morning's catch, seagulls wheeling above, boats tied at the quay behind, nets and traps stacked against the wall, overcast sky diffusing the light",
+    "A holiday market in a town square, wooden stalls with striped awnings, wreaths and garlands, a large decorated tree at the center, string lights overhead, snow on the rooftops and cobblestones, warm glow from the stall windows"
+  ],
+  "action_pool": [
+    "examining fruit from a pile",
+    "haggling with a vendor, one hand raised",
+    "carrying a basket of goods on one arm",
+    "browsing items on a rack",
+    "handing coins to a seller",
+    "sampling something from a offered plate",
+    "wrapping a purchase in paper",
+    "hands on hips, chatting with someone nearby",
+    "loading purchases into a canvas bag",
+    "turning away, purchase in hand"
+  ]
+}

@@ -1,0 +1,51 @@
+{
+  "name": "Wide Threshold",
+  "scene_type": "hero_journey",
+  "shot_width": "wide",
+  "description": "A figure at a threshold, about to step forward. Scale emphasis.",
+  "min_subjects": 1,
+  "max_subjects": 4,
+  "hld_patterns": [
+    "{setting}. A figure at the edge of a threshold, facing what lies ahead.",
+    "{setting}. A figure between two spaces — one enclosed, one open.",
+    "{setting}. A figure at the boundary, about to cross."
+  ],
+  "element_descriptions": {
+    "1": [
+      "{subject}, foreground, facing away from camera toward the threshold."
+    ],
+    "2": [
+      "{subject}, foreground, facing away from camera.",
+      "{subject}, behind, following."
+    ],
+    "3": [
+      "{subject}, foreground, at the threshold.",
+      "{subject}, mid-distance.",
+      "{subject}, further back."
+    ],
+    "4": [
+      "{subject}, foreground, at the threshold.",
+      "{subject}, close behind.",
+      "{subject}, mid-distance.",
+      "{subject}, furthest back."
+    ]
+  },
+  "background_pool": [
+    "A colossal stone doorway carved into a cliff face, the threshold glowing faintly from within, ancient runes and worn carvings framing the dark opening, rubble and vines at its base, the wall of rock stretching impossibly high on either side",
+    "A natural cave mouth opening onto a vast underground cavern, stalactites hanging like teeth, bioluminescent fungi casting blue-green light across wet stone, a narrow ledge leading down into the dark, the air thick with moisture",
+    "A rope bridge stretching across a mist-filled gorge, wooden planks weathered and broken, the far side shrouded in fog, mountain walls rising on both sides, wind tugging at the fraying ropes",
+    "The entrance to a ruined temple half-swallowed by jungle, massive stone pillars cracked and covered in moss, a dark passageway leading inward, roots and vines draped across the threshold, dappled green light filtering through the canopy above"
+  ],
+  "action_pool": [
+    "one foot raised over the threshold",
+    "hand gripping something just out of frame",
+    "pausing, head tilted, listening",
+    "looking back over their shoulder",
+    "drawing a weapon before stepping through",
+    "tightening their pack straps",
+    "lighting a torch or lantern",
+    "touching the carved stone beside them",
+    "taking a deep breath, squaring up",
+    "reaching back to guide the person behind"
+  ]
+}

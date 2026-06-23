@@ -1,0 +1,48 @@
+{
+  "name": "Medium Table",
+  "scene_type": "candid_moment",
+  "shot_width": "medium",
+  "description": "Figures arranged around a shared surface — table, counter, or bar.",
+  "min_subjects": 2,
+  "max_subjects": 4,
+  "hld_patterns": [
+    "{setting}. Figures gathered around a surface, close framing.",
+    "{setting}. A shared table — figures on the near side, surface between them and camera.",
+    "{setting}. An intimate grouping around a central object, medium crop."
+  ],
+  "element_descriptions": {
+    "2": [
+      "{subject}, left side of the surface, facing right.",
+      "{subject}, right side of the surface, facing left."
+    ],
+    "3": [
+      "{subject}, left, facing inward.",
+      "{subject}, center, behind the surface, facing forward.",
+      "{subject}, right, facing inward."
+    ],
+    "4": [
+      "{subject}, far left, facing right.",
+      "{subject}, left-center, facing inward.",
+      "{subject}, right-center, facing inward.",
+      "{subject}, far right, facing left."
+    ]
+  },
+  "background_pool": [
+    "A small café table with a marble surface, an espresso machine steaming behind the counter, shelves of jars and packages along the back wall, morning light through a large front window casting warm tones, the background slightly soft",
+    "A rustic farmhouse dining table of scarred wood, a pitcher of water and scattered bread between the figures, a kitchen visible through a doorway with copper pots hanging, warm interior light and whitewashed walls",
+    "A polished wooden bar top, bottles arranged on glass shelves behind, a mirror reflecting the room, barstools and brass footrails, the warm amber glow of pendant lights overhead",
+    "A cluttered workshop table covered in tools, parts, and half-finished projects, a desk lamp casting a pool of warm light, pegboard with hanging tools on the wall behind, sawdust on the surface"
+  ],
+  "action_pool": [
+    "wrapping both hands around a warm cup",
+    "leaning forward on their elbows",
+    "gesturing with a fork while talking",
+    "examining a small object in their hands",
+    "leaning back, cup in one hand",
+    "laughing at something said",
+    "pouring from a pitcher or pot",
+    "resting their chin on their hand",
+    "wiping their hands on a cloth",
+    "passing something across to the other"
+  ]
+}

@@ -1,0 +1,48 @@
+{
+  "name": "Medium Ambush",
+  "scene_type": "face_off",
+  "shot_width": "medium",
+  "description": "Asymmetric confrontation — one side emerging, the other caught.",
+  "min_subjects": 2,
+  "max_subjects": 4,
+  "hld_patterns": [
+    "{setting}. A figure emerging from shadow, another caught mid-turn.",
+    "{setting}. An asymmetric encounter — one looming, one reacting.",
+    "{setting}. A sudden confrontation, figures at uneven distance."
+  ],
+  "element_descriptions": {
+    "2": [
+      "{subject}, foreground, dominant, facing the second.",
+      "{subject}, background, turned toward the first, smaller in frame."
+    ],
+    "3": [
+      "{subject}, foreground, dominant, facing forward.",
+      "{subject}, left-background, turned toward the first.",
+      "{subject}, right-background, facing the first."
+    ],
+    "4": [
+      "{subject}, foreground, largest in frame, facing forward.",
+      "{subject}, left-center, mid-distance, turned.",
+      "{subject}, right-center, mid-distance, facing the first.",
+      "{subject}, far background, smallest, facing the foreground figure."
+    ]
+  },
+  "background_pool": [
+    "A dark doorway framed by crumbling brick, light spilling through in a sharp diagonal from an unseen source, debris scattered on the floor, deep shadow swallowing the background",
+    "A dense forest edge, trees pressing close, dappled moonlight cutting through the canopy, ferns and undergrowth in the foreground, the space behind vanishing into black",
+    "A parking garage interior, concrete pillars creating blind spots, a single sodium lamp buzzing overhead, oil stains on the floor reflecting weak light, the far levels disappearing into gloom",
+    "The mouth of an alley, the figures caught between the dark passage behind and the lit street ahead, dumpsters and fire escapes crowding the frame, rain-slicked pavement catching the glow"
+  ],
+  "action_pool": [
+    "spinning around, caught off guard",
+    "stepping out of the shadows",
+    "hand flying to their weapon",
+    "stumbling backward, off balance",
+    "grabbing the nearest cover",
+    "raising both hands, palms out",
+    "dropping into a crouch",
+    "lunging forward, closing distance",
+    "pressing flat against the nearest surface",
+    "reaching out to shove the other back"
+  ]
+}

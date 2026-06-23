@@ -1,0 +1,43 @@
+{
+  "name": "Wide Landscape Establishing",
+  "scene_type": "wide_vista",
+  "shot_width": "wide",
+  "description": "Environment dominates. Figures small or absent.",
+  "min_subjects": 0,
+  "max_subjects": 3,
+  "hld_patterns": [
+    "{setting}. A wide establishing view, environment dominating the frame.",
+    "{setting}. A sweeping landscape, figures small against the terrain.",
+    "{setting}. An environmental wide shot — the place, not the people."
+  ],
+  "element_descriptions": {
+    "1": [
+      "{subject}, small against the landscape, lower third of frame."
+    ],
+    "2": [
+      "{subject} in the foreground, providing scale.",
+      "{subject}, distant, further back."
+    ],
+    "3": [
+      "{subject}, foreground, smallest in frame.",
+      "{subject}, mid-distance.",
+      "{subject}, far distance."
+    ]
+  },
+  "background_pool": [
+    "A sweeping river delta seen from altitude, braided water channels cutting through golden grassland, patches of dark forest dotting the floodplain, mountains rising blue on the far horizon, clouds casting massive shadows across the plain",
+    "A vast badlands expanse, eroded buttes and striped sedimentary hills in bands of ochre, rust, and cream, dry washes cutting pale lines through the stone, a relentless blue sky overhead with scattered wisps of cloud",
+    "An agricultural patchwork seen from a hillside, fields of varying greens and golds divided by hedgerows and stone walls, a brook winding through the valley, a distant farmhouse with smoke from its chimney, oak woodland crowning the far ridge",
+    "A dramatic coastline seen end-to-end, sheer cliffs dropping into churning blue water, a natural arch carved by the waves, seabird colonies whitewashing the rock faces, the horizon line sharp and infinite under stratocumulus clouds"
+  ],
+  "action_pool": [
+    "standing still, looking out at the landscape",
+    "arms at their sides, taking in the view",
+    "turning slowly, surveying in all directions",
+    "gesturing broadly at the surroundings",
+    "walking at an unhurried pace",
+    "crouching to examine something below",
+    "shielding their eyes with one hand",
+    "sitting, knees up, resting"
+  ]
+}

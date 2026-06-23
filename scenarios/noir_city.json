@@ -1,0 +1,81 @@
+{
+  "name": "noir_city",
+  "description": "Noir urban settings — rain, neon, shadows",
+  "setting_pool": [
+    "A rain-slick city street at night",
+    "A dimly lit apartment overlooking an alley",
+    "A smoke-filled office with a desk lamp",
+    "A jazz club backstage at 2 AM",
+    "A rooftop garden above the city lights"
+  ],
+  "background_pool": [
+    {
+      "text": "The rain-soaked streets of {setting}, wet asphalt reflecting neon signs in streaks of red and blue, steam rising from grates, distant headlights smearing through the downpour",
+      "shot": "wide"
+    },
+    {
+      "text": "The cramped interior of {setting}, peeling wallpaper and water stains, a single bare bulb or desk lamp casting harsh shadows, dust motes in the cone of light",
+      "shot": "close"
+    },
+    {
+      "text": "The narrow alleys and service ways behind {setting}, fire escapes overhead creating geometric shadow patterns, the glow of a streetlight at the far end cutting through mist",
+      "shot": "medium"
+    },
+    {
+      "text": "The claustrophobic atmosphere of {setting}, low ceiling and dense cigarette haze, silhouettes of instruments and equipment, the glow of a jukebox or stage light",
+      "shot": "close"
+    },
+    {
+      "text": "The windswept elevation of {setting}, tar-paper and gravel surface, low brick ledges overlooking a sea of city lights, the distant hum of traffic far below",
+      "shot": "wide"
+    },
+    {
+      "text": "The dashboard of a parked sedan outside {setting}, pebbled-glass windshield beaded with rain, the glow of a streetlamp through the windscreen, a cigarette burning in the ashtray",
+      "shot": "close"
+    },
+    {
+      "text": "The doorway of {setting}, peeling paint on the jamb, a bare bulb in a wire cage overhead, shadows pooling in the stairwell beyond, the close press of a narrow entrance hall",
+      "shot": "close"
+    },
+    {
+      "text": "The stairwell of {setting}, worn marble steps and iron railing, a window at each landing casting grey rectangles of light, echoes bouncing off hard surfaces",
+      "shot": "medium"
+    },
+    {
+      "text": "The sidewalk café across from {setting}, metal chairs and round tables under a faded awning, a newspaper folded on an empty seat, the blur of traffic beyond a row of planter boxes",
+      "shot": "medium"
+    },
+    {
+      "text": "The city skyline beyond {setting}, rooftops and water tanks silhouetted against a bruised sky, the geometry of fire escapes and chimneypots, distant bridges and towers fading into haze",
+      "shot": "wide"
+    }
+  ],
+  "subject_pool": [
+    "a private detective in a rumpled trench coat",
+    "a femme fatale in a tailored dress and gloves",
+    "a uniformed cop on the take",
+    "a nightclub singer in a sequined gown",
+    "a bookie with a pencil behind his ear",
+    "a newspaper man with a pressed fedora",
+    "a dock worker with rough hands and a limp",
+    "a secretary with a knowing look and sharp red lipstick",
+    "a corrupt cop with a loose tie and bloodshot eyes",
+    "a lounge singer in a sequined gown",
+    "a bookie with a notebook and a pencil behind the ear",
+    "a reluctant witness clutching a handbag"
+  ],
+  "action_pool": [
+    "lighting a cigarette with shaking hands",
+    "squinting through the rain at something distant",
+    "slipping a photograph into a coat pocket",
+    "checking the cylinder of a revolver",
+    "leaning against a wall, watching",
+    "straightening a tie and composing their face",
+    "glancing nervously over their shoulder",
+    "holding a glass of whiskey, not drinking",
+    "lighting a match with a thumbnail",
+    "adjusting a garter strap beneath the table",
+    "scanning the room in the bar mirror",
+    "fidgeting with a worn wedding ring"
+  ]
+}

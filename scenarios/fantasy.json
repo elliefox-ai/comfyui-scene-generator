@@ -1,0 +1,81 @@
+{
+  "name": "fantasy",
+  "description": "Medieval fantasy settings — ruins, temples, magic",
+  "setting_pool": [
+    "Ancient ruins swallowed by jungle",
+    "A stone temple deep in the mountains",
+    "A cavern lit by phosphorescent moss",
+    "A hilltop shrine under a strange sky",
+    "A ruined city reclaimed by forest"
+  ],
+  "background_pool": [
+    {
+      "text": "The crumbling stone architecture of {setting}, massive carved blocks toppled among strangling vines, moss and lichen softening every edge, shafts of light piercing the canopy above",
+      "shot": "medium"
+    },
+    {
+      "text": "The sacred interior of {setting}, vaulted ceilings disappearing into shadow, carved pillars covered in ancient script, dust motes drifting in shafts of light from high narrow windows",
+      "shot": "wide"
+    },
+    {
+      "text": "The vast echoing space of {setting}, clustered crystals emitting a faint glow, damp stone walls reflecting shimmering light, a sense of immense scale and ancient purpose",
+      "shot": "wide"
+    },
+    {
+      "text": "The exposed elevation of {setting}, wind-sculpted standing stones arranged in patterns, an alien sky churning with unnatural colors above, distant landscapes visible below",
+      "shot": "wide"
+    },
+    {
+      "text": "The overgrown remnants of {setting}, crumbling towers and broken colonnades rising through old-growth forest, roots splitting ancient stonework, birdsong and dappled green light",
+      "shot": "any"
+    },
+    {
+      "text": "A close alcove within {setting}, intricate carvings and moss-covered stone pressing in from arm's reach, a single crack of daylight bisecting the darkness, moisture beading on cold surfaces",
+      "shot": "close"
+    },
+    {
+      "text": "A narrow fissure in the rockface within {setting}, crystalline deposits glittering inches away, cold damp air, the close press of ancient stone etched with faded runes",
+      "shot": "close"
+    },
+    {
+      "text": "The close detail of a carved threshold at {setting}, weathered relief sculptures depicting forgotten deities, lichen and mineral staining creating patinas of green and rust on the stonework",
+      "shot": "close"
+    },
+    {
+      "text": "The pillared hall of {setting}, rows of stone columns receding into smoky darkness, shafts of daylight angling down from gaps in the vaulted ceiling, scattered rubble and fallen masonry",
+      "shot": "medium"
+    },
+    {
+      "text": "The terraced approach to {setting}, worn steps climbing between crumbling guardian statues, each twice the height of a person, the jungle pressing in from either side with vines and orchids",
+      "shot": "medium"
+    }
+  ],
+  "subject_pool": [
+    "a weathered ranger in leather and cloak",
+    "an elven scholar with silver-bound tomes",
+    "a dwarven warrior in scarred plate armor",
+    "a hooded spellcaster trailing arcane mist",
+    "a knight in tarnished armor bearing a faded crest",
+    "a robed pilgrim with a carved staff",
+    "a tribal scout with ritual scarring and bone charms",
+    "a hedge witch gathering herbs into a leather pouch",
+    "an armored knight with a torn tabard",
+    "a rogue with bandaged hands and a short blade",
+    "a wizard with a crystal-topped staff",
+    "a ranger in a weathered green cloak"
+  ],
+  "action_pool": [
+    "scanning the shadows for movement",
+    "tracing fingers over ancient carvings",
+    "reading from a weathered scroll",
+    "gripping a weapon tight, listening",
+    "kneeling to examine something on the ground",
+    "muttering an incantation under breath",
+    "nocking an arrow to a bowstring",
+    "holding up a lantern to pierce the darkness",
+    "kneeling over a scattered map",
+    "whispering an incantation, fingers trailing light",
+    "scanning the tree line, bow half-raised",
+    "binding a wound with a strip of cloth"
+  ]
+}

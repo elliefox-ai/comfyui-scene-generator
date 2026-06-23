@@ -1,0 +1,558 @@
+{
+  "cinematic": {
+    "aesthetics": [
+      "Cinematic concept art, dramatic lighting, rich environmental detail",
+      "Cinematic realism, high contrast, composed framing",
+      "Film still composition, atmospheric depth, naturalistic detail"
+    ],
+    "lighting": [
+      "Hard directional light with deep shadows. Strong key light from one side.",
+      "Soft diffused light filling the frame evenly. Gentle shadow falloff.",
+      "Split lighting — warm key on one side, cool fill on the other.",
+      "Backlit, figures rimmed with light against darker backgrounds.",
+      "Overhead practical light source — lamp, fire, or skylight — carving subjects from above."
+    ],
+    "photo": [
+      "35mm cinematic, shallow depth of field, anamorphic lens compression",
+      "50mm naturalistic, balanced composition, moderate bokeh",
+      "85mm portrait compression, tight on subjects, background softened",
+      "24mm wide angle, dramatic perspective, deep focus throughout",
+      "20mm ultrawide, foreground emphasis, background looming"
+    ],
+    "medium": [
+      "Cinematic digital illustration",
+      "Digital concept painting",
+      "Digital matte painting"
+    ],
+    "palette": [
+      [
+        "#2e2e4e",
+        "#d4a86a",
+        "#5a6a8a",
+        "#e0d8c0",
+        "#4a4030"
+      ],
+      [
+        "#2a2a3e",
+        "#e4b45a",
+        "#5a3a3a",
+        "#c0c0d0",
+        "#9a5a3a"
+      ],
+      [
+        "#3e3e5e",
+        "#d05040",
+        "#4060b0",
+        "#e0d8c0",
+        "#5a5a6a"
+      ]
+    ]
+  },
+  "photoreal": {
+    "aesthetics": [
+      "Photorealistic with rich, saturated color, vivid natural detail, cinematic depth of field",
+      "Hyperrealistic photography, vibrant color grading, dramatic natural light, striking texture detail",
+      "Photographic realism with bold, warm color cast, deep contrasts, lush environmental color"
+    ],
+    "lighting": [
+      "Golden hour sunlight — warm amber tones, long dramatic shadows, rich color saturation.",
+      "Vivid directional daylight — strong color temperature contrast, deep blue shadows against warm highlights.",
+      "Blue hour twilight — saturated indigo sky, warm practical lights, cool-warm color tension.",
+      "Cinematic cross-lighting — warm key with cool ambient fill, rich color separation.",
+      "Stormy atmospheric light — dramatic cloud breaks, vivid green-blue environment, intense shadow detail."
+    ],
+    "photo": [
+      "50mm, rich cinematic color grading, shallow depth of field",
+      "35mm, vivid environmental photography, deep focus, saturated color",
+      "85mm, portrait distance, warm color cast, beautiful bokeh"
+    ],
+    "medium": [
+      "Photograph",
+      "Photorealistic render"
+    ],
+    "palette": [
+      [
+        "#4a6a8a",
+        "#e8c878",
+        "#f0e8d0",
+        "#2a4a5a",
+        "#d88060"
+      ],
+      [
+        "#5a7a5a",
+        "#e0b070",
+        "#d8e0c0",
+        "#3a5a4a",
+        "#c87080"
+      ],
+      [
+        "#6a5a8a",
+        "#e0a060",
+        "#f0d8b8",
+        "#4a3a6a",
+        "#d09050"
+      ]
+    ]
+  },
+  "painterly": {
+    "aesthetics": [
+      "Painterly digital art, visible brushwork, expressive color",
+      "Oil-painterly digital illustration, rich textures, warm tones",
+      "Impressionistic digital painting, light dissolving edges"
+    ],
+    "lighting": [
+      "Warm directional light with soft edges. Shadows are painted, not stark.",
+      "Diffused atmospheric light. Colors blend at transition points.",
+      "Golden ambient light pooling across surfaces."
+    ],
+    "medium": [
+      "Digital oil painting",
+      "Watercolor-soft digital illustration",
+      "Painterly concept art"
+    ],
+    "palette": [
+      [
+        "#4a3a24",
+        "#e0a070",
+        "#d07050",
+        "#f0d8b0",
+        "#5a4030"
+      ],
+      [
+        "#3a2a30",
+        "#d0b080",
+        "#9a7060",
+        "#e0d0b0",
+        "#4a3a40"
+      ],
+      [
+        "#453a28",
+        "#d0b078",
+        "#908070",
+        "#f0e0c0",
+        "#504030"
+      ]
+    ],
+    "art_style": [
+      "Traditional oil painting, visible brushwork and glazing"
+    ]
+  },
+  "anime": {
+    "aesthetics": [
+      "Anime illustration, clean linework, flat color areas with crisp shadow shapes",
+      "Japanese animation style, bold outlines, saturated color palette",
+      "Light novel illustration, soft gradation shading, expressive character design"
+    ],
+    "lighting": [
+      "Hard-edged shadow shapes with a single light direction. Two-tone light and dark regions.",
+      "Soft gradient sky lighting with distinct shadow boundaries.",
+      "Dramatic backlight with rim light on hair and edges."
+    ],
+    "medium": [
+      "Digital anime illustration",
+      "Cel-shaded digital art"
+    ],
+    "palette": [
+      [
+        "#3a3a5a",
+        "#e8806a",
+        "#7090d0",
+        "#f0e8d8",
+        "#5a4a6a"
+      ],
+      [
+        "#2a2a3a",
+        "#d05080",
+        "#5070b0",
+        "#e8d8e0",
+        "#4a3a50"
+      ]
+    ],
+    "art_style": [
+      "Japanese animation illustration, clean line art with flat color fills"
+    ]
+  },
+  "concept_art": {
+    "aesthetics": [
+      "Concept art, exploratory illustration, focus on design and form",
+      "Production design illustration, environmental storytelling, architectural detail",
+      "Entertainment design illustration, dynamic composition, clear silhouette language"
+    ],
+    "lighting": [
+      "Atmospheric lighting with visible light shafts cutting through particulate.",
+      "Dramatic three-quarter lighting defining form and silhouette.",
+      "Environmental light from multiple practical sources — fire, magic, screens.",
+      "Overcast with subtle directional fill — design-focused, even visibility."
+    ],
+    "medium": [
+      "Digital concept painting",
+      "Entertainment design illustration",
+      "Production art"
+    ],
+    "palette": [
+      [
+        "#2a2a4a",
+        "#d09050",
+        "#4a5a7a",
+        "#e0d0b0",
+        "#3a3020"
+      ],
+      [
+        "#25253a",
+        "#c0785a",
+        "#4a6a5a",
+        "#e0d0b8",
+        "#353020"
+      ],
+      [
+        "#3a2a20",
+        "#f0a040",
+        "#3a5a7a",
+        "#e0d0b0",
+        "#2a2a3a"
+      ]
+    ],
+    "art_style": [
+      "Digital concept art illustration, painterly with graphic design sensibilities"
+    ]
+  },
+  "minimal": {
+    "aesthetics": [
+      "Minimalist illustration, restrained palette, clean composition",
+      "Graphic design illustration, simple shapes, limited color",
+      "Flat design illustration, no shading, geometric forms"
+    ],
+    "lighting": [
+      "Flat even lighting, no shadows.",
+      "Single light direction, simple shadow shapes.",
+      "Soft ambient light, minimal contrast."
+    ],
+    "medium": [
+      "Flat digital illustration",
+      "Vector illustration",
+      "Graphic design art"
+    ],
+    "palette": [
+      [
+        "#f0f0f0",
+        "#4a4a4a",
+        "#d0d0d0",
+        "#909090",
+        "#3a3a3a"
+      ],
+      [
+        "#e8e0d0",
+        "#5a5a4a",
+        "#b0a090",
+        "#706050",
+        "#d0c8b0"
+      ]
+    ],
+    "art_style": [
+      "Flat vector illustration, geometric shapes, minimal detail"
+    ]
+  },
+  "cel_shaded": {
+    "aesthetics": [
+      "Cel-shaded illustration with hard shadow edges, flat tone regions, bold outlines",
+      "Two-tone cel shading, single light direction, posterized color bands",
+      "Anime-production cel shading, crisp shadow shapes, saturated flat colors"
+    ],
+    "lighting": [
+      "Hard-edged shadow shapes with a single light direction. Crisp shadow boundaries, two-tone light and dark regions.",
+      "Sharp posterized lighting — one light source, hard shadow lines, flat tone areas.",
+      "Bold shadow edges, single-direction light, stepped tonal separation."
+    ],
+    "medium": [
+      "Cel-shaded digital illustration",
+      "Anime production cel",
+      "Flat-shaded concept art"
+    ],
+    "palette": [
+      [
+        "#3a3a5a",
+        "#e8806a",
+        "#7090d0",
+        "#f0e8d8",
+        "#5a4a6a"
+      ],
+      [
+        "#2a2a3a",
+        "#d05080",
+        "#5070b0",
+        "#e8d8e0",
+        "#4a3a50"
+      ],
+      [
+        "#2a2a4a",
+        "#e0b050",
+        "#4a7a9a",
+        "#e8e0d0",
+        "#3a3a50"
+      ]
+    ],
+    "art_style": [
+      "Cel-shaded animation, hard-edged shadow shapes, limited tonal range"
+    ]
+  },
+  "claymation": {
+    "aesthetics": [
+      "Claymation style, visible fingerprint textures, hand-sculpted forms, stop-motion feel",
+      "Stop-motion animation still, clay surfaces with soft imperfections, miniature scale",
+      "Plasticine illustration, tactile material quality, hand-formed shapes with visible tooling"
+    ],
+    "lighting": [
+      "Soft directional studio light, as used in stop-motion animation sets.",
+      "Warm practical lighting on clay surfaces, picking up texture and fingerprints.",
+      "Even diffused studio lighting, gentle shadows, material-focused."
+    ],
+    "medium": [
+      "Claymation stop-motion still",
+      "Plasticine diorama",
+      "Hand-sculpted animation model"
+    ],
+    "palette": [
+      [
+        "#d09070",
+        "#e0b090",
+        "#9a7060",
+        "#f0d8c0",
+        "#6a5040"
+      ],
+      [
+        "#b08050",
+        "#d0a070",
+        "#805040",
+        "#e8c8a0",
+        "#4a3a2a"
+      ],
+      [
+        "#c0a080",
+        "#e0c0a0",
+        "#907050",
+        "#f0e0c0",
+        "#705040"
+      ]
+    ],
+    "art_style": [
+      "Stop-motion clay animation, tactile polymer clay textures with fingerprint detail"
+    ]
+  },
+  "watercolor": {
+    "aesthetics": [
+      "Watercolor illustration, soft bleeding edges, translucent washes, visible paper grain",
+      "Traditional watercolor painting, wet-on-wet blends, light washing from edge to center",
+      "Gouache and watercolor hybrid, opaque passages with soft watercolor transitions"
+    ],
+    "lighting": [
+      "Soft diffused light with watercolor transparency. Shadows are gentle washes, not hard edges.",
+      "Warm paper-tone light bleeding through translucent color layers.",
+      "Light seems to come from within the paper — luminous, not directional."
+    ],
+    "medium": [
+      "Watercolor on paper",
+      "Gouache and watercolor",
+      "Digital watercolor simulation"
+    ],
+    "palette": [
+      [
+        "#f5f0e0",
+        "#b09080",
+        "#d0b0a0",
+        "#8aa090",
+        "#6a7a8a"
+      ],
+      [
+        "#f0e8d8",
+        "#c0a090",
+        "#9ab0b0",
+        "#d0c0b0",
+        "#706050"
+      ],
+      [
+        "#fff8e8",
+        "#d09070",
+        "#a0b090",
+        "#e0d0b0",
+        "#5a6a7a"
+      ]
+    ],
+    "art_style": [
+      "Watercolor painting, wet-on-wet washes, pigment bleeding and granulation"
+    ]
+  },
+  "low_poly": {
+    "aesthetics": [
+      "Low-poly 3D render, faceted surfaces, flat-shaded triangles, geometric simplification",
+      "Stylized 3D, visible polygon structure, flat color per face, clean angular forms",
+      "Minimalist 3D render, low geometry count, faceted shading with hard edge transitions"
+    ],
+    "lighting": [
+      "Flat per-face shading, one light direction, hard triangle-edge shadows.",
+      "Soft gradation across facets, single key light at three-quarter angle.",
+      "Ambient occlusion in crevices, flat color on open surfaces."
+    ],
+    "medium": [
+      "Low-poly 3D render",
+      "Stylized real-time render",
+      "Flat-shaded 3D illustration"
+    ],
+    "palette": [
+      [
+        "#5a7a9a",
+        "#d0b080",
+        "#7a9a7a",
+        "#e0d0b0",
+        "#4a5a6a"
+      ],
+      [
+        "#6a8aaa",
+        "#e0c090",
+        "#8aaa9a",
+        "#f0e0c0",
+        "#3a4a5a"
+      ],
+      [
+        "#4a6a8a",
+        "#c0a070",
+        "#6a8a6a",
+        "#d0c0a0",
+        "#2a3a4a"
+      ]
+    ],
+    "art_style": [
+      "Low-poly 3D render, faceted geometric surfaces, flat shading per polygon"
+    ]
+  },
+  "noir": {
+    "aesthetics": [
+      "Film noir, high-contrast monochrome, deep shadows, venetian blind light patterns",
+      "Neo-noir, hard key light, inky blacks, single light source carving faces from darkness",
+      "Classic noir, grainy monochrome, smoke-filled atmosphere, shadow as character"
+    ],
+    "lighting": [
+      "Single hard key light, deep black shadows, high ratio contrast.",
+      "Venetian blind shadow pattern across subjects and environment.",
+      "Cigarette smoke catching a single shaft of light, everything else in shadow."
+    ],
+    "photo": [
+      "50mm, high-contrast monochrome, deep blacks",
+      "35mm, atmospheric, smoke and shadow"
+    ],
+    "medium": [
+      "Film noir still",
+      "High-contrast monochrome photography",
+      "Neo-noir digital"
+    ],
+    "palette": [
+      [
+        "#1a1a1a",
+        "#3a3a3a",
+        "#9a9a9a",
+        "#e0e0e0",
+        "#f5f5f5"
+      ],
+      [
+        "#0a0a0a",
+        "#2a2a2a",
+        "#7a7a7a",
+        "#d0d0d0",
+        "#f0f0f0"
+      ],
+      [
+        "#151515",
+        "#303030",
+        "#8a8a8a",
+        "#c0c0c0",
+        "#ffffff"
+      ]
+    ]
+  },
+  "storybook": {
+    "aesthetics": [
+      "Children's storybook illustration, soft shapes, warm textures, gentle whimsy",
+      "Picture book art, hand-painted feel, rounded forms, inviting color",
+      "Fairy tale illustration, delicate linework, textile-like textures, cozy atmosphere"
+    ],
+    "lighting": [
+      "Soft warm light as if from a nearby lamp or candle. Gentle, safe, inviting.",
+      "Diffused daylight, soft shadows, everything warmly lit.",
+      "Golden storybook glow, edges slightly softened, light pools in the center."
+    ],
+    "medium": [
+      "Children's book illustration",
+      "Hand-painted storybook art",
+      "Gouache storybook illustration"
+    ],
+    "palette": [
+      [
+        "#f0e0c0",
+        "#d0a070",
+        "#c08060",
+        "#e8c8a0",
+        "#8a6050"
+      ],
+      [
+        "#e8d8b8",
+        "#c09060",
+        "#a07050",
+        "#d8b890",
+        "#6a5040"
+      ],
+      [
+        "#f5e8d0",
+        "#d8a878",
+        "#b08868",
+        "#e0c8a8",
+        "#7a5848"
+      ]
+    ],
+    "art_style": [
+      "Hand-illustrated children's storybook art, soft pencil texture with watercolor washes"
+    ]
+  },
+  "hyperreal_3d": {
+    "aesthetics": [
+      "Ultra-detailed 3D render with photorealistic materials, subsurface scattering, and ray-traced reflections",
+      "Cinematic CGI with physically accurate light simulation, volumetric atmosphere, and microscopic surface detail",
+      "Hyperreal octane render with global illumination, caustics, and HDR environment lighting"
+    ],
+    "lighting": [
+      "Ray-traced global illumination with soft ambient occlusion and physically plausible light bounces",
+      "HDR studio lighting with sharp specular highlights, realistic falloff, and volumetric god rays",
+      "Cinematic key light with warm rim lighting, deep ambient occlusion, and atmospheric haze"
+    ],
+    "art_style": [
+      "Octane render, hyperrealistic 3D, microsurface detail with physically based materials"
+    ],
+    "medium": [
+      "Unreal Engine 5 render",
+      "Octane render",
+      "Blender Cycles render",
+      "Cinema 4D physical render"
+    ],
+    "palette": [
+      [
+        "#4a6fa5",
+        "#f4e4c1",
+        "#2a3a5c",
+        "#e8b04a",
+        "#8b6f47"
+      ],
+      [
+        "#c0c0d0",
+        "#3a4a6b",
+        "#f0d090",
+        "#607090",
+        "#1a1a2e"
+      ],
+      [
+        "#5a8a6b",
+        "#e4c6a0",
+        "#2a4a3a",
+        "#c8a050",
+        "#1e2e1e"
+      ]
+    ]
+  }
+}

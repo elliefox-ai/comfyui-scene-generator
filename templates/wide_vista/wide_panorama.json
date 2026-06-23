@@ -1,0 +1,43 @@
+{
+  "name": "Wide Panorama",
+  "scene_type": "wide_vista",
+  "shot_width": "wide",
+  "description": "Pure vista. Environment overwhelms the frame, figures optional and tiny.",
+  "min_subjects": 0,
+  "max_subjects": 3,
+  "hld_patterns": [
+    "{setting}. A panoramic vista — the environment, vast and uncontained.",
+    "{setting}. A sweeping wide shot, the landscape filling the frame edge to edge.",
+    "{setting}. An establishing panorama, scale beyond any figure within it."
+  ],
+  "element_descriptions": {
+    "1": [
+      "{subject}, very small, lower third, dwarfed by the environment."
+    ],
+    "2": [
+      "{subject}, small, lower left.",
+      "{subject}, small, lower right."
+    ],
+    "3": [
+      "{subject}, small, lower left.",
+      "{subject}, small, center-bottom.",
+      "{subject}, small, lower right."
+    ]
+  },
+  "background_pool": [
+    "An epic mountain range stretching horizon to horizon, snow-capped peaks in layered ridges of white and deep blue, glaciers carving valleys between them, a foreground of alpine meadow dotted with wildflowers, the sky a vast gradient from deep blue to pale gold near the horizon",
+    "An ocean of dunes rolling to infinity, wind-carved ridges in sharp curves of gold and shadow, the sand rippled in foreground detail, a sky of pale burning blue, the scale almost incomprehensible with no reference point except the tiny figures",
+    "A great savanna plain under a towering thunderhead, flat-topped acacia trees scattered across amber grass, a distant mountain silhouette on the horizon, the storm cloud building in dark blue and grey with shafts of rain visible below, golden light on the foreground grass",
+    "A polar ice shelf extending to the horizon, pressure ridges of blue-white ice jutting at angles, a lead of dark water cutting through, the sky a wash of pale pink and lavender at the low sun, ice crystals sparkling in the air"
+  ],
+  "action_pool": [
+    "standing perfectly still, facing the vista",
+    "walking forward at a slow pace",
+    "turning in a full circle",
+    "arms crossed, head tilted back",
+    "squatting, looking at something below",
+    "pointing at a distant feature",
+    "removing headwear in reverence",
+    "standing with weight on one leg, the other resting"
+  ]
+}

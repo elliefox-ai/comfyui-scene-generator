@@ -1,0 +1,56 @@
+{
+  "name": "Wide Split Confrontation",
+  "scene_type": "face_off",
+  "shot_width": "wide",
+  "description": "Two or more figures on opposite sides of a divided frame.",
+  "min_subjects": 2,
+  "max_subjects": 5,
+  "hld_patterns": [
+    "{setting}. Two figures face each other across the space between them.",
+    "{setting}. A standoff — opposing figures on each side of the frame.",
+    "{setting}. Figures split across the frame, facing one another."
+  ],
+  "element_descriptions": {
+    "2": [
+      "{subject}, left, facing right.",
+      "{subject}, right, facing left."
+    ],
+    "3": [
+      "{subject}, left, facing inward.",
+      "{subject}, right, facing inward.",
+      "{subject}, center, between them, facing forward."
+    ],
+    "4": [
+      "{subject}, far left.",
+      "{subject}, left-center, facing right.",
+      "{subject}, right-center, facing left.",
+      "{subject}, far right."
+    ],
+    "5": [
+      "{subject}, far left, facing inward.",
+      "{subject}, left-center, facing right.",
+      "{subject}, center, facing forward.",
+      "{subject}, right-center, facing left.",
+      "{subject}, far right, facing inward."
+    ]
+  },
+  "background_pool": [
+    "A long corridor of arched stone, shafts of dusty light cutting across the floor from high windows, the center empty and echoing, distant arch receding into shadow",
+    "A narrow bridge of rusted metal spanning a chasm, cables snapping upward into fog, the void dropping away on both sides, wind-blown mist obscuring the far end",
+    "A wide canyon floor with sheer sandstone walls, a dry wash running down the center, boulders providing cover on either side, relentless sun overhead",
+    "A cathedral nave, rows of broken pews dividing the space, stained glass casting fragmented colored light across stone floors, vaulted ceiling lost in shadow above",
+    "An urban alley at night, brick walls closing in from both sides, fire escapes climbing like skeletons, a single streetlight pooling sodium glow at one end, steam rising from a vent"
+  ],
+  "action_pool": [
+    "hand drifting to their belt",
+    "stepping sideways, circling",
+    "eyes tracking the opponent's hands",
+    "settling into a combat stance",
+    "rolling their shoulders, loosening up",
+    "unbuttoning a jacket, hand moving inside",
+    "weight shifting to the balls of their feet",
+    "cracking their neck",
+    "reaching behind their back",
+    "lips parting, speaking a single word"
+  ]
+}

@@ -1,0 +1,50 @@
+{
+  "name": "Workshop Medium",
+  "scene_type": "at_work",
+  "shot_width": "medium",
+  "description": "Figures working in a shared space — the bustle of productive hands.",
+  "min_subjects": 2,
+  "max_subjects": 4,
+  "hld_patterns": [
+    "{setting}. Medium shot of a workshop, multiple figures each absorbed in their own task.",
+    "{setting}. A busy workshop floor, hands and tools in coordinated motion.",
+    "{setting}. Mid-range view of laborers at their stations, the air thick with industry."
+  ],
+  "element_descriptions": {
+    "1": [
+      "{subject}, center of frame, facing forward."
+    ],
+    "2": [
+      "{subject}, left third of frame, facing right.",
+      "{subject}, right third of frame, facing left."
+    ],
+    "3": [
+      "{subject}, far left of frame, facing right.",
+      "{subject}, center of frame, facing forward.",
+      "{subject}, far right of frame, facing left."
+    ],
+    "4": [
+      "{subject}, far left of frame, facing right.",
+      "{subject}, center-left of frame, facing right.",
+      "{subject}, center-right of frame, facing left.",
+      "{subject}, far right of frame, facing left."
+    ]
+  },
+  "background_pool": [
+    "Spacious workshop with wooden workbenches, shelves of tools, and shafts of dusty light from high windows",
+    "Open-plan craft hall with multiple workstations, raw materials stacked along the walls, sawdust on the floor",
+    "Industrial workshop with overhead beams, hanging lamp chains, and work surfaces cluttered with hand tools"
+  ],
+  "action_pool": [
+    "arms moving in steady rhythmic repetition",
+    "bent at the waist, both hands engaged in front of them",
+    "shoulders rotating as they work something with both hands",
+    "head down, gaze fixed on their own work",
+    "one arm extended, the other drawn back",
+    "leaning forward, weight on the front foot",
+    "hands clasped around an object, fingers spread wide",
+    "torso twisted slightly, reaching across their body",
+    "upper body swaying with controlled momentum",
+    "jaw set, brow furrowed, eyes tracking their own hands"
+  ]
+}

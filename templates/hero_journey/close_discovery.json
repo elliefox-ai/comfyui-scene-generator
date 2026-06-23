@@ -1,0 +1,45 @@
+{
+  "name": "Close Discovery",
+  "scene_type": "hero_journey",
+  "shot_width": "close",
+  "description": "An intimate shot of a figure encountering something momentous, framed tight on the face and hands.",
+  "min_subjects": 1,
+  "max_subjects": 3,
+  "hld_patterns": [
+    "{setting}. A single figure in tight framing, eyes wide at something just beyond the edge of frame, hands half-raised in instinct",
+    "{setting}. Close on a discoverer's face and reaching hands, every micro-expression of wonder and trepidation visible",
+    "{setting}. Tight shot of figures clustered around a find, their faces filling the frame with raw, unguarded reactions"
+  ],
+  "element_descriptions": {
+    "1": [
+      "{subject}, center frame, facing forward and slightly down, filling most of the frame"
+    ],
+    "2": [
+      "{subject}, left third of frame, facing right and slightly downward, closer to camera",
+      "{subject}, right third of frame, facing left and slightly downward, slightly behind in depth"
+    ],
+    "3": [
+      "{subject}, left side of frame, facing right, nearest to camera and largest",
+      "{subject}, center frame, facing forward and down, mid-depth",
+      "{subject}, right side of frame, facing left, furthest from camera"
+    ]
+  },
+  "background_pool": [
+    "soft-focus cavern walls glistening with moisture, scattered warm reflected light pooling on damp surfaces, stalactites blurring into amber bokeh",
+    "blurred ancient stone covered in moss and carved symbols, dappled green light filtering from above, intricate details melting into soft shapes",
+    "out-of-focus interior of a lost chamber, floating dust particles catching golden light, dark stone edges dissolving into warm haze",
+    "indistinct overgrown ruin behind the figure, vines and roots soft green smears, broken masonry reduced to gentle color blocks"
+  ],
+  "action_pool": [
+    "one hand reaching forward, fingers spread wide, arm fully extended toward something unseen",
+    "both hands cupped carefully as if cradling something fragile, palms up, elbows tucked near the ribs",
+    "leaning the torso slightly forward, neck extended, eyes narrowed in focus",
+    "head tilted back, eyes wide, lips parted in a sharp intake of breath",
+    "fingers tracing delicate lines in the air just above something, hand steady, wrist poised",
+    "pulling both hands close to the chest, shoulders drawn up, fingers curled loosely",
+    "one hand hovering midair near the face, index finger extended, the other hand balled at the side",
+    "turning the head slowly to the side, brow furrowed, one hand frozen mid-gesture near the shoulder",
+    "pressing a palm flat against own chest, fingers splayed over the sternum, head bowed slightly",
+    "reaching up to adjust a collar or strap near the neck, fingers gripping, gaze locked downward"
+  ]
+}

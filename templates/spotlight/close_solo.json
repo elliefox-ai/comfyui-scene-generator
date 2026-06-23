@@ -1,0 +1,51 @@
+{
+  "name": "Close Solo",
+  "scene_type": "spotlight",
+  "shot_width": "close",
+  "description": "A single performer lost in their craft, magnetic and intimate.",
+  "min_subjects": 1,
+  "max_subjects": 2,
+  "hld_patterns": [
+    "{setting}. The world has narrowed to this single point of expression.",
+    "{setting}. Every nerve ending is channeled into the performance.",
+    "{setting}. The performer and the act become indistinguishable."
+  ],
+  "element_descriptions": {
+    "1": [
+      "{subject}, centered in frame, facing camera directly, filling the frame."
+    ],
+    "2": [
+      "{subject}, center-left of frame, facing right, closest to lens, filling most of the frame.",
+      "{subject}, right edge of frame, facing left, partially cropped, slightly further from lens."
+    ],
+    "3": [
+      "{subject}, center-left of frame, facing right, foreground, filling most of the frame.",
+      "{subject}, center frame, facing left, mid-depth.",
+      "{subject}, right edge of frame, facing away, background, partially out of focus."
+    ],
+    "4": [
+      "{subject}, far left of frame, facing right, foreground.",
+      "{subject}, center-left, facing right, mid-depth.",
+      "{subject}, center-right, facing left, mid-depth.",
+      "{subject}, far right of frame, facing left, background, smallest in frame."
+    ]
+  },
+  "background_pool": [
+    "Stage flooded with a single warm spotlight, the rest of the space dissolving into black velvet darkness",
+    "Dim club interior, amber and red gel lighting wrapping the figure in smoke and glow",
+    "Rehearsal room with mirrored wall reflecting a second, ghostly angle, bare bulbs strung along the ceiling",
+    "Outdoor stage at night, colored light bars from below casting dramatic uplight, an unseen crowd suggested by faint reflections"
+  ],
+  "action_pool": [
+    "Eyes closed, head tilted back, mouth open",
+    "Fingers spread wide, both hands raised at shoulder height",
+    "Torso arched, chest thrust forward, chin lifted",
+    "One arm extended fully upward, fingers reaching",
+    "Lips pressed to a near-invisible breath, cheeks drawn in",
+    "Shoulders rolling in a slow, rhythmic cycle",
+    "Head bowed low, hair falling forward over the face",
+    "Whole body swaying gently, weight shifting from one foot to the other",
+    "Hands moving in fluid circular patterns at waist height",
+    "Eyes wide and blazing, locked on a point above the camera"
+  ]
+}

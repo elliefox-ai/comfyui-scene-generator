@@ -1,0 +1,50 @@
+{
+  "name": "Feast Medium",
+  "scene_type": "gathering",
+  "shot_width": "medium",
+  "description": "Figures around a table laden with food — the warmth of shared abundance.",
+  "min_subjects": 2,
+  "max_subjects": 4,
+  "hld_patterns": [
+    "{setting}. Medium shot of a feast, figures gathered around a loaded table in animated conversation.",
+    "{setting}. A banquet scene mid-meal, hands gesturing, plates passing, faces animated.",
+    "{setting}. Mid-range view of a celebratory feast, the table alive with abundance and camaraderie."
+  ],
+  "element_descriptions": {
+    "1": [
+      "{subject}, center of frame, facing forward."
+    ],
+    "2": [
+      "{subject}, left third of frame, facing right.",
+      "{subject}, right third of frame, facing left."
+    ],
+    "3": [
+      "{subject}, far left of frame, facing right.",
+      "{subject}, center of frame, facing forward.",
+      "{subject}, far right of frame, facing left."
+    ],
+    "4": [
+      "{subject}, far left of frame, facing right.",
+      "{subject}, center-left of frame, facing right.",
+      "{subject}, center-right of frame, facing left.",
+      "{subject}, far right of frame, facing left."
+    ]
+  },
+  "background_pool": [
+    "Long wooden table overflowing with platters of food, goblets and candles, hung tapestries on the walls behind",
+    "Banquet hall with rows of dishes, wine pitchers, and fruit cascading across a cloth-draped surface, torchlight flickering",
+    "Rustic feast setting with a rough-hewn table piled high, hanging dried herbs, and warm light spilling from wall sconces"
+  ],
+  "action_pool": [
+    "one arm gesturing broadly outward, palm up",
+    "leaning toward their neighbor, head tilted attentively",
+    "both hands animated, fingers splayed mid-story",
+    "chin propped on one hand, elbow on the surface",
+    "head thrown back mid-laugh, shoulders bouncing",
+    "leaning back, one arm draped casually behind them",
+    "leaning forward, both forearms resting on the surface",
+    "one hand raised, finger pointing upward emphatically",
+    "lips parted mid-sentence, eyebrows raised",
+    "torso turned toward their neighbor, one elbow raised"
+  ]
+}

@@ -1,0 +1,42 @@
+{
+  "name": "Close Brawl",
+  "scene_type": "face_off",
+  "shot_width": "close",
+  "description": "Tight framing on figures locked in physical conflict, close enough to read strain on every face.",
+  "min_subjects": 2,
+  "max_subjects": 3,
+  "hld_patterns": [
+    "{setting}. Two figures collide in a tangle of limbs, faces twisted in exertion, filling the frame edge to edge",
+    "{setting}. Bodies pressed together in violent struggle, sweat and tension visible in every taut muscle",
+    "{setting}. A cluster of fighters so close their breath mingles, knuckles white, jaws clenched in the crush of combat"
+  ],
+  "element_descriptions": {
+    "2": [
+      "{subject}, left third of frame, facing right toward opponent, larger in foreground",
+      "{subject}, right third of frame, facing left toward opponent, slightly behind in depth"
+    ],
+    "3": [
+      "{subject}, left side of frame, facing right, nearest the camera and largest",
+      "{subject}, center frame, facing forward, mid-depth between the other two",
+      "{subject}, right side of frame, facing left, furthest from camera and smallest"
+    ]
+  },
+  "background_pool": [
+    "blurred dark alley walls closing in, dim amber light filtering from above, gritty textures dissolving into bokeh",
+    "out-of-focus warehouse interior, shafts of harsh light cutting through haze, industrial shapes dissolving to soft blobs",
+    "indistinct urban night background, neon smears of color bleeding into darkness, wet surfaces reflecting soft glows",
+    "soft-focus rubble and dust filling the background, muted earthy tones bleeding together, claustrophobic and compressed"
+  ],
+  "action_pool": [
+    "fist cocked back near the jaw, knuckles tight, shoulder coiled",
+    "both hands locked around the opponent's collar, knuckles bone-white",
+    "head turned sharply to dodge, neck tendons straining, eyes locked on target",
+    "forearm raised across the face in a guard, bicep flexed hard, fingers splayed",
+    "shoulder driven forward into the opponent's chest, back muscles taut as cable",
+    "hand grabbing a fistful of fabric near the chest, wrist twisted, arm rigid",
+    "torque through the waist as weight shifts to one hip, core tightened, chin tucked",
+    "open palm shoving flat against the opponent's sternum, arm fully extended, fingers spread wide",
+    "elbow tucked tight to the ribs, fist squared up at chin height, both arms locked in a guard",
+    "knees driving upward, thigh muscles bunched, hips pivoted hard off the back foot"
+  ]
+}

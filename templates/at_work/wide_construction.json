@@ -1,0 +1,50 @@
+{
+  "name": "Construction Wide",
+  "scene_type": "at_work",
+  "shot_width": "wide",
+  "description": "Figures across a building site — the scale of collective building.",
+  "min_subjects": 2,
+  "max_subjects": 4,
+  "hld_patterns": [
+    "{setting}. Wide view of a construction site, figures spread across the build.",
+    "{setting}. Broad shot of a rising structure, laborers dwarfed by the scale of their work.",
+    "{setting}. Wide establishing view of a building site, raw materials and scaffolding throughout."
+  ],
+  "element_descriptions": {
+    "1": [
+      "{subject}, center of frame, small in scale, facing forward."
+    ],
+    "2": [
+      "{subject}, left third of frame, small in scale, facing right.",
+      "{subject}, right third of frame, small in scale, facing left."
+    ],
+    "3": [
+      "{subject}, far left of frame, small in scale, facing right.",
+      "{subject}, center of frame, small in scale, facing forward.",
+      "{subject}, far right of frame, small in scale, facing left."
+    ],
+    "4": [
+      "{subject}, far left of frame, small in scale, facing right.",
+      "{subject}, left-center of frame, small in scale, facing right.",
+      "{subject}, right-center of frame, small in scale, facing left.",
+      "{subject}, far right of frame, small in scale, facing left."
+    ]
+  },
+  "background_pool": [
+    "Half-built stone structure rising against the sky, wooden scaffolding climbing its walls, piles of raw lumber and cut stone scattered across the site",
+    "Expansive construction site with exposed timber framing, ropes and pulleys, and a crane arm silhouetted against the sky",
+    "Open building site with trenches, stacked materials, and the skeleton of a structure reaching upward under an overcast sky"
+  ],
+  "action_pool": [
+    "arms raised high above their head",
+    "leaning back, pulling with both arms",
+    "shoulders pressed forward, legs braced wide",
+    "one arm extended upward, the other locked at their side",
+    "torso bent sideways, reaching low",
+    "whole body leaning into a push",
+    "head tilted back, one arm pointing upward",
+    "knees bent, arms wrapped around something heavy",
+    "body fully upright, both arms sweeping in unison",
+    "body angled forward, one foot planted hard behind them"
+  ]
+}

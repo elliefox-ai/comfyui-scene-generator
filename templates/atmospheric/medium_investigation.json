@@ -1,0 +1,51 @@
+{
+  "name": "Medium Investigation",
+  "scene_type": "atmospheric",
+  "shot_width": "medium",
+  "description": "Figures conferring over evidence, searching a space, piecing together a narrative.",
+  "min_subjects": 2,
+  "max_subjects": 4,
+  "hld_patterns": [
+    "{setting}. Figures comb through the silence, each finding pulling the picture tighter.",
+    "{setting}. Two minds circulate the same question, neither ready to say it aloud.",
+    "{setting}. The space yields its secrets slowly, one detail at a time."
+  ],
+  "element_descriptions": {
+    "1": [
+      "{subject}, center frame, facing away from camera at a slight angle."
+    ],
+    "2": [
+      "{subject}, left third of frame, facing right.",
+      "{subject}, right third of frame, facing left."
+    ],
+    "3": [
+      "{subject}, left third of frame, facing right, foreground.",
+      "{subject}, center frame, facing away, mid-depth.",
+      "{subject}, right third of frame, facing left, slightly further from lens."
+    ],
+    "4": [
+      "{subject}, far left of frame, facing right, foreground.",
+      "{subject}, center-left, facing right, mid-depth.",
+      "{subject}, center-right, facing left, mid-depth.",
+      "{subject}, far right of frame, facing left, furthest from lens."
+    ]
+  },
+  "background_pool": [
+    "Low-lit room with deep teal shadows, stacks of boxes and filing cabinets lining the walls",
+    "Warehouse interior with hanging industrial lamps casting pools of yellow light between long aisles",
+    "Night-time alley, wet cobblestones reflecting red and blue ambient light from distant sources",
+    "Library archive, floor-to-ceiling shelves fading into gloom, a single green-shaded desk lamp burning"
+  ],
+  "action_pool": [
+    "Head lowered, eyes scanning slowly side to side",
+    "Chin resting on one hand, elbow supported",
+    "torso twisted slightly, reaching downward with extended arm",
+    "Shoulders hunched forward, weight shifted onto one foot",
+    "One arm extended, index finger pointing",
+    "Leaning forward at the waist, neck craned",
+    "Head turned to face the other figure, mouth open",
+    "Both hands clasped behind the back",
+    "Squatting low, knees bent, back straight",
+    "Arms crossed tight against the chest, chin dipped"
+  ]
+}

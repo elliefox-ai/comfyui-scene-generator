@@ -1,0 +1,50 @@
+{
+  "name": "Toast Close",
+  "scene_type": "gathering",
+  "shot_width": "close",
+  "description": "A moment of raised glasses and shared joy — tight on faces and expressions.",
+  "min_subjects": 1,
+  "max_subjects": 2,
+  "hld_patterns": [
+    "{setting}. Close on faces mid-toast, glasses raised, joy written in every line.",
+    "{setting}. Tight framing of a celebratory moment, expressions bright and unguarded.",
+    "{setting}. Close on figures sharing a drink, warmth and laughter filling the frame."
+  ],
+  "element_descriptions": {
+    "1": [
+      "{subject}, centered in frame, facing forward."
+    ],
+    "2": [
+      "{subject}, left side of frame, facing right.",
+      "{subject}, right side of frame, facing left."
+    ],
+    "3": [
+      "{subject}, left side of frame, facing right.",
+      "{subject}, center of frame, facing forward.",
+      "{subject}, right side of frame, facing left."
+    ],
+    "4": [
+      "{subject}, far left of frame, facing right.",
+      "{subject}, center-left of frame, facing right.",
+      "{subject}, center-right of frame, facing left.",
+      "{subject}, far right of frame, facing left."
+    ]
+  },
+  "background_pool": [
+    "Warm candlelit interior, soft bokeh of string lights behind, golden glow on the walls",
+    "Festive gathering space with draped fabric and hanging lanterns, warm ambient light",
+    "Intimate setting with blurred figures and warm-toned decorations in the soft-focus background"
+  ],
+  "action_pool": [
+    "arm raised high, glass tilted slightly forward",
+    "head thrown back, mouth wide open in a full laugh",
+    "both arms extended forward, wrists crossed",
+    "eyes crinkled shut, grin stretching wide",
+    "leaning in, chin lifted, one hand raised",
+    "lips parted mid-cheer, one fist pumped upward",
+    "gaze lifted up and to the side, expression radiant",
+    "one hand on their chest, the other reaching forward",
+    "eyebrows raised high, mouth forming a delighted 'oh'",
+    "shoulders shaking with laughter, head dipped to one side"
+  ]
+}

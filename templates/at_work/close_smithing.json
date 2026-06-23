@@ -1,0 +1,50 @@
+{
+  "name": "Smithing Close",
+  "scene_type": "at_work",
+  "shot_width": "close",
+  "description": "Intense focused craft — heat, spark, effort visible in the body.",
+  "min_subjects": 1,
+  "max_subjects": 3,
+  "hld_patterns": [
+    "{setting}. Close on figures at the forge, faces lit by orange glow.",
+    "{setting}. Tight framing on hands and tools amid sparks and heat.",
+    "{setting}. Close on laborers at work, sweat glistening, muscles taut with effort."
+  ],
+  "element_descriptions": {
+    "1": [
+      "{subject}, centered in frame, facing three-quarters left."
+    ],
+    "2": [
+      "{subject}, left side of frame, facing right.",
+      "{subject}, right side of frame, facing left."
+    ],
+    "3": [
+      "{subject}, center-left of frame, facing right.",
+      "{subject}, center-right of frame, facing left.",
+      "{subject}, upper center of frame, facing forward."
+    ],
+    "4": [
+      "{subject}, far left of frame, facing right.",
+      "{subject}, center-left of frame, facing right.",
+      "{subject}, center-right of frame, facing left.",
+      "{subject}, far right of frame, facing left."
+    ]
+  },
+  "background_pool": [
+    "Dark stone walls of a forge, glowing coals in the background, tools hanging on pegs",
+    "Workshop interior lit by forge fire, warm orange light on rough-hewn walls, metal stock visible",
+    "Blackened brick and iron of a smithy, quenching barrel steaming in the corner, low ceiling"
+  ],
+  "action_pool": [
+    "arms swinging a heavy hammer down with full body force",
+    "hands gripping a tool with white-knuckled intensity",
+    "leaning hard into their weight, shoulders bunched",
+    "one arm raised high overhead, the other braced against their body",
+    "head tilted down, eyes narrowed in deep focus",
+    "wrist flicking sharply, fingers precise and controlled",
+    "shoulders rolling forward, back curved with sustained effort",
+    "forearm tensed, veins raised, grip locked",
+    "head turned away, one hand raised to shield their face",
+    "chest heaving, mouth slightly open, breath visible in cold air"
+  ]
+}

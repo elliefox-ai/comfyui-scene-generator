@@ -1,0 +1,42 @@
+{
+  "name": "Medium Intimate",
+  "scene_type": "close_group",
+  "shot_width": "medium",
+  "description": "Two figures close together, tight framing.",
+  "min_subjects": 2,
+  "max_subjects": 3,
+  "hld_patterns": [
+    "{setting}. Two figures close together, intimate framing.",
+    "{setting}. Two figures sharing close space, the world blurred behind them.",
+    "{setting}. Two figures drawn together, tight and warm."
+  ],
+  "element_descriptions": {
+    "2": [
+      "{subject}, left side, close to center.",
+      "{subject}, right side, close to center."
+    ],
+    "3": [
+      "{subject}, left, close to center.",
+      "{subject}, center, foremost.",
+      "{subject}, right, close to center."
+    ]
+  },
+  "background_pool": [
+    "A softly lit bedroom interior, warm lamplight pooling on a nightstand, rumpled linens in cream and muted tones, curtains half-drawn over a window with dusk light filtering through, everything beyond the figures rendered in soft focus",
+    "A cozy window seat with cushions and a thrown blanket, rain streaking the glass behind, the world outside blurred to grey and green, warm interior light on the figures, steam rising from cups on the sill",
+    "A garden bench at golden hour, the background a wash of blooming roses and lavender in soft focus, warm backlight creating a halo effect around the figures, petals scattered on the path",
+    "A fireside setting, the warm glow of low flames casting amber light, a stone hearth and stacked logs behind, the room beyond falling away into comfortable shadow, a woven blanket draped nearby"
+  ],
+  "action_pool": [
+    "leaning their forehead against the other",
+    "hand resting on the other's cheek",
+    "turning their face toward the other",
+    "eyes closed, head bowed slightly",
+    "fingers laced with the other's",
+    "arm draped around the other's shoulders",
+    "pulling back just slightly, smiling",
+    "nose brushing the other's cheek",
+    "hand flat against the other's chest",
+    "breath visible in the cold air between them"
+  ]
+}

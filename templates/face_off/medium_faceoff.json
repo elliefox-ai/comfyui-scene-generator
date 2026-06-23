@@ -1,0 +1,48 @@
+{
+  "name": "Medium Faceoff",
+  "scene_type": "face_off",
+  "shot_width": "medium",
+  "description": "Close crop on two or more figures in direct tension.",
+  "min_subjects": 2,
+  "max_subjects": 4,
+  "hld_patterns": [
+    "{setting}. Two figures in close confrontation, facing each other.",
+    "{setting}. A tense face-to-face standoff, tight framing.",
+    "{setting}. Figures squared off at close range, the space between them charged."
+  ],
+  "element_descriptions": {
+    "2": [
+      "{subject}, left side, facing right.",
+      "{subject}, right side, facing left."
+    ],
+    "3": [
+      "{subject}, left, facing right.",
+      "{subject}, right, facing left.",
+      "{subject}, center, facing forward."
+    ],
+    "4": [
+      "{subject}, far left, facing inward.",
+      "{subject}, left-center, facing right.",
+      "{subject}, right-center, facing left.",
+      "{subject}, far right, facing inward."
+    ]
+  },
+  "background_pool": [
+    "A close wall of stained concrete behind the figures, graffiti tags barely visible in the shadows, a flickering fluorescent light mounted overhead, the space cramped and airless",
+    "The interior of a dimly lit bar, bottles glowing amber on shelves behind the figures, nicotine-stained ceiling tiles, the close press of a room that feels too small",
+    "A narrow alley squeezed between brick tenements, fire escape ladders cutting diagonal lines, a dumpster and trash bags compressed to one side, a sliver of grey sky above",
+    "An office hallway, dropped ceiling tiles, beige carpet, fluorescent panels casting flat light, a water cooler and framed prints on the wall behind the figures"
+  ],
+  "action_pool": [
+    "fists clenched at their sides",
+    "leaning in, closing the gap",
+    "jaw tight, lips pressed thin",
+    "one hand raised, finger pointed",
+    "stepping forward into the other's space",
+    "chin dipped, eyes looking up through their brows",
+    "shoulders raised, fists guarding their face",
+    "turning their head slightly, listening for movement behind",
+    "hand flat against the other's chest, pushing back",
+    "breathing hard, chest heaving"
+  ]
+}

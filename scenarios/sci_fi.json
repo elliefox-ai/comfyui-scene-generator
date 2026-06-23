@@ -1,0 +1,81 @@
+{
+  "name": "sci_fi",
+  "description": "Science fiction — stations, ships, alien worlds",
+  "setting_pool": [
+    "A space station corridor under artificial light",
+    "The bridge of a starship",
+    "A colonial outpost on a barren planet",
+    "A cargo bay aboard a deep-space freighter",
+    "A derelict station drifting in orbit"
+  ],
+  "background_pool": [
+    {
+      "text": "The interior of {setting}, curved bulkheads of brushed titanium alloy, recessed lighting strips along the floor and ceiling, observation windows showing starfield black, the hum of recyclers and air scrubbers",
+      "shot": "medium"
+    },
+    {
+      "text": "The command space of {setting}, sweeping console arrays arranged in concentric tiers, holographic displays casting blue-white light, viewport screens showing tactical overlays and navigation data",
+      "shot": "medium"
+    },
+    {
+      "text": "The exposed terrain around {setting}, ochre and rust-colored rock formations sculpted by wind, a thin dust haze filtering harsh sunlight, an alien sky shading from amber to indigo at the horizon",
+      "shot": "wide"
+    },
+    {
+      "text": "The cavernous freight hold of {setting}, stacked shipping containers stamped with faded corporate logos, overhead gantries and loading arms, emergency lighting strips casting hard shadows across metal decking",
+      "shot": "wide"
+    },
+    {
+      "text": "The decaying corridors of {setting}, emergency lighting casting dim red pulses across frost-covered surfaces, dead display panels flickering intermittently, cables and conduit hanging loose from ruptured panels",
+      "shot": "close"
+    },
+    {
+      "text": "A maintenance crawlspace within {setting}, exposed conduit and junction boxes, the hum of power systems behind thin panels, emergency handles and override switches within arm's reach, the confined geometry of service infrastructure",
+      "shot": "close"
+    },
+    {
+      "text": "An airlock vestibule at {setting}, heavy bulkhead doors with manual override levers, warning stripes and indicator lights cycling from red to green, the sterile chrome of a pressurized threshold",
+      "shot": "close"
+    },
+    {
+      "text": "The medical bay of {setting}, smooth white surfaces and recessed instrument panels, a surgical light cluster, the quiet pulse of diagnostic monitors displaying vital readings",
+      "shot": "medium"
+    },
+    {
+      "text": "The reactor core chamber of {setting}, a column of contained plasma casting blue-white light across shielding baffles, the low vibration of power generation felt through the deck plates, warning markings on the floor",
+      "shot": "wide"
+    },
+    {
+      "text": "The exterior landing apron beside {setting}, hard-packed regolith and blast-scorched metal planking, a service vehicle parked with its cargo ramp down, the horizon a sharp line under an alien sky",
+      "shot": "wide"
+    }
+  ],
+  "subject_pool": [
+    "an engineer in a zero-g maintenance suit",
+    "a colonial marine in battered powered armor",
+    "a ship's officer in a fitted uniform",
+    "a scientist in a environment-suited hazard rig",
+    "a pilot with a flight helmet under one arm",
+    "a deck worker in a high-vis vest and mag-boots",
+    "a rogue android with exposed circuitry",
+    "a surveyor with a scanner and sample case",
+    "a cybernetic marine in battle-scarred exo-armor",
+    "a xenobiologist with a sampling kit and headlamp",
+    "a ship engineer with a welding torch and grease-stained coveralls",
+    "a corporate agent in a pristine grey suit"
+  ],
+  "action_pool": [
+    "running a diagnostic on a flickering console",
+    "snapping a fresh magazine into a rifle",
+    "studying a holographic readout with furrowed brow",
+    "welding a hull plate, sparks cascading",
+    "consulting a wrist-mounted display",
+    "suiting up at an airlock prep station",
+    "staring out a viewport at something vast",
+    "patching a hull breach with emergency sealant",
+    "consulting a flickering datapad",
+    "scanning the corridor with a handheld sensor",
+    "patching a conduit with spray-foam sealant",
+    "speaking quietly into a wrist communicator"
+  ]
+}

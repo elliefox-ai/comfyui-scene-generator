@@ -1,0 +1,50 @@
+{
+  "name": "Festival Wide",
+  "scene_type": "gathering",
+  "shot_width": "wide",
+  "description": "Figures in a crowd or public space of celebration — the environment is festive and alive.",
+  "min_subjects": 2,
+  "max_subjects": 4,
+  "hld_patterns": [
+    "{setting}. Wide view of a festival, figures immersed in a crowd of celebration.",
+    "{setting}. Broad shot of a public celebration, streamers and lights and movement everywhere.",
+    "{setting}. Wide establishing view of a festival scene, the whole space alive with collective joy."
+  ],
+  "element_descriptions": {
+    "1": [
+      "{subject}, center of frame, medium-small in scale, facing forward."
+    ],
+    "2": [
+      "{subject}, left third of frame, medium-small in scale, facing right.",
+      "{subject}, right third of frame, medium-small in scale, facing left."
+    ],
+    "3": [
+      "{subject}, far left of frame, medium-small in scale, facing right.",
+      "{subject}, center of frame, medium-small in scale, facing forward.",
+      "{subject}, far right of frame, medium-small in scale, facing left."
+    ],
+    "4": [
+      "{subject}, far left of frame, medium-small in scale, facing right.",
+      "{subject}, left-center of frame, medium-small in scale, facing right.",
+      "{subject}, right-center of frame, medium-small in scale, facing left.",
+      "{subject}, far right of frame, medium-small in scale, facing left."
+    ]
+  },
+  "background_pool": [
+    "Town square alive with festival — streamers strung between buildings, lanterns swaying overhead, a crowd filling the cobblestone streets",
+    "Open plaza under a night sky lit by fireworks, bunting and flags draped across the facades, throngs of people in motion",
+    "Meadow transformed into a festival ground with ribbon-festooned poles, scattered lanterns, and a sea of celebrants under the open sky"
+  ],
+  "action_pool": [
+    "arms spread wide, head lifted toward the sky",
+    "spinning in place, one arm flung outward",
+    "both arms raised high, body swaying rhythmically",
+    "leaning into the crowd, one arm extended forward",
+    "bouncing on the balls of their feet, hands clapping overhead",
+    "head tilted back, mouth open, voice raised",
+    "one arm wrapped around a neighbor, the other raised high",
+    "stepping side to side, hips swinging, grin wide",
+    "hands cupped around their mouth, calling outward",
+    "whole body launched upward, fists punching the air"
+  ]
+}

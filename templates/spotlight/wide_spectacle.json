@@ -1,0 +1,51 @@
+{
+  "name": "Wide Spectacle",
+  "scene_type": "spotlight",
+  "shot_width": "wide",
+  "description": "A grand performance space where the environment itself becomes the spectacle.",
+  "min_subjects": 2,
+  "max_subjects": 4,
+  "hld_patterns": [
+    "{setting}. The scale of the space dwarfs the figures, making their performance feel monumental.",
+    "{setting}. Light, architecture, and movement conspire into a single overwhelming image.",
+    "{setting}. From the back row, the stage is an entire world rendered small and luminous."
+  ],
+  "element_descriptions": {
+    "1": [
+      "{subject}, center of frame, facing toward camera, very small in frame against the vast space."
+    ],
+    "2": [
+      "{subject}, left third of frame, facing right, small in frame.",
+      "{subject}, right third of frame, facing left, small in frame, mirrored position."
+    ],
+    "3": [
+      "{subject}, far left of frame, facing right, foreground, small in frame.",
+      "{subject}, center of frame, facing camera, furthest from lens, smallest in frame.",
+      "{subject}, far right of frame, facing left, slightly forward of center."
+    ],
+    "4": [
+      "{subject}, far left of frame, facing right, foreground.",
+      "{subject}, center-left, facing right, mid-depth.",
+      "{subject}, center-right, facing left, mid-depth.",
+      "{subject}, far right of frame, facing left, furthest from lens, smallest in frame."
+    ]
+  },
+  "background_pool": [
+    "Massive amphitheater with tiered stone seating rising into darkness, spotlights creating pillars of white light that reach the vaulted ceiling, the stage a glowing rectangle far below",
+    "Stadium stage with enormous LED screens flanking both sides, laser arrays fanning out over a darkened crowd visible only as a glittering texture of reflections, pyrotechnic smoke drifting upward",
+    "Grand opera house with gilded balconies and a painted ceiling far overhead, the orchestra pit a dark curve between stage and the shadowed front rows, chandelier dimmed to a faint amber glow",
+    "Open-air festival stage at night, a canopy of stars visible above the rigging, colored spotlights crossing in the air like search beams, the crowd an impressionistic field of distant lights and faint smoke"
+  ],
+  "action_pool": [
+    "Arms stretched fully outward to both sides, body forming a T",
+    "One fist driven upward, the other pulled back to the shoulder",
+    "Whole body curved backward in a deep arch, arms trailing",
+    "Knees bent deeply, torso coiled, weight centered low",
+    "Head thrown fully back, arms raised in a V above",
+    "One leg swept high to the side, arms carved in opposition",
+    "Torso angled forward at forty-five degrees, arms spread behind",
+    "Both hands clenched at the sides, shoulders raised, body rigid",
+    "Body suspended mid-spin, limbs extended in all directions",
+    "Chest pressed forward, chin lifted high, arms carved back behind the torso"
+  ]
+}

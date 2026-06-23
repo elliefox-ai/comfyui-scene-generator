@@ -1,0 +1,45 @@
+{
+  "name": "Close Landmark",
+  "scene_type": "wide_vista",
+  "shot_width": "close",
+  "description": "A towering feature looming above a figure, shot from below to dwarf the subject with scale.",
+  "min_subjects": 1,
+  "max_subjects": 3,
+  "hld_patterns": [
+    "{setting}. A colossal monument filling the upper frame while a single small figure stands at its base, neck craned back",
+    "{setting}. Tight upward angle on an immense structure with a figure pressed against its shadow, face turned skyward in awe",
+    "{setting}. A massive carved face or tower dominating the frame, tiny figures clustered at the bottom edge for scale"
+  ],
+  "element_descriptions": {
+    "1": [
+      "{subject}, bottom center of frame, facing upward and forward, small against the looming structure above"
+    ],
+    "2": [
+      "{subject}, bottom-left of frame, facing right and upward, closer to camera",
+      "{subject}, bottom-right of frame, facing left and upward, slightly further back"
+    ],
+    "3": [
+      "{subject}, bottom-left of frame, facing right and up, nearest and largest",
+      "{subject}, bottom-center of frame, facing up, mid-depth",
+      "{subject}, bottom-right of frame, facing left and up, furthest and smallest"
+    ]
+  },
+  "background_pool": [
+    "looming stone surface of a massive monument rising to fill the entire upper frame, carved details visible near the bottom but soaring into hazy sky above, scale overwhelming",
+    "enormous ancient statue or tower dominating the background, its features blurred by height and atmosphere, golden light from above casting it in silhouette, the sheer wall of it swallowing the sky",
+    "vast cathedral interior ceiling vaulting far overhead, pillars receding into shadowed heights, stained-glass light filtering down in soft columns, dizzying vertical space",
+    "colossal rock formation or cliff face stretching upward beyond the frame, striated textures fading into mist near the top, the mass of stone pressing forward with immense weight"
+  ],
+  "action_pool": [
+    "head tilted all the way back, chin raised high, eyes fixed upward at the towering feature",
+    "one hand raised to shield the eyes from above, fingers spread, wrist angled to block the glare",
+    "neck craned painfully far back, shoulders pulled down by the effort of looking straight up",
+    "both hands resting on hips, chest expanded, head tilted back to take in the full height",
+    "one arm extended overhead, index finger pointing up at the structure, other hand gripping the strap of a bag",
+    "slowly turning in a small circle, head angled upward, mouth slightly open, eyes tracking the height",
+    "shoulders drawn up near the ears, hands clasped behind the neck, head pressed back to look up",
+    "standing on tiptoes, both arms hanging at the sides, spine arched backward to gaze at the summit",
+    "one hand gripping a strap near the collarbone, the other hand slack at the side, face turned fully skyward",
+    "both arms slightly out from the body, palms facing forward, head back, body language open and overwhelmed"
+  ]
+}

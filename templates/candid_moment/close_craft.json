@@ -1,0 +1,40 @@
+{
+  "name": "Close Craft",
+  "scene_type": "candid_moment",
+  "shot_width": "close",
+  "description": "An intimate focus on hands at work, the quiet concentration of making something by hand.",
+  "min_subjects": 1,
+  "max_subjects": 2,
+  "hld_patterns": [
+    "{setting}. A single maker hunched over their work, hands busy and precise, face soft with quiet concentration",
+    "{setting}. Close on weathered hands shaping something delicate, the maker's face a portrait of focused calm behind them",
+    "{setting}. Tight framing on two craftspeople working side by side, their hands moving in practiced rhythm"
+  ],
+  "element_descriptions": {
+    "1": [
+      "{subject}, center frame, facing downward toward their hands, head and shoulders filling the upper third"
+    ],
+    "2": [
+      "{subject}, left third of frame, facing right and downward, closer and larger",
+      "{subject}, right third of frame, facing left and downward, slightly behind in depth"
+    ]
+  },
+  "background_pool": [
+    "soft-focus workbench scattered with tools and shavings, warm amber lamplight pooling across wood surfaces, small objects dissolving into golden bokeh",
+    "blurred kitchen interior, steam curling through warm light, copper and ceramic shapes melting into soft domestic color",
+    "out-of-focus studio with canvases and brushes along the walls, afternoon sun catching dust motes, paint-stained surfaces reduced to gentle smears of color",
+    "indistinct cozy study, stacks of paper and open books blurred into cream and brown tones, desk lamp casting a warm circle of soft light"
+  ],
+  "action_pool": [
+    "both hands engaged in fine manipulation, fingertips pinching something small, wrists steady and hovering",
+    "one hand gripping a tool low, knuckles firm, the other hand pressing flat to steady the work",
+    "rolling a small object between thumb and fingers, hand tilted slightly, gaze focused down",
+    "wiping the back of one hand across the forehead, the other hand still poised mid-task, fingers curled",
+    "carefully pressing the heel of the palm down, fingers arched, wrist locked in precise control",
+    "curling fingers to grip something between them, thumb pressing down, forearm taut with controlled force",
+    "brushing loose strands of hair from the face with the back of the wrist, eyes never leaving the work",
+    "drawing one finger slowly along a line or edge, the rest of the hand fanned out for balance",
+    "both palms cupped together forming a cradle, thumbs crossed, shoulders hunched in concentration",
+    "pinching something between thumb and forefinger, lifting it delicately to eye level, other fingers fanned"
+  ]
+}
