@@ -80,13 +80,13 @@ This is not "AI writes code, human reviews." Both sides contribute creative and 
 
 | Ellie (Agent) | Alexander (Human) |
 |---|---|
-| Reads entire codebase in seconds | Tests actual image generation in ComfyUI |
-| Identifies root causes across systems | Sees visual output and aesthetic problems |
-| Writes, tests, and deploys code | Decides what looks right and what doesn't |
-| Calculates exact pixel sizes and ratios | Judges visual quality and composition by eye |
-| Generates content (backgrounds, subjects, actions) | Provides creative direction and domain expertise |
-| Spots architectural patterns and inconsistencies | Catches UX/confusion problems in the design |
-| Maintains memory across sessions | Makes product and priority calls |
+| Reads entire codebase in seconds | Provides creative direction and domain expertise |
+| Identifies root causes across systems | Identifies UX/confusion problems in the design |
+| Writes, tests, and deploys code | Tests actual image generation in ComfyUI |
+| Calculates exact pixel sizes and ratios | Decides what looks right and what doesn't |
+| Generates content (backgrounds, subjects, actions) | Judges visual quality and composition by eye |
+| Spots architectural patterns and inconsistencies | Makes product and priority calls |
+| Maintains memory across sessions | Spots architectural issues and coherence gaps |
 
 Neither side can ship this project alone. Ellie can't see images or judge visual quality. Alexander shouldn't have to calculate bbox scaling factors or trace RNG state through a prompt builder. The division isn't "creative vs. technical" — it's *what each participant is actually good at*.
 
