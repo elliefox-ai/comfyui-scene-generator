@@ -83,7 +83,7 @@ This is not "AI writes code, human reviews." Both sides contribute creative and 
 | Reads entire codebase in seconds | Tests actual image generation in ComfyUI |
 | Identifies root causes across systems | Sees visual output and aesthetic problems |
 | Writes, tests, and deploys code | Decides what looks right and what doesn't |
-| Calculates exact pixel sizes and ratios | Knows when characters are "too small" by eye |
+| Calculates exact pixel sizes and ratios | Judges visual quality and composition by eye |
 | Generates content (backgrounds, subjects, actions) | Provides creative direction and domain expertise |
 | Spots architectural patterns and inconsistencies | Catches UX/confusion problems in the design |
 | Maintains memory across sessions | Makes product and priority calls |
