@@ -115,8 +115,8 @@ class OutpaintController:
             longest = max(src_w, src_h)
             if longest > source_resize:
                 scale = source_resize / longest
-                new_w = max(1, int(round(src_w * scale)))
-                new_h = max(1, int(round(src_h * scale)))
+                new_w = max(8, round(src_w * scale / 8) * 8)
+                new_h = max(8, round(src_h * scale / 8) * 8)
                 image = torch.nn.functional.interpolate(
                     image.permute(0, 3, 1, 2),
                     size=(new_h, new_w),
@@ -128,14 +128,14 @@ class OutpaintController:
         # --- Safety: if source still exceeds target, scale to fit ---
         if src_w > W_t or src_h > H_t:
             scale = min(W_t / src_w, H_t / src_h)
-            new_w = max(1, int(round(src_w * scale)))
-            new_h = max(1, int(round(src_h * scale)))
+            new_w = max(8, round(src_w * scale / 8) * 8)
+            new_h = max(8, round(src_h * scale / 8) * 8)
             image = torch.nn.functional.interpolate(
-                image.permute(0, 3, 1, 2),
-                size=(new_h, new_w),
-                mode='bilinear',
-                align_corners=False,
-            ).permute(0, 2, 3, 1)
+                    image.permute(0, 3, 1, 2),
+                    size=(new_h, new_w),
+                    mode='bilinear',
+                    align_corners=False,
+                ).permute(0, 2, 3, 1)
             src_w, src_h = new_w, new_h
 
         # --- Edge crop: trim artifacts from source edges ---
@@ -144,10 +144,10 @@ class OutpaintController:
             src_w -= edge_crop * 2
             src_h -= edge_crop * 2
 
-        # --- Compute padding from centerpoint ---
-        pad_left = max(0, int(round(center_x * max(0, W_t - src_w))))
+        # --- Compute padding from centerpoint (snap to 8px grid for VAE alignment) ---
+        pad_left = max(0, round(center_x * max(0, W_t - src_w) / 8) * 8)
         pad_right = max(0, max(0, W_t - src_w) - pad_left)
-        pad_top = max(0, int(round(center_y * max(0, H_t - src_h))))
+        pad_top = max(0, round(center_y * max(0, H_t - src_h) / 8) * 8)
         pad_bottom = max(0, max(0, H_t - src_h) - pad_top)
 
         # --- Pad the image ---
