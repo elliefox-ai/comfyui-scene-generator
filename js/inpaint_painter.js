@@ -305,7 +305,7 @@ app.registerExtension({
                 }
 
                 const toolbarH = 28;
-                const panelH = 280;
+                const panelH = self.size[1] - py - 4;
                 const imgAreaH = panelH - toolbarH - 8;
                 const imgAreaW = panelW - 16;
 
