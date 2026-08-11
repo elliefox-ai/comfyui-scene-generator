@@ -1,17 +1,18 @@
 /**
- * Inpaint Painter v1 — direct-canvas mask painting
+ * Inpaint Painter v1.1 — direct-canvas mask painting + drag-and-drop
  *
  * Paint masks directly on the node canvas. No popup editors.
  * Modes: Paint (default), Erase, Clear.
+ * Drop image files from OS directly onto the node.
  * Mouse immediately paints — no mode switching needed to start.
  *
- * Mask is rendered to an offscreen canvas at display resolution,
+ * Mask is rendered to an offscreen canvas at source resolution,
  * serialized as base64 PNG into the mask_data widget on mouseup.
  */
 
 import { app } from "../../../scripts/app.js";
 
-console.log("[InpaintPainter] v1 loading...");
+console.log("[InpaintPainter] v1.1 loading...");
 
 // Cache of loaded images
 const imageCache = new Map();
@@ -49,13 +50,126 @@ async function uploadImage(file, callback) {
     }
 }
 
+// --- Drag and Drop ---
+let dndListenersAttached = false;
+let dndCurrentNode = null;
+
+function getCanvasCoords(e) {
+    if (app.canvas?.adjustMouseEvent) {
+        try {
+            app.canvas.adjustMouseEvent(e);
+            if (e.canvasX !== undefined) return [e.canvasX, e.canvasY];
+        } catch (_) {}
+    }
+    const canvasEl = app.canvas?.canvas || document.querySelector('#graph-canvas');
+    if (!canvasEl) return [0, 0];
+    const rect = canvasEl.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+    const scale = app.canvas?.scale || 1;
+    const ox = app.canvas?.offset?.[0] || 0;
+    const oy = app.canvas?.offset?.[1] || 0;
+    return [(x - ox) / scale, (y - oy) / scale];
+}
+
+function findIpNodeAt(canvasX, canvasY) {
+    if (!app.graph?._nodes) return null;
+    for (const node of app.graph._nodes) {
+        if (node.type !== "InpaintPainter") continue;
+        const [nx, ny] = node.pos;
+        const [nw, nh] = node.size;
+        if (canvasX >= nx && canvasX <= nx + nw &&
+            canvasY >= ny && canvasY <= ny + nh) {
+            return node;
+        }
+    }
+    return null;
+}
+
+function attachDnDListeners() {
+    if (dndListenersAttached) return;
+    const canvasEl = app.canvas?.canvas || document.querySelector('#graph-canvas');
+    if (!canvasEl) {
+        setTimeout(attachDnDListeners, 500);
+        return;
+    }
+    dndListenersAttached = true;
+
+    canvasEl.addEventListener('dragover', (e) => {
+        if (!e.dataTransfer?.types?.includes('Files')) return;
+        const [cx, cy] = getCanvasCoords(e);
+        const node = findIpNodeAt(cx, cy);
+        if (node) {
+            e.preventDefault();
+            e.dataTransfer.dropEffect = 'copy';
+            if (dndCurrentNode !== node) {
+                if (dndCurrentNode) {
+                    dndCurrentNode._ipDnDOver = false;
+                    dndCurrentNode.setDirtyCanvas(true, true);
+                }
+                dndCurrentNode = node;
+                node._ipDnDOver = true;
+                node.setDirtyCanvas(true, true);
+            }
+        } else if (dndCurrentNode) {
+            dndCurrentNode._ipDnDOver = false;
+            dndCurrentNode.setDirtyCanvas(true, true);
+            dndCurrentNode = null;
+        }
+    });
+
+    canvasEl.addEventListener('dragleave', () => {
+        if (dndCurrentNode) {
+            dndCurrentNode._ipDnDOver = false;
+            dndCurrentNode.setDirtyCanvas(true, true);
+            dndCurrentNode = null;
+        }
+    });
+
+    canvasEl.addEventListener('drop', async (e) => {
+        if (!e.dataTransfer?.files?.length) return;
+        const [cx, cy] = getCanvasCoords(e);
+        const node = findIpNodeAt(cx, cy);
+        if (!node) return;
+
+        e.preventDefault();
+        e.stopPropagation();
+
+        if (dndCurrentNode) {
+            dndCurrentNode._ipDnDOver = false;
+            dndCurrentNode.setDirtyCanvas(true, true);
+            dndCurrentNode = null;
+        }
+
+        const file = Array.from(e.dataTransfer.files).find(f => f.type.startsWith('image/'));
+        if (!file) return;
+
+        uploadImage(file, (data) => {
+            if (!data) return;
+            const imgWidget = node.widgets?.find(w => w.name === 'image');
+            if (imgWidget) {
+                if (imgWidget.options?.values && !imgWidget.options.values.includes(data.name)) {
+                    imgWidget.options.values.push(data.name);
+                    imgWidget.options.values.sort();
+                }
+                imgWidget.value = data.name;
+                if (imgWidget.callback) imgWidget.callback(data.name);
+            }
+        });
+    });
+
+    console.log("[InpaintPainter] Drag-and-drop listeners attached");
+}
+
 app.registerExtension({
     name: "EllieFoxAI.InpaintPainter",
 
     async beforeRegisterNodeDef(nodeType, nodeData) {
         if (nodeData.name !== "InpaintPainter") return;
 
-        console.log("[InpaintPainter] v1 registering hooks");
+        console.log("[InpaintPainter] v1.1 registering hooks");
+
+        attachDnDListeners();
 
         const onNodeCreated = nodeType.prototype.onNodeCreated;
 
@@ -68,17 +182,14 @@ app.registerExtension({
             let sourceImg = null;
             let sourceW = 0, sourceH = 0;
             let displayScale = 1;
-            let displayOffsetX = 0, displayOffsetY = 0;
-            let displayW = 0, displayH = 0;
             let isPainting = false;
             let lastPaintX = -1, lastPaintY = -1;
             let paintMode = "paint"; // "paint" | "erase"
             let hovering = false;
             let hoverX = 0, hoverY = 0;
-            let hoverUpload = false;
-            let hoverMode = null; // "paint" | "erase" | "clear"
+            let hoverMode = null;
 
-            // Offscreen mask canvas (at display resolution)
+            // Offscreen mask canvas (at source resolution)
             let maskCanvas = null;
             let maskCtx = null;
 
@@ -90,7 +201,7 @@ app.registerExtension({
 
             const getWidget = (name) => this.widgets?.find(w => w.name === name);
 
-            // Hidden file input for upload
+            // Hidden file input for upload button
             const fileInput = document.createElement("input");
             fileInput.type = "file";
             fileInput.accept = "image/*";
@@ -124,7 +235,6 @@ app.registerExtension({
                     maskCanvas.width = w;
                     maskCanvas.height = h;
                     maskCtx.clearRect(0, 0, w, h);
-                    // Write empty mask_data to widget
                     serializeMask();
                 }
             }
@@ -132,7 +242,6 @@ app.registerExtension({
             // --- Serialize mask to base64 PNG in widget ---
             function serializeMask() {
                 if (!maskCanvas || !maskCtx) return;
-                // Only serialize if there's actual content
                 const imgData = maskCtx.getImageData(0, 0, maskCanvas.width, maskCanvas.height);
                 let hasContent = false;
                 for (let i = 3; i < imgData.data.length; i += 4) {
@@ -200,7 +309,6 @@ app.registerExtension({
                 const imgAreaH = panelH - toolbarH - 8;
                 const imgAreaW = panelW - 16;
 
-                // Fit image into display area
                 let dw = 0, dh = 0;
                 if (sourceW > 0 && sourceH > 0) {
                     const scaleFit = Math.min(imgAreaW / sourceW, imgAreaH / sourceH, 1.0);
@@ -214,12 +322,7 @@ app.registerExtension({
                 const imgX = px + 8 + (imgAreaW - dw) / 2;
                 const imgY = py + toolbarH + (imgAreaH - dh) / 2;
 
-                return {
-                    px, py, panelW, panelH,
-                    imgX, imgY, imgW: dw, imgH: dh,
-                    imgAreaW, imgAreaH, toolbarH,
-                    margin,
-                };
+                return { px, py, panelW, panelH, imgX, imgY, imgW: dw, imgH: dh, imgAreaW, imgAreaH, toolbarH, margin };
             }
 
             // --- Mode buttons geometry ---
@@ -228,14 +331,13 @@ app.registerExtension({
                 const btnH = 18;
                 const gap = 6;
                 const uploadW = 60;
-                const totalW = btnW * 3 + gap * 2 + uploadW + gap;
                 const startX = g.px + 8;
 
                 return {
-                    paint:   { x: startX,                      y: g.py + 5, w: btnW, h: btnH, label: "🖌 Paint" },
-                    erase:   { x: startX + (btnW + gap),        y: g.py + 5, w: btnW, h: btnH, label: "🧹 Erase" },
-                    clear:   { x: startX + (btnW + gap) * 2,    y: g.py + 5, w: btnW, h: btnH, label: "✖ Clear" },
-                    upload:  { x: startX + (btnW + gap) * 3,    y: g.py + 5, w: uploadW, h: btnH, label: "📁 Upload" },
+                    paint:  { x: startX,                    y: g.py + 5, w: btnW,    h: btnH, label: "🖌 Paint" },
+                    erase:  { x: startX + (btnW + gap),      y: g.py + 5, w: btnW,    h: btnH, label: "🧹 Erase" },
+                    clear:  { x: startX + (btnW + gap) * 2,  y: g.py + 5, w: btnW,    h: btnH, label: "✖ Clear" },
+                    upload: { x: startX + (btnW + gap) * 3,  y: g.py + 5, w: uploadW, h: btnH, label: "📁 Upload" },
                 };
             }
 
@@ -271,7 +373,6 @@ app.registerExtension({
                 maskCtx.arc(mx, my, radius, 0, Math.PI * 2);
                 maskCtx.fill();
 
-                // Draw line from previous point for smooth strokes
                 if (prevMx >= 0 && prevMy >= 0) {
                     maskCtx.beginPath();
                     maskCtx.moveTo(prevMx, prevMy);
@@ -337,14 +438,11 @@ app.registerExtension({
 
                 // Image area
                 if (sourceImg && sourceImg.complete && sourceW > 0) {
-                    // Checkerboard background for transparency
                     ctx.fillStyle = "rgba(25, 25, 32, 0.95)";
                     ctx.fillRect(g.imgX, g.imgY, g.imgW, g.imgH);
 
-                    // Draw source image
                     ctx.drawImage(sourceImg, g.imgX, g.imgY, g.imgW, g.imgH);
 
-                    // Draw mask overlay
                     if (maskCanvas) {
                         ctx.save();
                         ctx.globalAlpha = 0.5;
@@ -352,7 +450,6 @@ app.registerExtension({
                         ctx.restore();
                     }
 
-                    // Border
                     ctx.strokeStyle = "rgba(80, 80, 95, 0.8)";
                     ctx.lineWidth = 1;
                     ctx.strokeRect(g.imgX, g.imgY, g.imgW, g.imgH);
@@ -370,7 +467,6 @@ app.registerExtension({
                         ctx.setLineDash([]);
                     }
                 } else {
-                    // No image loaded
                     ctx.fillStyle = "#8a8a9a";
                     ctx.font = "11px monospace";
                     ctx.textAlign = "center";
@@ -385,6 +481,21 @@ app.registerExtension({
                     ctx.textAlign = "left";
                     ctx.fillText(`${sourceW}×${sourceH} · brush: ${getWidget("brush_size")?.value || 32}px · mode: ${paintMode}`,
                         g.px + 8, g.py + g.panelH - 6);
+                }
+
+                // DnD overlay
+                if (self._ipDnDOver) {
+                    ctx.fillStyle = "rgba(122, 184, 255, 0.25)";
+                    ctx.fillRect(g.px, g.py, g.panelW, g.panelH);
+                    ctx.strokeStyle = "#9fd0ff";
+                    ctx.lineWidth = 2;
+                    ctx.setLineDash([6, 4]);
+                    ctx.strokeRect(g.px, g.py, g.panelW, g.panelH);
+                    ctx.setLineDash([]);
+                    ctx.fillStyle = "#cfe8ff";
+                    ctx.font = "14px monospace";
+                    ctx.textAlign = "center";
+                    ctx.fillText("📂 Drop image to load", g.px + g.panelW / 2, g.py + g.panelH / 2);
                 }
             };
 
@@ -437,7 +548,6 @@ app.registerExtension({
                     return;
                 }
 
-                // Hover tracking
                 const hit = hitTest(g, btns, pos[0], pos[1]);
                 const wasHovering = hovering;
                 const wasHoverMode = hoverMode;
@@ -476,7 +586,7 @@ app.registerExtension({
                 self.setDirtyCanvas(true, true);
             };
 
-            // Watch brush_size widget
+            // Watch brush_size widget for redraw
             const brushWidget = getWidget("brush_size");
             if (brushWidget) {
                 const origCb = brushWidget.callback;
@@ -487,7 +597,7 @@ app.registerExtension({
                 };
             }
 
-            console.log("[InpaintPainter] v1 hooks registered");
+            console.log("[InpaintPainter] v1.1 hooks registered");
             return result;
         };
 
@@ -510,6 +620,6 @@ app.registerExtension({
             if (this._ipMouseLeave) this._ipMouseLeave(pos);
         };
 
-        console.log("[InpaintPainter] v1 loaded");
+        console.log("[InpaintPainter] v1.1 loaded");
     },
 });
