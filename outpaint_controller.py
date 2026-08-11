@@ -65,6 +65,10 @@ class OutpaintController:
                 "feather": ("INT", {
                     "default": 16, "min": 0, "max": 512, "step": 1,
                 }),
+                "edge_crop": ("INT", {
+                    "default": 0, "min": 0, "max": 64, "step": 1,
+                    "tooltip": "Crop this many pixels from each edge of the source before padding. Strips JPEG/compression artifacts that cause seams."
+                }),
             }
         }
 
@@ -84,7 +88,7 @@ class OutpaintController:
 
     def compute_padding(self, image, aspect_ratio, source_resize,
                         target_width, target_height,
-                        center_x, center_y, feather):
+                        center_x, center_y, feather, edge_crop):
 
         # --- Load source image from file ---
         img_tensor = self._load_image_file(image)
@@ -133,6 +137,12 @@ class OutpaintController:
                 align_corners=False,
             ).permute(0, 2, 3, 1)
             src_w, src_h = new_w, new_h
+
+        # --- Edge crop: trim artifacts from source edges ---
+        if edge_crop > 0 and src_w > edge_crop * 2 and src_h > edge_crop * 2:
+            image = image[:, edge_crop:src_h - edge_crop, edge_crop:src_w - edge_crop, :]
+            src_w -= edge_crop * 2
+            src_h -= edge_crop * 2
 
         # --- Compute padding from centerpoint ---
         pad_left = max(0, int(round(center_x * max(0, W_t - src_w))))

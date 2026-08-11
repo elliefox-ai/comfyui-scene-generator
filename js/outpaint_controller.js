@@ -732,7 +732,8 @@ app.registerExtension({
             const watchNames = [
                 "center_x", "center_y",
                 "target_width", "target_height",
-                "source_resize", "aspect_ratio"
+                "source_resize", "aspect_ratio",
+                "edge_crop"
             ];
             for (const wname of watchNames) {
                 const widget = this.widgets?.find(w => w.name === wname);
