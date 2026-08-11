@@ -544,6 +544,8 @@ app.registerExtension({
                         paintAtMask(mc[0], mc[1], lastPaintX, lastPaintY);
                         lastPaintX = mc[0]; lastPaintY = mc[1];
                     }
+                    hoverX = pos[0];
+                    hoverY = pos[1];
                     self.setDirtyCanvas(true, true);
                     return;
                 }
