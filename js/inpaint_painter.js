@@ -305,9 +305,6 @@ app.registerExtension({
                 }
 
                 const toolbarH = 28;
-                const panelH = self.size[1] - py - 4;
-                const imgAreaH = panelH - toolbarH - 8;
-                const imgAreaW = panelW - 16;
 
                 let dw = 0, dh = 0;
                 if (sourceW > 0 && sourceH > 0) {
@@ -319,6 +316,9 @@ app.registerExtension({
 
                 const px = margin;
                 const py = afterY;
+                const panelH = self.size[1] - py - 4;
+                const imgAreaH = panelH - toolbarH - 8;
+                const imgAreaW = panelW - 16;
                 const imgX = px + 8 + (imgAreaW - dw) / 2;
                 const imgY = py + toolbarH + (imgAreaH - dh) / 2;
 
