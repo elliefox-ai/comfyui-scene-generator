@@ -184,6 +184,7 @@ app.registerExtension({
             let displayScale = 1;
             let isPainting = false;
             let lastPaintX = -1, lastPaintY = -1;
+            let strokeOriginX = -1, strokeOriginY = -1; // anchor for shift-constrain
             let paintMode = "paint"; // "paint" | "erase"
             let hovering = false;
             let hoverX = 0, hoverY = 0;
@@ -543,6 +544,7 @@ app.registerExtension({
                 if (hit.type === "canvas") {
                     isPainting = true;
                     lastPaintX = -1; lastPaintY = -1;
+                    strokeOriginX = -1; strokeOriginY = -1;
                     const mc = canvasToMask(g, pos[0], pos[1]);
                     if (mc) {
                         paintAtMask(mc[0], mc[1], -1, -1);
@@ -561,22 +563,27 @@ app.registerExtension({
                 if (isPainting) {
                     let mc = canvasToMask(g, pos[0], pos[1]);
                     if (mc) {
-                        // Shift-constrain: lock to dominant axis from last paint point
-                        if (shiftHeld && lastPaintX >= 0) {
-                            const dx = Math.abs(mc[0] - lastPaintX);
-                            const dy = Math.abs(mc[1] - lastPaintY);
-                            if (dx > dy) {
-                                mc[1] = lastPaintY;
-                            } else {
-                                mc[0] = lastPaintX;
-                            }
-                            // Update display cursor to reflect constrained position
-                            hoverX = g.imgX + mc[0] * displayScale;
-                            hoverY = g.imgY + mc[1] * displayScale;
-                        } else {
-                            hoverX = pos[0];
-                            hoverY = pos[1];
+                        // Set stroke origin on first move
+                        if (strokeOriginX < 0) {
+                            strokeOriginX = mc[0];
+                            strokeOriginY = mc[1];
                         }
+                        // Shift-constrain: lock to dominant axis from stroke origin
+                        if (shiftHeld) {
+                            const dx = Math.abs(mc[0] - strokeOriginX);
+                            const dy = Math.abs(mc[1] - strokeOriginY);
+                            if (dx > dy) {
+                                mc[1] = strokeOriginY;
+                            } else {
+                                mc[0] = strokeOriginX;
+                            }
+                        } else {
+                            // When shift released, re-anchor to current position
+                            strokeOriginX = mc[0];
+                            strokeOriginY = mc[1];
+                        }
+                        hoverX = g.imgX + mc[0] * displayScale;
+                        hoverY = g.imgY + mc[1] * displayScale;
                         paintAtMask(mc[0], mc[1], lastPaintX, lastPaintY);
                         lastPaintX = mc[0]; lastPaintY = mc[1];
                     }
