@@ -292,6 +292,12 @@ app.registerExtension({
                     if (data) {
                         sourcePreview = data.img;
                         sourceDims = { w: data.w, h: data.h };
+                        // Auto-populate source_resize to natural longest edge
+                        // so resize handles work from the actual displayed size
+                        const srWidget = getWidget("source_resize");
+                        if (srWidget) {
+                            srWidget.value = Math.max(data.w, data.h);
+                        }
                     } else {
                         sourcePreview = null;
                         sourceDims = { w: 0, h: 0 };
