@@ -1,34 +1,63 @@
-# Scene Generator for ComfyUI (Ideogram)
+# ComfyUI Scene Generator & Outpaint Controller
 
-A ComfyUI custom node that generates structured multi-character scene prompts with spatial layout control. Designed for [Ideogram](https://ideogram.ai) but works with any image model that respects bounding box control nets.
+Two custom nodes for [ComfyUI](https://github.com/comfyanonymous/ComfyUI) built by [Ellie](https://github.com/elliefox-ai) 🦊 and Alexander Dutton.
 
-## How It Works
+## Nodes
 
-Two independent systems that combine into a single prompt:
+![Outpaint Controller in action](screenshots/outpaint-with-output.jpg)
 
-- **Scene Type** (composition) — Controls *how* figures are arranged: scale hierarchy, arrangement pattern, and density. Think camera/composition language: `face_off`, `close_group`, `wide_vista`, etc.
-- **Scenario** (content) — Controls *what's* in the scene: setting, characters, actions, backgrounds. Genre-flavored content packs: fantasy, western, sci-fi, noir, etc.
+### 🎨 Outpaint Controller
 
-Any scene type pairs with any scenario. `face_off` + `pirate_ship` gives you a standoff on the deck. `atmospheric` + `noir_city` gives you a moody detective scene.
+A visual outpainting (uncrop) composition tool. Load an image, position it within a larger target frame, and get padding values + mask + padded image for any outpaint/fill workflow.
 
-## Features
+**Features:**
+- **Drag-and-drop upload** — drop image files directly from your OS onto the node
+- **Canvas upload button** — click "📁 Upload" in the node panel
+- **Interactive visual editor** — drag the source image around the target frame, resize with corner handles, see padding update in real time
+- **Aspect ratio presets** — 16:9, 3:2, 4:3, 1:1 and vertical variants
+- **Source resize** — scale the source image down to leave room for outpainting
+- **Live padding readout** — L/R/T/B pixel values displayed on canvas
+- **Feathered mask** — configurable feather band at the source boundary
+![Outpaint Controller interface](screenshots/outpaint-interface.jpg)
 
-- **3-knob composition system**: scale hierarchy (equal/dominant/environmental), arrangement (opposing/clustered/scattered/offset), density (sparse/balanced/dense)
-- **Shot-width-aware backgrounds**: Each background is tagged close/medium/wide and selected to match the composition
-- **Camera framing**: eye_level, high_angle, low_angle, dutch — injected at 3 layers (HLD, background, per-character) with corresponding bbox height scaling
-- **Scenario packs**: 6 included (fantasy, medieval_tavern, noir_city, pirate_ship, sci_fi, western), each with 9-10 backgrounds, 12 subjects, 12 actions
-- **`{setting}` coherence**: Backgrounds always reference the picked setting, guaranteeing thematic consistency
-- **🎲 Random options**: Random scene type, scenario, and framing for discovery
+- **7 outputs** — left, right, top, bottom (INT), mask (MASK), padded_image (IMAGE), original_image (IMAGE)
+
+Pipe the outputs into any padding/inpaint/outpaint workflow. The mask is 1.0 in the generate region and 0.0 in the source region, ready for diffusion models.
+
+### 🗳️ Scene Generator (Ideogram)
+
+A structured multi-character scene prompt generator with spatial layout control. Designed for [Ideogram](https://ideogram.ai) but works with any model that respects bounding box control nets.
+
+**Features:**
+- **Two-axis design:** Scene Type (composition: *how*) × Scenario (content: *what*)
+- **3-knob layout engine:** scale hierarchy, arrangement pattern, density
+- **Shot-width-aware backgrounds** that match the composition
+- **Camera framing:** eye_level, high_angle, low_angle, dutch
+- **6 scenario packs:** fantasy, medieval_tavern, noir_city, pirate_ship, sci_fi, western
+- **`{setting}` coherence:** backgrounds always reference the chosen setting
 
 ## Installation
 
-Drop the `scene-gen/` folder into your ComfyUI `custom_nodes/` directory and restart ComfyUI.
+1. Clone or download this repo into your ComfyUI `custom_nodes/` directory:
+   ```
+   cd ComfyUI/custom_nodes/
+   git clone https://github.com/elliefox-ai/comfyui-scene-generator.git ComfyUI-EllieFoxAI-scene-gen
+   ```
+2. Restart ComfyUI
+3. Look for **🎨 Outpaint Controller** and **🗳️ Scene Generator** in the node menu (under `EllieFoxAI`)
+
+No additional Python dependencies beyond what ComfyUI already provides.
 
 ## Requirements
 
 - ComfyUI
-- Ideogram model (or any model that supports bbox control nets)
+- For Scene Generator: an Ideogram model (or any model supporting bbox control nets)
+- For Outpaint Controller: any inpaint/outpaint model or workflow
 
 ## License
 
 MIT
+
+## Credits
+
+Built by **Ellie** (AI agent) and **Alexander Dutton** (human partner) through [OpenClaw](https://github.com/openclaw/openclaw). See [CO-AUTHORS.md](CO-AUTHORS.md) for the full collaboration story — wrong turns and all.

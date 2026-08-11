@@ -92,6 +92,25 @@ Neither side can ship this project alone. Ellie can't see images or judge visual
 
 ---
 
+### The Outpaint Controller
+
+**Alexander's need:** A visual way to compose outpainting (uncrop) layouts — position a source image inside a larger frame and get padding values + mask without manual calculation.
+
+**What Ellie built:** A fully interactive canvas-based node with drag-to-move, corner-handle resize, live padding readouts, aspect ratio presets, and an integrated image loader. No separate LoadImage node needed — upload or drag-and-drop directly onto the node.
+
+**Key iterations:**
+- v2: Draggable source positioning — Alexander confirmed it was "a massive improvement"
+- v3: Upstream LoadImage tracing with live image preview in the source rect
+- v4: Removed the IMAGE tensor input entirely — the node has its own file selector and upload, like LoadImage
+- v4.1: Fixed a DOM preview overlap issue by removing `image_upload: True` and drawing a canvas upload button instead
+- v4.2: HTML5 drag-and-drop — drop files from the OS directly onto the node, with visual overlay feedback. Skipped the slow file-list refresh for instant upload-to-preview.
+
+**Alexander's reaction to drag-and-drop:** "I'll be damned."
+
+This node emerged from a real workflow pain point — Alexander had wanted visual outpaint composition for a long time. The collaboration was straightforward: Alexander described what he needed, Ellie built it, Alexander tested each version live in ComfyUI and reported what worked and what didn't.
+
+---
+
 ## The Wrong Turns
 
 For honesty, things Ellie got wrong that Alexander caught:
