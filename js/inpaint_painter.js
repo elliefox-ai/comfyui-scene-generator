@@ -188,6 +188,25 @@ app.registerExtension({
             let hovering = false;
             let hoverX = 0, hoverY = 0;
             let hoverMode = null;
+            let shiftHeld = false;
+
+            // Track shift key for axis-constrained painting
+            const onKeyDown = (e) => {
+                if (e.key === 'Shift') { shiftHeld = true; self.setDirtyCanvas(true, true); }
+            };
+            const onKeyUp = (e) => {
+                if (e.key === 'Shift') { shiftHeld = false; self.setDirtyCanvas(true, true); }
+            };
+            document.addEventListener('keydown', onKeyDown);
+            document.addEventListener('keyup', onKeyUp);
+
+            // Clean up listeners when node is removed
+            const origOnRemoved = self.onRemoved;
+            self.onRemoved = function () {
+                document.removeEventListener('keydown', onKeyDown);
+                document.removeEventListener('keyup', onKeyUp);
+                return origOnRemoved?.apply(self, arguments);
+            };
 
             // Offscreen mask canvas (at source resolution)
             let maskCanvas = null;
@@ -479,7 +498,8 @@ app.registerExtension({
                     ctx.fillStyle = "#8a8a9a";
                     ctx.font = "10px monospace";
                     ctx.textAlign = "left";
-                    ctx.fillText(`${sourceW}×${sourceH} · brush: ${getWidget("brush_size")?.value || 32}px · mode: ${paintMode}`,
+                    const shiftTag = shiftHeld ? " · shift-lock" : "";
+                    ctx.fillText(`${sourceW}×${sourceH} · brush: ${getWidget("brush_size")?.value || 32}px · mode: ${paintMode}${shiftTag}`,
                         g.px + 8, g.py + g.panelH - 6);
                 }
 
@@ -539,13 +559,27 @@ app.registerExtension({
                 const btns = getButtons(g);
 
                 if (isPainting) {
-                    const mc = canvasToMask(g, pos[0], pos[1]);
+                    let mc = canvasToMask(g, pos[0], pos[1]);
                     if (mc) {
+                        // Shift-constrain: lock to dominant axis from last paint point
+                        if (shiftHeld && lastPaintX >= 0) {
+                            const dx = Math.abs(mc[0] - lastPaintX);
+                            const dy = Math.abs(mc[1] - lastPaintY);
+                            if (dx > dy) {
+                                mc[1] = lastPaintY;
+                            } else {
+                                mc[0] = lastPaintX;
+                            }
+                            // Update display cursor to reflect constrained position
+                            hoverX = g.imgX + mc[0] * displayScale;
+                            hoverY = g.imgY + mc[1] * displayScale;
+                        } else {
+                            hoverX = pos[0];
+                            hoverY = pos[1];
+                        }
                         paintAtMask(mc[0], mc[1], lastPaintX, lastPaintY);
                         lastPaintX = mc[0]; lastPaintY = mc[1];
                     }
-                    hoverX = pos[0];
-                    hoverY = pos[1];
                     self.setDirtyCanvas(true, true);
                     return;
                 }
