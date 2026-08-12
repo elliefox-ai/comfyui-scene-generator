@@ -181,6 +181,7 @@ app.registerExtension({
             // State
             let sourceImg = null;
             let sourceW = 0, sourceH = 0;
+            let lastFetchedImage = ""; // tracks current preview to detect external changes (clipspace, workflow load)
             let displayScale = 1;
             let isPainting = false;
             let lastPaintX = -1, lastPaintY = -1;
@@ -281,13 +282,14 @@ app.registerExtension({
                 const imgWidget = getWidget("image");
                 if (!imgWidget) return;
                 const filename = imgWidget.value;
-                if (!filename) { sourceImg = null; sourceW = 0; sourceH = 0; return; }
+                if (!filename) { sourceImg = null; sourceW = 0; sourceH = 0; lastFetchedImage = ""; return; }
 
                 fetchSourceImage(filename, "", (data) => {
                     if (data) {
                         sourceImg = data.img;
                         sourceW = data.w;
                         sourceH = data.h;
+                        lastFetchedImage = filename;
                         initMaskCanvas(sourceW, sourceH);
                     } else {
                         sourceImg = null;
@@ -420,6 +422,12 @@ app.registerExtension({
             this._ipDraw = (ctx) => {
                 if (self.flags?.collapsed) return;
                 if (!self.widgets || self.widgets.length === 0) return;
+
+                // Auto-detect external widget value changes (clipspace paste, workflow load)
+                const curImgWidget = getWidget("image");
+                if (curImgWidget && curImgWidget.value && curImgWidget.value !== lastFetchedImage) {
+                    refreshSourceImage();
+                }
 
                 const g = getPanelGeom();
                 const btns = getButtons(g);

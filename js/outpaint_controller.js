@@ -245,6 +245,7 @@ app.registerExtension({
             let resizeStartSR = 0;
             let sourcePreview = null;
             let sourceDims = { w: 0, h: 0 };
+            let lastFetchedImage = ""; // tracks current preview to detect external changes (clipspace, workflow load)
 
             const origW = this.size[0];
             const origH = this.size[1];
@@ -286,12 +287,13 @@ app.registerExtension({
                 const imgWidget = getWidget("image");
                 if (!imgWidget) return;
                 const filename = imgWidget.value;
-                if (!filename) { sourcePreview = null; sourceDims = { w: 0, h: 0 }; return; }
+                if (!filename) { sourcePreview = null; sourceDims = { w: 0, h: 0 }; lastFetchedImage = ""; return; }
 
                 fetchSourceImage(filename, "", (data) => {
                     if (data) {
                         sourcePreview = data.img;
                         sourceDims = { w: data.w, h: data.h };
+                        lastFetchedImage = filename;
                         // Auto-populate source_resize to natural longest edge
                         // so resize handles work from the actual displayed size
                         const srWidget = getWidget("source_resize");
@@ -470,6 +472,12 @@ app.registerExtension({
             this._ocDraw = (ctx) => {
                 if (this.flags?.collapsed) return;
                 if (!this.widgets || this.widgets.length === 0) return;
+
+                // Auto-detect external widget value changes (clipspace paste, workflow load)
+                const curImgWidget = getWidget("image");
+                if (curImgWidget && curImgWidget.value && curImgWidget.value !== lastFetchedImage) {
+                    refreshSourceImage();
+                }
 
                 const cxWidget = getWidget("center_x");
                 const cyWidget = getWidget("center_y");
