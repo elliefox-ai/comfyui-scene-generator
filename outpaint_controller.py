@@ -69,6 +69,10 @@ class OutpaintController:
                     "default": 0, "min": 0, "max": 64, "step": 1,
                     "tooltip": "Crop this many pixels from each edge of the source before padding. Strips JPEG/compression artifacts that cause seams."
                 }),
+                "pad_mode": (["black", "replicate", "reflect"], {
+                    "default": "black",
+                    "tooltip": "How to fill padding area. 'black' = pure black (original). 'replicate' = repeat source edge pixels. 'reflect' = mirror source edges. Replicate/reflect test whether VAE convolution contamination from black padding causes seams."
+                }),
             }
         }
 
@@ -88,7 +92,7 @@ class OutpaintController:
 
     def compute_padding(self, image, aspect_ratio, source_resize,
                         target_width, target_height,
-                        center_x, center_y, feather, edge_crop):
+                        center_x, center_y, feather, edge_crop, pad_mode="black"):
 
         # --- Load source image from file ---
         img_tensor = self._load_image_file(image)
@@ -161,11 +165,19 @@ class OutpaintController:
         pad_bottom = max(0, max(0, H_t - src_h) - pad_top)
 
         # --- Pad the image ---
-        padded = torch.nn.functional.pad(
-            image.permute(0, 3, 1, 2),
-            (pad_left, pad_right, pad_top, pad_bottom),
-            mode="constant", value=0,
-        ).permute(0, 2, 3, 1)
+        torch_mode = {"black": "constant", "replicate": "replicate", "reflect": "reflect"}[pad_mode]
+        if torch_mode == "constant":
+            padded = torch.nn.functional.pad(
+                image.permute(0, 3, 1, 2),
+                (pad_left, pad_right, pad_top, pad_bottom),
+                mode="constant", value=0,
+            ).permute(0, 2, 3, 1)
+        else:
+            padded = torch.nn.functional.pad(
+                image.permute(0, 3, 1, 2),
+                (pad_left, pad_right, pad_top, pad_bottom),
+                mode=torch_mode,
+            ).permute(0, 2, 3, 1)
 
         # --- Build mask (matches padded dims exactly) ---
         padded_h = src_h + pad_top + pad_bottom
@@ -197,12 +209,18 @@ class OutpaintController:
         return (pad_left, pad_right, pad_top, pad_bottom, mask, padded, img_tensor)
 
     @classmethod
-    def IS_CHANGED(cls, image):
-        image_path = folder_paths.get_annotated_filepath(image)
-        m = hashlib.sha256()
-        with open(image_path, 'rb') as f:
-            m.update(f.read())
-        return m.digest().hex()
+    def IS_CHANGED(cls, **kwargs):
+        image = kwargs.get('image', '')
+        if not image:
+            return float('nan')
+        try:
+            image_path = folder_paths.get_annotated_filepath(image)
+            m = hashlib.sha256()
+            with open(image_path, 'rb') as f:
+                m.update(f.read())
+            return m.digest().hex()
+        except Exception:
+            return float('nan')
 
     @classmethod
     def VALIDATE_INPUTS(cls, image):
