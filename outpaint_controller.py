@@ -138,11 +138,20 @@ class OutpaintController:
                 ).permute(0, 2, 3, 1)
             src_w, src_h = new_w, new_h
 
-        # --- Edge crop: trim artifacts from source edges ---
+        # --- Edge crop: trim artifacts from source edges (snap remainder to 8px grid) ---
         if edge_crop > 0 and src_w > edge_crop * 2 and src_h > edge_crop * 2:
-            image = image[:, edge_crop:src_h - edge_crop, edge_crop:src_w - edge_crop, :]
-            src_w -= edge_crop * 2
-            src_h -= edge_crop * 2
+            ec = edge_crop
+            image = image[:, ec:src_h - ec, ec:src_w - ec, :]
+            src_w -= ec * 2
+            src_h -= ec * 2
+            # Re-snap to 8px grid for VAE latent alignment
+            src_w = max(8, round(src_w / 8) * 8)
+            src_h = max(8, round(src_h / 8) * 8)
+            # Center-crop to the snapped dimensions
+            cur_h, cur_w = image.shape[1], image.shape[2]
+            y_off = max(0, (cur_h - src_h) // 2)
+            x_off = max(0, (cur_w - src_w) // 2)
+            image = image[:, y_off:y_off + src_h, x_off:x_off + src_w, :]
 
         # --- Compute padding from centerpoint (snap to 8px grid for VAE alignment) ---
         pad_left = max(0, round(center_x * max(0, W_t - src_w) / 8) * 8)
