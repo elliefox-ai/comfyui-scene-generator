@@ -69,10 +69,6 @@ class OutpaintController:
                     "default": 0, "min": 0, "max": 64, "step": 1,
                     "tooltip": "Crop this many pixels from each edge of the source before padding. Strips JPEG/compression artifacts that cause seams."
                 }),
-                "pad_mode": (["black", "replicate", "reflect"], {
-                    "default": "black",
-                    "tooltip": "How to fill padding area. 'black' = pure black (original). 'replicate' = repeat source edge pixels. 'reflect' = mirror source edges. Replicate/reflect test whether VAE convolution contamination from black padding causes seams."
-                }),
             }
         }
 
@@ -92,7 +88,7 @@ class OutpaintController:
 
     def compute_padding(self, image, aspect_ratio, source_resize,
                         target_width, target_height,
-                        center_x, center_y, feather, edge_crop, pad_mode="black"):
+                        center_x, center_y, feather, edge_crop):
 
         # --- Load source image from file ---
         img_tensor = self._load_image_file(image)
@@ -164,20 +160,12 @@ class OutpaintController:
         pad_top = max(0, round(center_y * max(0, H_t - src_h) / 8) * 8)
         pad_bottom = max(0, max(0, H_t - src_h) - pad_top)
 
-        # --- Pad the image ---
-        torch_mode = {"black": "constant", "replicate": "replicate", "reflect": "reflect"}[pad_mode]
-        if torch_mode == "constant":
-            padded = torch.nn.functional.pad(
-                image.permute(0, 3, 1, 2),
-                (pad_left, pad_right, pad_top, pad_bottom),
-                mode="constant", value=0,
-            ).permute(0, 2, 3, 1)
-        else:
-            padded = torch.nn.functional.pad(
-                image.permute(0, 3, 1, 2),
-                (pad_left, pad_right, pad_top, pad_bottom),
-                mode=torch_mode,
-            ).permute(0, 2, 3, 1)
+        # --- Pad the image (black padding) ---
+        padded = torch.nn.functional.pad(
+            image.permute(0, 3, 1, 2),
+            (pad_left, pad_right, pad_top, pad_bottom),
+            mode="constant", value=0,
+        ).permute(0, 2, 3, 1)
 
         # --- Build mask (matches padded dims exactly) ---
         padded_h = src_h + pad_top + pad_bottom
