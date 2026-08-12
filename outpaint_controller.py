@@ -93,10 +93,10 @@ class OutpaintController:
         # --- Load source image from file ---
         img_tensor = self._load_image_file(image)
 
-        # --- Resolve target dimensions from aspect ratio ---
+        # --- Resolve target dimensions from aspect ratio (all paths snap to 8px grid) ---
         if aspect_ratio != "custom" and aspect_ratio in ASPECT_RATIOS:
             rw, rh = ASPECT_RATIOS[aspect_ratio]
-            long_side = max(target_width, target_height)
+            long_side = max(8, round(max(target_width, target_height) / 8) * 8)
             if rw >= rh:
                 W_t = long_side
                 H_t = max(8, round(long_side * rh / 8) * 8)
@@ -104,7 +104,8 @@ class OutpaintController:
                 W_t = max(8, round(long_side * rw / 8) * 8)
                 H_t = long_side
         else:
-            W_t, H_t = target_width, target_height
+            W_t = max(8, round(target_width / 8) * 8)
+            H_t = max(8, round(target_height / 8) * 8)
 
         # --- Source dims from loaded tensor ---
         batch, src_h, src_w, _ = img_tensor.shape
