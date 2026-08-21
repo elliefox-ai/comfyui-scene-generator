@@ -30,17 +30,30 @@ import json
 import os
 import random
 
-from scene_context_node import (
-    GENRE_OPTIONS,
-    GENRE2_OPTIONS,
-    RANDOM,
-    NONE_OPT,
-    _load_settings,
-    _load_tones,
-    _load_atmosphere,
-    _pick_flourish,
-    _filter_by_genre,
-)
+try:  # package context — how ComfyUI loads custom node packs
+    from .scene_context_node import (
+        GENRE_OPTIONS,
+        GENRE2_OPTIONS,
+        RANDOM,
+        NONE_OPT,
+        _load_settings,
+        _load_tones,
+        _load_atmosphere,
+        _pick_flourish,
+        _filter_by_genre,
+    )
+except ImportError:  # standalone — test harness / direct exec
+    from scene_context_node import (  # noqa: F811
+        GENRE_OPTIONS,
+        GENRE2_OPTIONS,
+        RANDOM,
+        NONE_OPT,
+        _load_settings,
+        _load_tones,
+        _load_atmosphere,
+        _pick_flourish,
+        _filter_by_genre,
+    )
 
 COMPOSITION_PATH = os.path.join(
     os.path.dirname(__file__), "scene_context", "composition.json"
