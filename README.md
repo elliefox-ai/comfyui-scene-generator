@@ -8,7 +8,11 @@ A structured multi-character scene prompt generator with spatial layout control,
 
 ### 🎼 Scene Context Composer
 
-**v2 — the clean-room node.** Everything the four-axis cascade learned, with no legacy surface: Genre (+optional union mashup) → Setting → Situation (env-tagged), independent Tone, env-constrained Atmosphere, and **Composition as a first-class axis** (framing phrases keyed by the situation's `scene_type_bias`, allow-listed with a generic fallback pool).
+**v2 — the clean-room node.** Everything the four-axis cascade learned, with no legacy surface: Genre (+optional union mashup) → two-tier Setting (archetype gates venues by facet tags; explicit venue = author override) → Situation — selected by the **double filter**: Setting and Tone *jointly* narrow the pool, per Claude's design — env-tagged, atmosphere respects it, and **Composition as a first-class axis** (framing phrases keyed by the situation's `scene_type_bias`, allow-listed with a generic fallback pool).
+
+Tone is a selection axis, not seasoning: `tones.json` declares which situation capability tags (`violent_capable`, `calm_capable`, …) each register can carry; an absent `compatible` list means the register is open and sits on any situation (satirical, by design). A tone that matches nothing at a venue falls back to the full situation list — flavor yields to structure, same rule as genre.
+
+**Authoring rule of thumb:** situation text describes *action and posture*, never characters or props ("lingering over final drinks", not "as the barman calls time") — specifics belong to tone modifiers and composition phrases, so contexts blend across seeds instead of pinning one image.
 
 Renderer-agnostic by construction: `render_prompt` (context + framing) feeds any text-conditioned model, `components_json` exposes every piece separately for remixing, and `seed_used` wires straight into a sampler. Data lives in `scene_context/`, shared with the Picker — single source of truth.
 

@@ -1,39 +1,91 @@
 {
   "name": "harbor_tavern",
   "subject_label": "harbor tavern regulars",
-  "genre_tags": ["historical", "fantasy"],
-  "facet_tags": ["sea", "shore", "small_crowd"],
+  "genre_tags": [
+    "historical",
+    "fantasy"
+  ],
+  "facet_tags": [
+    "sea",
+    "shore",
+    "small_crowd"
+  ],
   "situations": [
     {
       "id": "card_game",
       "text": "locked in a card game at the corner table",
-      "tags": ["social", "tense_capable"],
+      "tags": [
+        "social",
+        "calm_capable",
+        "tense_capable"
+      ],
       "scene_type_bias": "close_group"
     },
     {
       "id": "storytelling",
       "text": "gathered round a traveling storyteller",
-      "tags": ["social", "calm_capable"],
+      "tags": [
+        "social",
+        "calm_capable",
+        "tense_capable"
+      ],
       "scene_type_bias": "gathering"
     },
     {
       "id": "brawl",
       "text": "a brawl breaking out among the tables",
-      "tags": ["action", "violent_capable"],
+      "tags": [
+        "action",
+        "violent_capable"
+      ],
       "scene_type_bias": "face_off"
     },
     {
       "id": "last_call",
-      "text": "nursing final drinks as the barman calls time",
-      "tags": ["social", "calm_capable"],
+      "text": "lingering over final drinks as closing time nears",
+      "tags": [
+        "social",
+        "calm_capable"
+      ],
       "scene_type_bias": "candid_moment"
     },
     {
       "id": "stranger_arrives",
       "text": "a rain-soaked stranger pushing through the door",
-      "tags": ["action", "tense_capable"],
+      "tags": [
+        "action",
+        "tense_capable"
+      ],
       "scene_type_bias": "atmospheric",
       "env": "storm"
+    },
+    {
+      "id": "shared_meal",
+      "text": "sharing a raucous meal at a long table",
+      "tags": [
+        "social",
+        "calm_capable"
+      ],
+      "scene_type_bias": "gathering"
+    },
+    {
+      "id": "candles_gutter",
+      "text": "the room gone quiet as the candles gutter low",
+      "tags": [
+        "social",
+        "tense_capable"
+      ],
+      "scene_type_bias": "atmospheric"
+    },
+    {
+      "id": "deal_sour",
+      "text": "a deal going sour in a shadowed corner",
+      "tags": [
+        "social",
+        "tense_capable",
+        "violent_capable"
+      ],
+      "scene_type_bias": "close_group"
     }
   ]
 }

@@ -150,9 +150,26 @@ class SceneContextComposer:
                 archetype_narrowed = False
                 chosen = rng.choice(genre_pool)
 
-        situation = rng.choice(chosen["situations"])
-
+        # Tone resolves BEFORE the situation pick — it's a selection
+        # axis, not seasoning sprinkled on after the fact (the double-
+        # filter design: Setting AND Tone jointly narrow the situation).
         tone_key = tone if tone != RANDOM else rng.choice(list(tones.keys()))
+        compatible = tones[tone_key].get("compatible")
+        # absent "compatible" = open register: sits on any situation
+        if compatible:
+            tone_pool = [
+                s for s in chosen["situations"]
+                if any(tag in s.get("tags", []) for tag in compatible)
+            ]
+            if not tone_pool:
+                # join-miss: the venue IS its situations (structure);
+                # tone is flavor — flavor yields, same rule as genre
+                tone_pool = chosen["situations"]
+        else:
+            tone_pool = chosen["situations"]
+        tone_narrowed = len(tone_pool) < len(chosen["situations"])
+
+        situation = rng.choice(tone_pool)
         modifier = rng.choice(tones[tone_key]["modifiers"])
         flourish = _pick_flourish(_load_atmosphere(), situation, rng)
 
@@ -195,6 +212,7 @@ class SceneContextComposer:
             "archetype_matches": arch_matches,
             "genre_narrowed": genre_narrowed,
             "archetype_narrowed": archetype_narrowed,
+            "tone_narrowed": tone_narrowed,
             "subject": chosen["subject_label"],
             "situation_id": situation["id"],
             "situation_text": situation["text"],

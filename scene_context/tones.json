@@ -5,6 +5,10 @@
       "violent action between one group against another",
       "a tense standoff, weapons half-drawn",
       "chaos breaking out, shouts and scrambling"
+    ],
+    "compatible": [
+      "violent_capable",
+      "tense_capable"
     ]
   },
   "charming": {
@@ -13,6 +17,9 @@
       "casual, peaceful socialization between subjects",
       "warm camaraderie, easy laughter",
       "a relaxed, unhurried moment"
+    ],
+    "compatible": [
+      "calm_capable"
     ]
   },
   "satirical": {
@@ -29,6 +36,21 @@
       "an unsettling stillness hanging over the scene",
       "something quietly wrong just beneath the surface",
       "a hushed, watchful tension"
+    ],
+    "compatible": [
+      "tense_capable",
+      "calm_capable"
+    ]
+  },
+  "mundane": {
+    "label": "Mundane / Domestic",
+    "modifiers": [
+      "figures absorbed in ordinary business, unaware of the frame",
+      "an unremarkable slice of daily routine",
+      "neither spectacle nor crisis, just the everyday"
+    ],
+    "compatible": [
+      "calm_capable"
     ]
   }
 }
