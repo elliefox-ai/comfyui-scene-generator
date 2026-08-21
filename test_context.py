@@ -38,6 +38,23 @@ def load_atmosphere():
         return json.load(f)["flourishes"]
 
 
+ENV_COMPAT = {
+    "storm": {"storm", "neutral", "overcast"},
+    "clear": {"clear", "neutral"},
+    "overcast": {"overcast", "neutral", "storm"},
+}
+
+
+def pick_flourish(atmosphere, situation, rng):
+    required_env = situation.get("env")
+    if required_env:
+        allowed = ENV_COMPAT.get(required_env, {required_env, "neutral"})
+        pool = [f for f in atmosphere if f.get("env", "neutral") in allowed]
+        if pool:
+            return rng.choice(pool)["text"]
+    return rng.choice(atmosphere)["text"]
+
+
 def filter_settings_by_genre(settings, genre, rng):
     if not genre or genre == "random":
         return list(settings.values())
@@ -55,7 +72,7 @@ def assemble_context(setting, tones, atmosphere, rng, tone_key=None):
     tone = tones[chosen_tone_key]
     modifier = rng.choice(tone["modifiers"])
 
-    flourish = rng.choice(atmosphere)
+    flourish = pick_flourish(atmosphere, situation, rng)
 
     context_str = f"{setting['subject_label']}, {situation['text']}, {modifier}, {flourish}"
 

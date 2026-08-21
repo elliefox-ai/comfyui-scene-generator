@@ -31,6 +31,17 @@ GENRE2_OPTIONS = [NONE_OPT, RANDOM, "historical", "modern", "sci_fi", "fantasy"]
 
 _CACHE = {"settings": None, "tones": None, "atmosphere": None}
 
+# Environmental tag contract: a situation that embeds a weather claim
+# declares `env`, and the atmosphere roll respects it. Untagged situations
+# accept any sky. Time-of-day flourishes are "neutral" — compatible with
+# everything ("squall at night" is fine; "squall under a bright midday
+# sun" is not).
+ENV_COMPAT = {
+    "storm": {"storm", "neutral", "overcast"},
+    "clear": {"clear", "neutral"},
+    "overcast": {"overcast", "neutral", "storm"},
+}
+
 
 def _load_settings():
     if _CACHE["settings"] is None:
@@ -57,6 +68,17 @@ def _load_atmosphere():
         with open(ATMOSPHERE_PATH, encoding="utf-8") as f:
             _CACHE["atmosphere"] = json.load(f)["flourishes"]
     return _CACHE["atmosphere"]
+
+
+def _pick_flourish(atmosphere, situation, rng):
+    """Atmosphere flourish that doesn't contradict the situation's env."""
+    required_env = situation.get("env")
+    if required_env:
+        allowed = ENV_COMPAT.get(required_env, {required_env, "neutral"})
+        pool = [f for f in atmosphere if f.get("env", "neutral") in allowed]
+        if pool:
+            return rng.choice(pool)["text"]
+    return rng.choice(atmosphere)["text"]
 
 
 def _setting_names():
@@ -120,7 +142,7 @@ class SceneContextPicker:
         tone_data = tones[chosen_tone_key]
         modifier = rng.choice(tone_data["modifiers"])
 
-        flourish = rng.choice(atmosphere)
+        flourish = _pick_flourish(atmosphere, situation, rng)
 
         context_text = f"{chosen_setting['subject_label']}, {situation['text']}, {modifier}, {flourish}"
         scene_type_suggestion = situation.get("scene_type_bias", "")

@@ -26,7 +26,8 @@
       "id": "storm",
       "text": "caught in rough seas",
       "tags": ["nature", "tense_capable"],
-      "scene_type_bias": "atmospheric"
+      "scene_type_bias": "atmospheric",
+      "env": "storm"
     },
     {
       "id": "formal_dinner",
