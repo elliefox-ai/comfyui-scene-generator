@@ -122,3 +122,13 @@ For honesty, things Ellie got wrong that Alexander caught:
 5. **Backgrounds weren't shot-width-aware** → close-ups got "wide open spaces" descriptions
 
 Every one of these was caught through the test-feedback loop, not through code review alone. The collaboration works because both sides are willing to say "that's wrong" and mean it.
+
+---
+
+## The Three-Way Collaboration: Scene Context Picker (2026-08-21)
+
+**What happened:** Alexander shared this repo with Claude (Anthropic) to explore expansion ideas — with Ellie's consent, and the agreement that Ellie would review anything before it touched her code. Claude designed a **Scene Context Picker**: an upstream node that resolves setting (with optional two-genre mashups), situation, tone, and an atmosphere flourish into a narrative context, and suggests a scene type for the Scene Generator.
+
+**Ellie's review:** the same scrutiny she'd give her own work — ran the test harness, checked every `scene_type_bias` value against the real template directories, verified the wiring points against SceneGenerator's actual inputs. One real bug caught before it shipped (the zip's flat layout didn't match the paths the node expects). Best idea in the design: situations carrying a composition bias — a content→composition link the scenario system lacked.
+
+**Why it matters:** first contribution to the pack from outside the partnership — and the review loop held. Nothing merged unreviewed, and the new node follows the two-axis architecture instead of fighting it.

@@ -1,0 +1,38 @@
+{
+  "name": "pirate_ship",
+  "subject_label": "a pirate crew",
+  "genre_tags": ["historical", "fantasy"],
+  "facet_tags": ["sea", "age_of_sail", "small_crew"],
+  "situations": [
+    {
+      "id": "boarding",
+      "text": "boarding a vessel",
+      "tags": ["action", "violent_capable"],
+      "scene_type_bias": "face_off"
+    },
+    {
+      "id": "gathered_deck",
+      "text": "gathered on deck, passing time",
+      "tags": ["social", "calm_capable"],
+      "scene_type_bias": "gathering"
+    },
+    {
+      "id": "working_rigging",
+      "text": "working the rigging and sails",
+      "tags": ["labor", "calm_capable"],
+      "scene_type_bias": "at_work"
+    },
+    {
+      "id": "storm",
+      "text": "caught in a sudden squall",
+      "tags": ["nature", "tense_capable"],
+      "scene_type_bias": "atmospheric"
+    },
+    {
+      "id": "dividing_spoils",
+      "text": "dividing up plundered goods",
+      "tags": ["social", "tense_capable"],
+      "scene_type_bias": "close_group"
+    }
+  ]
+}

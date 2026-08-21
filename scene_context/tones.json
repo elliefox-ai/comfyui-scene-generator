@@ -1,0 +1,34 @@
+{
+  "violent": {
+    "label": "Violent / Tense",
+    "modifiers": [
+      "violent action between one group against another",
+      "a tense standoff, weapons half-drawn",
+      "chaos breaking out, shouts and scrambling"
+    ]
+  },
+  "charming": {
+    "label": "Charming / Idyllic",
+    "modifiers": [
+      "casual, peaceful socialization between subjects",
+      "warm camaraderie, easy laughter",
+      "a relaxed, unhurried moment"
+    ]
+  },
+  "satirical": {
+    "label": "Satirical / Comedic",
+    "modifiers": [
+      "exaggerated, playful antics",
+      "a moment of absurd showmanship",
+      "tongue-in-cheek foolery"
+    ]
+  },
+  "eerie": {
+    "label": "Eerie / Uncanny",
+    "modifiers": [
+      "an unsettling stillness hanging over the scene",
+      "something quietly wrong just beneath the surface",
+      "a hushed, watchful tension"
+    ]
+  }
+}

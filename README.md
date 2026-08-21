@@ -6,6 +6,12 @@ A structured multi-character scene prompt generator with spatial layout control,
 
 ## The Node
 
+### 🧭 Scene Context Picker
+
+Upstream companion to the Scene Generator: procedurally resolves a narrative context — setting (genre-filtered, with optional two-genre mashups), situation, tone, and an atmosphere flourish — and emits it as structured text plus a `scene_type` suggestion. Wire `context_text` → Scene Generator's `theme`, `scene_type_suggestion` → `scene_type`, and let one seed drive both nodes.
+
+Co-designed with Claude (Anthropic). See [CO-AUTHORS.md](CO-AUTHORS.md) for the full story.
+
 ### 🗳️ Scene Generator (Ideogram 4)
 
 Procedurally generates structured multi-character scene prompts from parameterized templates, with a live bbox layout preview on the node canvas.
