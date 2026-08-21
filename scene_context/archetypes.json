@@ -1,0 +1,12 @@
+{
+  "archetypes": {
+    "nautical_vessel": {
+      "label": "on a nautical vessel",
+      "facets": ["sea", "vessel"]
+    },
+    "coastal": {
+      "label": "on the coast",
+      "facets": ["sea", "shore"]
+    }
+  }
+}

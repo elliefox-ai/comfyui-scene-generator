@@ -7,7 +7,10 @@ and metadata, and any text-conditioned model (local GGUF, hosted API,
 whatever) consumes the result. Nothing here assumes a backend.
 
 Axes:
-    Genre (+ optional Genre 2, union) -> filters Setting
+    Genre (+ optional Genre 2, union) -> flavors the venue pool
+    Setting is two-tier:
+        Archetype ('on a nautical vessel') gates venues by facet tags
+        Venue (pirate_ship) pins a specific setting outright
     Setting -> Situation (may declare an `env` requirement)
     Tone (independent) -> modifier phrase
     Atmosphere (env-constrained) -> flourish
@@ -58,11 +61,26 @@ except ImportError:  # standalone — test harness / direct exec
 COMPOSITION_PATH = os.path.join(
     os.path.dirname(__file__), "scene_context", "composition.json"
 )
+ARCHETYPES_PATH = os.path.join(
+    os.path.dirname(__file__), "scene_context", "archetypes.json"
+)
 
 
 def _load_composition():
     with open(COMPOSITION_PATH, encoding="utf-8") as f:
         return json.load(f)
+
+
+def _load_archetypes():
+    with open(ARCHETYPES_PATH, encoding="utf-8") as f:
+        return json.load(f)["archetypes"]
+
+
+def _setting_options():
+    """One dropdown, two tiers: archetype labels first (casual path),
+    then concrete venue names (author override path)."""
+    labels = [a["label"] for a in _load_archetypes().values()]
+    return [RANDOM] + labels + sorted(_load_settings().keys())
 
 
 class SceneContextComposer:
@@ -79,8 +97,8 @@ class SceneContextComposer:
                 "genre2": (GENRE2_OPTIONS, {"default": NONE_OPT,
                     "tooltip": "Optional second genre. Union with genre — settings matching EITHER are eligible (mashup)."}),
                 "tone": ([RANDOM] + list(_load_tones().keys()), {"default": RANDOM}),
-                "setting": ([RANDOM] + sorted(_load_settings().keys()), {"default": RANDOM,
-                    "tooltip": "Force a specific setting, or let Genre(s) filter randomly."}),
+                "setting": (_setting_options(), {"default": RANDOM,
+                    "tooltip": "Two tiers: an archetype ('on a nautical vessel') filters venues by facet tags, random within the pool; a specific venue name pins it outright. 🎲 rolls venues by Genre."}),
                 "composition": ([RANDOM, NONE_OPT] + comp_keys, {"default": RANDOM,
                     "tooltip": "Framing axis. random: follow the situation's scene_type_bias. none: emit no framing phrase."}),
                 "seed": ("INT", {"default": 42, "min": 0, "max": 2**32 - 1}),
@@ -96,11 +114,41 @@ class SceneContextComposer:
         rng = random.Random(seed)
         settings = _load_settings()
         tones = _load_tones()
+        archetypes = _load_archetypes()
+        label_to_id = {a["label"]: aid for aid, a in archetypes.items()}
 
         if setting != RANDOM and setting in settings:
+            # explicit venue override — the author escape hatch, always
+            # unconstrained (a fantasy cruise ship is a legitimate ask)
             chosen = settings[setting]
+            genre_narrowed = False
+            archetype_narrowed = False
         else:
-            chosen = rng.choice(_filter_by_genre(settings, genre, genre2))
+            genre_pool = _filter_by_genre(settings, genre, genre2)
+            genre_narrowed = len(genre_pool) < len(settings)
+            if setting in label_to_id:
+                facets = set(archetypes[label_to_id[setting]]["facets"])
+                pool = [
+                    v for v in genre_pool
+                    if facets <= set(v.get("facet_tags", []))
+                ]
+                if not pool:
+                    # join-miss: archetype is structural, genre is flavor —
+                    # flavor yields first (decided up front; issue #2)
+                    pool = [
+                        v for v in settings.values()
+                        if facets <= set(v.get("facet_tags", []))
+                    ]
+                if not pool:
+                    raise ValueError(
+                        f"Archetype '{setting}' matches no venue — add a "
+                        f"setting with facet tags {sorted(facets)}"
+                    )
+                archetype_narrowed = len(pool) < len(genre_pool)
+                chosen = rng.choice(pool)
+            else:
+                archetype_narrowed = False
+                chosen = rng.choice(genre_pool)
 
         situation = rng.choice(chosen["situations"])
 
@@ -129,8 +177,24 @@ class SceneContextComposer:
             f"{context_text}, {comp_phrase}" if comp_phrase else context_text
         )
 
+        # which archetypes does the chosen venue satisfy? (may be several)
+        chosen_facets = set(chosen.get("facet_tags", []))
+        arch_matches = [
+            archetypes[aid]["label"]
+            for aid in archetypes
+            if set(archetypes[aid]["facets"]) <= chosen_facets
+        ]
+
         components = {
             "setting": chosen["name"],
+            "venue": chosen["name"],
+            "archetype": (
+                setting if setting in label_to_id
+                else (arch_matches[0] if arch_matches else "")
+            ),
+            "archetype_matches": arch_matches,
+            "genre_narrowed": genre_narrowed,
+            "archetype_narrowed": archetype_narrowed,
             "subject": chosen["subject_label"],
             "situation_id": situation["id"],
             "situation_text": situation["text"],
