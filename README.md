@@ -6,6 +6,12 @@ A structured multi-character scene prompt generator with spatial layout control,
 
 ## The Node
 
+### 🎼 Scene Context Composer
+
+**v2 — the clean-room node.** Everything the four-axis cascade learned, with no legacy surface: Genre (+optional union mashup) → Setting → Situation (env-tagged), independent Tone, env-constrained Atmosphere, and **Composition as a first-class axis** (framing phrases keyed by the situation's `scene_type_bias`, allow-listed with a generic fallback pool).
+
+Renderer-agnostic by construction: `render_prompt` (context + framing) feeds any text-conditioned model, `components_json` exposes every piece separately for remixing, and `seed_used` wires straight into a sampler. Data lives in `scene_context/`, shared with the Picker — single source of truth.
+
 ### 🧭 Scene Context Picker
 
 Upstream companion to the Scene Generator: procedurally resolves a narrative context — setting (genre-filtered, with optional two-genre mashups), situation, tone, and an atmosphere flourish — and emits it as structured text plus a `scene_type` suggestion. Wire `context_text` → Scene Generator's `theme`, `scene_type_suggestion` → `scene_type`, and let one seed drive both nodes.

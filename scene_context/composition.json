@@ -1,0 +1,31 @@
+{
+  "face_off": [
+    "a confrontational standoff, subjects squared against each other across the frame",
+    "oppositional framing, the tension centered between two clusters"
+  ],
+  "gathering": [
+    "a wide group composition, subjects arranged loosely across the scene",
+    "an establishing wide shot, the whole gathering visible in its surroundings"
+  ],
+  "candid_moment": [
+    "a candid, unposed framing, subjects caught mid-action",
+    "an observer's framing, as if glimpsed rather than staged"
+  ],
+  "atmospheric": [
+    "the environment dominates the frame, figures small within it",
+    "an establishing shot where weather and place carry the scene"
+  ],
+  "close_group": [
+    "a tight group framing, subjects pressed close, faces and hands in focus",
+    "an intimate cluster, cropped close on the interaction"
+  ],
+  "at_work": [
+    "an observational framing, hands and tools in focus mid-task",
+    "a working shot, the task and its motion centered in frame"
+  ],
+  "default": [
+    "a wide shot with establishing details",
+    "a balanced composition, the full scene visible",
+    "a medium shot centered on the subject cluster"
+  ]
+}

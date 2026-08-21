@@ -1,0 +1,147 @@
+"""
+Scene Context Composer — v2 of the scene context system.
+
+Clean-room node: everything the four-axis cascade has learned, none of
+the legacy Ideogram-era surface. Renderer-agnostic — it composes text
+and metadata, and any text-conditioned model (local GGUF, hosted API,
+whatever) consumes the result. Nothing here assumes a backend.
+
+Axes:
+    Genre (+ optional Genre 2, union) -> filters Setting
+    Setting -> Situation (may declare an `env` requirement)
+    Tone (independent) -> modifier phrase
+    Atmosphere (env-constrained) -> flourish
+    Composition (first-class, new) -> framing phrase keyed by the
+        situation's scene_type_bias; unknown/missing keys fall back to
+        the generic pool (allow-list shape — new bias values match
+        nothing until a pool is deliberately added)
+
+Outputs:
+    context_text    subject, situation, tone modifier, atmosphere
+    render_prompt   context_text + composition phrase (model-ready)
+    components_json every piece separately, for remixing downstream
+    seed_used       pass-through so samplers can share the roll
+
+Data lives in scene_context/ — shared with SceneContextPicker, single
+source of truth, no schema fork.
+"""
+
+import json
+import os
+import random
+
+from scene_context_node import (
+    GENRE_OPTIONS,
+    GENRE2_OPTIONS,
+    RANDOM,
+    NONE_OPT,
+    _load_settings,
+    _load_tones,
+    _load_atmosphere,
+    _pick_flourish,
+    _filter_by_genre,
+)
+
+COMPOSITION_PATH = os.path.join(
+    os.path.dirname(__file__), "scene_context", "composition.json"
+)
+
+
+def _load_composition():
+    with open(COMPOSITION_PATH, encoding="utf-8") as f:
+        return json.load(f)
+
+
+class SceneContextComposer:
+    """Composes a structured scene context; suggests framing from the
+    situation's composition bias. Pure text — no renderer assumptions."""
+
+    @classmethod
+    def INPUT_TYPES(cls):
+        comp = _load_composition()
+        comp_keys = sorted(k for k in comp if k != "default")
+        return {
+            "required": {
+                "genre": (GENRE_OPTIONS, {"default": RANDOM}),
+                "genre2": (GENRE2_OPTIONS, {"default": NONE_OPT,
+                    "tooltip": "Optional second genre. Union with genre — settings matching EITHER are eligible (mashup)."}),
+                "tone": ([RANDOM] + list(_load_tones().keys()), {"default": RANDOM}),
+                "setting": ([RANDOM] + sorted(_load_settings().keys()), {"default": RANDOM,
+                    "tooltip": "Force a specific setting, or let Genre(s) filter randomly."}),
+                "composition": ([RANDOM, NONE_OPT] + comp_keys, {"default": RANDOM,
+                    "tooltip": "Framing axis. random: follow the situation's scene_type_bias. none: emit no framing phrase."}),
+                "seed": ("INT", {"default": 42, "min": 0, "max": 2**32 - 1}),
+            }
+        }
+
+    RETURN_TYPES = ("STRING", "STRING", "STRING", "INT")
+    RETURN_NAMES = ("context_text", "render_prompt", "components_json", "seed_used")
+    FUNCTION = "compose"
+    CATEGORY = "SceneGen"
+
+    def compose(self, genre, genre2, tone, setting, composition, seed):
+        rng = random.Random(seed)
+        settings = _load_settings()
+        tones = _load_tones()
+
+        if setting != RANDOM and setting in settings:
+            chosen = settings[setting]
+        else:
+            chosen = rng.choice(_filter_by_genre(settings, genre, genre2))
+
+        situation = rng.choice(chosen["situations"])
+
+        tone_key = tone if tone != RANDOM else rng.choice(list(tones.keys()))
+        modifier = rng.choice(tones[tone_key]["modifiers"])
+        flourish = _pick_flourish(_load_atmosphere(), situation, rng)
+
+        context_text = (
+            f"{chosen['subject_label']}, {situation['text']}, {modifier}, {flourish}"
+        )
+
+        comp_pool = _load_composition()
+        comp_key = ""
+        comp_phrase = ""
+        if composition != NONE_OPT:
+            key = (
+                composition
+                if composition != RANDOM
+                else situation.get("scene_type_bias", "")
+            )
+            pool = comp_pool.get(key) or comp_pool["default"]
+            comp_key = key if comp_pool.get(key) else "default"
+            comp_phrase = rng.choice(pool)
+
+        render_prompt = (
+            f"{context_text}, {comp_phrase}" if comp_phrase else context_text
+        )
+
+        components = {
+            "setting": chosen["name"],
+            "subject": chosen["subject_label"],
+            "situation_id": situation["id"],
+            "situation_text": situation["text"],
+            "tone": tone_key,
+            "tone_modifier": modifier,
+            "atmosphere": flourish,
+            "env": situation.get("env", ""),
+            "composition": comp_key,
+            "composition_phrase": comp_phrase,
+            "context_text": context_text,
+            "render_prompt": render_prompt,
+            "seed": seed,
+        }
+        return (
+            context_text,
+            render_prompt,
+            json.dumps(components, ensure_ascii=False),
+            seed,
+        )
+
+
+NODE_CLASS_MAPPINGS = {
+    "SceneContextComposer": SceneContextComposer,
+}
+NODE_DISPLAY_NAME_MAPPINGS = {
+    "SceneContextComposer": "🎼 Scene Context Composer",
+}
