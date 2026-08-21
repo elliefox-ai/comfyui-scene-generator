@@ -200,6 +200,17 @@ app.registerExtension({
             // sensible default size — tall enough for header + text + preview
             this.size = [360, 480];
 
+            // Suppress the stock widget image preview: the frontend sets
+            // node.imgs on image_upload combos (drawn scaled to image aspect,
+            // auto-grows the node). We render our own preview, so clear it
+            // every frame (the frontend sets it async, post-callback) and
+            // disable the aspect auto-resize.
+            this.setSizeForImage = function () {};
+            this.onDrawBackground = function (ctx) {
+                if (this.imgs && this.imgs.length) this.imgs = null;
+                if (this.imageIndex != null) this.imageIndex = null;
+            };
+
             const imgWidget = this.widgets?.find((w) => w.name === "image");
 
             const refresh = (filename) => {

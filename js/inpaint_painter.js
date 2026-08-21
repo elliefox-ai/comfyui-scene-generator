@@ -222,6 +222,10 @@ app.registerExtension({
 
             const getWidget = (name) => this.widgets?.find(w => w.name === name);
 
+            // Hide mask_data widget — it's populated by the canvas, never by the user
+            const mdWidget = getWidget("mask_data");
+            if (mdWidget) mdWidget.hidden = true;
+
             // Hidden file input for upload button
             const fileInput = document.createElement("input");
             fileInput.type = "file";

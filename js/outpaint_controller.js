@@ -289,16 +289,33 @@ app.registerExtension({
                 const filename = imgWidget.value;
                 if (!filename) { sourcePreview = null; sourceDims = { w: 0, h: 0 }; lastFetchedImage = ""; return; }
 
+                // Capture current scale ratio before swapping (for lock_relative_scale)
+                const srWidget = getWidget("source_resize");
+                const lockWidget = getWidget("lock_relative_scale");
+                const lockScale = lockWidget?.value !== false; // default true
+                let preservedRatio = null;
+                if (lockScale && srWidget && sourceDims.w > 0 && sourceDims.h > 0) {
+                    const oldLongest = Math.max(sourceDims.w, sourceDims.h);
+                    const oldSR = parseFloat(srWidget.value) || oldLongest;
+                    preservedRatio = oldSR / oldLongest;
+                }
+
                 fetchSourceImage(filename, "", (data) => {
                     if (data) {
                         sourcePreview = data.img;
                         sourceDims = { w: data.w, h: data.h };
                         lastFetchedImage = filename;
-                        // Auto-populate source_resize to natural longest edge
-                        // so resize handles work from the actual displayed size
-                        const srWidget = getWidget("source_resize");
                         if (srWidget) {
-                            srWidget.value = Math.max(data.w, data.h);
+                            if (preservedRatio !== null) {
+                                // Preserve relative scale from previous image
+                                const newLongest = Math.max(data.w, data.h);
+                                let newSR = Math.round(newLongest * preservedRatio / 8) * 8;
+                                newSR = Math.max(8, newSR);
+                                srWidget.value = newSR;
+                            } else {
+                                // First load or lock off: set to natural longest edge
+                                srWidget.value = Math.max(data.w, data.h);
+                            }
                         }
                     } else {
                         sourcePreview = null;

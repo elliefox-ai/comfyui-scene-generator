@@ -69,6 +69,14 @@ class OutpaintController:
                     "default": 0, "min": 0, "max": 64, "step": 1,
                     "tooltip": "Crop this many pixels from each edge of the source before padding. Strips JPEG/compression artifacts that cause seams."
                 }),
+                "lock_relative_scale": ("BOOLEAN", {
+                    "default": True,
+                    "tooltip": "When ON, swapping images preserves the relative scale ratio. Position is always preserved (it's normalized)."
+                }),
+                "fill_color": (["grey", "white", "black"], {
+                    "default": "grey",
+                    "tooltip": "Padding fill color. White padding for LoRAs that prefer it, black for standard."
+                }),
             }
         }
 
@@ -88,7 +96,8 @@ class OutpaintController:
 
     def compute_padding(self, image, aspect_ratio, source_resize,
                         target_width, target_height,
-                        center_x, center_y, feather, edge_crop):
+                        center_x, center_y, feather, edge_crop,
+                        lock_relative_scale=True, fill_color="grey"):
 
         # --- Load source image from file ---
         img_tensor = self._load_image_file(image)
@@ -160,11 +169,12 @@ class OutpaintController:
         pad_top = max(0, round(center_y * max(0, H_t - src_h) / 8) * 8)
         pad_bottom = max(0, max(0, H_t - src_h) - pad_top)
 
-        # --- Pad the image (black padding) ---
+        # --- Pad the image (fill color from mask_color setting) ---
+        fill_value = {"grey": 0.5, "white": 1.0, "black": 0.0}.get(fill_color, 0.5)
         padded = torch.nn.functional.pad(
             image.permute(0, 3, 1, 2),
             (pad_left, pad_right, pad_top, pad_bottom),
-            mode="constant", value=0,
+            mode="constant", value=fill_value,
         ).permute(0, 2, 3, 1)
 
         # --- Build mask (matches padded dims exactly) ---

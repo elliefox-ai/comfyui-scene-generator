@@ -35,6 +35,10 @@ class InpaintPainter:
                     "multiline": False,
                     "tooltip": "Painted mask data (base64 PNG). Populated by the canvas painter."
                 }),
+                "mask_color": (["white", "black"], {
+                    "default": "white",
+                    "tooltip": "Output mask value for painted areas. White = 1.0 (standard inpaint). Black = 0.0 (inverted)."
+                }),
                 "brush_size": ("INT", {
                     "default": 32, "min": 4, "max": 256, "step": 1,
                     "tooltip": "Brush radius in pixels."
@@ -42,8 +46,8 @@ class InpaintPainter:
             }
         }
 
-    RETURN_TYPES = ("MASK", "IMAGE")
-    RETURN_NAMES = ("mask", "image")
+    RETURN_TYPES = ("MASK", "IMAGE", "IMAGE")
+    RETURN_NAMES = ("mask", "image", "masked_image")
     FUNCTION = "compute"
     CATEGORY = "EllieFoxAI"
 
@@ -56,7 +60,7 @@ class InpaintPainter:
         image_np = np.array(img).astype(np.float32) / 255.0
         return torch.from_numpy(image_np)[None,]
 
-    def compute(self, image, mask_data, brush_size):
+    def compute(self, image, mask_data, mask_color, brush_size):
         # --- Load source image ---
         img_tensor = self._load_image_file(image)
         batch, h, w, _ = img_tensor.shape
@@ -81,15 +85,27 @@ class InpaintPainter:
             mask_np = np.zeros((h, w), dtype=np.float32)
 
         mask_tensor = torch.from_numpy(mask_np).unsqueeze(0).repeat(batch, 1, 1)
-        return (mask_tensor, img_tensor)
+
+        if mask_color == "black":
+            mask_tensor = 1.0 - mask_tensor
+
+        # Masked image: source with painted area fully replaced using the selected mask color
+        masked_tensor = img_tensor.clone()
+        raw_mask = torch.from_numpy(mask_np).unsqueeze(0).repeat(batch, 1, 1).unsqueeze(-1)  # (B, H, W, 1)
+        overlay_val = 1.0 if mask_color == "white" else 0.0
+        # Fully opaque replacement where mask is painted
+        masked_tensor = masked_tensor * (1.0 - raw_mask) + raw_mask * overlay_val
+
+        return (mask_tensor, img_tensor, masked_tensor)
 
     @classmethod
-    def IS_CHANGED(cls, image, mask_data, brush_size):
+    def IS_CHANGED(cls, image, mask_data, mask_color, brush_size):
         image_path = folder_paths.get_annotated_filepath(image)
         m = hashlib.sha256()
         with open(image_path, 'rb') as f:
             m.update(f.read())
         m.update(mask_data.encode())
+        m.update(mask_color.encode())
         return m.digest().hex()
 
     @classmethod
