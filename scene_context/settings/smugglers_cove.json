@@ -29,7 +29,8 @@
         "calm_capable",
         "tense_capable"
       ],
-      "scene_type_bias": "at_work"
+      "scene_type_bias": "at_work",
+      "indoor": true
     },
     {
       "id": "lookout_watch",

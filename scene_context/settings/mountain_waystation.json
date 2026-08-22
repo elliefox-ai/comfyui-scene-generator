@@ -18,7 +18,8 @@
         "social",
         "calm_capable"
       ],
-      "scene_type_bias": "close_group"
+      "scene_type_bias": "close_group",
+      "indoor": true
     },
     {
       "id": "checking_the_pack_animals",
@@ -37,7 +38,8 @@
         "tense_capable"
       ],
       "scene_type_bias": "atmospheric",
-      "env": "storm"
+      "env": "storm",
+      "indoor": true
     },
     {
       "id": "trading_news",
@@ -46,7 +48,8 @@
         "social",
         "calm_capable"
       ],
-      "scene_type_bias": "gathering"
+      "scene_type_bias": "gathering",
+      "indoor": true
     },
     {
       "id": "dispute_over_toll",
@@ -74,7 +77,8 @@
         "tense_capable"
       ],
       "scene_type_bias": "atmospheric",
-      "env": "storm"
+      "env": "storm",
+      "indoor": true
     }
   ]
 }

@@ -19,7 +19,8 @@
         "labor",
         "calm_capable"
       ],
-      "scene_type_bias": "close_group"
+      "scene_type_bias": "close_group",
+      "indoor": true
     },
     {
       "id": "tagging_wildlife",
@@ -74,7 +75,8 @@
         "social",
         "calm_capable"
       ],
-      "scene_type_bias": "gathering"
+      "scene_type_bias": "gathering",
+      "indoor": true
     }
   ]
 }

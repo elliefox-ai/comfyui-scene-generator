@@ -55,7 +55,8 @@
         "social",
         "calm_capable"
       ],
-      "scene_type_bias": "close_group"
+      "scene_type_bias": "close_group",
+      "indoor": true
     },
     {
       "id": "man_overboard",

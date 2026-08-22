@@ -19,7 +19,8 @@
         "labor",
         "calm_capable"
       ],
-      "scene_type_bias": "at_work"
+      "scene_type_bias": "at_work",
+      "indoor": true
     },
     {
       "id": "running_the_press",
@@ -28,7 +29,8 @@
         "labor",
         "calm_capable"
       ],
-      "scene_type_bias": "at_work"
+      "scene_type_bias": "at_work",
+      "indoor": true
     },
     {
       "id": "shouting_the_headline",
@@ -55,7 +57,8 @@
         "social",
         "tense_capable"
       ],
-      "scene_type_bias": "face_off"
+      "scene_type_bias": "face_off",
+      "indoor": true
     },
     {
       "id": "ink_stained_break",
@@ -73,7 +76,8 @@
         "labor",
         "tense_capable"
       ],
-      "scene_type_bias": "at_work"
+      "scene_type_bias": "at_work",
+      "indoor": true
     }
   ]
 }

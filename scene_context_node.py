@@ -42,6 +42,29 @@ ENV_COMPAT = {
     "overcast": {"overcast", "neutral", "storm"},
 }
 
+# Indoor situations: the frame is inside, so outdoor flourishes read as the
+# weather beyond a window rather than as the scene's own sky. This is
+# probabilistic by design (Alexander, 2026-08-22): interiors shouldn't be
+# forced to always convey outside circumstances, and window-framing
+# shouldn't dominate — sometimes the room is just the room.
+#   - ~35%: the outside world shows through a window (inheriting the
+#     situation's own weather env when it declares one, else any outdoor)
+#   - ~65%: an indoor flourish — lamp, candle, fluorescent hum, time of day
+INDOOR_WINDOW_CHANCE = 0.35
+INDOOR_FLOURISHES = (
+    "by lamplight, the room close and warm",
+    "in the hush of a candlelit room",
+    "under the white hum of fluorescent light",
+    "in the dead of night",
+    "in the pale light of early morning",
+)
+WINDOW_VIEWS = {
+    "storm": "the window darkened by the storm outside",
+    "clear": "sunlight through the window",
+    "overcast": "grey daylight through the window",
+    "neutral": "light through the window",
+}
+
 
 def _load_settings():
     if _CACHE["settings"] is None:
@@ -73,12 +96,21 @@ def _load_atmosphere():
 def _pick_flourish(atmosphere, situation, rng):
     """Atmosphere flourish that doesn't contradict the situation's env."""
     required_env = situation.get("env")
+
+    # Indoor framing: only when the situation declares itself enclosed.
+    if situation.get("indoor"):
+        if rng.random() < INDOOR_WINDOW_CHANCE:
+            view_env = required_env if required_env in WINDOW_VIEWS else "neutral"
+            return WINDOW_VIEWS[view_env]
+        return rng.choice(INDOOR_FLOURISHES)
+
     if required_env:
         allowed = ENV_COMPAT.get(required_env, {required_env, "neutral"})
         pool = [f for f in atmosphere if f.get("env", "neutral") in allowed]
         if pool:
             return rng.choice(pool)["text"]
-    return rng.choice(atmosphere)["text"]
+    outdoor = [f for f in atmosphere if f.get("env", "neutral") != "indoor"]
+    return rng.choice(outdoor)["text"]
 
 
 def _setting_names():

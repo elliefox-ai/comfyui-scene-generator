@@ -31,6 +31,18 @@
     {
       "text": "beneath lightning-cracked storm clouds",
       "env": "storm"
+    },
+    {
+      "text": "by lamplight, the room close and warm",
+      "env": "indoor"
+    },
+    {
+      "text": "in the hush of a candlelit room",
+      "env": "indoor"
+    },
+    {
+      "text": "under the white hum of fluorescent light",
+      "env": "indoor"
     }
   ]
 }

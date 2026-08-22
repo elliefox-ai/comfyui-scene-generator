@@ -19,7 +19,8 @@
         "calm_capable",
         "tense_capable"
       ],
-      "scene_type_bias": "close_group"
+      "scene_type_bias": "close_group",
+      "indoor": true
     },
     {
       "id": "storytelling",
@@ -29,7 +30,8 @@
         "calm_capable",
         "tense_capable"
       ],
-      "scene_type_bias": "gathering"
+      "scene_type_bias": "gathering",
+      "indoor": true
     },
     {
       "id": "brawl",
@@ -38,7 +40,8 @@
         "action",
         "violent_capable"
       ],
-      "scene_type_bias": "face_off"
+      "scene_type_bias": "face_off",
+      "indoor": true
     },
     {
       "id": "last_call",
@@ -47,7 +50,8 @@
         "social",
         "calm_capable"
       ],
-      "scene_type_bias": "candid_moment"
+      "scene_type_bias": "candid_moment",
+      "indoor": true
     },
     {
       "id": "stranger_arrives",
@@ -66,7 +70,8 @@
         "social",
         "calm_capable"
       ],
-      "scene_type_bias": "gathering"
+      "scene_type_bias": "gathering",
+      "indoor": true
     },
     {
       "id": "candles_gutter",
@@ -75,7 +80,8 @@
         "social",
         "tense_capable"
       ],
-      "scene_type_bias": "atmospheric"
+      "scene_type_bias": "atmospheric",
+      "indoor": true
     },
     {
       "id": "deal_sour",
@@ -85,7 +91,8 @@
         "tense_capable",
         "violent_capable"
       ],
-      "scene_type_bias": "close_group"
+      "scene_type_bias": "close_group",
+      "indoor": true
     }
   ]
 }

@@ -19,7 +19,8 @@
         "labor",
         "calm_capable"
       ],
-      "scene_type_bias": "at_work"
+      "scene_type_bias": "at_work",
+      "indoor": true
     },
     {
       "id": "repairing_the_antenna",
@@ -39,7 +40,8 @@
         "tense_capable"
       ],
       "scene_type_bias": "atmospheric",
-      "env": "storm"
+      "env": "storm",
+      "indoor": true
     },
     {
       "id": "resupply_delivery",
@@ -57,7 +59,8 @@
         "social",
         "calm_capable"
       ],
-      "scene_type_bias": "close_group"
+      "scene_type_bias": "close_group",
+      "indoor": true
     },
     {
       "id": "tracking_an_anomaly",
@@ -66,7 +69,8 @@
         "action",
         "tense_capable"
       ],
-      "scene_type_bias": "close_group"
+      "scene_type_bias": "close_group",
+      "indoor": true
     },
     {
       "id": "stargazing_break",

@@ -19,7 +19,8 @@
         "labor",
         "calm_capable"
       ],
-      "scene_type_bias": "at_work"
+      "scene_type_bias": "at_work",
+      "indoor": true
     },
     {
       "id": "storm_watch",
@@ -38,7 +39,8 @@
         "labor",
         "calm_capable"
       ],
-      "scene_type_bias": "candid_moment"
+      "scene_type_bias": "candid_moment",
+      "indoor": true
     },
     {
       "id": "cleaning_the_lens",
@@ -47,7 +49,8 @@
         "labor",
         "calm_capable"
       ],
-      "scene_type_bias": "at_work"
+      "scene_type_bias": "at_work",
+      "indoor": true
     },
     {
       "id": "supply_boat_arrives",
@@ -65,7 +68,8 @@
         "action",
         "calm_capable"
       ],
-      "scene_type_bias": "candid_moment"
+      "scene_type_bias": "candid_moment",
+      "indoor": true
     },
     {
       "id": "signal_fire",
