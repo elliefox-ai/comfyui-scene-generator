@@ -1,0 +1,211 @@
+#!/usr/bin/env python3
+"""Bank-balance auditor — the measurement instrument for bank expansion.
+
+Rolls casts headless through the real roller and reports:
+  1. Pool census  — draws, distinct/size, hottest phrase vs mean (skew)
+  2. Cast echo    — within-cast duplicate rate per pool, vs the
+                    birthday-collision prediction for that pool size
+  3. Affinity     — per-entry draw-rate ratio, tagged-match vs untagged,
+                    for each fixable identity axis value.
+                    Expected ≈ w_match/w_untagged = 2.0.
+                    Ratio < 1.0 = tag-bug signature (an affinity
+                    running backwards — see _TAG_ALIAS, 2026-08-22).
+
+Usage:
+  python3 analyze_bank_balance.py [--casts 250] [--per 4] [--seed0 100000]
+                                  [--affinity-casts 300]
+
+Pure read: imports the roller, consumes components_json, prints a table.
+"""
+import argparse
+import json
+import os
+import sys
+from collections import Counter, defaultdict
+
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+import scene_character_roller as roller  # noqa: E402
+
+FEATS = json.load(open(os.path.join(
+    os.path.dirname(os.path.abspath(__file__)),
+    "scene_context", "character_features.json")))
+
+POOLS = ["face_shapes", "hair", "eyes", "marks", "face_detail",
+         "build", "demeanor"]
+GEOMETRY = ["postures", "positions"]
+
+AXIS_VALUES = {
+    "age": ["young adult", "middle-aged", "older"],
+    "sex": ["female", "male"],
+    "race": ["white", "black", "east_asian", "south_asian",
+             "latino", "middle_eastern", "indigenous"],
+}
+
+
+def phrase_index():
+    idx = {}
+    for pool in POOLS + ["complexion"]:
+        v = FEATS[pool]
+        if pool == "complexion":
+            for phrases in v.values():
+                for p in phrases:
+                    idx[p] = pool
+        else:
+            for e in v:
+                idx[e["text"] if isinstance(e, dict) else e] = pool
+    for pool in GEOMETRY:
+        for s in FEATS[pool]:
+            idx[s] = pool
+    return idx
+
+
+def roll_casts(n_casts, per, seed0, detail="high"):
+    """Returns list of casts; each cast is a list of component dicts."""
+    R = roller.RANDOM
+    node = roller.SceneCharacterRoller()
+    casts = []
+    for i in range(n_casts):
+        members = []
+        for j in range(per):
+            _, comp, _ = node.roll(R, 0.3, detail, "any", "",
+                                   True, True, seed0 + i * per + j,
+                                   R, R, R)
+            members.append(json.loads(comp))
+        casts.append(members)
+    return casts
+
+
+def census(casts, idx):
+    counts = defaultdict(Counter)
+    for cast in casts:
+        for m in cast:
+            for phrase in m["face"] + [m["pose"], m["position"]]:
+                if not phrase:
+                    continue
+                counts[idx[phrase]][phrase] += 1
+    return counts
+
+
+def echo_rates(casts, idx, per):
+    """Fraction of casts with a same-pool duplicate among members."""
+    out = {}
+    for pool in POOLS + GEOMETRY:
+        dup_casts = 0
+        for cast in casts:
+            seen = set()
+            dup = False
+            for m in cast:
+                for p in m["face"] + [m["pose"], m["position"]]:
+                    if p and idx.get(p) == pool:
+                        if p in seen:
+                            dup = True
+                        seen.add(p)
+            dup_casts += dup
+        size = len(FEATS[pool]) if pool in POOLS else len(FEATS[pool])
+        # P(all per draws distinct) = ∏(1 - k/size)
+        p_distinct = 1.0
+        for k in range(per):
+            p_distinct *= max(0.0, (size - k) / size)
+        out[pool] = (dup_casts / len(casts), 1.0 - p_distinct, size)
+    return out
+
+
+def affinity(axis, value, n_casts, seed0):
+    """Per-entry rate ratio: entries tagged `value` vs untagged on `axis`.
+
+    Other axes left random — weights are separable per axis. With the
+    standard 4/2/1 weights and single-axis tagging, expected ratio 2.0.
+    """
+    R = roller.RANDOM
+    node = roller.SceneCharacterRoller()
+    kwargs = {axis: value}
+    others = {a: R for a in ("age", "sex", "race") if a != axis}
+    tagged_draws, tagged_n = Counter(), 0
+    plain_draws, plain_n = Counter(), 0
+    for i in range(n_casts):
+        _, comp, _ = node.roll(R, 0.3, "high", "any", "",
+                               False, False, seed0 + 7919 + i,
+                               kwargs.get("age", R),
+                               kwargs.get("sex", R),
+                               kwargs.get("race", R))
+        comp = json.loads(comp)
+        for phrase in comp["face"]:
+            pool = None
+            for p in POOLS:
+                for e in FEATS[p]:
+                    if (e["text"] if isinstance(e, dict) else e) == phrase:
+                        pool = p
+                        entry = e
+                        break
+                if pool:
+                    break
+            if not pool:
+                continue
+            tag = (entry.get(axis) if isinstance(entry, dict) else None)
+            if tag is not None:
+                tag = roller._TAG_ALIAS.get(tag, tag)
+            if tag == value:
+                tagged_draws[phrase] += 1
+            elif tag is None:
+                plain_draws[phrase] += 1
+    # per-entry mean rates
+    per_pool = {}
+    for p in POOLS:
+        t_entries = [e["text"] for e in FEATS[p]
+                     if isinstance(e, dict) and roller._TAG_ALIAS.get(e.get(axis), e.get(axis)) == value]
+        u_entries = [e["text"] for e in FEATS[p]
+                     if isinstance(e, dict) and e.get(axis) is None]
+        if not t_entries or not u_entries:
+            continue
+        t_rate = sum(tagged_draws[t] for t in t_entries) / len(t_entries)
+        u_rate = sum(plain_draws[u] for u in u_entries) / len(u_entries)
+        if t_rate and u_rate:
+            per_pool[p] = (t_rate / u_rate, t_rate, u_rate)
+    return per_pool
+
+
+def main():
+    ap = argparse.ArgumentParser()
+    ap.add_argument("--casts", type=int, default=250)
+    ap.add_argument("--per", type=int, default=4)
+    ap.add_argument("--seed0", type=int, default=100000)
+    ap.add_argument("--affinity-casts", type=int, default=300)
+    args = ap.parse_args()
+
+    idx = phrase_index()
+    casts = roll_casts(args.casts, args.per, args.seed0)
+    counts = census(casts, idx)
+
+    total_rolls = args.casts * args.per
+    print(f"=== POOL CENSUS  ({total_rolls} rolls, {args.per}/cast, detail=high) ===")
+    for pool in POOLS + GEOMETRY + ["complexion"]:
+        c = counts[pool]
+        size = (sum(len(v) for v in FEATS["complexion"].values())
+                if pool == "complexion" else len(FEATS[pool]))
+        draws = sum(c.values())
+        if not draws:
+            continue
+        mean = draws / size
+        top, n = c.most_common(1)[0]
+        zero = size - len(c)
+        print(f"{pool:14s} draws {draws:5d}  distinct {len(c)}/{size:<3d}"
+              f"  unused {zero:<3d}  hottest {n / mean:4.1f}×mean  ({top[:40]})")
+
+    print(f"\n=== CAST ECHO  (duplicate within a cast, {args.per} members) ===")
+    for pool, (obs, pred, size) in echo_rates(casts, idx, args.per).items():
+        flag = "  ← THIN" if obs > 0.35 else ""
+        print(f"{pool:14s} observed {obs:5.1%}  predicted {pred:5.1%}"
+              f"  (pool {size}){flag}")
+
+    print("\n=== AFFINITY AUDIT  (tagged-match vs untagged, expect ≈2.0; <1.0 = bug) ===")
+    for axis, values in AXIS_VALUES.items():
+        for value in values:
+            res = affinity(axis, value, args.affinity_casts, args.seed0)
+            for pool, (ratio, t, u) in res.items():
+                flag = "  ← INVERTED" if ratio < 1.0 else ""
+                print(f"{axis}={value:14s} {pool:14s} ratio {ratio:4.2f}"
+                      f"  (tagged {t:.3f}/entry vs untagged {u:.3f}/entry){flag}")
+
+
+if __name__ == "__main__":
+    main()

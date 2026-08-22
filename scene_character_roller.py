@@ -139,6 +139,16 @@ def _identity_phrase(identity):
     return f"{article} {' '.join(parts)}"
 
 
+_TAG_ALIAS = {
+    # Historical spellings → canonical axis values (AGE_OPTIONS etc.).
+    # Keeps soft-affinity tags matching even if the bank file uses the
+    # short form. Found live 2026-08-22: "age": "young" never matched
+    # identity "young adult", inverting the affinity (tagged drew at
+    # HALF the untagged rate).
+    "young": "young adult",
+}
+
+
 def _weighted(pool, identity, rng, w_match=4, w_untagged=2, w_mismatch=1):
     """Soft-affinity draw: the stated identity WEIGHTS the pool, it
     never filters it. Match 4× / untagged 2× / mismatch 1×, multiplied
@@ -149,6 +159,8 @@ def _weighted(pool, identity, rng, w_match=4, w_untagged=2, w_mismatch=1):
         w = 1.0
         for axis in IDENTITY_AXES:
             tag = entry.get(axis)
+            if tag is not None:
+                tag = _TAG_ALIAS.get(tag, tag)
             if tag is None:
                 w *= w_untagged
             elif tag == identity[axis]:
@@ -303,9 +315,9 @@ class SceneCharacterRoller:
                 face_bits.append(rng.choice(feats["complexion"][race_res]))
             wmaybe("marks", 0.6, face_bits)
             if rng.random() < 0.75:
-                face_bits.append(rng.choice(feats["face_detail"])["text"])
+                face_bits.append(_weighted(feats["face_detail"], identity, rng)["text"])
                 if rng.random() < 0.35:
-                    face_bits.append(rng.choice(feats["face_detail"])["text"])
+                    face_bits.append(_weighted(feats["face_detail"], identity, rng)["text"])
             wmaybe("build", 0.85, face_bits)
             wmaybe("demeanor", 0.7, face_bits)
         else:
