@@ -1,0 +1,79 @@
+{
+  "name": "charcoal_camp",
+  "subject_label": "a charcoal-burners' camp",
+  "genre_tags": [
+    "historical",
+    "fantasy"
+  ],
+  "facet_tags": [
+    "forest",
+    "road",
+    "small_crew"
+  ],
+  "situations": [
+    {
+      "id": "tending_the_kiln",
+      "text": "tending a smoldering earth-covered charcoal kiln",
+      "tags": [
+        "labor",
+        "calm_capable"
+      ],
+      "scene_type_bias": "at_work"
+    },
+    {
+      "id": "stacking_cordwood",
+      "text": "stacking split cordwood into a mound before covering it",
+      "tags": [
+        "labor",
+        "calm_capable"
+      ],
+      "scene_type_bias": "at_work"
+    },
+    {
+      "id": "loading_the_cart",
+      "text": "loading sacks of finished charcoal onto a waiting cart",
+      "tags": [
+        "labor",
+        "calm_capable"
+      ],
+      "scene_type_bias": "at_work"
+    },
+    {
+      "id": "sharing_a_meal",
+      "text": "sharing a simple meal around the camp's cook fire",
+      "tags": [
+        "social",
+        "calm_capable"
+      ],
+      "scene_type_bias": "close_group"
+    },
+    {
+      "id": "watching_for_wildfire",
+      "text": "watching the treeline anxiously as kiln smoke drifts into it",
+      "tags": [
+        "nature",
+        "tense_capable"
+      ],
+      "scene_type_bias": "atmospheric"
+    },
+    {
+      "id": "dispute_over_wood_rights",
+      "text": "arguing with a forester over cutting rights to the grove",
+      "tags": [
+        "social",
+        "tense_capable"
+      ],
+      "scene_type_bias": "face_off"
+    },
+    {
+      "id": "rain_threatens_the_kiln",
+      "text": "rushing to cover the kiln as rain threatens to douse it",
+      "tags": [
+        "nature",
+        "tense_capable"
+      ],
+      "scene_type_bias": "atmospheric",
+      "env": "storm"
+    }
+  ]
+}

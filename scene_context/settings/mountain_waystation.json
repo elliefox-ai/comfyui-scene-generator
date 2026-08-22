@@ -1,0 +1,80 @@
+{
+  "name": "mountain_waystation",
+  "subject_label": "waystation travelers",
+  "genre_tags": [
+    "historical",
+    "fantasy"
+  ],
+  "facet_tags": [
+    "mountain",
+    "road",
+    "small_crowd"
+  ],
+  "situations": [
+    {
+      "id": "warming_by_the_hearth",
+      "text": "warming hands and boots by a stone hearth",
+      "tags": [
+        "social",
+        "calm_capable"
+      ],
+      "scene_type_bias": "close_group"
+    },
+    {
+      "id": "checking_the_pack_animals",
+      "text": "checking the straps and shoes of the pack animals in the yard",
+      "tags": [
+        "labor",
+        "calm_capable"
+      ],
+      "scene_type_bias": "at_work"
+    },
+    {
+      "id": "snowbound_wait",
+      "text": "waiting out a blocked pass, packs stacked against the wall",
+      "tags": [
+        "nature",
+        "tense_capable"
+      ],
+      "scene_type_bias": "atmospheric",
+      "env": "storm"
+    },
+    {
+      "id": "trading_news",
+      "text": "trading news and rumors over a shared pot of stew",
+      "tags": [
+        "social",
+        "calm_capable"
+      ],
+      "scene_type_bias": "gathering"
+    },
+    {
+      "id": "dispute_over_toll",
+      "text": "arguing loudly over the toll charged for the road ahead",
+      "tags": [
+        "social",
+        "tense_capable"
+      ],
+      "scene_type_bias": "face_off"
+    },
+    {
+      "id": "loading_the_carts",
+      "text": "loading crates and sacks onto a line of waiting carts",
+      "tags": [
+        "labor",
+        "calm_capable"
+      ],
+      "scene_type_bias": "at_work"
+    },
+    {
+      "id": "late_arrival",
+      "text": "a frost-covered traveler pushing through the door after dark",
+      "tags": [
+        "action",
+        "tense_capable"
+      ],
+      "scene_type_bias": "atmospheric",
+      "env": "storm"
+    }
+  ]
+}

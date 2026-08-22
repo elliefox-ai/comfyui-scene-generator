@@ -1,0 +1,79 @@
+{
+  "name": "high_pass",
+  "subject_label": "a mountain pass caravan",
+  "genre_tags": [
+    "historical",
+    "fantasy"
+  ],
+  "facet_tags": [
+    "mountain",
+    "road",
+    "small_crew"
+  ],
+  "situations": [
+    {
+      "id": "roping_together",
+      "text": "roping themselves together before crossing an icy ledge",
+      "tags": [
+        "action",
+        "tense_capable"
+      ],
+      "scene_type_bias": "close_group"
+    },
+    {
+      "id": "scouting_the_trail",
+      "text": "scouting ahead along a narrow switchback trail",
+      "tags": [
+        "action",
+        "calm_capable"
+      ],
+      "scene_type_bias": "candid_moment"
+    },
+    {
+      "id": "sudden_whiteout",
+      "text": "caught in a sudden whiteout, visibility dropping to nothing",
+      "tags": [
+        "nature",
+        "tense_capable"
+      ],
+      "scene_type_bias": "atmospheric",
+      "env": "storm"
+    },
+    {
+      "id": "resting_at_the_cairn",
+      "text": "resting beside a stone trail-marker cairn, sharing water",
+      "tags": [
+        "social",
+        "calm_capable"
+      ],
+      "scene_type_bias": "close_group"
+    },
+    {
+      "id": "rockslide_blocking_path",
+      "text": "scrambling to clear a rockslide blocking the path",
+      "tags": [
+        "action",
+        "tense_capable"
+      ],
+      "scene_type_bias": "at_work"
+    },
+    {
+      "id": "bandit_ambush",
+      "text": "ambushed by bandits at a narrow chokepoint in the trail",
+      "tags": [
+        "action",
+        "violent_capable"
+      ],
+      "scene_type_bias": "face_off"
+    },
+    {
+      "id": "leading_the_pack_train",
+      "text": "leading a line of loaded pack animals along the ridge",
+      "tags": [
+        "labor",
+        "calm_capable"
+      ],
+      "scene_type_bias": "gathering"
+    }
+  ]
+}

@@ -1,0 +1,80 @@
+{
+  "name": "theater_row",
+  "subject_label": "a theater row crowd",
+  "genre_tags": [
+    "historical",
+    "modern",
+    "fantasy"
+  ],
+  "facet_tags": [
+    "city",
+    "street",
+    "small_crowd"
+  ],
+  "situations": [
+    {
+      "id": "queueing_at_the_box_office",
+      "text": "queueing patiently at the box office window",
+      "tags": [
+        "social",
+        "calm_capable"
+      ],
+      "scene_type_bias": "gathering"
+    },
+    {
+      "id": "handing_out_playbills",
+      "text": "handing out playbills to passersby outside the theater doors",
+      "tags": [
+        "social",
+        "calm_capable"
+      ],
+      "scene_type_bias": "candid_moment"
+    },
+    {
+      "id": "stage_door_wait",
+      "text": "waiting by the stage door for a glimpse of the performers",
+      "tags": [
+        "social",
+        "calm_capable"
+      ],
+      "scene_type_bias": "gathering"
+    },
+    {
+      "id": "heated_review_debate",
+      "text": "arguing heatedly over the merits of the night's performance",
+      "tags": [
+        "social",
+        "tense_capable"
+      ],
+      "scene_type_bias": "face_off"
+    },
+    {
+      "id": "hauling_set_pieces",
+      "text": "hauling painted set pieces in through the stage door",
+      "tags": [
+        "labor",
+        "calm_capable"
+      ],
+      "scene_type_bias": "at_work"
+    },
+    {
+      "id": "rain_soaked_queue",
+      "text": "huddling under umbrellas in a rain-soaked ticket queue",
+      "tags": [
+        "social",
+        "tense_capable"
+      ],
+      "scene_type_bias": "gathering",
+      "env": "storm"
+    },
+    {
+      "id": "late_night_departure",
+      "text": "spilling out onto the street as the show lets out for the night",
+      "tags": [
+        "social",
+        "calm_capable"
+      ],
+      "scene_type_bias": "gathering"
+    }
+  ]
+}

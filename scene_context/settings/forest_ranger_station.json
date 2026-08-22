@@ -1,0 +1,80 @@
+{
+  "name": "forest_ranger_station",
+  "subject_label": "a forest ranger patrol",
+  "genre_tags": [
+    "modern",
+    "sci_fi"
+  ],
+  "facet_tags": [
+    "forest",
+    "road",
+    "small_crew",
+    "station"
+  ],
+  "situations": [
+    {
+      "id": "reviewing_patrol_maps",
+      "text": "reviewing patrol routes on a map spread across the station table",
+      "tags": [
+        "labor",
+        "calm_capable"
+      ],
+      "scene_type_bias": "close_group"
+    },
+    {
+      "id": "tagging_wildlife",
+      "text": "carefully tagging a tranquilized animal for tracking",
+      "tags": [
+        "labor",
+        "calm_capable"
+      ],
+      "scene_type_bias": "at_work"
+    },
+    {
+      "id": "spotting_smoke",
+      "text": "pointing out a thin column of smoke rising from the treeline",
+      "tags": [
+        "action",
+        "tense_capable"
+      ],
+      "scene_type_bias": "atmospheric"
+    },
+    {
+      "id": "radio_check_in",
+      "text": "checking in by radio from a lookout tower",
+      "tags": [
+        "action",
+        "calm_capable"
+      ],
+      "scene_type_bias": "candid_moment"
+    },
+    {
+      "id": "clearing_a_fallen_tree",
+      "text": "clearing a fallen tree blocking the forest access road",
+      "tags": [
+        "labor",
+        "calm_capable"
+      ],
+      "scene_type_bias": "at_work"
+    },
+    {
+      "id": "storm_damage_assessment",
+      "text": "surveying storm-snapped branches littering the trail",
+      "tags": [
+        "nature",
+        "tense_capable"
+      ],
+      "scene_type_bias": "atmospheric",
+      "env": "storm"
+    },
+    {
+      "id": "briefing_new_recruits",
+      "text": "briefing new recruits at the station before a patrol",
+      "tags": [
+        "social",
+        "calm_capable"
+      ],
+      "scene_type_bias": "gathering"
+    }
+  ]
+}

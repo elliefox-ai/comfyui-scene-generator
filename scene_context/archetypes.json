@@ -7,6 +7,18 @@
     "coastal": {
       "label": "on the coast",
       "facets": ["sea", "shore"]
+    },
+    "mountain": {
+      "label": "on a mountain road",
+      "facets": ["mountain", "road"]
+    },
+    "forest": {
+      "label": "in the forest",
+      "facets": ["forest", "road"]
+    },
+    "urban": {
+      "label": "on a city street",
+      "facets": ["city", "street"]
     }
   }
 }

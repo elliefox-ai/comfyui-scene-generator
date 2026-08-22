@@ -1,0 +1,79 @@
+{
+  "name": "print_shop_alley",
+  "subject_label": "print shop workers and newsboys",
+  "genre_tags": [
+    "historical",
+    "modern",
+    "fantasy"
+  ],
+  "facet_tags": [
+    "city",
+    "street",
+    "small_crew"
+  ],
+  "situations": [
+    {
+      "id": "setting_type",
+      "text": "setting individual letters of type by hand at a composing table",
+      "tags": [
+        "labor",
+        "calm_capable"
+      ],
+      "scene_type_bias": "at_work"
+    },
+    {
+      "id": "running_the_press",
+      "text": "cranking a heavy press as fresh pages roll out",
+      "tags": [
+        "labor",
+        "calm_capable"
+      ],
+      "scene_type_bias": "at_work"
+    },
+    {
+      "id": "shouting_the_headline",
+      "text": "shouting the day's headline to passersby in the alley",
+      "tags": [
+        "action",
+        "calm_capable"
+      ],
+      "scene_type_bias": "candid_moment"
+    },
+    {
+      "id": "bundling_papers",
+      "text": "tying fresh bundles of newspapers with twine",
+      "tags": [
+        "labor",
+        "calm_capable"
+      ],
+      "scene_type_bias": "at_work"
+    },
+    {
+      "id": "dispute_over_a_retraction",
+      "text": "a tense argument over a demanded retraction",
+      "tags": [
+        "social",
+        "tense_capable"
+      ],
+      "scene_type_bias": "face_off"
+    },
+    {
+      "id": "ink_stained_break",
+      "text": "sharing a smoke break in the alley, hands stained black with ink",
+      "tags": [
+        "social",
+        "calm_capable"
+      ],
+      "scene_type_bias": "close_group"
+    },
+    {
+      "id": "late_edition_rush",
+      "text": "rushing to set a late-breaking story before the deadline",
+      "tags": [
+        "labor",
+        "tense_capable"
+      ],
+      "scene_type_bias": "at_work"
+    }
+  ]
+}

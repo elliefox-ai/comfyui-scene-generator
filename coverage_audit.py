@@ -101,6 +101,35 @@ def main():
     print(f"── Storm-tagged situations: {len(storm_situations)} ──")
     for s in storm_situations:
         print(f"  {s}")
+    print()
+
+    # ── Facet tag vocabulary — flag anything not already in circulation,
+    #    since new tags should be coined deliberately, not decoratively ──
+    KNOWN_FACETS = {
+        "sea", "vessel", "shore", "age_of_sail", "small_crew", "leisure",
+        "crowd", "small_crowd",
+        "mountain", "road", "forest", "city", "street", "station",
+    }
+    all_facets = set()
+    for v in settings.values():
+        all_facets |= set(v.get("facet_tags", []))
+    new_facets = all_facets - KNOWN_FACETS
+    print(f"── Facet tags in use: {len(all_facets)} ──")
+    if new_facets:
+        print(f"  ! not in the known vocabulary list above (update KNOWN_FACETS if intentional): {sorted(new_facets)}")
+    else:
+        print("  all accounted for")
+
+    # ── Genre coverage per archetype — batch 2 constraint: each new
+    #    archetype needs >=1 modern-or-sci_fi venue so genre filtering
+    #    has something to bite on beyond historical/fantasy ──
+    print("\n── Genre coverage per archetype ──")
+    for aid, a in archetypes.items():
+        facets = set(a["facets"])
+        matches = [(n, v.get("genre_tags", [])) for n, v in settings.items() if facets <= set(v.get("facet_tags", []))]
+        modern_or_scifi = [n for n, g in matches if "modern" in g or "sci_fi" in g]
+        flag = "" if modern_or_scifi else "  ! no modern/sci_fi venue in this archetype"
+        print(f"  {aid}: {[n for n, _ in matches]}{flag}")
 
 
 if __name__ == "__main__":

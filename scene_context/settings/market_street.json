@@ -1,0 +1,82 @@
+{
+  "name": "market_street",
+  "subject_label": "market street vendors and shoppers",
+  "genre_tags": [
+    "historical",
+    "modern",
+    "fantasy",
+    "sci_fi"
+  ],
+  "facet_tags": [
+    "city",
+    "street",
+    "crowd"
+  ],
+  "situations": [
+    {
+      "id": "calling_out_wares",
+      "text": "calling out prices to passersby from behind a market stall",
+      "tags": [
+        "social",
+        "calm_capable"
+      ],
+      "scene_type_bias": "gathering"
+    },
+    {
+      "id": "weaving_through_the_crowd",
+      "text": "weaving quickly through a dense crowd of shoppers",
+      "tags": [
+        "action",
+        "calm_capable"
+      ],
+      "scene_type_bias": "candid_moment"
+    },
+    {
+      "id": "street_argument",
+      "text": "a shouting match breaking out between two stallholders",
+      "tags": [
+        "social",
+        "tense_capable"
+      ],
+      "scene_type_bias": "face_off"
+    },
+    {
+      "id": "inspecting_goods",
+      "text": "turning goods over carefully before deciding to buy",
+      "tags": [
+        "social",
+        "calm_capable"
+      ],
+      "scene_type_bias": "close_group"
+    },
+    {
+      "id": "sudden_downpour",
+      "text": "scrambling to pull tarps over stalls as rain starts to fall",
+      "tags": [
+        "action",
+        "tense_capable"
+      ],
+      "scene_type_bias": "atmospheric",
+      "env": "storm"
+    },
+    {
+      "id": "street_performer_crowd",
+      "text": "gathering around a street performer's act",
+      "tags": [
+        "social",
+        "calm_capable"
+      ],
+      "scene_type_bias": "gathering"
+    },
+    {
+      "id": "pickpocket_chase",
+      "text": "chasing down a pickpocket through the crowded street",
+      "tags": [
+        "action",
+        "tense_capable",
+        "violent_capable"
+      ],
+      "scene_type_bias": "face_off"
+    }
+  ]
+}

@@ -1,0 +1,79 @@
+{
+  "name": "forest_road",
+  "subject_label": "forest road travelers",
+  "genre_tags": [
+    "historical",
+    "fantasy"
+  ],
+  "facet_tags": [
+    "forest",
+    "road",
+    "small_crowd"
+  ],
+  "situations": [
+    {
+      "id": "resting_at_the_crossroads",
+      "text": "resting at a crossroads shrine beneath the trees",
+      "tags": [
+        "social",
+        "calm_capable"
+      ],
+      "scene_type_bias": "close_group"
+    },
+    {
+      "id": "bandits_blocking_the_road",
+      "text": "bandits stepping out to block the road ahead",
+      "tags": [
+        "action",
+        "violent_capable"
+      ],
+      "scene_type_bias": "face_off"
+    },
+    {
+      "id": "fording_the_stream",
+      "text": "leading horses across a shallow forest stream",
+      "tags": [
+        "action",
+        "calm_capable"
+      ],
+      "scene_type_bias": "gathering"
+    },
+    {
+      "id": "pilgrims_singing",
+      "text": "singing softly together while walking beneath the canopy",
+      "tags": [
+        "social",
+        "calm_capable"
+      ],
+      "scene_type_bias": "gathering"
+    },
+    {
+      "id": "sudden_downpour",
+      "text": "hurrying for cover as rain breaks through the canopy",
+      "tags": [
+        "nature",
+        "tense_capable"
+      ],
+      "scene_type_bias": "atmospheric",
+      "env": "storm"
+    },
+    {
+      "id": "checking_the_map",
+      "text": "gathered around a map spread on a fallen log",
+      "tags": [
+        "labor",
+        "calm_capable"
+      ],
+      "scene_type_bias": "close_group"
+    },
+    {
+      "id": "strange_noise_in_the_brush",
+      "text": "freezing in place at a sudden rustling in the undergrowth",
+      "tags": [
+        "action",
+        "tense_capable"
+      ],
+      "scene_type_bias": "atmospheric"
+    }
+  ]
+}

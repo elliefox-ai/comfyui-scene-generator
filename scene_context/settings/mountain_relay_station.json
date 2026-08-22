@@ -1,0 +1,81 @@
+{
+  "name": "mountain_relay_station",
+  "subject_label": "an alpine relay station crew",
+  "genre_tags": [
+    "modern",
+    "sci_fi"
+  ],
+  "facet_tags": [
+    "mountain",
+    "road",
+    "small_crew",
+    "station"
+  ],
+  "situations": [
+    {
+      "id": "monitoring_the_instruments",
+      "text": "monitoring a bank of dials and screens in the station's control room",
+      "tags": [
+        "labor",
+        "calm_capable"
+      ],
+      "scene_type_bias": "at_work"
+    },
+    {
+      "id": "repairing_the_antenna",
+      "text": "repairing a wind-battered antenna mast on the roof",
+      "tags": [
+        "labor",
+        "tense_capable"
+      ],
+      "scene_type_bias": "at_work",
+      "env": "storm"
+    },
+    {
+      "id": "relaying_the_warning",
+      "text": "radioing a storm warning down to travelers on the road below",
+      "tags": [
+        "action",
+        "tense_capable"
+      ],
+      "scene_type_bias": "atmospheric",
+      "env": "storm"
+    },
+    {
+      "id": "resupply_delivery",
+      "text": "unloading supply crates from a cargo vehicle at the station door",
+      "tags": [
+        "labor",
+        "calm_capable"
+      ],
+      "scene_type_bias": "gathering"
+    },
+    {
+      "id": "shift_change",
+      "text": "handing off the watch log at the end of a long shift",
+      "tags": [
+        "social",
+        "calm_capable"
+      ],
+      "scene_type_bias": "close_group"
+    },
+    {
+      "id": "tracking_an_anomaly",
+      "text": "clustered around a monitor, tracking an unexplained signal",
+      "tags": [
+        "action",
+        "tense_capable"
+      ],
+      "scene_type_bias": "close_group"
+    },
+    {
+      "id": "stargazing_break",
+      "text": "stepping outside for a break, looking up at the night sky",
+      "tags": [
+        "social",
+        "calm_capable"
+      ],
+      "scene_type_bias": "candid_moment"
+    }
+  ]
+}
