@@ -1,5 +1,5 @@
 {
-  "_doc": "Character staging pools, keyed by cast size. Templates use {c1}..{c4}. Register: lateral/relational placement only (photograph staging) — never scale or framing language, which belongs to the layout/composition layer. Soft cap 4: diffusion muddies past ~3 named subjects.",
+  "_doc": "Character staging pools, keyed by cast size. Templates use {c1}..{c4}. Register: lateral/relational placement only (photograph staging) — never scale or framing language, which belongs to the layout/composition layer. Opt-in: templates apply only when the scene node's positioning toggle is on; off (default) stages no placement language at all.",
   "placements": {
     "1": [
       "at the center of the frame, {c1}",
@@ -26,12 +26,5 @@
       "{c1} nearest the camera, {c2} beside them, {c3} and {c4} deeper in the frame",
       "spread across the frame: {c1} at the far left, {c2} at the center left, {c3} at the center right, {c4} at the far right"
     ]
-  },
-  "bare": {
-    "_doc": "Positioning-mode templates: sentence structure only, no placement language of their own — each character carries its own position phrase (scene-side positioning toggle / character roller).",
-    "1": ["{c1}"],
-    "2": ["{c1}; beside them, {c2}", "{c1}; {c2}"],
-    "3": ["{c1}; with them, {c2}; and {c3}", "{c1}; {c2}; {c3}"],
-    "4": ["{c1}; {c2}; {c3}; {c4}"]
   }
 }

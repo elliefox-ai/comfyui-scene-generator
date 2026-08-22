@@ -107,15 +107,15 @@ class SceneContextComposer:
                 "pose": ("BOOLEAN", {"default": False,
                     "tooltip": "Append a posture phrase to each staged character (static stance register). The Scene Character Roller has the same toggle — if both fire, doubled cues are yours."}),
                 "positioning": ("BOOLEAN", {"default": False,
-                    "tooltip": "Drop the placement templates; each staged character gets its own position phrase. Off = template staging, the default."}),
+                    "tooltip": "Stage the cast with placement templates — lateral/relational phrases per cast size ('on the near side of the frame, …'). Off (default) = no placement language; the renderer arranges."}),
             },
             "optional": {
                 f"character_{i}": ("STRING", {
                     "forceInput": True,
                     "tooltip": (
-                        "Wire a character description. Placement is staged "
-                        "automatically (left/center/right by cast size). "
-                        "Soft cap: 4."
+                        "Wire a character description. Default staging adds "
+                        "no placement — enable the positioning toggle for "
+                        "template staging. Soft cap: 4."
                         if i == 1 else
                         "Additional character. Leave unwired to drop."
                     ),

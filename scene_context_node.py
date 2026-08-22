@@ -146,18 +146,18 @@ def _decorate_cast(chars, rng, pool_key):
 
 def _stage_characters(chars, rng, pose=False, positioning=False):
     """Turn a list of character descriptions into one staging phrase,
-    or "" when no characters are supplied. Placement templates scale
-    with the cast size (1..4, soft cap — diffusion muddies past ~3
-    named subjects). Register: lateral/relational only, photograph
-    staging; scale/framing language belongs to the layout layer.
+    or "" when no characters are supplied. Silence by default: toggles
+    off emit no placement or posture language at all — the renderer
+    arranges the cast.
 
     pose=True appends a static posture phrase to each figure (from
-    character_features.json). positioning=True hands scene placement to
-    stochastic per-figure position phrases instead of the placement
-    templates — the "bare" template set keeps sentence structure without
-    adding its own placement language. The Scene Character Roller
-    carries the same toggles; if both fire somewhere, the doubled cue
-    is the user's call. Sometimes the composition works itself out."""
+    character_features.json). positioning=True stages the cast with
+    the placement templates — lateral/relational only, photograph
+    staging register, scaling with cast size (1..4, soft cap —
+    diffusion muddies past ~3 named subjects). The Scene Character
+    Roller carries the same toggles at character level; if both fire,
+    the doubled cue is the user's call. Sometimes the composition
+    works itself out."""
     chars = [
         c.replace("\n", " ").strip().rstrip(".")
         for c in chars
@@ -170,15 +170,8 @@ def _stage_characters(chars, rng, pose=False, positioning=False):
 
     if pose:
         chars = _decorate_cast(chars, rng, "postures")
-    if positioning:
-        chars = _decorate_cast(chars, rng, "positions")
-        bare = _load_character_slots().get("bare", {})
-        template = (
-            rng.choice(bare[str(n)]) if str(n) in bare
-            else "; ".join(f"{{c{i + 1}}}" for i in range(n))
-        )
-        return template.format(**{f"c{i + 1}": chars[i] for i in range(n)})
-
+    if not positioning:
+        return "; ".join(chars)
     template = rng.choice(_load_character_slots()["placements"][str(n)])
     return template.format(**{f"c{i + 1}": chars[i] for i in range(n)})
 
@@ -221,16 +214,16 @@ class SceneContextPicker:
                 "pose": ("BOOLEAN", {"default": False,
                     "tooltip": "Append a posture phrase to each staged character (static stance register). The Scene Character Roller has the same toggle — if both fire, doubled cues are yours."}),
                 "positioning": ("BOOLEAN", {"default": False,
-                    "tooltip": "Drop the placement templates; each staged character gets its own position phrase. Off = template staging, the default."}),
+                    "tooltip": "Stage the cast with placement templates — lateral/relational phrases per cast size ('on the near side of the frame, …'). Off (default) = no placement language; the renderer arranges."}),
             },
             "optional": {
                 f"character_{i}": ("STRING", {
                     "forceInput": True,
                     "tooltip": (
                         "Wire a character description ('a fisher in a yellow "
-                        "slicker'). Placement is staged automatically — "
-                        "left/center/right per cast size. Soft cap: 4; "
-                        "beyond that, extras are ignored."
+                        "slicker'). Default staging adds no placement — "
+                        "enable the positioning toggle for template staging. "
+                        "Soft cap: 4; beyond that, extras are ignored."
                         if i == 1 else
                         "Additional character. Leave unwired to drop."
                     ),
