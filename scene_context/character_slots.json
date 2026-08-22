@@ -1,0 +1,30 @@
+{
+  "_doc": "Character staging pools, keyed by cast size. Templates use {c1}..{c4}. Register: lateral/relational placement only (photograph staging) — never scale or framing language, which belongs to the layout/composition layer. Soft cap 4: diffusion muddies past ~3 named subjects.",
+  "placements": {
+    "1": [
+      "at the center of the frame, {c1}",
+      "one figure alone in the frame, {c1}",
+      "{c1}, nearest the camera",
+      "the frame held by a single presence, {c1}"
+    ],
+    "2": [
+      "to the left of the frame, {c1}; to the right, {c2}",
+      "on the near side of the frame, {c1}; a step behind, {c2}",
+      "{c1} to the left of the frame, {c2} to the right",
+      "facing one another across the frame, {c1} and {c2}",
+      "{c1} in the foreground, {c2} beyond them"
+    ],
+    "3": [
+      "to the left, {c1}; at the center, {c2}; to the right, {c3}",
+      "{c1} and {c2} in the foreground, {c3} behind them",
+      "three figures across the frame: {c1} at the near left, {c2} at the center, {c3} at the far right",
+      "{c1} at the far left of the frame, {c2} at the center, {c3} at the far right"
+    ],
+    "4": [
+      "in the foreground, {c1} and {c2}; farther back, {c3} and {c4}",
+      "{c1} and {c2} to the left of the frame, {c3} and {c4} to the right",
+      "{c1} nearest the camera, {c2} beside them, {c3} and {c4} deeper in the frame",
+      "spread across the frame: {c1} at the far left, {c2} at the center left, {c3} at the center right, {c4} at the far right"
+    ]
+  }
+}

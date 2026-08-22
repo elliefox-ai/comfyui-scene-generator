@@ -44,6 +44,7 @@ try:  # package context — how ComfyUI loads custom node packs
         _load_atmosphere,
         _pick_flourish,
         _filter_by_genre,
+        _stage_characters,
     )
 except ImportError:  # standalone — test harness / direct exec
     from scene_context_node import (  # noqa: F811
@@ -56,6 +57,7 @@ except ImportError:  # standalone — test harness / direct exec
         _load_atmosphere,
         _pick_flourish,
         _filter_by_genre,
+        _stage_characters,
     )
 
 COMPOSITION_PATH = os.path.join(
@@ -102,7 +104,20 @@ class SceneContextComposer:
                 "composition": ([RANDOM, NONE_OPT] + comp_keys, {"default": RANDOM,
                     "tooltip": "Framing axis. random: follow the situation's scene_type_bias. none: emit no framing phrase."}),
                 "seed": ("INT", {"default": 42, "min": 0, "max": 2**32 - 1}),
-            }
+            },
+            "optional": {
+                f"character_{i}": ("STRING", {
+                    "forceInput": True,
+                    "tooltip": (
+                        "Wire a character description. Placement is staged "
+                        "automatically (left/center/right by cast size). "
+                        "Soft cap: 4."
+                        if i == 1 else
+                        "Additional character. Leave unwired to drop."
+                    ),
+                })
+                for i in range(1, 5)
+            },
         }
 
     RETURN_TYPES = ("STRING", "STRING", "STRING", "INT")
@@ -110,7 +125,7 @@ class SceneContextComposer:
     FUNCTION = "compose"
     CATEGORY = "SceneGen"
 
-    def compose(self, genre, genre2, tone, setting, composition, seed):
+    def compose(self, genre, genre2, tone, setting, composition, seed, **kwargs):
         rng = random.Random(seed)
         settings = _load_settings()
         tones = _load_tones()
@@ -173,9 +188,14 @@ class SceneContextComposer:
         modifier = rng.choice(tones[tone_key]["modifiers"])
         flourish = _pick_flourish(_load_atmosphere(), situation, rng)
 
-        context_text = (
-            f"{chosen['subject_label']}, {situation['text']}, {modifier}, {flourish}"
-        )
+        chars = [kwargs.get(f"character_{i}") or "" for i in (1, 2, 3, 4)]
+        staging = _stage_characters(chars, rng)
+
+        parts = [chosen['subject_label'], situation['text'], modifier]
+        if staging:
+            parts.append(staging)
+        parts.append(flourish)
+        context_text = ", ".join(parts)
 
         comp_pool = _load_composition()
         comp_key = ""
@@ -219,6 +239,7 @@ class SceneContextComposer:
             "tone": tone_key,
             "tone_modifier": modifier,
             "atmosphere": flourish,
+            "characters_staged": staging,
             "env": situation.get("env", ""),
             "composition": comp_key,
             "composition_phrase": comp_phrase,

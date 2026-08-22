@@ -22,6 +22,7 @@ CONTEXT_DIR = os.path.join(os.path.dirname(__file__), "scene_context")
 SETTINGS_DIR = os.path.join(CONTEXT_DIR, "settings")
 TONES_PATH = os.path.join(CONTEXT_DIR, "tones.json")
 ATMOSPHERE_PATH = os.path.join(CONTEXT_DIR, "atmosphere.json")
+CHARACTER_SLOTS_PATH = os.path.join(CONTEXT_DIR, "character_slots.json")
 
 RANDOM = "🎲 random"
 NONE_OPT = "none"
@@ -29,7 +30,7 @@ NONE_OPT = "none"
 GENRE_OPTIONS = [RANDOM, "historical", "modern", "sci_fi", "fantasy"]
 GENRE2_OPTIONS = [NONE_OPT, RANDOM, "historical", "modern", "sci_fi", "fantasy"]
 
-_CACHE = {"settings": None, "tones": None, "atmosphere": None}
+_CACHE = {"settings": None, "tones": None, "atmosphere": None, "character_slots": None}
 
 # Environmental tag contract: a situation that embeds a weather claim
 # declares `env`, and the atmosphere roll respects it. Untagged situations
@@ -113,6 +114,32 @@ def _pick_flourish(atmosphere, situation, rng):
     return rng.choice(outdoor)["text"]
 
 
+def _load_character_slots():
+    if _CACHE["character_slots"] is None:
+        with open(CHARACTER_SLOTS_PATH, encoding="utf-8") as f:
+            _CACHE["character_slots"] = json.load(f)["placements"]
+    return _CACHE["character_slots"]
+
+
+def _stage_characters(chars, rng):
+    """Turn a list of character descriptions into one staging phrase,
+    or "" when no characters are supplied. Placement templates scale
+    with the cast size (1..4, soft cap — diffusion muddies past ~3
+    named subjects). Register: lateral/relational only, photograph
+    staging; scale/framing language belongs to the layout layer."""
+    chars = [
+        c.replace("\n", " ").strip().rstrip(".")
+        for c in chars
+        if isinstance(c, str) and c.strip()
+    ]
+    if not chars:
+        return ""
+    n = min(len(chars), 4)
+    chars = chars[:n]
+    template = rng.choice(_load_character_slots()[str(n)])
+    return template.format(**{f"c{i + 1}": chars[i] for i in range(n)})
+
+
 def _setting_names():
     names = sorted(_load_settings().keys())
     return names or ["pirate_ship"]
@@ -148,7 +175,21 @@ class SceneContextPicker:
                 "setting": ([RANDOM] + _setting_names(), {"default": RANDOM,
                     "tooltip": "Force a specific setting, or let Genre(s) filter randomly."}),
                 "seed": ("INT", {"default": 42, "min": 0, "max": 2**32 - 1}),
-            }
+            },
+            "optional": {
+                f"character_{i}": ("STRING", {
+                    "forceInput": True,
+                    "tooltip": (
+                        "Wire a character description ('a fisher in a yellow "
+                        "slicker'). Placement is staged automatically — "
+                        "left/center/right per cast size. Soft cap: 4; "
+                        "beyond that, extras are ignored."
+                        if i == 1 else
+                        "Additional character. Leave unwired to drop."
+                    ),
+                })
+                for i in range(1, 5)
+            },
         }
 
     RETURN_TYPES = ("STRING", "STRING", "STRING", "STRING", "INT")
@@ -156,7 +197,7 @@ class SceneContextPicker:
     FUNCTION = "generate"
     CATEGORY = "SceneGen"
 
-    def generate(self, genre, genre2, tone, setting, seed):
+    def generate(self, genre, genre2, tone, setting, seed, **kwargs):
         rng = random.Random(seed)
         settings = _load_settings()
         tones = _load_tones()
@@ -176,7 +217,14 @@ class SceneContextPicker:
 
         flourish = _pick_flourish(atmosphere, situation, rng)
 
-        context_text = f"{chosen_setting['subject_label']}, {situation['text']}, {modifier}, {flourish}"
+        chars = [kwargs.get(f"character_{i}") or "" for i in (1, 2, 3, 4)]
+        staging = _stage_characters(chars, rng)
+
+        parts = [chosen_setting['subject_label'], situation['text'], modifier]
+        if staging:
+            parts.append(staging)
+        parts.append(flourish)
+        context_text = ", ".join(parts)
         scene_type_suggestion = situation.get("scene_type_bias", "")
 
         return (context_text, scene_type_suggestion, chosen_setting["name"], chosen_tone_key, seed)
