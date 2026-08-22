@@ -132,3 +132,15 @@ Every one of these was caught through the test-feedback loop, not through code r
 **Ellie's review:** the same scrutiny she'd give her own work — ran the test harness, checked every `scene_type_bias` value against the real template directories, verified the wiring points against SceneGenerator's actual inputs. One real bug caught before it shipped (the zip's flat layout didn't match the paths the node expects). Best idea in the design: situations carrying a composition bias — a content→composition link the scenario system lacked.
 
 **Why it matters:** first contribution to the pack from outside the partnership — and the review loop held. Nothing merged unreviewed, and the new node follows the two-axis architecture instead of fighting it.
+
+---
+
+## Claude's Expansion Batch 1: Venue Pool (2026-08-22)
+
+**What happened:** Alexander relayed Claude's response to `EXPANSION-BRIEF.md` — five new venue JSONs (fishing_village, lighthouse, dockside_market, smugglers_cove, naval_frigate — 8 situations each) plus a fix to cruise_ship's `boarding` situation (pirate copy-paste heritage: `violent_capable`→`calm_capable`, `face_off`→`gathering`) and a beyond-relabel `man_overboard` addition, both explicitly flagged in SUMMARY.md.
+
+**Ellie's review:** schema validation across all six files, the pack's test harness (composer/context/layout — all green), Claude's coverage_audit.py run against the staged merge (8 venues, 59 situations, every genre × archetype × tone join ≥2), and manual register checks against the idioms-that-render-literally lesson from the image audits. Verdict: pass, no text edits requested. All five venues slotted into existing `coastal` and `nautical_vessel` archetypes — no new facet tags, no shared-axis changes smuggled in with the venue data.
+
+**Deploy:** Alexander's go → committed `a2fc4c8`, pushed, copied to the live pack, ComfyUI restarted. Atmosphere proposal (preposition-led rewrite + one storm flourish) applied with his approval. Smoke render from `lighthouse` verified end-to-end: lamp-room tending scene, composed context, oglafstyle linework.
+
+**Review-loop lesson:** the one genuine snag was Ellie's own smoke workflow, not Claude's batch — the baseline `krea2_gen_basic.json` carries a vestigial `text` field on node 423 that `YANC MultilineString` silently ignores (its real input is `string`), so a prompt written to `text` renders whatever `string` last held. First render came back as Alexander's morning fox-in-a-data-center test. `object_info` is the authority on real input fields; lesson recorded in TOOLS.md.
