@@ -1,0 +1,84 @@
+{
+  "face_shapes": [
+    "a broad weathered face",
+    "a narrow watchful face",
+    "a round open face",
+    "a long angular face",
+    "a square face",
+    "a soft-featured face"
+  ],
+  "hair": [
+    "grey-streaked hair pulled back tight",
+    "close-cropped dark hair",
+    "wind-scattered blond hair",
+    "shoulder-length black hair",
+    "hair shorn to stubble",
+    "a loose bun escaping at the edges",
+    "tight curls cropped short",
+    "iron-grey hair combed straight back",
+    "auburn hair cut blunt at the jaw"
+  ],
+  "eyes": [
+    "pale grey eyes",
+    "dark, unreadable eyes",
+    "sea-green eyes",
+    "tired brown eyes",
+    "sharp blue eyes",
+    "warm hazel eyes"
+  ],
+  "marks": [
+    "a healed scar through one eyebrow",
+    "a missing finger on the left hand",
+    "ink-stained knuckles",
+    "a burn scar along the forearm",
+    "a chipped front tooth",
+    "deep laugh lines",
+    "a notched ear",
+    "freckles across the nose and cheeks"
+  ],
+  "face_detail": [
+    "high cheekbones and a broken nose",
+    "a strong jaw",
+    "thin lips pressed flat",
+    "crow's feet at the corners of the eyes",
+    "a nose bent from old breaks",
+    "heavy brows",
+    "hollow cheeks"
+  ],
+  "build": [
+    "broad-shouldered",
+    "wiry",
+    "heavyset",
+    "tall and spare",
+    "compact",
+    "rangy"
+  ],
+  "demeanor": [
+    "weary but alert",
+    "watchful",
+    "unhurried",
+    "tightly wound",
+    "easygoing",
+    "flint-eyed",
+    "quietly amused"
+  ],
+  "postures": [
+    "weight sunk into one hip",
+    "rigid, shoulders fixed",
+    "coiled forward on the balls of the feet",
+    "open, arms loose at the sides",
+    "closed, shoulders rounded inward",
+    "sprawled, limbs at odd angles",
+    "upright and formal, chin level",
+    "hunched, head dropped forward"
+  ],
+  "positions": [
+    "on the near side of the frame",
+    "at the far side of the frame",
+    "a step behind the others",
+    "half a pace ahead",
+    "at the edge of the group",
+    "off to the left",
+    "off to the right"
+  ]
+}

@@ -104,6 +104,10 @@ class SceneContextComposer:
                 "composition": ([RANDOM, NONE_OPT] + comp_keys, {"default": RANDOM,
                     "tooltip": "Framing axis. random: follow the situation's scene_type_bias. none: emit no framing phrase."}),
                 "seed": ("INT", {"default": 42, "min": 0, "max": 2**32 - 1}),
+                "pose": ("BOOLEAN", {"default": False,
+                    "tooltip": "Append a posture phrase to each staged character (static stance register). The Scene Character Roller has the same toggle — if both fire, doubled cues are yours."}),
+                "positioning": ("BOOLEAN", {"default": False,
+                    "tooltip": "Drop the placement templates; each staged character gets its own position phrase. Off = template staging, the default."}),
             },
             "optional": {
                 f"character_{i}": ("STRING", {
@@ -125,7 +129,7 @@ class SceneContextComposer:
     FUNCTION = "compose"
     CATEGORY = "SceneGen"
 
-    def compose(self, genre, genre2, tone, setting, composition, seed, **kwargs):
+    def compose(self, genre, genre2, tone, setting, composition, seed, pose=False, positioning=False, **kwargs):
         rng = random.Random(seed)
         settings = _load_settings()
         tones = _load_tones()
@@ -189,7 +193,7 @@ class SceneContextComposer:
         flourish = _pick_flourish(_load_atmosphere(), situation, rng)
 
         chars = [kwargs.get(f"character_{i}") or "" for i in (1, 2, 3, 4)]
-        staging = _stage_characters(chars, rng)
+        staging = _stage_characters(chars, rng, pose=pose, positioning=positioning)
 
         parts = [chosen['subject_label'], situation['text'], modifier]
         if staging:
@@ -240,6 +244,8 @@ class SceneContextComposer:
             "tone_modifier": modifier,
             "atmosphere": flourish,
             "characters_staged": staging,
+            "pose": pose,
+            "positioning": positioning,
             "env": situation.get("env", ""),
             "composition": comp_key,
             "composition_phrase": comp_phrase,

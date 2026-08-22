@@ -23,6 +23,7 @@ SETTINGS_DIR = os.path.join(CONTEXT_DIR, "settings")
 TONES_PATH = os.path.join(CONTEXT_DIR, "tones.json")
 ATMOSPHERE_PATH = os.path.join(CONTEXT_DIR, "atmosphere.json")
 CHARACTER_SLOTS_PATH = os.path.join(CONTEXT_DIR, "character_slots.json")
+FEATURES_PATH = os.path.join(CONTEXT_DIR, "character_features.json")
 
 RANDOM = "🎲 random"
 NONE_OPT = "none"
@@ -30,7 +31,7 @@ NONE_OPT = "none"
 GENRE_OPTIONS = [RANDOM, "historical", "modern", "sci_fi", "fantasy"]
 GENRE2_OPTIONS = [NONE_OPT, RANDOM, "historical", "modern", "sci_fi", "fantasy"]
 
-_CACHE = {"settings": None, "tones": None, "atmosphere": None, "character_slots": None}
+_CACHE = {"settings": None, "tones": None, "atmosphere": None, "character_slots": None, "features": None}
 
 # Environmental tag contract: a situation that embeds a weather claim
 # declares `env`, and the atmosphere roll respects it. Untagged situations
@@ -117,16 +118,46 @@ def _pick_flourish(atmosphere, situation, rng):
 def _load_character_slots():
     if _CACHE["character_slots"] is None:
         with open(CHARACTER_SLOTS_PATH, encoding="utf-8") as f:
-            _CACHE["character_slots"] = json.load(f)["placements"]
+            _CACHE["character_slots"] = json.load(f)
     return _CACHE["character_slots"]
 
 
-def _stage_characters(chars, rng):
+def _load_features():
+    if _CACHE["features"] is None:
+        with open(FEATURES_PATH, encoding="utf-8") as f:
+            _CACHE["features"] = json.load(f)
+    return _CACHE["features"]
+
+
+def _decorate_cast(chars, rng, pool_key):
+    """Attach a phrase from a feature pool to each figure — no repeats
+    within the cast when the pool allows it."""
+    feats = _load_features()[pool_key]
+    picks = (
+        rng.sample(feats, len(chars))
+        if len(chars) <= len(feats)
+        else [rng.choice(feats) for _ in chars]
+    )
+    return [
+        f"{c}, {p}" if p not in c else c
+        for c, p in zip(chars, picks)
+    ]
+
+
+def _stage_characters(chars, rng, pose=False, positioning=False):
     """Turn a list of character descriptions into one staging phrase,
     or "" when no characters are supplied. Placement templates scale
     with the cast size (1..4, soft cap — diffusion muddies past ~3
     named subjects). Register: lateral/relational only, photograph
-    staging; scale/framing language belongs to the layout layer."""
+    staging; scale/framing language belongs to the layout layer.
+
+    pose=True appends a static posture phrase to each figure (from
+    character_features.json). positioning=True hands scene placement to
+    stochastic per-figure position phrases instead of the placement
+    templates — the "bare" template set keeps sentence structure without
+    adding its own placement language. The Scene Character Roller
+    carries the same toggles; if both fire somewhere, the doubled cue
+    is the user's call. Sometimes the composition works itself out."""
     chars = [
         c.replace("\n", " ").strip().rstrip(".")
         for c in chars
@@ -136,7 +167,19 @@ def _stage_characters(chars, rng):
         return ""
     n = min(len(chars), 4)
     chars = chars[:n]
-    template = rng.choice(_load_character_slots()[str(n)])
+
+    if pose:
+        chars = _decorate_cast(chars, rng, "postures")
+    if positioning:
+        chars = _decorate_cast(chars, rng, "positions")
+        bare = _load_character_slots().get("bare", {})
+        template = (
+            rng.choice(bare[str(n)]) if str(n) in bare
+            else "; ".join(f"{{c{i + 1}}}" for i in range(n))
+        )
+        return template.format(**{f"c{i + 1}": chars[i] for i in range(n)})
+
+    template = rng.choice(_load_character_slots()["placements"][str(n)])
     return template.format(**{f"c{i + 1}": chars[i] for i in range(n)})
 
 
@@ -175,6 +218,10 @@ class SceneContextPicker:
                 "setting": ([RANDOM] + _setting_names(), {"default": RANDOM,
                     "tooltip": "Force a specific setting, or let Genre(s) filter randomly."}),
                 "seed": ("INT", {"default": 42, "min": 0, "max": 2**32 - 1}),
+                "pose": ("BOOLEAN", {"default": False,
+                    "tooltip": "Append a posture phrase to each staged character (static stance register). The Scene Character Roller has the same toggle — if both fire, doubled cues are yours."}),
+                "positioning": ("BOOLEAN", {"default": False,
+                    "tooltip": "Drop the placement templates; each staged character gets its own position phrase. Off = template staging, the default."}),
             },
             "optional": {
                 f"character_{i}": ("STRING", {
@@ -197,7 +244,7 @@ class SceneContextPicker:
     FUNCTION = "generate"
     CATEGORY = "SceneGen"
 
-    def generate(self, genre, genre2, tone, setting, seed, **kwargs):
+    def generate(self, genre, genre2, tone, setting, seed, pose=False, positioning=False, **kwargs):
         rng = random.Random(seed)
         settings = _load_settings()
         tones = _load_tones()
@@ -218,7 +265,7 @@ class SceneContextPicker:
         flourish = _pick_flourish(atmosphere, situation, rng)
 
         chars = [kwargs.get(f"character_{i}") or "" for i in (1, 2, 3, 4)]
-        staging = _stage_characters(chars, rng)
+        staging = _stage_characters(chars, rng, pose=pose, positioning=positioning)
 
         parts = [chosen_setting['subject_label'], situation['text'], modifier]
         if staging:

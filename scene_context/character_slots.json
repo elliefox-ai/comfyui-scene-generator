@@ -26,5 +26,12 @@
       "{c1} nearest the camera, {c2} beside them, {c3} and {c4} deeper in the frame",
       "spread across the frame: {c1} at the far left, {c2} at the center left, {c3} at the center right, {c4} at the far right"
     ]
+  },
+  "bare": {
+    "_doc": "Positioning-mode templates: sentence structure only, no placement language of their own — each character carries its own position phrase (scene-side positioning toggle / character roller).",
+    "1": ["{c1}"],
+    "2": ["{c1}; beside them, {c2}", "{c1}; {c2}"],
+    "3": ["{c1}; with them, {c2}; and {c3}", "{c1}; {c2}; {c3}"],
+    "4": ["{c1}; {c2}; {c3}; {c4}"]
   }
 }
