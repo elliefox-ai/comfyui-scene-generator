@@ -1,0 +1,233 @@
+{
+ "5": {
+  "inputs": {
+   "vae_name": "qwen_image_vae.safetensors"
+  },
+  "class_type": "VAELoader",
+  "_meta": {
+   "title": "Load VAE"
+  }
+ },
+ "6": {
+  "inputs": {
+   "text": [
+    "422",
+    0
+   ],
+   "clip": [
+    "374",
+    0
+   ]
+  },
+  "class_type": "CLIPTextEncode",
+  "_meta": {
+   "title": "CLIP Text Encode (Prompt)"
+  }
+ },
+ "8": {
+  "inputs": {
+   "seed": [
+    "222",
+    0
+   ],
+   "steps": 8,
+   "cfg": 1,
+   "sampler_name": "euler",
+   "scheduler": "simple",
+   "denoise": 1,
+   "model": [
+    "355",
+    0
+   ],
+   "positive": [
+    "6",
+    0
+   ],
+   "negative": [
+    "218",
+    0
+   ],
+   "latent_image": [
+    "9",
+    0
+   ]
+  },
+  "class_type": "KSampler",
+  "_meta": {
+   "title": "KSampler"
+  }
+ },
+ "9": {
+  "inputs": {
+   "width": [
+    "376",
+    0
+   ],
+   "height": [
+    "376",
+    1
+   ],
+   "batch_size": 1
+  },
+  "class_type": "EmptyLatentImage",
+  "_meta": {
+   "title": "Empty Latent Image"
+  }
+ },
+ "10": {
+  "inputs": {
+   "samples": [
+    "8",
+    0
+   ],
+   "vae": [
+    "5",
+    0
+   ]
+  },
+  "class_type": "VAEDecode",
+  "_meta": {
+   "title": "VAE Decode"
+  }
+ },
+ "218": {
+  "inputs": {
+   "conditioning": [
+    "6",
+    0
+   ]
+  },
+  "class_type": "ConditioningZeroOut",
+  "_meta": {
+   "title": "Conditioning Zero Out"
+  }
+ },
+ "222": {
+  "inputs": {
+   "seed": 538166724480574
+  },
+  "class_type": "Seed (rgthree)",
+  "_meta": {
+   "title": "Seed (rgthree)"
+  }
+ },
+ "355": {
+  "inputs": {
+   "unet_name": "_Krea2\\sickOllieKrea2GGUF_v10.gguf"
+  },
+  "class_type": "UnetLoaderGGUF",
+  "_meta": {
+   "title": "Unet Loader (GGUF)"
+  }
+ },
+ "358": {
+  "inputs": {
+   "images": [
+    "10",
+    0
+   ]
+  },
+  "class_type": "PreviewImage",
+  "_meta": {
+   "title": "Preview Image"
+  }
+ },
+ "374": {
+  "inputs": {
+   "clip_name": "qwen3vl_4b_fp8_scaled.safetensors",
+   "type": "krea2",
+   "device": "default"
+  },
+  "class_type": "CLIPLoader",
+  "_meta": {
+   "title": "Load CLIP"
+  }
+ },
+ "376": {
+  "inputs": {
+   "aspect_ratio": "4:3 (Standard)",
+   "megapixels": 1,
+   "multiple": 8
+  },
+  "class_type": "ResolutionSelector",
+  "_meta": {
+   "title": "Resolution Selector"
+  }
+ },
+ "422": {
+  "inputs": {
+   "string_a": [
+    "502",
+    1
+   ],
+   "string_b": "",
+   "delimiter": ""
+  },
+  "class_type": "StringConcatenate",
+  "_meta": {
+   "title": "Concatenate Text"
+  }
+ },
+ "423": {
+  "inputs": {
+   "string": "High-def, real, enhanced realism color, saturated color detail. Wide shot, with establishing details. A red fox curled up fast asleep on a nest of tangled network cables atop a warm server rack in a dim data center, rows of blinking status LEDs and cool blue aisle lighting, the fox's fur glowing amber from indicator lights, endless racks receding into darkness behind. A cozy intrusion of the natural world into the machine world. No text, no captions, fully diegetic scene."
+  },
+  "class_type": "YANC.MultilineString",
+  "_meta": {
+   "title": "Subject"
+  }
+ },
+ "500": {
+  "inputs": {
+   "string": "a mountain guide in a patched parka"
+  },
+  "class_type": "YANC.MultilineString",
+  "_meta": {
+   "title": "Character 1"
+  }
+ },
+ "501": {
+  "inputs": {
+   "string": "her client, a city clerk in borrowed boots"
+  },
+  "class_type": "YANC.MultilineString",
+  "_meta": {
+   "title": "Character 2"
+  }
+ },
+ "502": {
+  "inputs": {
+   "genre": "🎲 random",
+   "genre2": "none",
+   "tone": "🎲 random",
+   "setting": "mountain_waystation",
+   "composition": "🎲 random",
+   "seed": 42,
+   "character_1": [
+    "500",
+    0
+   ],
+   "character_2": [
+    "501",
+    0
+   ]
+  },
+  "class_type": "SceneContextComposer",
+  "_meta": {
+   "title": "Composer (char smoke)"
+  }
+ },
+ "503": {
+  "inputs": {
+   "images": [
+    "10",
+    0
+   ],
+   "filename_prefix": "smoke_chars_indoor"
+  },
+  "class_type": "SaveImage",
+  "_meta": {
+   "title": "Save Smoke"
+  }
+ }
+}
