@@ -10,6 +10,7 @@ Run:
     python3 test_character_roller.py --genre fantasy --consistency 1.0
     python3 test_character_roller.py --detail high --role healer
     python3 test_character_roller.py --name Abigail --pose
+    python3 test_character_roller.py --age older --sex female --race black
 """
 
 import argparse
@@ -32,17 +33,26 @@ def main():
     p.add_argument("--pose", action="store_true")
     p.add_argument("--positioning", action="store_true")
     p.add_argument("--seed", type=int, default=42)
+    p.add_argument("--age", default=RANDOM)
+    p.add_argument("--sex", default=RANDOM)
+    p.add_argument("--race", default=RANDOM)
     args = p.parse_args()
 
     roller = SceneCharacterRoller()
     text, cj_raw, seed = roller.roll(
         args.genre, args.consistency, args.detail, args.role,
         args.name, args.pose, args.positioning, args.seed,
+        args.age, args.sex, args.race,
     )
     cj = json.loads(cj_raw)
+    ident = cj["identity"]
     print(f"— character roll: genre={cj['genre']}{' (rolled)' if cj['genre_random'] else ''}"
           f"  target={cj['target_family']}  consistency={args.consistency}"
           f"  detail={args.detail}  role={args.role}  seed={args.seed} —")
+    print(f"  identity: {ident['phrase']}"
+          f"  (age {'🎲' if ident['age_random'] else 'set'},"
+          f" sex {'🎲' if ident['sex_random'] else 'set'},"
+          f" race {'🎲' if ident['race_random'] else 'set'})")
     print()
     print(text)
     print()

@@ -1,66 +1,73 @@
 {
+  "_doc": "Character feature banks. Identity pools (face_shapes, hair, eyes, marks, face_detail, build, demeanor) hold objects: {text, age?, sex?, race?}. Tags are SOFT AFFINITIES, never filters — draws are weighted 4 (match) / 2 (untagged) / 1 (mismatch) per axis and multiplied across axes: one stated identity, individually exclusive details, tiny randomization in every draw. The identity itself (age/sex/race words) is stated once in the identity phrase by the roller. complexion is race-keyed phrases (drawn at detail=high). postures/positions are geometry, untagged strings. Expand the banks, not the code.",
   "face_shapes": [
-    "a broad weathered face",
-    "a narrow watchful face",
-    "a round open face",
-    "a long angular face",
-    "a square face",
-    "a soft-featured face"
+    {"text": "a broad weathered face", "age": "older"},
+    {"text": "a narrow watchful face"},
+    {"text": "a round open face", "age": "young"},
+    {"text": "a long angular face"},
+    {"text": "a square face"},
+    {"text": "a soft-featured face"}
   ],
   "hair": [
-    "grey-streaked hair pulled back tight",
-    "close-cropped dark hair",
-    "wind-scattered blond hair",
-    "shoulder-length black hair",
-    "hair shorn to stubble",
-    "a loose bun escaping at the edges",
-    "tight curls cropped short",
-    "iron-grey hair combed straight back",
-    "auburn hair cut blunt at the jaw"
+    {"text": "grey-streaked hair pulled back tight", "age": "older"},
+    {"text": "close-cropped dark hair"},
+    {"text": "wind-scattered blond hair", "age": "young"},
+    {"text": "shoulder-length black hair"},
+    {"text": "hair shorn to stubble"},
+    {"text": "a loose bun escaping at the edges", "sex": "female"},
+    {"text": "tight curls cropped short", "race": "black"},
+    {"text": "iron-grey hair combed straight back", "age": "older"},
+    {"text": "auburn hair cut blunt at the jaw"},
+    {"text": "sun-bleached, tousled hair", "age": "young"},
+    {"text": "coily hair in a rounded afro", "race": "black"},
+    {"text": "long, pin-straight black hair", "race": "east_asian"}
   ],
   "eyes": [
-    "pale grey eyes",
-    "dark, unreadable eyes",
-    "sea-green eyes",
-    "tired brown eyes",
-    "sharp blue eyes",
-    "warm hazel eyes"
+    {"text": "pale grey eyes"},
+    {"text": "dark, unreadable eyes"},
+    {"text": "sea-green eyes"},
+    {"text": "tired brown eyes"},
+    {"text": "sharp blue eyes"},
+    {"text": "warm hazel eyes"}
   ],
   "marks": [
-    "a healed scar through one eyebrow",
-    "a missing finger on the left hand",
-    "ink-stained knuckles",
-    "a burn scar along the forearm",
-    "a chipped front tooth",
-    "deep laugh lines",
-    "a notched ear",
-    "freckles across the nose and cheeks"
+    {"text": "a healed scar through one eyebrow"},
+    {"text": "a missing finger on the left hand"},
+    {"text": "ink-stained knuckles"},
+    {"text": "a burn scar along the forearm"},
+    {"text": "a chipped front tooth"},
+    {"text": "deep laugh lines", "age": "older"},
+    {"text": "a notched ear"},
+    {"text": "freckles across the nose and cheeks", "age": "young"},
+    {"text": "a scrape across the knuckles", "age": "young"}
   ],
   "face_detail": [
-    "high cheekbones and a broken nose",
-    "a strong jaw",
-    "thin lips pressed flat",
-    "crow's feet at the corners of the eyes",
-    "a nose bent from old breaks",
-    "heavy brows",
-    "hollow cheeks"
+    {"text": "high cheekbones and a broken nose"},
+    {"text": "a strong jaw"},
+    {"text": "thin lips pressed flat"},
+    {"text": "crow's feet at the corners of the eyes", "age": "older"},
+    {"text": "a nose bent from old breaks", "age": "older"},
+    {"text": "heavy brows"},
+    {"text": "hollow cheeks"},
+    {"text": "a smooth, unlined brow", "age": "young"},
+    {"text": "soft round cheeks", "age": "young"}
   ],
   "build": [
-    "broad-shouldered",
-    "wiry",
-    "heavyset",
-    "tall and spare",
-    "compact",
-    "rangy"
+    {"text": "broad-shouldered"},
+    {"text": "wiry"},
+    {"text": "heavyset"},
+    {"text": "tall and spare"},
+    {"text": "compact"},
+    {"text": "rangy"}
   ],
   "demeanor": [
-    "weary but alert",
-    "watchful",
-    "unhurried",
-    "tightly wound",
-    "easygoing",
-    "flint-eyed",
-    "quietly amused"
+    {"text": "weary but alert"},
+    {"text": "watchful"},
+    {"text": "unhurried"},
+    {"text": "tightly wound"},
+    {"text": "easygoing"},
+    {"text": "flint-eyed"},
+    {"text": "quietly amused"}
   ],
   "postures": [
     "weight sunk into one hip",
@@ -80,5 +87,14 @@
     "at the edge of the group",
     "off to the left",
     "off to the right"
-  ]
+  ],
+  "complexion": {
+    "black": ["deep brown skin", "dark umber skin", "warm brown skin"],
+    "white": ["pale skin", "fair, sun-reddened skin", "ruddy fair skin"],
+    "east_asian": ["light golden skin", "fair, golden-toned skin"],
+    "south_asian": ["warm brown skin", "deep golden-brown skin"],
+    "latino": ["golden brown skin", "warm tan skin"],
+    "middle_eastern": ["olive skin", "warm tan skin"],
+    "indigenous": ["ruddy brown skin", "deep tan skin"]
+  }
 }

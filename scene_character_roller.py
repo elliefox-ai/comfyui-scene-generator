@@ -13,25 +13,35 @@ Axes:
         genres across the cast when the era must be shared (🎲 per
         node rolls independently: cross-era casts by design, or wire
         a shared source once one exists).
+    Identity (age / sex / race, each 🎲 by default) — one stated
+        identity per figure, stated ONCE in the identity phrase
+        ("an older Black woman") and never repeated from the banks.
+        🎲 rolls the axis, then weights every feature draw toward the
+        rolled value — soft affinity, never a filter: tagged matches
+        draw 4×, untagged entries 2×, mismatches 1×. Consistent but
+        individually exclusive — the tiny randomization that lets a
+        fixed "older" still draw the occasional unlined brow.
     Consistency (0..1) — how much this character honors the genre's
         substyle, per garment. 1 = full coherence: one outfit family
         head to toe, one palette, family concept. 0 = random character
         style: every piece rolls independently (a FIRM genre still
         binds pieces to the era — mismatch happens *within* it, never
         across it). Between = mostly-family with wandering pieces.
-    Detail — low = wide-shot legible (face shape, hair, eyes, maybe
-        one discriminating mark; outer layer + palette). high = the
-        portrait ladder, sampled and never enumerated ("full detail
-        doesn't mean listing each and every feature").
+    Detail — low = wide-shot legible (identity phrase, outer layer +
+        palette, face shape, hair, eyes, maybe one mark). high = the
+        portrait ladder plus a complexion phrase, sampled and never
+        enumerated ("full detail doesn't mean listing each and every
+        feature").
     Role — genre-agnostic social function (leader / warrior / healer /
         ...), the character-side analogue of the setting archetypes.
         Filters concept banks; falls back to the full bank on empty
         join. The role NAME stays portable (leader, not mayor); genre
         flavor lives in the bank entries.
 
-Name: a single optional string — "Abigail, a weathered sea captain in
-a heavy oilskin coat". A binding handle for the renderer (the
-randomizer's `xxxx` substitution, promoted to a field).
+Name: a single optional string — "Abigail, an older white woman, a
+weathered sea captain in a heavy oilskin coat". A binding handle for
+the renderer (the randomizer's `xxxx` substitution, promoted to a
+field).
 
 Pose / positioning toggles (default off): bake a posture / position
 phrase into the character string. The scene nodes carry the same
@@ -40,8 +50,9 @@ Sometimes the composition works itself out.
 
 Banks live in scene_context/ — character_wardrobe.json (families:
 genre tag, layer grammar, palettes, wear states, role-tagged concepts)
-and character_features.json (faces, hair, eyes, marks, build,
-demeanor, postures, positions). Expand the banks, not the code.
+and character_features.json (identity-tagged faces, hair, eyes, marks,
+build, demeanor; postures/positions; race-keyed complexion). Expand
+the banks, not the code.
 
 Outputs:
     character        one description string
@@ -90,8 +101,66 @@ def _role_options():
     return ["any"] + roles
 
 
+# --- Identity -----------------------------------------------------------
+
+AGE_OPTIONS = [RANDOM, "young adult", "middle-aged", "older"]
+SEX_OPTIONS = [RANDOM, "female", "male"]
+RACE_OPTIONS = [
+    RANDOM, "white", "black", "east_asian", "south_asian",
+    "latino", "middle_eastern", "indigenous",
+]
+
+# Dropdown vocabulary -> descriptive register. Stated once, never raw.
+_AGE_PHRASE = {"young adult": "young", "middle-aged": "middle-aged", "older": "older"}
+_SEX_PHRASE = {"female": "woman", "male": "man"}
+_RACE_PHRASE = {
+    "white": "white", "black": "Black", "east_asian": "East Asian",
+    "south_asian": "South Asian", "latino": "Latino",
+    "middle_eastern": "Middle Eastern", "indigenous": "Indigenous",
+}
+
+IDENTITY_AXES = ("age", "sex", "race")
+
+
+def _resolve_axis(value, options, rng):
+    """🎲 rolls this axis; a fixed value passes through untouched."""
+    if value == RANDOM:
+        return rng.choice([o for o in options if o != RANDOM]), True
+    return value, False
+
+
+def _identity_phrase(identity):
+    parts = [
+        _AGE_PHRASE[identity["age"]],
+        _RACE_PHRASE[identity["race"]],
+        _SEX_PHRASE[identity["sex"]],
+    ]
+    article = "an" if parts[0][0].lower() in "aeiou" else "a"
+    return f"{article} {' '.join(parts)}"
+
+
+def _weighted(pool, identity, rng, w_match=4, w_untagged=2, w_mismatch=1):
+    """Soft-affinity draw: the stated identity WEIGHTS the pool, it
+    never filters it. Match 4× / untagged 2× / mismatch 1×, multiplied
+    across axes — consistent, but individually exclusive details stay
+    reachable. That reachability is the tiny randomization."""
+    weights = []
+    for entry in pool:
+        w = 1.0
+        for axis in IDENTITY_AXES:
+            tag = entry.get(axis)
+            if tag is None:
+                w *= w_untagged
+            elif tag == identity[axis]:
+                w *= w_match
+            else:
+                w *= w_mismatch
+        weights.append(w)
+    return rng.choices(pool, weights=weights, k=1)[0]
+
+
 class SceneCharacterRoller:
-    """Rolls one character: tagged wardrobe family, role concept,
+    """Rolls one character: identity phrase, tagged wardrobe family,
     sampled face anchors. Pure text — no renderer assumptions."""
 
     @classmethod
@@ -103,7 +172,7 @@ class SceneCharacterRoller:
                 "consistency": ("FLOAT", {"default": 0.7, "min": 0.0, "max": 1.0, "step": 0.05,
                     "tooltip": "How much this character honors the genre's substyle, garment by garment. 1 = full coherence: one outfit family head to toe, one palette. 0 = random character style: every piece rolls independently (firm genre keeps the mismatch within the era). Between = mostly-family with wandering pieces."}),
                 "detail": (["low", "high"], {"default": "low",
-                    "tooltip": "low = wide-shot legible: outer layer + palette, face shape, hair, eyes, maybe one mark — enough to read at distance without pulling the render into a close-up. high = portrait ladder (layers, wear, face architecture, build, demeanor), sampled — never the whole list."}),
+                    "tooltip": "low = wide-shot legible: identity phrase, outer layer + palette, face shape, hair, eyes, maybe one mark — enough to read at distance without pulling the render into a close-up. high = portrait ladder (layers, wear, face architecture, complexion, build, demeanor), sampled — never the whole list."}),
                 "role": (_role_options(), {"default": "any",
                     "tooltip": "Genre-agnostic social function. Filters the concept banks; a family with no matching concepts falls back to its full bank."}),
                 "name": ("STRING", {"default": "", "multiline": False,
@@ -113,6 +182,12 @@ class SceneCharacterRoller:
                 "positioning": ("BOOLEAN", {"default": False,
                     "tooltip": "Bake a position phrase into the character ('on the near side of the frame'). The scene nodes have the same toggle — if both fire, doubled placement is on you."}),
                 "seed": ("INT", {"default": 42, "min": 0, "max": 2**32 - 1}),
+                "age": (AGE_OPTIONS, {"default": RANDOM,
+                    "tooltip": "🎲 rolls this figure's age, then weights every feature draw toward it (soft affinity — never a filter; the occasional age-mismatched detail is the point). Stated once in the identity phrase: 'an older…'. Fixed values weight the pools the same way."}),
+                "sex": (SEX_OPTIONS, {"default": RANDOM,
+                    "tooltip": "🎲 rolls this figure's sex and weights feature draws toward it. Stated once in the identity phrase ('…woman' / '…man'). The wardrobe banks stay unisex — sex never gates garments."}),
+                "race": (RACE_OPTIONS, {"default": RANDOM,
+                    "tooltip": "Broad-stroke, descriptive register. 🎲 rolls this figure's race, weights feature draws toward it, and (at detail=high) adds a complexion phrase keyed to it. Dropdown values never enter the string raw — vocabulary maps through phrase banks, stated once."}),
             },
         }
 
@@ -122,10 +197,18 @@ class SceneCharacterRoller:
     CATEGORY = "SceneGen"
 
     def roll(self, genre, consistency, detail, role, name,
-             pose, positioning, seed):
+             pose, positioning, seed, age, sex, race):
         rng = random.Random(seed)
         families = _load_wardrobe()
         feats = _load_features()
+
+        # Draw order (documented for stability): identity first — who
+        # before when — then genre, then everything downstream.
+        age_res, age_rand = _resolve_axis(age, AGE_OPTIONS, rng)
+        sex_res, sex_rand = _resolve_axis(sex, SEX_OPTIONS, rng)
+        race_res, race_rand = _resolve_axis(race, RACE_OPTIONS, rng)
+        identity = {"age": age_res, "sex": sex_res, "race": race_res}
+        identity_phrase = _identity_phrase(identity)
 
         if genre == RANDOM:
             genre_resolved = rng.choice(
@@ -203,31 +286,36 @@ class SceneCharacterRoller:
             palette = rng.choice(fam["palettes"])
         sources["palette"] = pal_src
 
-        segs = [concept["text"], outfit, palette]
-
-        def maybe(pool_key, p, bucket):
+        def wmaybe(pool_key, p, bucket):
+            """Sample one feature: identity-weighted soft draw."""
             if rng.random() < p:
-                bucket.append(rng.choice(feats[pool_key]))
+                entry = _weighted(feats[pool_key], identity, rng)
+                bucket.append(entry["text"] if isinstance(entry, dict) else entry)
 
         face_bits = []
         if detail == "high":
-            maybe("face_shapes", 0.7, face_bits)
-            maybe("hair", 0.9, face_bits)
-            maybe("eyes", 0.8, face_bits)
-            maybe("marks", 0.6, face_bits)
+            wmaybe("face_shapes", 0.7, face_bits)
+            wmaybe("hair", 0.9, face_bits)
+            wmaybe("eyes", 0.8, face_bits)
             if rng.random() < 0.75:
-                face_bits.append(rng.choice(feats["face_detail"]))
+                # Complexion: the one hard-keyed draw — race selects its
+                # own phrase bank, descriptive register, never raw.
+                face_bits.append(rng.choice(feats["complexion"][race_res]))
+            wmaybe("marks", 0.6, face_bits)
+            if rng.random() < 0.75:
+                face_bits.append(rng.choice(feats["face_detail"])["text"])
                 if rng.random() < 0.35:
-                    face_bits.append(rng.choice(feats["face_detail"]))
-            maybe("build", 0.85, face_bits)
-            maybe("demeanor", 0.7, face_bits)
+                    face_bits.append(rng.choice(feats["face_detail"])["text"])
+            wmaybe("build", 0.85, face_bits)
+            wmaybe("demeanor", 0.7, face_bits)
         else:
             # wide-shot legible: shape, hair, eyes, maybe one mark
-            maybe("face_shapes", 0.9, face_bits)
-            maybe("hair", 0.9, face_bits)
-            maybe("eyes", 0.85, face_bits)
-            maybe("marks", 0.45, face_bits)
-        segs += face_bits
+            wmaybe("face_shapes", 0.9, face_bits)
+            wmaybe("hair", 0.9, face_bits)
+            wmaybe("eyes", 0.85, face_bits)
+            wmaybe("marks", 0.45, face_bits)
+
+        segs = [identity_phrase, concept["text"], outfit, palette] + face_bits
 
         posture = rng.choice(feats["postures"]) if pose else ""
         position = rng.choice(feats["positions"]) if positioning else ""
@@ -244,6 +332,12 @@ class SceneCharacterRoller:
         components = {
             "genre": genre_resolved,
             "genre_random": genre == RANDOM,
+            "identity": {
+                "age": age_res, "sex": sex_res, "race": race_res,
+                "age_random": age_rand, "sex_random": sex_rand,
+                "race_random": race_rand,
+                "phrase": identity_phrase,
+            },
             "target_family": target_id,
             "consistency": consistency,
             "detail": detail,
