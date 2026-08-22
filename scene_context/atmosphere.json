@@ -1,11 +1,36 @@
 {
   "flourishes": [
-    {"text": "sunny day", "env": "clear"},
-    {"text": "beneath overcast skies", "env": "overcast"},
-    {"text": "under a blood-orange sunset", "env": "neutral"},
-    {"text": "in the dead of night", "env": "neutral"},
-    {"text": "in the pale light of early morning", "env": "neutral"},
-    {"text": "under a bright midday sun", "env": "clear"},
-    {"text": "beneath driving rain and storm-lit skies", "env": "storm"}
+    {
+      "text": "under a clear blue sky",
+      "env": "clear"
+    },
+    {
+      "text": "beneath overcast skies",
+      "env": "overcast"
+    },
+    {
+      "text": "under a blood-orange sunset",
+      "env": "neutral"
+    },
+    {
+      "text": "in the dead of night",
+      "env": "neutral"
+    },
+    {
+      "text": "in the pale light of early morning",
+      "env": "neutral"
+    },
+    {
+      "text": "under a bright midday sun",
+      "env": "clear"
+    },
+    {
+      "text": "beneath driving rain and storm-lit skies",
+      "env": "storm"
+    },
+    {
+      "text": "beneath lightning-cracked storm clouds",
+      "env": "storm"
+    }
   ]
 }

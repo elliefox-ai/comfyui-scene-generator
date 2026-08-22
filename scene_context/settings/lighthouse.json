@@ -1,0 +1,90 @@
+{
+  "name": "lighthouse",
+  "subject_label": "a lighthouse keeper's household",
+  "genre_tags": [
+    "historical",
+    "modern",
+    "fantasy"
+  ],
+  "facet_tags": [
+    "sea",
+    "shore",
+    "small_crew"
+  ],
+  "situations": [
+    {
+      "id": "trimming_the_lamp",
+      "text": "trimming the wick and refilling the oil in the lamp room",
+      "tags": [
+        "labor",
+        "calm_capable"
+      ],
+      "scene_type_bias": "at_work"
+    },
+    {
+      "id": "storm_watch",
+      "text": "keeping watch over a ship struggling in heavy swells",
+      "tags": [
+        "nature",
+        "tense_capable"
+      ],
+      "scene_type_bias": "atmospheric",
+      "env": "storm"
+    },
+    {
+      "id": "logging_the_watch",
+      "text": "writing careful notes in the keeper's logbook by lamplight",
+      "tags": [
+        "labor",
+        "calm_capable"
+      ],
+      "scene_type_bias": "candid_moment"
+    },
+    {
+      "id": "cleaning_the_lens",
+      "text": "polishing the great glass lens with slow, careful strokes",
+      "tags": [
+        "labor",
+        "calm_capable"
+      ],
+      "scene_type_bias": "at_work"
+    },
+    {
+      "id": "supply_boat_arrives",
+      "text": "unloading crates and mail from a supply boat at the landing",
+      "tags": [
+        "social",
+        "calm_capable"
+      ],
+      "scene_type_bias": "gathering"
+    },
+    {
+      "id": "climbing_the_stairs",
+      "text": "climbing the spiral stairs with an armful of firewood",
+      "tags": [
+        "action",
+        "calm_capable"
+      ],
+      "scene_type_bias": "candid_moment"
+    },
+    {
+      "id": "signal_fire",
+      "text": "lighting a signal fire to warn ships off the rocks",
+      "tags": [
+        "action",
+        "tense_capable"
+      ],
+      "scene_type_bias": "atmospheric",
+      "env": "storm"
+    },
+    {
+      "id": "solitary_vigil",
+      "text": "standing alone at the gallery rail, staring out at the empty sea",
+      "tags": [
+        "nature",
+        "calm_capable"
+      ],
+      "scene_type_bias": "candid_moment"
+    }
+  ]
+}

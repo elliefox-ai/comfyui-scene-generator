@@ -1,0 +1,90 @@
+{
+  "name": "fishing_village",
+  "subject_label": "a fishing village community",
+  "genre_tags": [
+    "historical",
+    "modern",
+    "fantasy"
+  ],
+  "facet_tags": [
+    "sea",
+    "shore",
+    "small_crowd"
+  ],
+  "situations": [
+    {
+      "id": "hauling_nets",
+      "text": "hauling in nets heavy with the day's catch",
+      "tags": [
+        "labor",
+        "calm_capable"
+      ],
+      "scene_type_bias": "at_work"
+    },
+    {
+      "id": "mending_nets",
+      "text": "sitting together mending torn fishing nets",
+      "tags": [
+        "labor",
+        "calm_capable"
+      ],
+      "scene_type_bias": "close_group"
+    },
+    {
+      "id": "auctioning_catch",
+      "text": "haggling loudly over the price of the morning's catch",
+      "tags": [
+        "social",
+        "tense_capable"
+      ],
+      "scene_type_bias": "gathering"
+    },
+    {
+      "id": "storm_watch",
+      "text": "watching dark clouds roll in from the open water",
+      "tags": [
+        "nature",
+        "tense_capable"
+      ],
+      "scene_type_bias": "atmospheric",
+      "env": "storm"
+    },
+    {
+      "id": "boat_repair",
+      "text": "patching a cracked hull up on wooden trestles",
+      "tags": [
+        "labor",
+        "calm_capable"
+      ],
+      "scene_type_bias": "at_work"
+    },
+    {
+      "id": "festival_bonfire",
+      "text": "dancing and singing around a bonfire on the beach",
+      "tags": [
+        "social",
+        "calm_capable"
+      ],
+      "scene_type_bias": "gathering"
+    },
+    {
+      "id": "dispute_over_territory",
+      "text": "a heated argument breaking out over fishing grounds",
+      "tags": [
+        "social",
+        "tense_capable",
+        "violent_capable"
+      ],
+      "scene_type_bias": "face_off"
+    },
+    {
+      "id": "quiet_dawn_departure",
+      "text": "pushing small boats out into the pale light of dawn",
+      "tags": [
+        "action",
+        "calm_capable"
+      ],
+      "scene_type_bias": "candid_moment"
+    }
+  ]
+}

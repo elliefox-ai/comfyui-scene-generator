@@ -1,0 +1,91 @@
+{
+  "name": "smugglers_cove",
+  "subject_label": "a smuggling crew",
+  "genre_tags": [
+    "historical",
+    "modern",
+    "fantasy"
+  ],
+  "facet_tags": [
+    "sea",
+    "shore",
+    "small_crew"
+  ],
+  "situations": [
+    {
+      "id": "unloading_contraband",
+      "text": "unloading crates from a rowboat onto the rocks under cover of dark",
+      "tags": [
+        "labor",
+        "tense_capable"
+      ],
+      "scene_type_bias": "at_work"
+    },
+    {
+      "id": "hiding_the_cache",
+      "text": "stacking crates into a hidden sea cave",
+      "tags": [
+        "labor",
+        "calm_capable",
+        "tense_capable"
+      ],
+      "scene_type_bias": "at_work"
+    },
+    {
+      "id": "lookout_watch",
+      "text": "crouched on the cliff edge, watching for the lights of a patrol boat",
+      "tags": [
+        "action",
+        "tense_capable"
+      ],
+      "scene_type_bias": "atmospheric"
+    },
+    {
+      "id": "standoff_with_officers",
+      "text": "a tense standoff with customs officers, hands hovering near weapons",
+      "tags": [
+        "action",
+        "violent_capable",
+        "tense_capable"
+      ],
+      "scene_type_bias": "face_off"
+    },
+    {
+      "id": "counting_the_cut",
+      "text": "counting out coin on a barrelhead, dividing the shares",
+      "tags": [
+        "social",
+        "tense_capable"
+      ],
+      "scene_type_bias": "close_group"
+    },
+    {
+      "id": "repairing_the_landing_boat",
+      "text": "patching a small rowboat pulled up on the shingle",
+      "tags": [
+        "labor",
+        "calm_capable"
+      ],
+      "scene_type_bias": "at_work"
+    },
+    {
+      "id": "whispered_negotiation",
+      "text": "leaning close together, trading whispered terms with a buyer",
+      "tags": [
+        "social",
+        "tense_capable"
+      ],
+      "scene_type_bias": "close_group"
+    },
+    {
+      "id": "storm_run",
+      "text": "rowing hard for shore as a storm closes in over the water",
+      "tags": [
+        "nature",
+        "tense_capable"
+      ],
+      "scene_type_bias": "atmospheric",
+      "env": "storm"
+    }
+  ]
+}

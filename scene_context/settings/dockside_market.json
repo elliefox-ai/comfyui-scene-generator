@@ -1,0 +1,89 @@
+{
+  "name": "dockside_market",
+  "subject_label": "dockside market vendors and shoppers",
+  "genre_tags": [
+    "historical",
+    "modern",
+    "fantasy"
+  ],
+  "facet_tags": [
+    "sea",
+    "shore",
+    "crowd"
+  ],
+  "situations": [
+    {
+      "id": "weighing_goods",
+      "text": "weighing sacks of grain on a heavy iron scale",
+      "tags": [
+        "labor",
+        "calm_capable"
+      ],
+      "scene_type_bias": "at_work"
+    },
+    {
+      "id": "haggling_over_price",
+      "text": "arguing over the price of a crate of fresh fish",
+      "tags": [
+        "social",
+        "tense_capable"
+      ],
+      "scene_type_bias": "gathering"
+    },
+    {
+      "id": "unloading_cargo",
+      "text": "hauling crates off a moored ship onto the dock",
+      "tags": [
+        "labor",
+        "calm_capable"
+      ],
+      "scene_type_bias": "at_work"
+    },
+    {
+      "id": "street_performance",
+      "text": "gathering to watch a street performer juggling knives",
+      "tags": [
+        "social",
+        "calm_capable"
+      ],
+      "scene_type_bias": "gathering"
+    },
+    {
+      "id": "pickpocket_caught",
+      "text": "a shout going up as a pickpocket is caught red-handed",
+      "tags": [
+        "action",
+        "tense_capable"
+      ],
+      "scene_type_bias": "face_off"
+    },
+    {
+      "id": "cargo_inspection",
+      "text": "inspecting crates and papers at the customs table",
+      "tags": [
+        "labor",
+        "tense_capable"
+      ],
+      "scene_type_bias": "at_work"
+    },
+    {
+      "id": "foreign_traders",
+      "text": "foreign traders laying out unfamiliar goods on woven mats",
+      "tags": [
+        "social",
+        "calm_capable"
+      ],
+      "scene_type_bias": "gathering"
+    },
+    {
+      "id": "storm_scramble",
+      "text": "scrambling to cover market stalls as rain begins to fall",
+      "tags": [
+        "action",
+        "tense_capable"
+      ],
+      "scene_type_bias": "atmospheric",
+      "env": "storm"
+    }
+  ]
+}

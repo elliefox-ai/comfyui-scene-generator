@@ -1,0 +1,90 @@
+{
+  "name": "naval_frigate",
+  "subject_label": "a naval frigate crew",
+  "genre_tags": [
+    "historical",
+    "fantasy"
+  ],
+  "facet_tags": [
+    "sea",
+    "vessel",
+    "age_of_sail",
+    "crowd"
+  ],
+  "situations": [
+    {
+      "id": "gun_drill",
+      "text": "running through gun drill at the cannons",
+      "tags": [
+        "labor",
+        "tense_capable"
+      ],
+      "scene_type_bias": "at_work"
+    },
+    {
+      "id": "reviewing_charts",
+      "text": "bent over charts and orders spread across the chart table",
+      "tags": [
+        "labor",
+        "calm_capable"
+      ],
+      "scene_type_bias": "close_group"
+    },
+    {
+      "id": "battle_stations",
+      "text": "scrambling to battle stations as the alarm bell rings",
+      "tags": [
+        "action",
+        "violent_capable",
+        "tense_capable"
+      ],
+      "scene_type_bias": "face_off"
+    },
+    {
+      "id": "scrubbing_deck",
+      "text": "scrubbing the deck planks on hands and knees at first light",
+      "tags": [
+        "labor",
+        "calm_capable"
+      ],
+      "scene_type_bias": "at_work"
+    },
+    {
+      "id": "signal_flags",
+      "text": "hoisting signal flags to a ship on the horizon",
+      "tags": [
+        "action",
+        "calm_capable"
+      ],
+      "scene_type_bias": "candid_moment"
+    },
+    {
+      "id": "storm_battering",
+      "text": "wrestling with the sails as the ship is battered by heavy weather",
+      "tags": [
+        "nature",
+        "tense_capable"
+      ],
+      "scene_type_bias": "atmospheric",
+      "env": "storm"
+    },
+    {
+      "id": "shore_leave_anticipation",
+      "text": "gathered at the rail, pointing out landmarks as the coast comes into view",
+      "tags": [
+        "social",
+        "calm_capable"
+      ],
+      "scene_type_bias": "gathering"
+    },
+    {
+      "id": "formation_sailing",
+      "text": "holding formation alongside sister ships under full sail",
+      "tags": [
+        "action",
+        "calm_capable"
+      ],
+      "scene_type_bias": "atmospheric"
+    }
+  ]
+}

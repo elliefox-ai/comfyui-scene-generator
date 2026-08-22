@@ -16,9 +16,9 @@
       "text": "boarding a vessel",
       "tags": [
         "action",
-        "violent_capable"
+        "calm_capable"
       ],
-      "scene_type_bias": "face_off"
+      "scene_type_bias": "gathering"
     },
     {
       "id": "gathered_deck",
@@ -56,6 +56,15 @@
         "calm_capable"
       ],
       "scene_type_bias": "close_group"
+    },
+    {
+      "id": "man_overboard",
+      "text": "crowding the rail as a man-overboard alarm sounds",
+      "tags": [
+        "action",
+        "tense_capable"
+      ],
+      "scene_type_bias": "atmospheric"
     }
   ]
 }
