@@ -95,6 +95,8 @@ See `harbor_tavern.json` for a complete example. Shape:
 
 ## Wardrobe families
 
+*(Phase A adds no wardrobe families — sci_fi already has flightline + colony. Section kept as reference for Phase B.)*
+
 Schema per family (see `character_wardrobe.json`, `age_of_sail` is the
 reference): `genre`, `layers` (outer/torso/legs/feet/head), `palettes`,
 `wear`, `concepts` — each concept `{text, roles}`.
@@ -109,19 +111,37 @@ the lint fails it.
 
 ---
 
-## Phases (genre pick is Alexander's, pending)
+## Scope (decided 2026-08-22 — this batch is Phase A only)
 
-**Phase A — regardless of the pick:**
+**New-genre expansion is deferred.** Alexander agrees with the
+sibling-genre direction below but is still working out the subgenre
+solution — "we can expand more later." **Do not draft Phase B.**
+
+**Phase A — the batch:**
 - sci_fi venue depth (3 → 8+). Borrow era-neutral actions honestly;
   the genre lives in venue authoring, not situation text.
 - Tone top-up (5 → 10+) and atmosphere top-up (11 → 20+). Same
   expansion register as BRIEF-2: noun phrases, sensory, concrete,
   era-neutral.
 
-**Phase B — per genre picked:**
-- **western** (recommended): railhead, saloon, stage stop, ranch,
+**Phase A concrete targets.** Claude authors:
+
+1. **5+ new sci_fi venues** (3 → 8+). Proposal — swap with justification per house style:
+   - `orbital_concourse` — space-station passenger hall. crowd + city. Social/queueing register; `market_street`'s energy in a can.
+   - `starship_hangar` — flight deck, prepping a vessel for launch. small_crew + station. Labor + tense_capable.
+   - `colony_greenhouse` — hydroponics bay, tended rows under grow-lights. small_crew, indoor. Labor + calm_capable.
+   - `salvage_yard` — shipbreaking yard, hulls in progress. small_crew + road. Labor, tense.
+   - `transit_platform` — elevated commuter rail, mega-city. crowd + city + street. Candid + social.
+   - (stretch) `research_outpost` — remote listening post; sibling to the existing relay stations but sci_fi-native.
+2. **Tone top-up (5 → 10+).** Keep the five existing; propose five new tones with 3 modifiers + `compatible` situation tags each: `triumphant`, `melancholy`, `solemn`, `romantic`, `restless`. Swap with justification.
+3. **Atmosphere top-up (11 → 20+).** Noun-phrase, sensory, era-neutral. Stick to existing `env` values (clear / overcast / storm / neutral / indoor); propose any new env value in delivery notes rather than in data.
+
+**How sci_fi flavor survives era-neutral situation text:** the venue's `name` and `subject_label` carry the genre ("orbital concourse travelers", "hangar crew") and wardrobe comes from the existing flightline/colony families. The situations stay era-neutral ("queueing at a boarding gate", not "queueing for the shuttle") — same actions, different ground. Do not put period props in situation text; that's the renderer's job.
+
+**Phase B — deferred, kept as the record (do not draft):**
+- **western** (agreed): railhead, saloon, stage stop, ranch,
   frontier town + 2 wardrobe families.
-- **post-apocalyptic** (recommended): venues + 2 families.
+- **post-apocalyptic** (agreed): venues + 2 families.
 - **age_of_sail promotion**: facet today; promotion to genre needs a
   3rd+ venue (prize auction, careening beach, port authority).
 - **steampunk**: hold — siblings need a curated venue set from scratch.
