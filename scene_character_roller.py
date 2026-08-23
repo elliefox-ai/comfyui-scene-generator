@@ -71,6 +71,7 @@ try:  # package context — how ComfyUI loads custom node packs
         CONTEXT_DIR,
         _load_features,
     )
+    from .scene_tags import load_tags
 except ImportError:  # standalone — test harness / direct exec
     from scene_context_node import (  # noqa: F811
         GENRE_OPTIONS,
