@@ -1,0 +1,55 @@
+{
+  "_doc": "Single source of truth for every tag vocabulary in the scene packs. Namespaces: genre (venue era/mode pools; UI enums DERIVE from this registry at import — they cannot drift), facet (venue texture; may overlap freely), situation (action register on a situation), identity_age / identity_sex / identity_race (character identity axes; canonical values drawn through the roller's soft-affinity weighting). Adding a genre: add the id here, then tag venues honestly and give the genre two wardrobe families. Cross-tag honesty rule: a venue may carry genre G only if it is welcome in every pool built from G. _aliases holds legacy spellings accepted by validation — add no new ones. Unknown tags fail ComfyUI startup via scene_tags.validate_scene_tags(), naming the venue and the tag.",
+  "_aliases": {
+    "age": { "young": "young adult" }
+  },
+  "genre": {
+    "historical": "Real-world past, pre-20th-century texture. Actions stay era-neutral; props belong to the renderer.",
+    "modern": "Present-day ordinary world.",
+    "sci_fi": "Engineered futures — spacecraft, colonies, advanced infrastructure.",
+    "fantasy": "Pre-industrial worlds where the impossible is ordinary — mythic cultures, invented orders."
+  },
+  "facet": {
+    "sea": "Open water or offshore; horizon and weather carry the frame.",
+    "shore": "Land-water edge: docks, beaches, harbor margins.",
+    "vessel": "Aboard a ship or boat; deck geometry, rigging, rails.",
+    "age_of_sail": "Wooden-ship maritime era (frigate, pirate). A facet today; genre-promotion is a batch-3 question.",
+    "small_crew": "A working crew of roughly 2-6; tight coordination.",
+    "small_crowd": "A handful of people; intimate scale, faces readable.",
+    "crowd": "Many people plausible; background density welcome.",
+    "city": "Urban built density.",
+    "street": "Street level: storefronts, foot traffic, doorways.",
+    "road": "A route through — travel, transit, passage.",
+    "forest": "Woodland cover.",
+    "mountain": "Altitude: passes, ridgelines, thin air.",
+    "station": "A fixed operating post — ranger or relay; outpost infrastructure.",
+    "leisure": "Recreation and pleasure — patrons, travelers, audiences rather than workers."
+  },
+  "situation": {
+    "calm_capable": "Skilled action at ease; unhurried competence.",
+    "tense_capable": "Skilled action under strain; stakes present, motion contained.",
+    "action": "Kinetic verbs — movement carries the read.",
+    "labor": "Visible physical work.",
+    "social": "People interacting: talk, trade, bargain, gathering.",
+    "nature": "The environment acts — weather, terrain, animals.",
+    "violent_capable": "Combat-adjacent without stated gore; violence plausible, not depicted."
+  },
+  "identity_age": {
+    "young adult": "Twenties band. Canonical spelling — legacy 'young' maps here via _aliases.",
+    "middle-aged": "Forties-to-sixties band. Zero tagged entries today — known coverage gap.",
+    "older": "Visible age; silver, weathered, lined."
+  },
+  "identity_sex": {
+    "female": "Sex axis for phrase agreement and soft affinities.",
+    "male": "Sex axis for phrase agreement and soft affinities."
+  },
+  "identity_race": {
+    "white": "European-descent bucket; soft-affinity axis only.",
+    "black": "African-diaspora bucket; soft-affinity axis only.",
+    "east_asian": "East-Asian bucket; soft-affinity axis only.",
+    "south_asian": "South-Asian bucket; soft-affinity axis only.",
+    "latino": "Latin-American bucket; soft-affinity axis only.",
+    "middle_eastern": "Middle-Eastern bucket; soft-affinity axis only.",
+    "indigenous": "Indigenous-peoples bucket; soft-affinity axis only."
+  }
+}

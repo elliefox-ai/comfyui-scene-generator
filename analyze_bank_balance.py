@@ -14,6 +14,7 @@ Rolls casts headless through the real roller and reports:
 Usage:
   python3 analyze_bank_balance.py [--casts 250] [--per 4] [--seed0 100000]
                                   [--affinity-casts 300]
+  python3 analyze_bank_balance.py --lint        # vocab coverage; exit 1 on fail
 
 Pure read: imports the roller, consumes components_json, prints a table.
 """
@@ -164,13 +165,95 @@ def affinity(axis, value, n_casts, seed0):
     return per_pool
 
 
+def lint():
+    """Vocabulary coverage lint for the scene side. Returns exit code.
+
+    The loader (scene_tags) guarantees every tag is KNOWN; this
+    guarantees the vocabularies are USEFUL: every genre genre-pickable
+    (>=3 venues or the picker silently falls back to ALL settings),
+    every facet shared (>=2 venues), every situation tag reachable,
+    every genre with >=2 wardrobe families (firm-genre rolls starve
+    below). Self-tests the validator each run: an injected unknown tag
+    must be caught, or the law itself is broken.
+    """
+    import scene_tags
+    from scene_context_node import GENRE_OPTIONS, RANDOM
+
+    tags = scene_tags.load_tags()
+    fails = []
+
+    probs = []
+    scene_tags._validate_venue(
+        "self_test", {"genre_tags": ["phantom"], "situations": []},
+        tags, probs)
+    if not probs:
+        fails.append("self-test: unknown genre tag slipped validation")
+
+    for note in scene_tags.validate_scene_tags():
+        print(f"  legacy-alias (accepted): {note}")
+
+    venues = []
+    for fn in sorted(os.listdir(scene_tags.SETTINGS_DIR)):
+        if fn.endswith(".json"):
+            with open(os.path.join(scene_tags.SETTINGS_DIR, fn),
+                      encoding="utf-8") as f:
+                venues.append(json.load(f))
+
+    genre_n = Counter(t for v in venues for t in v["genre_tags"])
+    for g in tags["genre"]:
+        n = genre_n.get(g, 0)
+        print(f"  genre    {g:14s} {n:2d} venues")
+        if n < 3:
+            fails.append(
+                f"genre '{g}': {n} venues (<3) — picker falls back to ALL")
+
+    facet_n = Counter(t for v in venues for t in v["facet_tags"])
+    for fc in tags["facet"]:
+        n = facet_n.get(fc, 0)
+        print(f"  facet    {fc:14s} {n:2d} uses")
+        if n < 2:
+            fails.append(f"facet '{fc}': {n} uses (<2) — orphan vocabulary")
+
+    sit_n = Counter(
+        t for v in venues for s in v["situations"] for t in s["tags"])
+    for st in tags["situation"]:
+        if sit_n.get(st, 0) < 1:
+            fails.append(f"situation tag '{st}': unreachable (0 uses)")
+
+    with open(scene_tags.WARDROBE_PATH, encoding="utf-8") as f:
+        fams = json.load(f)["families"]
+    fam_n = Counter(f["genre"] for f in fams.values() if f.get("genre"))
+    for g in tags["genre"]:
+        n = fam_n.get(g, 0)
+        print(f"  wardrobe {g:14s} {n} families")
+        if n < 2:
+            fails.append(f"wardrobe: genre '{g}' has {n} families (<2)")
+
+    expected = [RANDOM] + list(tags["genre"])
+    if GENRE_OPTIONS != expected:
+        fails.append(f"enum drift: GENRE_OPTIONS != registry {expected}")
+
+    if fails:
+        print("\nLINT FAIL:")
+        for f_ in fails:
+            print(f"  - {f_}")
+        return 1
+    print("LINT PASS")
+    return 0
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--casts", type=int, default=250)
     ap.add_argument("--per", type=int, default=4)
     ap.add_argument("--seed0", type=int, default=100000)
     ap.add_argument("--affinity-casts", type=int, default=300)
+    ap.add_argument("--lint", action="store_true",
+                    help="vocabulary coverage lint; exit 1 on fail")
     args = ap.parse_args()
+
+    if args.lint:
+        sys.exit(lint())
 
     idx = phrase_index()
     casts = roll_casts(args.casts, args.per, args.seed0)

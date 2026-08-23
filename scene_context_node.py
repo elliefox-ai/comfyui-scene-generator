@@ -28,8 +28,24 @@ FEATURES_PATH = os.path.join(CONTEXT_DIR, "character_features.json")
 RANDOM = "🎲 random"
 NONE_OPT = "none"
 
-GENRE_OPTIONS = [RANDOM, "historical", "modern", "sci_fi", "fantasy"]
-GENRE2_OPTIONS = [NONE_OPT, RANDOM, "historical", "modern", "sci_fi", "fantasy"]
+GENRE_OPTIONS = [RANDOM, "historical", "modern", "sci_fi", "fantasy"]  # re-derived below — see scene_tags
+GENRE2_OPTIONS = [NONE_OPT] + GENRE_OPTIONS
+
+try:  # package context — how ComfyUI loads custom node packs
+    from . import scene_tags
+except ImportError:  # standalone — test harness / direct exec
+    import scene_tags  # noqa: F401
+
+# The tag registry (scene_context/tags.json) is the law. Enums DERIVE
+# from it — registry and dropdowns cannot drift — and every tag in
+# venue / feature / wardrobe data is validated HERE at import: an
+# unknown tag kills ComfyUI startup naming the file and the tag.
+# Vocabulary drift must never ship silently again (young-tag class,
+# found 2026-08-22: tagged features drew at HALF the untagged rate).
+scene_tags.validate_scene_tags()
+
+GENRE_OPTIONS = [RANDOM] + list(scene_tags.load_tags()["genre"])
+GENRE2_OPTIONS = [NONE_OPT] + GENRE_OPTIONS
 
 _CACHE = {"settings": None, "tones": None, "atmosphere": None, "character_slots": None, "features": None}
 

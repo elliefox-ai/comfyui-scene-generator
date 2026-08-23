@@ -78,6 +78,7 @@ except ImportError:  # standalone — test harness / direct exec
         CONTEXT_DIR,
         _load_features,
     )
+    from scene_tags import load_tags  # noqa: F811
 
 WARDROBE_PATH = os.path.join(CONTEXT_DIR, "character_wardrobe.json")
 
@@ -139,14 +140,25 @@ def _identity_phrase(identity):
     return f"{article} {' '.join(parts)}"
 
 
-_TAG_ALIAS = {
-    # Historical spellings → canonical axis values (AGE_OPTIONS etc.).
-    # Keeps soft-affinity tags matching even if the bank file uses the
-    # short form. Found live 2026-08-22: "age": "young" never matched
-    # identity "young adult", inverting the affinity (tagged drew at
-    # HALF the untagged rate).
-    "young": "young adult",
-}
+# Historical spellings → canonical axis values (AGE_OPTIONS etc.),
+# single-sourced from the tag registry (tags.json "_aliases"). Add no
+# new ones — normalize the data instead. Origin: "age": "young" never
+# matched identity "young adult", inverting the affinity (tagged drew
+# at HALF the untagged rate) — found live 2026-08-22.
+_TAG_ALIAS = dict(load_tags().get("_aliases", {}).get("age", {}))
+
+# Identity dropdowns mirror the registry — membership parity, not
+# display order (order is free; vocabulary is not).
+for _opts, _ns in (
+    (AGE_OPTIONS[1:], "identity_age"),
+    (SEX_OPTIONS[1:], "identity_sex"),
+    (RACE_OPTIONS[1:], "identity_race"),
+):
+    if set(_opts) != set(load_tags()[_ns]):
+        raise ValueError(
+            f"scene_character_roller: {_ns} options don't match "
+            f"tags.json (roller: {sorted(_opts)}; "
+            f"registry: {sorted(load_tags()[_ns])})")
 
 
 def _weighted(pool, identity, rng, w_match=4, w_untagged=2, w_mismatch=1):
