@@ -1,42 +1,36 @@
-# ComfyUI Scene Generator (Ideogram 4)
+# Scene Context Pack (ComfyUI)
 
-A structured multi-character scene prompt generator with spatial layout control, for [ComfyUI](https://github.com/comfyanonymous/ComfyUI). Built by [Ellie](https://github.com/elliefox-ai) 🦊 and Alexander Dutton.
+A procedural narrative-context generator: venue, situation, tone, atmosphere, composition — and one node per character with identity-aware features and wardrobe. Built by [Ellie](https://github.com/elliefox-ai) 🦊 and Alexander Dutton.
 
 > **Related packs:** the visual editing nodes that used to live here moved to their own homes — [comfyui-elliefoxai-canvas](https://github.com/elliefox-ai/comfyui-elliefoxai-canvas) (Outpaint Controller, Inpaint Painter) and [comfyui-elliefoxai-diagnostics](https://github.com/elliefox-ai/comfyui-elliefoxai-diagnostics) (PromptPeek, VAE Round-Trip, Latent Boundary Analyzer).
+>
+> **Retired:** the original Ideogram-era SceneGenerator (bbox layout engine, debug-card renderer, scenario packs) lives in `attic/` — git history preserved, comeback possible.
 
-## The Node
+## The Nodes
 
 ### 🎼 Scene Context Composer
 
-**v2 — the clean-room node.** Everything the four-axis cascade learned, with no legacy surface: Genre (+optional union mashup) → two-tier Setting (archetype gates venues by facet tags; explicit venue = author override) → Situation — selected by the **double filter**: Setting and Tone *jointly* narrow the pool, per Claude's design — env-tagged, atmosphere respects it, and **Composition as a first-class axis** (framing phrases keyed by the situation's `scene_type_bias`, allow-listed with a generic fallback pool).
+**v2 — the clean-room node.** Everything the four-axis cascade learned, with no legacy surface: Genre (+optional union mashup) → two-tier Setting (archetype gates venues by facet tags; explicit venue = author override) → Situation — selected by the **double filter**: Setting and Tone *jointly* narrow the pool — env-tagged, atmosphere respects it, and **Composition as a first-class axis** (framing phrases keyed by the situation's `scene_type_bias`, allow-listed with a generic fallback pool).
 
 Tone is a selection axis, not seasoning: `tones.json` declares which situation capability tags (`violent_capable`, `calm_capable`, …) each register can carry; an absent `compatible` list means the register is open and sits on any situation (satirical, by design). A tone that matches nothing at a venue falls back to the full situation list — flavor yields to structure, same rule as genre.
 
-**Authoring rule of thumb:** situation text describes *action and posture*, never characters or props ("lingering over final drinks", not "as the barman calls time") — specifics belong to tone modifiers and composition phrases, so contexts blend across seeds instead of pinning one image.
+**Authoring rule of thumb:** situation text describes *action and posture*, never characters or props — specifics belong to tone modifiers and composition phrases, so contexts blend across seeds instead of pinning one image.
 
 Renderer-agnostic by construction: `render_prompt` (context + framing) feeds any text-conditioned model, `components_json` exposes every piece separately for remixing, and `seed_used` wires straight into a sampler. Data lives in `scene_context/`, shared with the Picker — single source of truth.
 
 ### 🧭 Scene Context Picker
 
-Upstream companion to the Scene Generator: procedurally resolves a narrative context — setting (genre-filtered, with optional two-genre mashups), situation, tone, and an atmosphere flourish — and emits it as structured text plus a `scene_type` suggestion. Wire `context_text` → Scene Generator's `theme`, `scene_type_suggestion` → `scene_type`, and let one seed drive both nodes.
+Upstream companion: resolves setting (genre-filtered, with optional two-genre mashups), situation, tone, and an atmosphere flourish, and emits structured text plus a `scene_type` suggestion. Wire `context_text` into any text-conditioned renderer, or use the Composer for the full cascade.
+
+### 🎲 Scene Character Roller
+
+One node, one character. Decides *who one person is*: role concept + wardrobe family + face anchors, assembled compositionally from tagged banks. Identity (age / sex / race) is stated once in the identity phrase and every feature draw is soft-weighted toward it — affinity, never a filter. Add a node per figure; wire into a Picker/Composer character slot or any text prompt.
 
 Co-designed with Claude (Anthropic). See [CO-AUTHORS.md](CO-AUTHORS.md) for the full story.
 
-### 🗳️ Scene Generator (Ideogram 4)
+## The tag law
 
-Procedurally generates structured multi-character scene prompts from parameterized templates, with a live bbox layout preview on the node canvas.
-
-**Features:**
-- **Two-axis design:** Scene Type (composition: *how*) × Scenario (content: *what*)
-- **3-knob layout engine:** scale hierarchy, arrangement pattern, density
-- **Shot-width-aware backgrounds** that match the composition
-- **Camera framing:** eye_level, high_angle, low_angle, dutch
-- **6 scenario packs:** fantasy, medieval_tavern, noir_city, pirate_ship, sci_fi, western
-- **`{setting}` coherence:** backgrounds always reference the chosen setting
-- **Live bbox preview** — renders the layout on the node canvas as you change parameters, no execution needed
-- **🎲 random option** on every filter — the seed decides
-
-Designed for [Ideogram](https://ideogram.ai)'s structured prompts, but the JSON it emits (subjects with bounding boxes + scene text) works with any model or workflow that accepts spatial hints.
+`scene_context/tags.json` is the registry: every genre / facet / situation / identity tag in the data is validated against it at ComfyUI startup, and the genre dropdowns derive from it. An unknown tag is a hard startup failure naming the venue. `python3 analyze_bank_balance.py --lint` checks coverage (venues per genre, facet uses, wardrobe families, enum parity).
 
 ## Installation
 
@@ -46,21 +40,20 @@ Designed for [Ideogram](https://ideogram.ai)'s structured prompts, but the JSON 
    git clone https://github.com/elliefox-ai/comfyui-scene-generator.git ComfyUI-EllieFoxAI-scene-gen
    ```
 2. Restart ComfyUI
-3. Look for **🗳️ Scene Generator (Ideogram 4)** in the node menu (under `SceneGen`)
+3. Look for the nodes under `SceneGen` in the node menu
 
 No additional Python dependencies beyond what ComfyUI already provides.
 
 ## Development
 
-`test_layout.py` exercises the layout engine standalone (no ComfyUI required):
+Headless harnesses — no ComfyUI required:
+
 ```
-python3 test_layout.py
+python3 test_context.py          # Picker cascade
+python3 test_composer.py         # Composer cascade
+python3 test_character_roller.py # Character Roller
+python3 test_scene_tags.py       # tag registry validation
+python3 analyze_bank_balance.py --lint   # coverage law
 ```
 
 ## License
-
-MIT
-
-## Credits
-
-Built by **Ellie** (AI agent) and **Alexander Dutton** (human partner) through [OpenClaw](https://github.com/openclaw/openclaw). See [CO-AUTHORS.md](CO-AUTHORS.md) for the full collaboration story — wrong turns and all.

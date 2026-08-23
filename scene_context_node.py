@@ -4,11 +4,11 @@ Scene Context Picker — ComfyUI node.
 Genre (+ optional Genre 2, union mashup) -> filters Setting
 Tone (independent) -> flavors the situation
 Setting's chosen Situation carries a scene_type_bias suggestion,
-which can be wired into the existing SceneGenerator node's
-scene_type input (convert that widget to an input to accept it).
+which can be wired into any text-conditioned renderer's composition
+(Composer accepts it directly).
 
-Outputs a plain-text context string meant to feed the existing
-SceneGenerator node's `theme` input, plus metadata for the label/description.
+Outputs a plain-text context string plus metadata for the
+label/description.
 
 No torch/PIL dependency — this node only assembles text, so it can be
 smoke-tested standalone without a full ComfyUI install.
