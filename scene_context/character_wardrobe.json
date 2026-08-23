@@ -170,6 +170,25 @@
         {"text": "a toll-keeper", "roles": ["official"]},
         {"text": "a charlatan with a healer's satchel", "roles": ["drifter"]}
       ]
+    },
+    "_neutral": {
+      "layers": {
+        "outer": ["a plain work coat", "a simple everyday jacket"],
+        "torso": ["a plain work shirt", "an undyed linen shirt"],
+        "legs": ["sturdy trousers", "plain wool trousers"],
+        "feet": ["worn work boots", "plain leather shoes"],
+        "head": ["a plain knit cap", "a simple wide-brim hat"]
+      },
+      "palettes": ["undyed linen and dull browns", "dust grey and homespun wool"],
+      "wear": ["well-worn", "patched"],
+      "concepts": [
+        {"text": "a figure of quiet authority", "roles": ["leader"]},
+        {"text": "a plain record-keeper", "roles": ["scholar", "official"]},
+        {"text": "a hard-working tradesperson", "roles": ["worker"]},
+        {"text": "a practiced healer", "roles": ["healer"]},
+        {"text": "a watchful veteran", "roles": ["warrior"]},
+        {"text": "a traveler passing through", "roles": ["drifter"]}
+      ]
     }
   }
 }

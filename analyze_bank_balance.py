@@ -228,6 +228,11 @@ def lint():
         print(f"  wardrobe {g:14s} {n} families")
         if n < 2:
             fails.append(f"wardrobe: genre '{g}' has {n} families (<2)")
+    if not any(not f.get("genre") for f in fams.values()):
+        fails.append(
+            "wardrobe: no era-neutral fallback family "
+            "(a genre-less family must exist for firm-genre "
+            "rolls with no families)")
 
     expected = [RANDOM] + list(tags["genre"])
     if GENRE_OPTIONS != expected:

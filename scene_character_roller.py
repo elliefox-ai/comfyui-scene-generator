@@ -27,6 +27,11 @@ Axes:
         style: every piece rolls independently (a FIRM genre still
         binds pieces to the era — mismatch happens *within* it, never
         across it). Between = mostly-family with wandering pieces.
+    Fallback law — a firm genre with zero wardrobe families never
+        borrows another era's clothes: it drops to the genre-less
+        era-neutral basics bank and warns on console. Consent to
+        cross-era mismatch belongs to the consistency dial, never
+        the system. Genre-less families never join 🎲 draws.
     Detail — low = wide-shot legible (identity phrase, outer layer +
         palette, face shape, hair, eyes, maybe one mark). high = the
         portrait ladder plus a complexion phrase, sampled and never
@@ -97,10 +102,26 @@ def _role_options():
     roles = sorted({
         r
         for fam in _load_wardrobe().values()
+        if fam.get("genre")  # fallback-only families stay invisible
         for c in fam["concepts"]
         for r in c.get("roles", [])
     })
     return ["any"] + roles
+
+
+_FALLBACK_WARNED = set()
+
+
+def _warn_fallback(genre):
+    """One console line per genre per process. Broken data should
+    be visible, not silent — but it needn't be noisy."""
+    if genre not in _FALLBACK_WARNED:
+        _FALLBACK_WARNED.add(genre)
+        print(
+            f"[scene-gen] character roller: no wardrobe families for "
+            f"'{genre}' — using the era-neutral fallback bank "
+            f"(restore the genre's families in character_wardrobe.json)"
+        )
 
 
 # --- Identity -----------------------------------------------------------
@@ -244,14 +265,33 @@ class SceneCharacterRoller:
             genre_resolved = genre
             firm = True
 
+        # Fallback law: a firm genre with no families never borrows
+        # another era's clothes — it drops to the era-neutral bank
+        # (genre-less families) and warns.
         genre_pool = [
             (fid, fam) for fid, fam in families.items()
-            if fam["genre"] == genre_resolved
-        ] or list(families.items())
+            if fam.get("genre") == genre_resolved
+        ]
+        if not genre_pool:
+            _warn_fallback(genre_resolved)
+            genre_pool = [
+                (fid, fam) for fid, fam in families.items()
+                if not fam.get("genre")
+            ]
+            if not genre_pool:
+                raise ValueError(
+                    "wardrobe has no era-neutral fallback family — "
+                    "character_wardrobe.json is missing its "
+                    "genre-less basics bank"
+                )
         # The coherence TARGET: one family the slider pulls toward.
         target_id, target = rng.choice(genre_pool)
-        # Where wandering pieces roam: the era if firm, everywhere if 🎲.
-        roam = genre_pool if firm else list(families.items())
+        # Where wandering pieces roam: the era if firm, genre'd
+        # families only if 🎲 — the fallback bank never roams.
+        roam = genre_pool if firm else [
+            (fid, fam) for fid, fam in families.items()
+            if fam.get("genre")
+        ]
 
         def layer_draw(layer_key):
             """One garment: honor the target family, or roll from the
