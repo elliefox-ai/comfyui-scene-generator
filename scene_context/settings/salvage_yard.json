@@ -1,0 +1,86 @@
+{
+  "name": "salvage_yard",
+  "subject_label": "salvage yard crew",
+  "genre_tags": [
+    "sci_fi"
+  ],
+  "facet_tags": [
+    "small_crew",
+    "road"
+  ],
+  "situations": [
+    {
+      "id": "stripping_the_hull",
+      "text": "stripping plating from a wrecked hull with heavy tools",
+      "tags": [
+        "labor",
+        "tense_capable"
+      ],
+      "scene_type_bias": "at_work"
+    },
+    {
+      "id": "sorting_scrap",
+      "text": "sorting salvaged parts into stacked bins",
+      "tags": [
+        "labor",
+        "calm_capable"
+      ],
+      "scene_type_bias": "at_work"
+    },
+    {
+      "id": "hauling_wreckage",
+      "text": "dragging a section of wreckage across the yard on chains",
+      "tags": [
+        "labor",
+        "tense_capable"
+      ],
+      "scene_type_bias": "at_work"
+    },
+    {
+      "id": "bidding_on_a_wreck",
+      "text": "arguing over the worth of a freshly towed-in wreck",
+      "tags": [
+        "social",
+        "tense_capable"
+      ],
+      "scene_type_bias": "face_off"
+    },
+    {
+      "id": "break_at_midday",
+      "text": "taking a break in the shade of a stripped hull",
+      "tags": [
+        "social",
+        "calm_capable"
+      ],
+      "scene_type_bias": "candid_moment"
+    },
+    {
+      "id": "unstable_stack",
+      "text": "scrambling clear as a stack of scrap shifts and topples",
+      "tags": [
+        "action",
+        "tense_capable"
+      ],
+      "scene_type_bias": "atmospheric"
+    },
+    {
+      "id": "storm_over_the_yard",
+      "text": "racing to secure loose plating as a storm rolls in",
+      "tags": [
+        "nature",
+        "tense_capable"
+      ],
+      "scene_type_bias": "atmospheric",
+      "env": "storm"
+    },
+    {
+      "id": "night_watch",
+      "text": "keeping watch over the yard by lamplight after the crew has gone",
+      "tags": [
+        "labor",
+        "calm_capable"
+      ],
+      "scene_type_bias": "candid_moment"
+    }
+  ]
+}

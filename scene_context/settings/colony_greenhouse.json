@@ -1,0 +1,93 @@
+{
+  "name": "colony_greenhouse",
+  "subject_label": "greenhouse tenders",
+  "genre_tags": [
+    "sci_fi"
+  ],
+  "facet_tags": [
+    "small_crew",
+    "station"
+  ],
+  "situations": [
+    {
+      "id": "tending_the_rows",
+      "text": "tending long rows of plants under steady artificial light",
+      "tags": [
+        "labor",
+        "calm_capable"
+      ],
+      "scene_type_bias": "at_work",
+      "indoor": true
+    },
+    {
+      "id": "pruning_and_sorting",
+      "text": "pruning cuttings and sorting them into trays",
+      "tags": [
+        "labor",
+        "calm_capable"
+      ],
+      "scene_type_bias": "at_work",
+      "indoor": true
+    },
+    {
+      "id": "checking_the_readouts",
+      "text": "checking readouts on a bank of monitoring gauges",
+      "tags": [
+        "labor",
+        "calm_capable"
+      ],
+      "scene_type_bias": "at_work",
+      "indoor": true
+    },
+    {
+      "id": "harvest_sharing",
+      "text": "sharing the first harvest from a new planting",
+      "tags": [
+        "social",
+        "calm_capable"
+      ],
+      "scene_type_bias": "close_group",
+      "indoor": true
+    },
+    {
+      "id": "signs_of_blight",
+      "text": "anxiously inspecting leaves for signs of blight",
+      "tags": [
+        "nature",
+        "tense_capable"
+      ],
+      "scene_type_bias": "atmospheric",
+      "indoor": true
+    },
+    {
+      "id": "watering_system_failure",
+      "text": "rushing to shore up rows as a watering system fails",
+      "tags": [
+        "action",
+        "tense_capable"
+      ],
+      "scene_type_bias": "atmospheric",
+      "indoor": true
+    },
+    {
+      "id": "quiet_tending",
+      "text": "moving quietly between rows, checking each plant in turn",
+      "tags": [
+        "labor",
+        "calm_capable"
+      ],
+      "scene_type_bias": "candid_moment",
+      "indoor": true
+    },
+    {
+      "id": "visitor_tour",
+      "text": "showing a visitor through the rows, answering questions",
+      "tags": [
+        "social",
+        "calm_capable"
+      ],
+      "scene_type_bias": "gathering",
+      "indoor": true
+    }
+  ]
+}

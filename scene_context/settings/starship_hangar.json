@@ -1,0 +1,93 @@
+{
+  "name": "starship_hangar",
+  "subject_label": "hangar deck crew",
+  "genre_tags": [
+    "sci_fi"
+  ],
+  "facet_tags": [
+    "small_crew",
+    "station"
+  ],
+  "situations": [
+    {
+      "id": "prepping_for_launch",
+      "text": "running final checks along a hull before launch",
+      "tags": [
+        "labor",
+        "tense_capable"
+      ],
+      "scene_type_bias": "at_work",
+      "indoor": true
+    },
+    {
+      "id": "refueling",
+      "text": "connecting fuel lines beneath a docked vessel",
+      "tags": [
+        "labor",
+        "calm_capable"
+      ],
+      "scene_type_bias": "at_work",
+      "indoor": true
+    },
+    {
+      "id": "cargo_loading",
+      "text": "hauling crates up a loading ramp into the hold",
+      "tags": [
+        "labor",
+        "calm_capable"
+      ],
+      "scene_type_bias": "at_work",
+      "indoor": true
+    },
+    {
+      "id": "welding_repair",
+      "text": "crouched beneath a hull, sparks scattering from a welding torch",
+      "tags": [
+        "labor",
+        "tense_capable"
+      ],
+      "scene_type_bias": "at_work",
+      "indoor": true
+    },
+    {
+      "id": "briefing_the_crew",
+      "text": "gathered around a foreman going over the launch checklist",
+      "tags": [
+        "social",
+        "calm_capable"
+      ],
+      "scene_type_bias": "gathering",
+      "indoor": true
+    },
+    {
+      "id": "dispute_over_delay",
+      "text": "arguing over a delayed departure, hands gesturing at the schedule board",
+      "tags": [
+        "social",
+        "tense_capable"
+      ],
+      "scene_type_bias": "face_off",
+      "indoor": true
+    },
+    {
+      "id": "warning_klaxon",
+      "text": "scrambling for cover as a warning klaxon sounds across the deck",
+      "tags": [
+        "action",
+        "tense_capable"
+      ],
+      "scene_type_bias": "atmospheric",
+      "indoor": true
+    },
+    {
+      "id": "watching_the_launch",
+      "text": "pausing mid-task to watch a vessel lift clear of the deck",
+      "tags": [
+        "action",
+        "calm_capable"
+      ],
+      "scene_type_bias": "candid_moment",
+      "indoor": true
+    }
+  ]
+}

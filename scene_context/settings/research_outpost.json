@@ -1,0 +1,84 @@
+{
+  "name": "research_outpost",
+  "subject_label": "research outpost staff",
+  "genre_tags": [
+    "sci_fi"
+  ],
+  "facet_tags": [
+    "small_crew",
+    "station"
+  ],
+  "situations": [
+    {
+      "id": "monitoring_the_instruments",
+      "text": "monitoring a bank of instruments through a long shift",
+      "tags": [
+        "labor",
+        "calm_capable"
+      ],
+      "scene_type_bias": "at_work",
+      "indoor": true
+    },
+    {
+      "id": "logging_the_readings",
+      "text": "logging readings into a well-worn ledger",
+      "tags": [
+        "labor",
+        "calm_capable"
+      ],
+      "scene_type_bias": "at_work",
+      "indoor": true
+    },
+    {
+      "id": "shared_meal_in_the_mess",
+      "text": "sharing a quiet meal in the cramped mess",
+      "tags": [
+        "social",
+        "calm_capable"
+      ],
+      "scene_type_bias": "close_group",
+      "indoor": true
+    },
+    {
+      "id": "signal_lost",
+      "text": "anxiously trying to reestablish a lost signal",
+      "tags": [
+        "action",
+        "tense_capable"
+      ],
+      "scene_type_bias": "atmospheric",
+      "indoor": true
+    },
+    {
+      "id": "storm_outside",
+      "text": "watching a storm batter the outpost through a reinforced viewport",
+      "tags": [
+        "nature",
+        "tense_capable"
+      ],
+      "scene_type_bias": "atmospheric",
+      "env": "storm",
+      "indoor": true
+    },
+    {
+      "id": "routine_maintenance",
+      "text": "running routine maintenance checks along a corridor",
+      "tags": [
+        "labor",
+        "calm_capable"
+      ],
+      "scene_type_bias": "at_work",
+      "indoor": true
+    },
+    {
+      "id": "long_isolation",
+      "text": "sitting together in comfortable silence after months of isolation",
+      "tags": [
+        "social",
+        "calm_capable"
+      ],
+      "scene_type_bias": "candid_moment",
+      "indoor": true
+    }
+  ]
+}

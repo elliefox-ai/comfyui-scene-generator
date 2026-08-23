@@ -52,5 +52,64 @@
     "compatible": [
       "calm_capable"
     ]
+  },
+  "triumphant": {
+    "label": "Triumphant / Victorious",
+    "modifiers": [
+      "a surge of hard-won triumph, chins lifted",
+      "hands raised, victory taking hold",
+      "clean, exultant relief after a struggle won"
+    ],
+    "compatible": [
+      "action",
+      "tense_capable"
+    ]
+  },
+  "melancholy": {
+    "label": "Melancholy / Wistful",
+    "modifiers": [
+      "a quiet ache beneath the stillness",
+      "figures lingering as if reluctant to leave",
+      "a soft, unhurried sorrow"
+    ],
+    "compatible": [
+      "calm_capable"
+    ]
+  },
+  "solemn": {
+    "label": "Solemn / Ceremonial",
+    "modifiers": [
+      "a hushed formality settling over the scene",
+      "measured, deliberate movement, heads bowed",
+      "gravity in every gesture, nothing rushed"
+    ],
+    "compatible": [
+      "calm_capable",
+      "social"
+    ]
+  },
+  "romantic": {
+    "label": "Romantic / Tender",
+    "modifiers": [
+      "an intimacy in the space between two figures",
+      "unhurried closeness, attention paid only to each other",
+      "warmth held in a lingering glance"
+    ],
+    "compatible": [
+      "calm_capable",
+      "social"
+    ]
+  },
+  "restless": {
+    "label": "Restless / Anxious",
+    "modifiers": [
+      "a nervous energy that won't settle",
+      "fidgeting hands, eyes darting toward the door",
+      "tension without release, waiting for something to break"
+    ],
+    "compatible": [
+      "tense_capable",
+      "action"
+    ]
   }
 }

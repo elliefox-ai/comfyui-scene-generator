@@ -43,6 +43,46 @@
     {
       "text": "under the white hum of fluorescent light",
       "env": "indoor"
+    },
+    {
+      "text": "under a wide cloudless sky",
+      "env": "clear"
+    },
+    {
+      "text": "beneath a sky scrubbed clean and blue",
+      "env": "clear"
+    },
+    {
+      "text": "beneath a flat grey sky",
+      "env": "overcast"
+    },
+    {
+      "text": "under skies the color of ash",
+      "env": "overcast"
+    },
+    {
+      "text": "beneath a sky bruised and heavy with rain",
+      "env": "storm"
+    },
+    {
+      "text": "under gusting wind and stinging spray",
+      "env": "storm"
+    },
+    {
+      "text": "in the long light of late afternoon",
+      "env": "neutral"
+    },
+    {
+      "text": "beneath a sky streaked with the last color of dusk",
+      "env": "neutral"
+    },
+    {
+      "text": "under the sterile glow of overhead panels",
+      "env": "indoor"
+    },
+    {
+      "text": "in the dim hum of enclosed, artificial light",
+      "env": "indoor"
     }
   ]
 }

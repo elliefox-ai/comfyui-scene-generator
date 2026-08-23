@@ -1,0 +1,94 @@
+{
+  "name": "orbital_concourse",
+  "subject_label": "orbital concourse travelers",
+  "genre_tags": [
+    "sci_fi"
+  ],
+  "facet_tags": [
+    "crowd",
+    "city",
+    "station"
+  ],
+  "situations": [
+    {
+      "id": "queueing_at_the_gate",
+      "text": "queueing patiently at a boarding gate",
+      "tags": [
+        "social",
+        "calm_capable"
+      ],
+      "scene_type_bias": "gathering",
+      "indoor": true
+    },
+    {
+      "id": "reading_the_departure_boards",
+      "text": "checking an overhead board for updated departure times",
+      "tags": [
+        "social",
+        "calm_capable"
+      ],
+      "scene_type_bias": "candid_moment",
+      "indoor": true
+    },
+    {
+      "id": "reunion_at_arrivals",
+      "text": "embracing at the arrivals barrier after a long absence",
+      "tags": [
+        "social",
+        "calm_capable"
+      ],
+      "scene_type_bias": "close_group",
+      "indoor": true
+    },
+    {
+      "id": "security_checkpoint",
+      "text": "submitting to a routine check at a security checkpoint",
+      "tags": [
+        "labor",
+        "tense_capable"
+      ],
+      "scene_type_bias": "at_work",
+      "indoor": true
+    },
+    {
+      "id": "vendor_cart_rush",
+      "text": "crowding around a vendor cart between departures",
+      "tags": [
+        "social",
+        "calm_capable"
+      ],
+      "scene_type_bias": "gathering",
+      "indoor": true
+    },
+    {
+      "id": "missed_departure",
+      "text": "arguing with a clerk after missing a scheduled departure",
+      "tags": [
+        "social",
+        "tense_capable"
+      ],
+      "scene_type_bias": "face_off",
+      "indoor": true
+    },
+    {
+      "id": "spilled_cargo",
+      "text": "sweeping up spilled cargo after a loading mishap",
+      "tags": [
+        "labor",
+        "tense_capable"
+      ],
+      "scene_type_bias": "at_work",
+      "indoor": true
+    },
+    {
+      "id": "chasing_a_stray_parcel",
+      "text": "a shout going up as a stray parcel is chased down through the crowd",
+      "tags": [
+        "action",
+        "tense_capable"
+      ],
+      "scene_type_bias": "face_off",
+      "indoor": true
+    }
+  ]
+}

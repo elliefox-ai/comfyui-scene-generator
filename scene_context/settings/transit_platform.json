@@ -1,0 +1,87 @@
+{
+  "name": "transit_platform",
+  "subject_label": "transit platform commuters",
+  "genre_tags": [
+    "sci_fi"
+  ],
+  "facet_tags": [
+    "crowd",
+    "city",
+    "street"
+  ],
+  "situations": [
+    {
+      "id": "waiting_for_the_next_car",
+      "text": "waiting in a loose line for the next car to arrive",
+      "tags": [
+        "social",
+        "calm_capable"
+      ],
+      "scene_type_bias": "gathering"
+    },
+    {
+      "id": "reading_the_departure_signs",
+      "text": "checking an overhead sign for the next departure",
+      "tags": [
+        "social",
+        "calm_capable"
+      ],
+      "scene_type_bias": "candid_moment"
+    },
+    {
+      "id": "rush_hour_crush",
+      "text": "pressed shoulder to shoulder in the rush-hour crush",
+      "tags": [
+        "action",
+        "tense_capable"
+      ],
+      "scene_type_bias": "gathering"
+    },
+    {
+      "id": "busking_for_coins",
+      "text": "playing music for coins tossed into an open case",
+      "tags": [
+        "social",
+        "calm_capable"
+      ],
+      "scene_type_bias": "candid_moment"
+    },
+    {
+      "id": "pulled_back_from_the_edge",
+      "text": "pulling a stranger back from the platform edge",
+      "tags": [
+        "action",
+        "tense_capable"
+      ],
+      "scene_type_bias": "face_off"
+    },
+    {
+      "id": "vendor_stall",
+      "text": "buying a quick meal from a platform vendor stall",
+      "tags": [
+        "social",
+        "calm_capable"
+      ],
+      "scene_type_bias": "gathering"
+    },
+    {
+      "id": "rain_on_the_platform",
+      "text": "sheltering under the platform awning as rain sweeps through",
+      "tags": [
+        "nature",
+        "tense_capable"
+      ],
+      "scene_type_bias": "atmospheric",
+      "env": "storm"
+    },
+    {
+      "id": "late_night_wait",
+      "text": "waiting alone on a near-empty platform late at night",
+      "tags": [
+        "social",
+        "calm_capable"
+      ],
+      "scene_type_bias": "candid_moment"
+    }
+  ]
+}
