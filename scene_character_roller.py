@@ -76,7 +76,7 @@ try:  # package context — how ComfyUI loads custom node packs
         CONTEXT_DIR,
         _load_features,
     )
-    from .scene_tags import load_tags
+    from .scene_tags import genre_with_parents, load_tags
 except ImportError:  # standalone — test harness / direct exec
     from scene_context_node import (  # noqa: F811
         GENRE_OPTIONS,
@@ -84,7 +84,7 @@ except ImportError:  # standalone — test harness / direct exec
         CONTEXT_DIR,
         _load_features,
     )
-    from scene_tags import load_tags  # noqa: F811
+    from scene_tags import genre_with_parents, load_tags  # noqa: F811
 
 WARDROBE_PATH = os.path.join(CONTEXT_DIR, "character_wardrobe.json")
 
@@ -193,10 +193,16 @@ def _weighted(pool, identity, rng, w_match=4, w_untagged=2, w_mismatch=1):
         w = 1.0
         for axis in IDENTITY_AXES:
             tag = entry.get(axis)
-            if tag is not None:
+            if isinstance(tag, str):
                 tag = _TAG_ALIAS.get(tag, tag)
             if tag is None:
                 w *= w_untagged
+            elif isinstance(tag, dict):
+                # Dict tag = explicit per-value multipliers
+                # ({"east_asian": 3}) — races not listed draw at 1×,
+                # the mismatch floor: possible, just rarer. Soft
+                # affinity still, never a filter.
+                w *= tag.get(identity[axis], 1)
             elif tag == identity[axis]:
                 w *= w_match
             else:
@@ -265,12 +271,15 @@ class SceneCharacterRoller:
             genre_resolved = genre
             firm = True
 
-        # Fallback law: a firm genre with no families never borrows
-        # another era's clothes — it drops to the era-neutral bank
-        # (genre-less families) and warns.
+        # Parent ladder: a subgenre inherits its parents' families
+        # (western -> historical's frontier + age_of_sail). Fallback
+        # law still holds: a firm genre with no families up the chain
+        # never borrows another era's clothes — it drops to the
+        # era-neutral bank (genre-less families) and warns.
+        genre_ids = genre_with_parents(genre_resolved)
         genre_pool = [
             (fid, fam) for fid, fam in families.items()
-            if fam.get("genre") == genre_resolved
+            if fam.get("genre") in genre_ids
         ]
         if not genre_pool:
             _warn_fallback(genre_resolved)
@@ -351,11 +360,46 @@ class SceneCharacterRoller:
             palette = rng.choice(fam["palettes"])
         sources["palette"] = pal_src
 
+        compose_cfg = feats.get("_compose", {})
+
         def wmaybe(pool_key, p, bucket):
-            """Sample one feature: identity-weighted soft draw."""
+            """Sample one feature: identity-weighted soft draw — or,
+            when the bank has a _compose group, a composed phrase
+            built from its slots (chance decides compose vs flat)."""
             if rng.random() < p:
-                entry = _weighted(feats[pool_key], identity, rng)
-                bucket.append(entry["text"] if isinstance(entry, dict) else entry)
+                cfg = compose_cfg.get(pool_key)
+                if cfg and rng.random() < cfg.get("chance", 0.5):
+                    joiner = cfg.get("joiner", " ")
+                    parts = []
+                    for slot in cfg["slots"]:
+                        if slot.get("optional") and rng.random() > slot["optional"]:
+                            continue
+                        opt = _weighted(slot["options"], identity, rng)
+                        parts.append(opt["text"] if isinstance(opt, dict) else opt)
+                    if not parts:
+                        # Every optional slot sat out — anchor on the
+                        # first slot so the phrase never degenerates to
+                        # the bare suffix ("hair", "eyes").
+                        anchor = _weighted(cfg["slots"][0]["options"],
+                                           identity, rng)
+                        parts.append(anchor["text"]
+                                     if isinstance(anchor, dict) else anchor)
+                    if len(parts) > 1 and len(set(parts)) == 1:
+                        # All slots drew the same word — break the echo
+                        # ("easygoing but easygoing") by re-rolling the last.
+                        for _ in range(5):
+                            opt = _weighted(cfg["slots"][-1]["options"],
+                                            identity, rng)
+                            parts[-1] = opt["text"] if isinstance(opt, dict) else opt
+                            if len(set(parts)) > 1:
+                                break
+                    phrase = joiner.join(parts)
+                    if cfg.get("suffix"):
+                        phrase = f"{phrase} {cfg['suffix']}"
+                    bucket.append(phrase)
+                else:
+                    entry = _weighted(feats[pool_key], identity, rng)
+                    bucket.append(entry["text"] if isinstance(entry, dict) else entry)
 
         face_bits = []
         if detail == "high":
@@ -368,9 +412,9 @@ class SceneCharacterRoller:
                 face_bits.append(rng.choice(feats["complexion"][race_res]))
             wmaybe("marks", 0.6, face_bits)
             if rng.random() < 0.75:
-                face_bits.append(_weighted(feats["face_detail"], identity, rng)["text"])
+                wmaybe("face_detail", 1.0, face_bits)
                 if rng.random() < 0.35:
-                    face_bits.append(_weighted(feats["face_detail"], identity, rng)["text"])
+                    wmaybe("face_detail", 1.0, face_bits)
             wmaybe("build", 0.85, face_bits)
             wmaybe("demeanor", 0.7, face_bits)
         else:

@@ -1,13 +1,14 @@
 {
   "name": "research_outpost",
   "subject_label": "research outpost staff",
-  "genre_tags": [
+  "tags": [
     "sci_fi"
   ],
   "facet_tags": [
     "small_crew",
     "station"
   ],
+  "venue_archetype": "interior_industrial",
   "situations": [
     {
       "id": "monitoring_the_instruments",

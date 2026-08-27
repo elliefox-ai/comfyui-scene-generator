@@ -1,7 +1,7 @@
 {
   "name": "transit_platform",
   "subject_label": "transit platform commuters",
-  "genre_tags": [
+  "tags": [
     "sci_fi"
   ],
   "facet_tags": [
@@ -9,6 +9,7 @@
     "city",
     "street"
   ],
+  "venue_archetype": "exterior_built",
   "situations": [
     {
       "id": "waiting_for_the_next_car",

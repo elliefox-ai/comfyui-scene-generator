@@ -1,7 +1,7 @@
 {
   "name": "orbital_concourse",
   "subject_label": "orbital concourse travelers",
-  "genre_tags": [
+  "tags": [
     "sci_fi"
   ],
   "facet_tags": [
@@ -9,6 +9,7 @@
     "city",
     "station"
   ],
+  "venue_archetype": "interior_social",
   "situations": [
     {
       "id": "queueing_at_the_gate",

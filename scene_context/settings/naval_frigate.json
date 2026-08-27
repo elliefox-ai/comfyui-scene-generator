@@ -1,9 +1,10 @@
 {
   "name": "naval_frigate",
   "subject_label": "a naval frigate crew",
-  "genre_tags": [
+  "tags": [
     "historical",
-    "fantasy"
+    "fantasy",
+    "age_of_sail"
   ],
   "facet_tags": [
     "sea",
@@ -11,6 +12,7 @@
     "age_of_sail",
     "crowd"
   ],
+  "venue_archetype": "exterior_built",
   "situations": [
     {
       "id": "gun_drill",

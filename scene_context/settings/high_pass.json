@@ -1,7 +1,7 @@
 {
   "name": "high_pass",
   "subject_label": "a mountain pass caravan",
-  "genre_tags": [
+  "tags": [
     "historical",
     "fantasy"
   ],
@@ -10,6 +10,7 @@
     "road",
     "small_crew"
   ],
+  "venue_archetype": "exterior_natural",
   "situations": [
     {
       "id": "roping_together",

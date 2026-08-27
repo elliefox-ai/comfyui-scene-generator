@@ -1,13 +1,15 @@
 {
   "name": "salvage_yard",
   "subject_label": "salvage yard crew",
-  "genre_tags": [
-    "sci_fi"
+  "tags": [
+    "sci_fi",
+    "post_apocalyptic"
   ],
   "facet_tags": [
     "small_crew",
     "road"
   ],
+  "venue_archetype": "exterior_built",
   "situations": [
     {
       "id": "stripping_the_hull",

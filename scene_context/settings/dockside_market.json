@@ -1,7 +1,7 @@
 {
   "name": "dockside_market",
   "subject_label": "dockside market vendors and shoppers",
-  "genre_tags": [
+  "tags": [
     "historical",
     "modern",
     "fantasy"
@@ -11,6 +11,7 @@
     "shore",
     "crowd"
   ],
+  "venue_archetype": "exterior_built",
   "situations": [
     {
       "id": "weighing_goods",

@@ -41,6 +41,25 @@ def load_tags():
     return _TAGS_CACHE
 
 
+def genre_with_parents(genre_id, tags=None):
+    """Resolve a genre id to itself plus every ancestor genre in the
+    parent ladder (from tags.json). Subgenres inherit their parents'
+    wardrobe families — western resolves to {western, historical},
+    post_apocalyptic to {post_apocalyptic, sci_fi, modern}."""
+    if tags is None:
+        tags = load_tags()
+    genres = tags.get("genre", {})
+    out = set()
+    stack = [genre_id]
+    while stack:
+        g = stack.pop()
+        if g in out:
+            continue
+        out.add(g)
+        stack.extend(genres.get(g, {}).get("parents", []))
+    return out
+
+
 def _validate_venue(name, data, tags, problems):
     """Check one venue dict's genre/facet/situation tags. Mutates problems."""
     for t in data.get("genre_tags", []):

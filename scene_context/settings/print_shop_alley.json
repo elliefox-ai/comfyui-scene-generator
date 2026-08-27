@@ -1,7 +1,7 @@
 {
   "name": "print_shop_alley",
   "subject_label": "print shop workers and newsboys",
-  "genre_tags": [
+  "tags": [
     "historical",
     "modern",
     "fantasy"
@@ -11,6 +11,7 @@
     "street",
     "small_crew"
   ],
+  "venue_archetype": "interior_industrial",
   "situations": [
     {
       "id": "setting_type",

@@ -207,7 +207,7 @@ def _filter_by_genre(settings, genre, genre2):
         return list(settings.values())
 
     wanted = {g for g in (g1, g2) if g}
-    matches = [s for s in settings.values() if wanted & set(s.get("genre_tags", []))]
+    matches = [s for s in settings.values() if wanted & set(s.get("tags", []))]
     return matches or list(settings.values())
 
 

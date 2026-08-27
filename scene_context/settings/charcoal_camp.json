@@ -1,7 +1,7 @@
 {
   "name": "charcoal_camp",
   "subject_label": "a charcoal-burners' camp",
-  "genre_tags": [
+  "tags": [
     "historical",
     "fantasy"
   ],
@@ -10,6 +10,7 @@
     "road",
     "small_crew"
   ],
+  "venue_archetype": "exterior_natural",
   "situations": [
     {
       "id": "tending_the_kiln",

@@ -1,9 +1,10 @@
 {
   "name": "pirate_ship",
   "subject_label": "a pirate crew",
-  "genre_tags": [
+  "tags": [
     "historical",
-    "fantasy"
+    "fantasy",
+    "age_of_sail"
   ],
   "facet_tags": [
     "sea",
@@ -11,6 +12,7 @@
     "age_of_sail",
     "small_crew"
   ],
+  "venue_archetype": "exterior_built",
   "situations": [
     {
       "id": "boarding",

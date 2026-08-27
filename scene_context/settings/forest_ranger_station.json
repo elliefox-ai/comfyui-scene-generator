@@ -1,7 +1,7 @@
 {
   "name": "forest_ranger_station",
   "subject_label": "a forest ranger patrol",
-  "genre_tags": [
+  "tags": [
     "modern",
     "sci_fi"
   ],
@@ -11,6 +11,7 @@
     "small_crew",
     "station"
   ],
+  "venue_archetype": "interior_industrial",
   "situations": [
     {
       "id": "reviewing_patrol_maps",

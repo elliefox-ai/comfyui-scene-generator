@@ -1,7 +1,7 @@
 {
   "name": "fishing_village",
   "subject_label": "a fishing village community",
-  "genre_tags": [
+  "tags": [
     "historical",
     "modern",
     "fantasy"
@@ -11,6 +11,7 @@
     "shore",
     "small_crowd"
   ],
+  "venue_archetype": "exterior_natural",
   "situations": [
     {
       "id": "hauling_nets",

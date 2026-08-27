@@ -468,7 +468,7 @@ def lint():
                       encoding="utf-8") as f:
                 venues.append(json.load(f))
 
-    genre_n = Counter(t for v in venues for t in v["genre_tags"])
+    genre_n = Counter(t for v in venues for t in v.get("tags", []))
     for g in tags["genre"]:
         n = genre_n.get(g, 0)
         print(f"  genre    {g:14s} {n:2d} venues")
@@ -491,9 +491,11 @@ def lint():
 
     with open(scene_tags.WARDROBE_PATH, encoding="utf-8") as f:
         fams = json.load(f)["families"]
-    fam_n = Counter(f["genre"] for f in fams.values() if f.get("genre"))
     for g in tags["genre"]:
-        n = fam_n.get(g, 0)
+        n = sum(
+            1 for f in fams.values()
+            if f.get("genre") in scene_tags.genre_with_parents(g, tags)
+        )
         print(f"  wardrobe {g:14s} {n} families")
         if n < 2:
             fails.append(f"wardrobe: genre '{g}' has {n} families (<2)")

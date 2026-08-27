@@ -1,13 +1,14 @@
 {
   "name": "starship_hangar",
   "subject_label": "hangar deck crew",
-  "genre_tags": [
+  "tags": [
     "sci_fi"
   ],
   "facet_tags": [
     "small_crew",
     "station"
   ],
+  "venue_archetype": "interior_industrial",
   "situations": [
     {
       "id": "prepping_for_launch",

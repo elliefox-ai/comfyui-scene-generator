@@ -1,5 +1,368 @@
 {
-  "_doc": "Character feature banks. Identity pools (face_shapes, hair, eyes, marks, face_detail, build, demeanor) hold objects: {text, age?, sex?, race?}. Tags are SOFT AFFINITIES, never filters — draws are weighted 4 (match) / 2 (untagged) / 1 (mismatch) per axis and multiplied across axes: one stated identity, individually exclusive details, tiny randomization in every draw. The identity itself (age/sex/race words) is stated once in the identity phrase by the roller. complexion is race-keyed phrases (drawn at detail=high). postures/positions are geometry, untagged strings. Expand the banks, not the code.",
+  "_doc": "Character feature banks. Identity pools (face_shapes, hair, eyes, marks, face_detail, build, demeanor) hold objects: {text, age?, sex?, race?}. Tags are SOFT AFFINITIES, never filters — draws are weighted 4 (match) / 2 (untagged) / 1 (mismatch) per axis and multiplied across axes: one stated identity, individually exclusive details, tiny randomization in every draw. The identity itself (age/sex/race words) is stated once in the identity phrase by the roller. complexion is race-keyed phrases (drawn at detail=high). postures/positions are geometry, untagged strings. _compose groups rebuild a phrase from orthogonal slots (set × shape × color) the way the legacy regex did — slot options carry the same soft affinity tags. Expand the banks, not the code.",
+  "_compose": {
+    "eyes": {
+      "chance": 0.5,
+      "joiner": " ",
+      "suffix": "eyes",
+      "slots": [
+        {"name": "set", "optional": 0.5, "options": [
+          {"text": "deep-set"},
+          {"text": "wide-set"},
+          {"text": "close-set"},
+          {"text": "shallow-set"}
+        ]},
+        {"name": "shape", "optional": 0.8, "options": [
+          {"text": "heavy-lidded"},
+          {"text": "monolid", "race": {"east_asian": 3}},
+          {"text": "almond"},
+          {"text": "round"},
+          {"text": "narrow"},
+          {"text": "doe"},
+          {"text": "cat-like"},
+          {"text": "downturned"},
+          {"text": "upturned"},
+          {"text": "sleepy"},
+          {"text": "piercing"},
+          {"text": "wide"},
+          {"text": "sultry"},
+          {"text": "hooded"}
+        ]},
+        {"name": "color", "optional": 0.85, "options": [
+          {"text": "brown", "race": {"black": 2, "latino": 2, "south_asian": 2, "middle_eastern": 2, "indigenous": 2}},
+          {"text": "dark"},
+          {"text": "pale"},
+          {"text": "grey", "race": {"white": 1}},
+          {"text": "green", "race": {"white": 1}},
+          {"text": "amber"},
+          {"text": "heterochromatic"},
+          {"text": "black", "race": {"east_asian": 1, "south_asian": 1, "black": 1}}
+        ]}
+      ]
+    },
+    "hair": {
+      "chance": 0.6,
+      "joiner": " ",
+      "suffix": "hair",
+      "slots": [
+        {"name": "color", "optional": 0.8, "options": [
+          {"text": "black", "race": {"black": 2, "east_asian": 2, "south_asian": 2, "indigenous": 2, "middle_eastern": 1}},
+          {"text": "dark brown", "race": {"black": 1, "south_asian": 1, "latino": 1, "middle_eastern": 1}},
+          {"text": "brown", "race": {"latino": 2, "middle_eastern": 2, "white": 1, "south_asian": 1}},
+          {"text": "chestnut", "race": {"white": 1, "latino": 1}},
+          {"text": "auburn", "race": {"white": 1}},
+          {"text": "red", "race": {"white": 2}},
+          {"text": "copper", "race": {"white": 1}},
+          {"text": "blonde", "race": {"white": 2}},
+          {"text": "honey-blonde", "race": {"white": 1}},
+          {"text": "ash-blonde", "race": {"white": 1}},
+          {"text": "strawberry-blonde", "race": {"white": 1}},
+          {"text": "grey", "age": {"older": 2, "middle-aged": 1}},
+          {"text": "silver", "age": {"older": 2}},
+          {"text": "white", "age": {"older": 2}},
+          {"text": "salt-and-pepper", "age": {"older": 1.5}}
+        ]},
+        {"name": "length", "optional": 0.6, "options": [
+          {"text": "cropped", "sex": {"male": 1.5}},
+          {"text": "short", "sex": {"male": 1.2}},
+          {"text": "chin-length"},
+          {"text": "shoulder-length"},
+          {"text": "long", "sex": {"female": 1.5}},
+          {"text": "waist-length", "sex": {"female": 2}}
+        ]},
+        {"name": "style", "optional": 0.7, "options": [
+          {"text": "straight", "race": {"east_asian": 2}},
+          {"text": "sleek", "race": {"east_asian": 1}},
+          {"text": "wavy", "race": {"latino": 1.5, "middle_eastern": 1.5, "white": 1}},
+          {"text": "loose waves", "race": {"latino": 1, "white": 1}},
+          {"text": "curly", "race": {"black": 1, "latino": 1, "middle_eastern": 1}},
+          {"text": "coily", "race": {"black": 2}},
+          {"text": "tightly coiled", "race": {"black": 2}},
+          {"text": "kinky", "race": {"black": 2}},
+          {"text": "afro", "race": {"black": 3}},
+          {"text": "tousled"},
+          {"text": "windswept"},
+          {"text": "slicked-back", "sex": {"male": 1.5}},
+          {"text": "side-parted"},
+          {"text": "center-parted"},
+          {"text": "buzzed", "sex": {"male": 1.5}},
+          {"text": "shaved", "sex": {"male": 2}},
+          {"text": "ponytail", "sex": {"female": 2}},
+          {"text": "braided", "race": {"black": 1.5}, "sex": {"female": 1.5}},
+          {"text": "cornrows", "race": {"black": 2}},
+          {"text": "dreadlocks", "race": {"black": 1.5}},
+          {"text": "topknot", "sex": {"female": 1}},
+          {"text": "bun", "sex": {"female": 2}},
+          {"text": "undercut", "sex": {"male": 1.2}},
+          {"text": "mohawk", "sex": {"male": 1.2}}
+        ]}
+      ]
+    },
+    "build": {
+      "chance": 0.6,
+      "joiner": " ",
+      "slots": [
+        {
+          "name": "stature",
+          "optional": 0.5,
+          "options": [
+            {"text": "tall", "sex": {"male": 1.5}},
+            {"text": "above-average"},
+            {"text": "average"},
+            {"text": "short", "sex": {"female": 1.5}},
+            {"text": "petite", "sex": {"female": 2}},
+            {"text": "small", "sex": {"female": 1.5}}
+          ]
+        },
+        {
+          "name": "frame",
+          "optional": 0.7,
+          "options": [
+            {"text": "broad-shouldered", "sex": {"male": 1.5}},
+            {"text": "barrel-chested", "sex": {"male": 1.5}},
+            {"text": "powerfully built", "sex": {"male": 1.5}},
+            {"text": "wiry"},
+            {"text": "lean"},
+            {"text": "stocky"},
+            {"text": "compact"},
+            {"text": "sturdy"},
+            {"text": "heavyset"},
+            {"text": "rangy", "age": {"young adult": 1.5}},
+            {"text": "gangly", "age": {"young adult": 2}},
+            {"text": "slight", "sex": {"female": 1.5}},
+            {"text": "delicate", "sex": {"female": 1.5}},
+            {"text": "willowy", "sex": {"female": 2}},
+            {"text": "hunched", "age": {"older": 2}},
+            {"text": "stooped", "age": {"older": 2}},
+            {"text": "frail", "age": {"older": 1.5}},
+            {"text": "thick through the middle", "age": {"middle-aged": 1.5}}
+          ]
+        }
+      ]
+    },
+    "marks": {
+      "chance": 0.6,
+      "joiner": " ",
+      "slots": [
+        {
+          "name": "mark",
+          "optional": 0.8,
+          "options": [
+            {"text": "a healed scar"},
+            {"text": "a thin scar"},
+            {"text": "a burn scar"},
+            {"text": "a graze scar"},
+            {"text": "a stitched scar"},
+            {"text": "a birthmark"},
+            {"text": "a port-wine stain"},
+            {"text": "freckles", "age": {"young adult": 1.5}, "race": {"white": 1.5, "indigenous": 1.3}},
+            {"text": "a cluster of moles"},
+            {"text": "age spots", "age": {"older": 2}},
+            {"text": "sun-spotted skin", "age": {"middle-aged": 1.5}},
+            {"text": "pockmarks"},
+            {"text": "deep laugh lines", "age": {"older": 2}},
+            {"text": "deep calluses"}
+          ]
+        },
+        {
+          "name": "placement",
+          "optional": 0.75,
+          "options": [
+            {"text": "across the nose"},
+            {"text": "across the cheeks"},
+            {"text": "across the forehead"},
+            {"text": "at the temple"},
+            {"text": "through one eyebrow"},
+            {"text": "under one eye"},
+            {"text": "along the jaw"},
+            {"text": "across the chin"},
+            {"text": "along the forearm"},
+            {"text": "across the knuckles"},
+            {"text": "around the wrist"},
+            {"text": "down the shin"},
+            {"text": "over the collarbone"}
+          ]
+        }
+      ]
+    },
+    "demeanor": {
+      "chance": 0.6,
+      "joiner": " but ",
+      "slots": [
+        {
+          "name": "temper",
+          "optional": 0.8,
+          "options": [
+            {"text": "guarded"},
+            {"text": "weary", "age": {"older": 1.5, "middle-aged": 1.3}},
+            {"text": "brusque"},
+            {"text": "restless", "age": {"young adult": 1.5}},
+            {"text": "dour"},
+            {"text": "genial"},
+            {"text": "patient", "age": {"middle-aged": 1.5, "older": 1.3}},
+            {"text": "watchful"},
+            {"text": "easygoing"},
+            {"text": "quiet"},
+            {"text": "fierce"},
+            {"text": "stubborn"},
+            {"text": "mild"},
+            {"text": "unreadable"},
+            {"text": "insolent"},
+            {"text": "cheerful", "age": {"young adult": 1.2}},
+            {"text": "wary"},
+            {"text": "composed"},
+            {"text": "distracted"}
+          ]
+        },
+        {
+          "name": "counter",
+          "optional": 0.8,
+          "options": [
+            {"text": "alert"},
+            {"text": "genial"},
+            {"text": "patient"},
+            {"text": "watchful"},
+            {"text": "easygoing"},
+            {"text": "amused"},
+            {"text": "curious"},
+            {"text": "kind"},
+            {"text": "calm"},
+            {"text": "direct"},
+            {"text": "warm"},
+            {"text": "composed"},
+            {"text": "quick to grin", "age": {"young adult": 1.5}},
+            {"text": "slow to warm"},
+            {"text": "hard to rattle", "age": {"middle-aged": 1.5}},
+            {"text": "ready to laugh", "age": {"young adult": 1.3}},
+            {"text": "easily distracted", "age": {"young adult": 1.2}}
+          ]
+        }
+      ]
+    },
+    "face_detail": {
+      "chance": 0.6,
+      "joiner": " and ",
+      "slots": [
+        {
+          "name": "feature",
+          "optional": 0.8,
+          "options": [
+            {"text": "a strong jaw"},
+            {"text": "thin lips pressed flat"},
+            {"text": "heavy brows"},
+            {"text": "hollow cheeks"},
+            {"text": "a jutting brow ridge"},
+            {"text": "flat cheekbones"},
+            {"text": "a lantern jaw"},
+            {"text": "a small, pointed chin"},
+            {"text": "a long philtrum"},
+            {"text": "asymmetrical brows"},
+            {"text": "a face that flushes easily"},
+            {"text": "a strong straight nose"},
+            {"text": "full lips, wide at the corners"}
+          ]
+        },
+        {
+          "name": "age_marker",
+          "optional": 0.8,
+          "options": [
+            {"text": "crow's feet at the corners of the eyes", "age": "older"},
+            {"text": "a nose bent from old breaks", "age": "older"},
+            {"text": "ears grown large with age", "age": "older"},
+            {"text": "a face drawn and lined", "age": "older"},
+            {"text": "lines bracketing the mouth", "age": "middle-aged"},
+            {"text": "a brow creased between the eyes", "age": "middle-aged"},
+            {"text": "soft jowls at the jaw", "age": "middle-aged"},
+            {"text": "deep nasolabial folds", "age": "middle-aged"},
+            {"text": "a smooth, unlined brow", "age": "young adult"},
+            {"text": "soft round cheeks", "age": "young adult"}
+          ]
+        }
+      ]
+    },
+    "face_detail": {
+      "chance": 0.6,
+      "joiner": " and ",
+      "slots": [
+        {
+          "name": "feature",
+          "optional": 0.8,
+          "options": [
+            {"text": "a strong jaw"},
+            {"text": "thin lips pressed flat"},
+            {"text": "heavy brows"},
+            {"text": "hollow cheeks"},
+            {"text": "a jutting brow ridge"},
+            {"text": "flat cheekbones"},
+            {"text": "a lantern jaw"},
+            {"text": "a small, pointed chin"},
+            {"text": "a long philtrum"},
+            {"text": "asymmetrical brows"},
+            {"text": "a face that flushes easily"},
+            {"text": "a strong straight nose"},
+            {"text": "full lips, wide at the corners"}
+          ]
+        },
+        {
+          "name": "age_marker",
+          "optional": 0.8,
+          "options": [
+            {"text": "crow's feet at the corners of the eyes", "age": "older"},
+            {"text": "a nose bent from old breaks", "age": "older"},
+            {"text": "ears grown large with age", "age": "older"},
+            {"text": "a face drawn and lined", "age": "older"},
+            {"text": "lines bracketing the mouth", "age": "middle-aged"},
+            {"text": "a brow creased between the eyes", "age": "middle-aged"},
+            {"text": "soft jowls at the jaw", "age": "middle-aged"},
+            {"text": "deep nasolabial folds", "age": "middle-aged"},
+            {"text": "a smooth, unlined brow", "age": "young adult"},
+            {"text": "soft round cheeks", "age": "young adult"}
+          ]
+        }
+      ]
+    },
+    "face_detail": {
+      "chance": 0.6,
+      "joiner": " and ",
+      "slots": [
+        {
+          "name": "feature",
+          "optional": 0.8,
+          "options": [
+            {"text": "a strong jaw"},
+            {"text": "thin lips pressed flat"},
+            {"text": "heavy brows"},
+            {"text": "hollow cheeks"},
+            {"text": "a jutting brow ridge"},
+            {"text": "flat cheekbones"},
+            {"text": "a lantern jaw"},
+            {"text": "a small, pointed chin"},
+            {"text": "a long philtrum"},
+            {"text": "asymmetrical brows"},
+            {"text": "a face that flushes easily"},
+            {"text": "a strong straight nose"},
+            {"text": "full lips, wide at the corners"}
+          ]
+        },
+        {
+          "name": "age_marker",
+          "optional": 0.8,
+          "options": [
+            {"text": "crow's feet at the corners of the eyes", "age": "older"},
+            {"text": "a nose bent from old breaks", "age": "older"},
+            {"text": "ears grown large with age", "age": "older"},
+            {"text": "a face drawn and lined", "age": "older"},
+            {"text": "lines bracketing the mouth", "age": "middle-aged"},
+            {"text": "a brow creased between the eyes", "age": "middle-aged"},
+            {"text": "soft jowls at the jaw", "age": "middle-aged"},
+            {"text": "deep nasolabial folds", "age": "middle-aged"},
+            {"text": "a smooth, unlined brow", "age": "young adult"},
+            {"text": "soft round cheeks", "age": "young adult"}
+          ]
+        }
+      ]
+    }
+  },
   "face_shapes": [
     {"text": "a broad weathered face", "age": "older"},
     {"text": "a narrow watchful face"},

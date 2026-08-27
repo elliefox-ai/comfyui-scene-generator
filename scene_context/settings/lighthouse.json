@@ -1,7 +1,7 @@
 {
   "name": "lighthouse",
   "subject_label": "a lighthouse keeper's household",
-  "genre_tags": [
+  "tags": [
     "historical",
     "modern",
     "fantasy"
@@ -11,6 +11,7 @@
     "shore",
     "small_crew"
   ],
+  "venue_archetype": "interior_domestic",
   "situations": [
     {
       "id": "trimming_the_lamp",

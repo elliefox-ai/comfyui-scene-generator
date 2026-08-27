@@ -1,7 +1,7 @@
 {
   "name": "theater_row",
   "subject_label": "a theater row crowd",
-  "genre_tags": [
+  "tags": [
     "historical",
     "modern",
     "fantasy"
@@ -12,6 +12,7 @@
     "small_crowd",
     "leisure"
   ],
+  "venue_archetype": "exterior_built",
   "situations": [
     {
       "id": "queueing_at_the_box_office",

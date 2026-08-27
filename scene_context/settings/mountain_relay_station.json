@@ -1,7 +1,7 @@
 {
   "name": "mountain_relay_station",
   "subject_label": "an alpine relay station crew",
-  "genre_tags": [
+  "tags": [
     "modern",
     "sci_fi"
   ],
@@ -11,6 +11,7 @@
     "small_crew",
     "station"
   ],
+  "venue_archetype": "interior_industrial",
   "situations": [
     {
       "id": "monitoring_the_instruments",

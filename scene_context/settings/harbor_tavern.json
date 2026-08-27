@@ -1,16 +1,19 @@
 {
   "name": "harbor_tavern",
   "subject_label": "harbor tavern regulars",
-  "genre_tags": [
+  "tags": [
     "historical",
-    "fantasy"
+    "fantasy",
+    "age_of_sail"
   ],
   "facet_tags": [
     "sea",
     "shore",
     "small_crowd",
-    "leisure"
+    "leisure",
+    "age_of_sail"
   ],
+  "venue_archetype": "interior_social",
   "situations": [
     {
       "id": "card_game",

@@ -1,7 +1,7 @@
 {
   "name": "market_street",
   "subject_label": "market street vendors and shoppers",
-  "genre_tags": [
+  "tags": [
     "historical",
     "modern",
     "fantasy",
@@ -12,6 +12,7 @@
     "street",
     "crowd"
   ],
+  "venue_archetype": "exterior_built",
   "situations": [
     {
       "id": "calling_out_wares",

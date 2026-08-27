@@ -1,7 +1,7 @@
 {
   "name": "smugglers_cove",
   "subject_label": "a smuggling crew",
-  "genre_tags": [
+  "tags": [
     "historical",
     "modern",
     "fantasy"
@@ -11,6 +11,7 @@
     "shore",
     "small_crew"
   ],
+  "venue_archetype": "exterior_natural",
   "situations": [
     {
       "id": "unloading_contraband",

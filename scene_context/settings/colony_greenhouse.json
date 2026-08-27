@@ -1,13 +1,14 @@
 {
   "name": "colony_greenhouse",
   "subject_label": "greenhouse tenders",
-  "genre_tags": [
+  "tags": [
     "sci_fi"
   ],
   "facet_tags": [
     "small_crew",
     "station"
   ],
+  "venue_archetype": "interior_industrial",
   "situations": [
     {
       "id": "tending_the_rows",

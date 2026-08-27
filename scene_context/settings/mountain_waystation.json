@@ -1,7 +1,7 @@
 {
   "name": "mountain_waystation",
   "subject_label": "waystation travelers",
-  "genre_tags": [
+  "tags": [
     "historical",
     "fantasy"
   ],
@@ -10,6 +10,7 @@
     "road",
     "small_crowd"
   ],
+  "venue_archetype": "interior_social",
   "situations": [
     {
       "id": "warming_by_the_hearth",

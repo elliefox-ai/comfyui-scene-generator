@@ -1,7 +1,7 @@
 {
   "name": "cruise_ship",
   "subject_label": "cruise ship passengers",
-  "genre_tags": [
+  "tags": [
     "modern"
   ],
   "facet_tags": [
@@ -10,6 +10,7 @@
     "leisure",
     "crowd"
   ],
+  "venue_archetype": "exterior_built",
   "situations": [
     {
       "id": "boarding",
