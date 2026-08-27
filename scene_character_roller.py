@@ -74,6 +74,7 @@ Outputs:
 import json
 import os
 import random
+import re
 
 try:  # package context — how ComfyUI loads custom node packs
     from .scene_context_node import (
@@ -156,6 +157,27 @@ def _resolve_axis(value, options, rng):
     if value == RANDOM:
         return rng.choice([o for o in options if o != RANDOM]), True
     return value, False
+
+
+_GRAMMAR = re.compile(r"\{([^{}|]*\|[^{}]*)\}")
+
+
+def _expand(tpl, rng):
+    """Inline variant grammar for wardrobe strings: {a|b} picks one
+    variant; an empty option ('{|a}' / '{a|}') makes the group
+    optional. Nested groups resolve innermost-first. Weight a choice
+    by duplicating it ({a|a|b}). Groups without '|' pass through
+    untouched, so placeholders like {name} are never eaten. Leftmost
+    innermost draw order -- stable for a given seed. Whitespace left
+    by empty picks is collapsed."""
+    if not isinstance(tpl, str):
+        return tpl
+    while True:
+        m = _GRAMMAR.search(tpl)
+        if not m:
+            return " ".join(tpl.split())
+        pick = rng.choice(m.group(1).split("|"))
+        tpl = tpl[:m.start()] + pick + tpl[m.end():]
 
 
 def _identity_phrase(identity):
@@ -325,9 +347,9 @@ class SceneCharacterRoller:
             dial: at 1 all honor (head-to-toe family), at 0 all roam
             (fully independent pieces)."""
             if rng.random() < consistency:
-                return rng.choice(target["layers"][layer_key]), target_id
+                return _expand(rng.choice(target["layers"][layer_key]), rng), target_id
             fid, fam = rng.choice(roam)
-            return rng.choice(fam["layers"][layer_key]), fid
+            return _expand(rng.choice(fam["layers"][layer_key]), rng), fid
 
         def concepts_of(fam):
             cs = [
@@ -343,6 +365,9 @@ class SceneCharacterRoller:
         else:
             concept_src, fam = rng.choice(roam)
             concept = rng.choice(concepts_of(fam))
+        # Concept text expands once; the seg and components record
+        # the SAME expansion (one draw, one result).
+        concept_text = _expand(concept["text"], rng)
 
         sources = {}
         outer, src = layer_draw("outer")
@@ -350,7 +375,7 @@ class SceneCharacterRoller:
         if body_detail == "high":
             if rng.random() < 0.35:
                 # Wear state follows the garment it describes.
-                outer = f"{outer}, {rng.choice(families[src]['wear'])}"
+                outer = f"{outer}, {_expand(rng.choice(families[src]['wear']), rng)}"
             outfit = f"in {outer}"
             if rng.random() < 0.8:
                 piece, sources["torso"] = layer_draw("torso")
@@ -371,10 +396,10 @@ class SceneCharacterRoller:
             outfit = f"in {outer}"
 
         if rng.random() < consistency:
-            palette, pal_src = rng.choice(target["palettes"]), target_id
+            palette, pal_src = _expand(rng.choice(target["palettes"]), rng), target_id
         else:
             pal_src, fam = rng.choice(roam)
-            palette = rng.choice(fam["palettes"])
+            palette = _expand(rng.choice(fam["palettes"]), rng)
         sources["palette"] = pal_src
 
         compose_cfg = feats.get("_compose", {})
@@ -487,7 +512,7 @@ class SceneCharacterRoller:
         if face_detail == "high" or body_detail == "high":
             wmaybe("demeanor", 0.7, face_bits)
 
-        segs = ([identity_phrase, concept["text"]] + body_bits
+        segs = ([identity_phrase, concept_text] + body_bits
                 + [outfit, palette] + face_bits)
 
         posture = ""
@@ -537,7 +562,7 @@ class SceneCharacterRoller:
             "body_type": body_type,
             "role": role,
             "name": name,
-            "concept": concept["text"],
+            "concept": concept_text,
             "concept_family": concept_src,
             "roles": concept.get("roles", []),
             "palette": palette,
