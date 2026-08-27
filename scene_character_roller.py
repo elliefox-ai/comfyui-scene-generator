@@ -348,7 +348,7 @@ class SceneCharacterRoller:
         outer, src = layer_draw("outer")
         sources["outer"] = src
         if body_detail == "high":
-            if rng.random() < 0.6:
+            if rng.random() < 0.35:
                 # Wear state follows the garment it describes.
                 outer = f"{outer}, {rng.choice(families[src]['wear'])}"
             outfit = f"in {outer}"
@@ -430,7 +430,7 @@ class SceneCharacterRoller:
                 # Complexion: the one hard-keyed draw — race selects its
                 # own phrase bank, descriptive register, never raw.
                 face_bits.append(rng.choice(feats["complexion"][race_res]))
-            wmaybe("marks", 0.5, face_bits)
+            wmaybe("marks", 0.3, face_bits)
             wmaybe("nose", 0.45, face_bits)
             wmaybe("mouth", 0.3, face_bits)
             wmaybe("jaw", 0.25, face_bits)
@@ -446,7 +446,7 @@ class SceneCharacterRoller:
             wmaybe("face_shapes", 0.9, face_bits)
             wmaybe("hair", 0.9, face_bits)
             wmaybe("eyes", 0.85, face_bits)
-            wmaybe("marks", 0.45, face_bits)
+            wmaybe("marks", 0.25, face_bits)
 
         # Physique: build parent + influenced children. The parent
         # is a clean archetype, always drawn flat — its canonical
