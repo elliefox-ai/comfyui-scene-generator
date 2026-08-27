@@ -1,5 +1,8 @@
 {
-  "_doc": "Character feature banks. Identity pools (face_shapes, hair, eyes, nose, marks, face_detail, build, demeanor) hold objects: {text, age?, sex?, race?}. Tags are SOFT AFFINITIES, never filters — draws are weighted 4 (match) / 2 (untagged) / 1 (mismatch) per axis and multiplied across axes: one stated identity, individually exclusive details, tiny randomization in every draw. The identity itself (age/sex/race words) is stated once in the identity phrase by the roller. complexion is race-keyed phrases (drawn at detail=high). postures/positions are geometry, untagged strings. _compose groups rebuild a phrase from orthogonal slots (set × shape × color) the way the legacy regex did — slot options carry the same soft affinity tags. Expand the banks, not the code.\n\nDetail split (2026-08-27): face_detail gates the face ladder, body_detail the body (minimal = one guaranteed build word — portrait companion; low = wide-shot; high = garment ladder). Five new flat banks — mouth, jaw, cheekbones, brow, ears — absorbed their strays from face_detail, which is now whole-face misc (lines, texture, flush, birthmarks); _compose.face_detail rebuilt to match. Phrase budget: a high face samples ~6 phrases total, never the inventory.",
+  "_doc": {
+    "note": "Character feature banks. Identity pools (face_shapes, hair, eyes, nose, marks, face_detail, build, demeanor) hold objects: {text, age?, sex?, race?}. Tags are SOFT AFFINITIES, never filters — draws are weighted 4 (match) / 2 (untagged) / 1 (mismatch) per axis and multiplied across axes: one stated identity, individually exclusive details, tiny randomization in every draw. The identity itself (age/sex/race words) is stated once in the identity phrase by the roller. complexion is race-keyed phrases (drawn at detail=high). postures/positions are geometry, untagged strings. _compose groups rebuild a phrase from orthogonal slots (set × shape × color) the way the legacy regex did — slot options carry the same soft affinity tags. Expand the banks, not the code.\n\nDetail split (2026-08-27): face_detail gates the face ladder, body_detail the body (minimal = one guaranteed build word — portrait companion; low = wide-shot; high = garment ladder). Five new flat banks — mouth, jaw, cheekbones, brow, ears — absorbed their strays from face_detail, which is now whole-face misc (lines, texture, flush, birthmarks); _compose.face_detail rebuilt to match. Phrase budget: a high face samples ~6 phrases total, never the inventory.",
+    "physique": "build = clean archetypes, the physique parent; drawn flat (canonical text is the key children tag on). physique children carry BOTH identity tags and a 'build' axis of soft multipliers keyed on the drawn parent value — influenced, never exclusive. body_type node input forces the parent (default random). children gates: low=torso .25; high=torso .6/legs .5/arms .4. _compose.build retired (parent must stay canonical)."
+  },
   "_compose": {
     "eyes": {
       "chance": 0.5,
@@ -416,144 +419,6 @@
               "text": "mohawk",
               "sex": {
                 "male": 1.2
-              }
-            }
-          ]
-        }
-      ]
-    },
-    "build": {
-      "chance": 0.6,
-      "joiner": " ",
-      "slots": [
-        {
-          "name": "stature",
-          "optional": 0.5,
-          "options": [
-            {
-              "text": "tall",
-              "sex": {
-                "male": 1.5
-              }
-            },
-            {
-              "text": "above-average"
-            },
-            {
-              "text": "average"
-            },
-            {
-              "text": "short",
-              "sex": {
-                "female": 1.5
-              }
-            },
-            {
-              "text": "petite",
-              "sex": {
-                "female": 2
-              }
-            },
-            {
-              "text": "small",
-              "sex": {
-                "female": 1.5
-              }
-            }
-          ]
-        },
-        {
-          "name": "frame",
-          "optional": 0.7,
-          "options": [
-            {
-              "text": "broad-shouldered",
-              "sex": {
-                "male": 1.5
-              }
-            },
-            {
-              "text": "barrel-chested",
-              "sex": {
-                "male": 1.5
-              }
-            },
-            {
-              "text": "powerfully built",
-              "sex": {
-                "male": 1.5
-              }
-            },
-            {
-              "text": "wiry"
-            },
-            {
-              "text": "lean"
-            },
-            {
-              "text": "stocky"
-            },
-            {
-              "text": "compact"
-            },
-            {
-              "text": "sturdy"
-            },
-            {
-              "text": "heavyset"
-            },
-            {
-              "text": "rangy",
-              "age": {
-                "young adult": 1.5
-              }
-            },
-            {
-              "text": "gangly",
-              "age": {
-                "young adult": 2
-              }
-            },
-            {
-              "text": "slight",
-              "sex": {
-                "female": 1.5
-              }
-            },
-            {
-              "text": "delicate",
-              "sex": {
-                "female": 1.5
-              }
-            },
-            {
-              "text": "willowy",
-              "sex": {
-                "female": 2
-              }
-            },
-            {
-              "text": "hunched",
-              "age": {
-                "older": 2
-              }
-            },
-            {
-              "text": "stooped",
-              "age": {
-                "older": 2
-              }
-            },
-            {
-              "text": "frail",
-              "age": {
-                "older": 1.5
-              }
-            },
-            {
-              "text": "thick through the middle",
-              "age": {
-                "middle-aged": 1.5
               }
             }
           ]
@@ -1978,82 +1843,97 @@
   ],
   "build": [
     {
-      "text": "broad-shouldered"
+      "text": "lean"
     },
     {
       "text": "wiry"
     },
     {
-      "text": "heavyset"
+      "text": "rangy",
+      "age": {
+        "young adult": 1.5
+      },
+      "sex": {
+        "male": 1.4
+      }
     },
     {
-      "text": "tall and spare"
+      "text": "lanky",
+      "age": {
+        "young adult": 2.0
+      },
+      "sex": {
+        "male": 1.5
+      }
     },
     {
-      "text": "compact"
+      "text": "athletic",
+      "age": {
+        "young adult": 1.4
+      }
     },
     {
-      "text": "rangy"
+      "text": "muscular",
+      "sex": {
+        "male": 2.0
+      }
     },
     {
-      "text": "barrel-chested"
+      "text": "stocky",
+      "sex": {
+        "male": 1.5
+      }
     },
     {
-      "text": "narrow-shouldered"
+      "text": "heavyset",
+      "age": {
+        "middle-aged": 1.5,
+        "older": 1.5
+      }
     },
     {
-      "text": "thick through the middle",
-      "age": "middle-aged"
+      "text": "soft-bodied",
+      "age": {
+        "middle-aged": 1.5,
+        "older": 1.5
+      }
     },
     {
-      "text": "a soft middle over a strong frame",
-      "age": "middle-aged"
+      "text": "broad-framed",
+      "sex": {
+        "male": 1.5
+      }
     },
     {
-      "text": "big-boned"
+      "text": "sturdy"
     },
     {
-      "text": "slight of frame"
+      "text": "petite",
+      "sex": {
+        "female": 3.0
+      }
     },
     {
-      "text": "powerfully built"
+      "text": "willowy",
+      "sex": {
+        "female": 2.5
+      }
     },
     {
-      "text": "lean to the point of gauntness"
+      "text": "statuesque",
+      "age": {
+        "young adult": 1.3,
+        "middle-aged": 1.3
+      }
     },
     {
-      "text": "sturdy and low-set"
+      "text": "slight-framed",
+      "age": {
+        "older": 1.5
+      }
     },
     {
-      "text": "square-built"
-    },
-    {
-      "text": "long-limbed"
-    },
-    {
-      "text": "short-legged and deep-chested"
-    },
-    {
-      "text": "a laborer's build"
-    },
-    {
-      "text": "gangly",
-      "age": "young adult"
-    },
-    {
-      "text": "coltish, all knees and elbows",
-      "age": "young adult"
-    },
-    {
-      "text": "slight and bird-boned"
-    },
-    {
-      "text": "small and spare",
-      "age": "older"
-    },
-    {
-      "text": "stooped but solid",
-      "age": "older"
+      "text": "unremarkable"
     }
   ],
   "demeanor": [
@@ -2232,5 +2112,473 @@
       "copper-brown skin",
       "warm reddish-brown skin"
     ]
-  }
+  },
+  "physique_torso": [
+    {
+      "text": "broad through the chest",
+      "sex": {
+        "male": 2.0
+      },
+      "build": {
+        "broad-framed": 2.5,
+        "muscular": 2.0,
+        "stocky": 2.0
+      }
+    },
+    {
+      "text": "thick through the chest",
+      "sex": {
+        "male": 1.5
+      },
+      "build": {
+        "muscular": 2.0,
+        "heavyset": 2.0
+      }
+    },
+    {
+      "text": "a deep chest",
+      "sex": {
+        "male": 2.0
+      },
+      "build": {
+        "broad-framed": 2.0,
+        "athletic": 1.5
+      }
+    },
+    {
+      "text": "a sculpted chest",
+      "sex": {
+        "male": 3.0
+      },
+      "build": {
+        "muscular": 3.0,
+        "statuesque": 2.5,
+        "athletic": 2.0
+      }
+    },
+    {
+      "text": "a soft, heavy chest",
+      "sex": {
+        "male": 3.0
+      },
+      "build": {
+        "heavyset": 3.0,
+        "soft-bodied": 3.0
+      }
+    },
+    {
+      "text": "a narrow chest",
+      "build": {
+        "lean": 2.0,
+        "slight-framed": 2.5,
+        "lanky": 1.5,
+        "rangy": 1.5
+      }
+    },
+    {
+      "text": "a sunken, hollow chest",
+      "build": {
+        "slight-framed": 2.0
+      },
+      "age": {
+        "older": 1.5
+      }
+    },
+    {
+      "text": "broad through the bust",
+      "sex": {
+        "female": 2.0
+      },
+      "build": {
+        "broad-framed": 2.0
+      }
+    },
+    {
+      "text": "a full bust",
+      "sex": {
+        "female": 3.0
+      },
+      "build": {
+        "statuesque": 2.5
+      }
+    },
+    {
+      "text": "a full bust on a narrow frame",
+      "sex": {
+        "female": 3.0
+      },
+      "build": {
+        "willowy": 2.0,
+        "petite": 1.5,
+        "statuesque": 2.0
+      }
+    },
+    {
+      "text": "a small bust",
+      "sex": {
+        "female": 2.0
+      },
+      "build": {
+        "lean": 1.5,
+        "slight-framed": 2.0
+      }
+    },
+    {
+      "text": "full-figured",
+      "sex": {
+        "female": 3.0
+      },
+      "age": {
+        "middle-aged": 1.5
+      },
+      "build": {
+        "soft-bodied": 2.5
+      }
+    },
+    {
+      "text": "an hourglass figure",
+      "sex": {
+        "female": 3.0
+      },
+      "build": {
+        "statuesque": 3.0
+      }
+    },
+    {
+      "text": "a soft belly",
+      "age": {
+        "middle-aged": 1.8,
+        "older": 1.8
+      },
+      "build": {
+        "soft-bodied": 3.0,
+        "heavyset": 2.5
+      }
+    },
+    {
+      "text": "a round belly",
+      "sex": {
+        "male": 1.5
+      },
+      "age": {
+        "middle-aged": 2.0,
+        "older": 2.0
+      },
+      "build": {
+        "heavyset": 2.5,
+        "soft-bodied": 2.5
+      }
+    },
+    {
+      "text": "a heavy belly",
+      "sex": {
+        "male": 1.5
+      },
+      "build": {
+        "heavyset": 3.0,
+        "soft-bodied": 2.5
+      }
+    },
+    {
+      "text": "a flat, hard stomach",
+      "age": {
+        "young adult": 1.8
+      },
+      "build": {
+        "athletic": 3.0,
+        "muscular": 3.0,
+        "statuesque": 1.8
+      }
+    },
+    {
+      "text": "wide through the ribs",
+      "build": {
+        "broad-framed": 2.0,
+        "stocky": 2.0
+      }
+    },
+    {
+      "text": "a barrel chest",
+      "sex": {
+        "male": 1.8
+      },
+      "age": {
+        "older": 1.3
+      },
+      "build": {
+        "broad-framed": 2.5,
+        "stocky": 2.5
+      }
+    }
+  ],
+  "physique_legs": [
+    {
+      "text": "tree-trunk legs",
+      "build": {
+        "muscular": 3.0,
+        "heavyset": 2.5,
+        "stocky": 2.5,
+        "broad-framed": 2.0
+      }
+    },
+    {
+      "text": "thick-muscled legs",
+      "build": {
+        "muscular": 3.5,
+        "athletic": 2.0,
+        "stocky": 2.0
+      }
+    },
+    {
+      "text": "long legs",
+      "build": {
+        "lanky": 2.5,
+        "rangy": 2.5,
+        "willowy": 2.0,
+        "statuesque": 2.0
+      }
+    },
+    {
+      "text": "long, shapely legs",
+      "sex": {
+        "female": 3.0
+      },
+      "build": {
+        "statuesque": 2.5,
+        "willowy": 1.5
+      }
+    },
+    {
+      "text": "spindly legs",
+      "build": {
+        "lean": 1.5,
+        "slight-framed": 2.0,
+        "heavyset": 0.5,
+        "muscular": 0.4
+      }
+    },
+    {
+      "text": "skinny legs",
+      "build": {
+        "lean": 2.0,
+        "lanky": 1.5,
+        "slight-framed": 2.0,
+        "muscular": 0.4,
+        "heavyset": 0.5
+      }
+    },
+    {
+      "text": "short, sturdy legs",
+      "build": {
+        "stocky": 3.0,
+        "petite": 2.5
+      }
+    },
+    {
+      "text": "muscled calves",
+      "build": {
+        "athletic": 2.5,
+        "muscular": 2.0
+      }
+    },
+    {
+      "text": "sprinter's legs",
+      "build": {
+        "athletic": 3.5,
+        "lean": 2.0
+      }
+    },
+    {
+      "text": "dancer's legs",
+      "sex": {
+        "female": 2.0
+      },
+      "build": {
+        "willowy": 2.0,
+        "athletic": 2.0,
+        "statuesque": 2.0
+      }
+    },
+    {
+      "text": "bow-legged"
+    },
+    {
+      "text": "knock-kneed"
+    },
+    {
+      "text": "thick through the thighs",
+      "build": {
+        "heavyset": 2.5,
+        "soft-bodied": 2.0,
+        "athletic": 1.5,
+        "muscular": 1.5
+      }
+    },
+    {
+      "text": "slim hips and legs",
+      "build": {
+        "lean": 2.0,
+        "willowy": 2.0,
+        "petite": 2.0
+      }
+    },
+    {
+      "text": "wide-set hips",
+      "sex": {
+        "female": 2.5
+      },
+      "build": {
+        "heavyset": 2.0
+      }
+    },
+    {
+      "text": "narrow hips",
+      "sex": {
+        "male": 1.5
+      },
+      "build": {
+        "lean": 1.8,
+        "lanky": 2.0,
+        "rangy": 1.5
+      }
+    },
+    {
+      "text": "sturdy legs",
+      "build": {
+        "stocky": 2.0,
+        "sturdy": 3.0,
+        "heavyset": 1.5
+      }
+    }
+  ],
+  "physique_arms": [
+    {
+      "text": "swimmer's shoulders",
+      "build": {
+        "athletic": 3.0,
+        "lean": 1.5,
+        "statuesque": 2.0
+      }
+    },
+    {
+      "text": "broad shoulders",
+      "sex": {
+        "male": 1.8
+      },
+      "build": {
+        "broad-framed": 3.0,
+        "muscular": 2.0,
+        "statuesque": 2.0
+      }
+    },
+    {
+      "text": "sloping shoulders",
+      "build": {
+        "slight-framed": 2.5,
+        "lean": 1.5
+      },
+      "age": {
+        "older": 1.5
+      }
+    },
+    {
+      "text": "shoulders bunched with muscle",
+      "build": {
+        "muscular": 3.5,
+        "athletic": 1.5
+      }
+    },
+    {
+      "text": "roped forearms",
+      "sex": {
+        "male": 1.5
+      },
+      "build": {
+        "wiry": 3.0,
+        "muscular": 2.5,
+        "athletic": 1.5
+      }
+    },
+    {
+      "text": "thin arms",
+      "build": {
+        "lean": 2.0,
+        "slight-framed": 2.5,
+        "lanky": 1.8
+      }
+    },
+    {
+      "text": "long arms",
+      "build": {
+        "lanky": 3.0,
+        "rangy": 2.5
+      }
+    },
+    {
+      "text": "corded arms",
+      "build": {
+        "wiry": 3.0,
+        "muscular": 2.0,
+        "athletic": 1.5
+      }
+    },
+    {
+      "text": "soft arms",
+      "age": {
+        "middle-aged": 1.3,
+        "older": 1.3
+      },
+      "build": {
+        "soft-bodied": 3.0,
+        "heavyset": 2.0
+      }
+    },
+    {
+      "text": "a wrestler's shoulders",
+      "build": {
+        "stocky": 3.0,
+        "muscular": 2.5,
+        "heavyset": 2.0
+      }
+    },
+    {
+      "text": "narrow shoulders",
+      "sex": {
+        "female": 1.3
+      },
+      "build": {
+        "slight-framed": 2.5,
+        "petite": 2.5,
+        "lean": 1.5
+      }
+    },
+    {
+      "text": "delicate wrists and hands",
+      "sex": {
+        "female": 1.8
+      },
+      "build": {
+        "petite": 2.5,
+        "willowy": 2.0
+      }
+    },
+    {
+      "text": "large hands",
+      "sex": {
+        "male": 1.5
+      },
+      "build": {
+        "broad-framed": 2.0,
+        "heavyset": 1.8,
+        "lanky": 1.5
+      }
+    },
+    {
+      "text": "muscled shoulders and arms",
+      "build": {
+        "muscular": 3.0,
+        "athletic": 2.0
+      }
+    }
+  ]
 }

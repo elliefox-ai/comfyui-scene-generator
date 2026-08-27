@@ -40,7 +40,7 @@ Axes:
         enumerated. Body: minimal = portrait companion — one
         guaranteed build word for proportions, single outer garment,
         no ladder; low = wide-shot legible; high = the garment ladder
-        plus build. Demeanor rides whichever axis is high. ("Full
+        plus build (high adds physique children — chest/legs/arms, soft-weighted on the drawn archetype). Demeanor rides whichever axis is high. ("Full
         detail doesn't mean listing each and every feature.")
     Role — genre-agnostic social function (leader / warrior / healer /
         ...), the character-side analogue of the setting archetypes.
@@ -61,7 +61,7 @@ Sometimes the composition works itself out.
 Banks live in scene_context/ — character_wardrobe.json (families:
 genre tag, layer grammar, palettes, wear states, role-tagged concepts)
 and character_features.json (identity-tagged faces, hair, eyes, nose,
-mouth, jaw, cheekbones, brow, ears, marks, build, demeanor;
+mouth, jaw, cheekbones, brow, ears, marks, build + physique children (torso/legs/arms), demeanor;
 postures/positions; race-keyed complexion). Expand
 the banks, not the code.
 
@@ -197,7 +197,13 @@ def _weighted(pool, identity, rng, w_match=4, w_untagged=2, w_mismatch=1):
     weights = []
     for entry in pool:
         w = 1.0
-        for axis in IDENTITY_AXES:
+        # Axes iterated: the identity axes PLUS any extra context
+        # axes the caller injected (children pass the drawn build
+        # archetype as identity['build'] — tags on that axis weight
+        # the same as age/sex/race). Face/parent draws pass plain
+        # identity, so their axes — and their outputs — are
+        # unchanged.
+        for axis in sorted(set(IDENTITY_AXES) | set(identity)):
             tag = entry.get(axis)
             if isinstance(tag, str):
                 tag = _TAG_ALIAS.get(tag, tag)
@@ -233,6 +239,9 @@ class SceneCharacterRoller:
                     "tooltip": "Face ladder. low = wide-shot legible: face shape, hair, eyes, maybe a mark — reads at distance. high = portrait ladder: complexion, nose, mouth, jaw, cheekbones, brow, ears sampled under a phrase budget (~6 face phrases, never the whole list)."}),
                 "body_detail": (["minimal", "low", "high"], {"default": "low",
                     "tooltip": "Body depth. minimal = portrait companion: one guaranteed build word for proportions, single outer garment, no layers. low = wide-shot: outer garment + palette, build usually. high = garment ladder (wear state, layered pieces) + build. Pair with face_detail=high for closeup portraits."}),
+                "body_type": (["random"] + [e["text"] for e in _load_features()["build"]],
+                    {"default": "random",
+                     "tooltip": "🎲 random rolls the build archetype each time; physique children (chest/legs/arms at body detail low/high) weight toward the drawn parent. A fixed value (muscular, willowy, heavyset…) forces the parent every roll — a distinct set of characters. Children stay soft-influenced, never locked."}),
                 "role": (_role_options(), {"default": "any",
                     "tooltip": "Genre-agnostic social function. Filters the concept banks; a family with no matching concepts falls back to its full bank."}),
                 "name": ("STRING", {"default": "", "multiline": False,
@@ -256,7 +265,7 @@ class SceneCharacterRoller:
     FUNCTION = "roll"
     CATEGORY = "SceneGen"
 
-    def roll(self, genre, consistency, face_detail, body_detail,
+    def roll(self, genre, consistency, face_detail, body_detail, body_type,
              role, name, pose, positioning, seed, age, sex, race):
         rng = random.Random(seed)
         families = _load_wardrobe()
@@ -439,21 +448,47 @@ class SceneCharacterRoller:
             wmaybe("eyes", 0.85, face_bits)
             wmaybe("marks", 0.45, face_bits)
 
-        # Build rides the BODY axis. minimal = the portrait
-        # proportions anchor: one build word, always stated.
-        if body_detail == "minimal":
-            wmaybe("build", 1.0, face_bits)
-        elif body_detail == "low":
-            wmaybe("build", 0.7, face_bits)
-        else:
-            wmaybe("build", 0.85, face_bits)
+        # Physique: build parent + influenced children. The parent
+        # is a clean archetype, always drawn flat — its canonical
+        # text is the axis children weight on, so compose never fires
+        # here. Children draw soft-weighted on BOTH identity and the
+        # drawn parent: influenced, never exclusive; skip-leg-day
+        # lives in the tails. minimal = the portrait proportions
+        # anchor: one build word, nothing deeper.
+        body_bits = []
+        arch = [e["text"] for e in feats["build"]]
+        forced = None if body_type == "random" else body_type
+        if forced is not None and forced not in arch:
+            forced = None  # stale workflow value — fall back to random
+        gate = 1.0 if forced else {
+            "minimal": 1.0, "low": 0.7, "high": 1.0,
+        }[body_detail]
+        build_text = forced
+        if gate >= 1.0 or rng.random() < gate:
+            if forced is None:
+                entry = _weighted(feats["build"], identity, rng)
+                build_text = entry["text"] if isinstance(entry, dict) else entry
+            body_bits.append(build_text)
+        if build_text and body_detail != "minimal":
+            pid = dict(identity, build=build_text)
+            if body_detail == "high":
+                for key, p in (("physique_torso", 0.6),
+                               ("physique_legs", 0.5),
+                               ("physique_arms", 0.4)):
+                    if rng.random() < p:
+                        e = _weighted(feats[key], pid, rng)
+                        body_bits.append(e["text"] if isinstance(e, dict) else e)
+            elif rng.random() < 0.25:
+                e = _weighted(feats["physique_torso"], pid, rng)
+                body_bits.append(e["text"] if isinstance(e, dict) else e)
 
         # Demeanor is person-energy, not face or body — it fires
         # when either axis asks for depth.
         if face_detail == "high" or body_detail == "high":
             wmaybe("demeanor", 0.7, face_bits)
 
-        segs = [identity_phrase, concept["text"], outfit, palette] + face_bits
+        segs = ([identity_phrase, concept["text"]] + body_bits
+                + [outfit, palette] + face_bits)
 
         posture = rng.choice(feats["postures"]) if pose else ""
         position = rng.choice(feats["positions"]) if positioning else ""
@@ -480,6 +515,7 @@ class SceneCharacterRoller:
             "consistency": consistency,
             "face_detail": face_detail,
             "body_detail": body_detail,
+            "body_type": body_type,
             "role": role,
             "name": name,
             "concept": concept["text"],
@@ -489,6 +525,7 @@ class SceneCharacterRoller:
             "palette_family": pal_src,
             "outfit_sources": sources,
             "face": face_bits,
+            "body": body_bits,
             "pose": posture,
             "position": position,
             "seed": seed,

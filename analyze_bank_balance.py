@@ -49,7 +49,7 @@ FEATS = json.load(open(os.path.join(
     "scene_context", "character_features.json")))
 
 POOLS = ["face_shapes", "hair", "eyes", "nose", "mouth", "jaw", "cheekbones", "brow", "ears", "marks",
-         "face_detail", "build", "demeanor"]
+         "face_detail", "build", "demeanor", "physique_torso", "physique_legs", "physique_arms"]
 GEOMETRY = ["postures", "positions"]
 
 AXIS_VALUES = {
