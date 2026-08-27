@@ -1,5 +1,5 @@
 {
-  "_doc": "Character feature banks. Identity pools (face_shapes, hair, eyes, marks, face_detail, build, demeanor) hold objects: {text, age?, sex?, race?}. Tags are SOFT AFFINITIES, never filters — draws are weighted 4 (match) / 2 (untagged) / 1 (mismatch) per axis and multiplied across axes: one stated identity, individually exclusive details, tiny randomization in every draw. The identity itself (age/sex/race words) is stated once in the identity phrase by the roller. complexion is race-keyed phrases (drawn at detail=high). postures/positions are geometry, untagged strings. _compose groups rebuild a phrase from orthogonal slots (set × shape × color) the way the legacy regex did — slot options carry the same soft affinity tags. Expand the banks, not the code.",
+  "_doc": "Character feature banks. Identity pools (face_shapes, hair, eyes, nose, marks, face_detail, build, demeanor) hold objects: {text, age?, sex?, race?}. Tags are SOFT AFFINITIES, never filters — draws are weighted 4 (match) / 2 (untagged) / 1 (mismatch) per axis and multiplied across axes: one stated identity, individually exclusive details, tiny randomization in every draw. The identity itself (age/sex/race words) is stated once in the identity phrase by the roller. complexion is race-keyed phrases (drawn at detail=high). postures/positions are geometry, untagged strings. _compose groups rebuild a phrase from orthogonal slots (set × shape × color) the way the legacy regex did — slot options carry the same soft affinity tags. Expand the banks, not the code.",
   "_compose": {
     "eyes": {
       "chance": 0.5,
@@ -280,84 +280,40 @@
         }
       ]
     },
-    "face_detail": {
+    "nose": {
       "chance": 0.6,
-      "joiner": " and ",
+      "joiner": ", ",
+      "suffix": "nose",
       "slots": [
         {
-          "name": "feature",
+          "name": "bridge",
           "optional": 0.8,
           "options": [
-            {"text": "a strong jaw"},
-            {"text": "thin lips pressed flat"},
-            {"text": "heavy brows"},
-            {"text": "hollow cheeks"},
-            {"text": "a jutting brow ridge"},
-            {"text": "flat cheekbones"},
-            {"text": "a lantern jaw"},
-            {"text": "a small, pointed chin"},
-            {"text": "a long philtrum"},
-            {"text": "asymmetrical brows"},
-            {"text": "a face that flushes easily"},
-            {"text": "a strong straight nose"},
-            {"text": "full lips, wide at the corners"}
+            {"text": "straight"},
+            {"text": "hawked", "race": {"middle_eastern": 1.5, "indigenous": 1.4, "white": 1.2}},
+            {"text": "high-bridged", "race": {"white": 1.4, "south_asian": 1.2}},
+            {"text": "flat-bridged", "race": {"black": 2.5, "east_asian": 1.6}},
+            {"text": "low-bridged", "race": {"east_asian": 1.8}},
+            {"text": "broken", "age": {"older": 1.3, "middle-aged": 1.2}},
+            {"text": "long"},
+            {"text": "narrow", "race": {"white": 1.3}},
+            {"text": "broad", "race": {"black": 2.2, "south_asian": 1.4, "latino": 1.3}},
+            {"text": "snub", "race": {"east_asian": 1.5}},
+            {"text": "roman", "race": {"white": 1.3, "middle_eastern": 1.5}}
           ]
         },
         {
-          "name": "age_marker",
+          "name": "tip",
           "optional": 0.8,
           "options": [
-            {"text": "crow's feet at the corners of the eyes", "age": "older"},
-            {"text": "a nose bent from old breaks", "age": "older"},
-            {"text": "ears grown large with age", "age": "older"},
-            {"text": "a face drawn and lined", "age": "older"},
-            {"text": "lines bracketing the mouth", "age": "middle-aged"},
-            {"text": "a brow creased between the eyes", "age": "middle-aged"},
-            {"text": "soft jowls at the jaw", "age": "middle-aged"},
-            {"text": "deep nasolabial folds", "age": "middle-aged"},
-            {"text": "a smooth, unlined brow", "age": "young adult"},
-            {"text": "soft round cheeks", "age": "young adult"}
-          ]
-        }
-      ]
-    },
-    "face_detail": {
-      "chance": 0.6,
-      "joiner": " and ",
-      "slots": [
-        {
-          "name": "feature",
-          "optional": 0.8,
-          "options": [
-            {"text": "a strong jaw"},
-            {"text": "thin lips pressed flat"},
-            {"text": "heavy brows"},
-            {"text": "hollow cheeks"},
-            {"text": "a jutting brow ridge"},
-            {"text": "flat cheekbones"},
-            {"text": "a lantern jaw"},
-            {"text": "a small, pointed chin"},
-            {"text": "a long philtrum"},
-            {"text": "asymmetrical brows"},
-            {"text": "a face that flushes easily"},
-            {"text": "a strong straight nose"},
-            {"text": "full lips, wide at the corners"}
-          ]
-        },
-        {
-          "name": "age_marker",
-          "optional": 0.8,
-          "options": [
-            {"text": "crow's feet at the corners of the eyes", "age": "older"},
-            {"text": "a nose bent from old breaks", "age": "older"},
-            {"text": "ears grown large with age", "age": "older"},
-            {"text": "a face drawn and lined", "age": "older"},
-            {"text": "lines bracketing the mouth", "age": "middle-aged"},
-            {"text": "a brow creased between the eyes", "age": "middle-aged"},
-            {"text": "soft jowls at the jaw", "age": "middle-aged"},
-            {"text": "deep nasolabial folds", "age": "middle-aged"},
-            {"text": "a smooth, unlined brow", "age": "young adult"},
-            {"text": "soft round cheeks", "age": "young adult"}
+            {"text": "rounded"},
+            {"text": "pointed"},
+            {"text": "upturned", "race": {"east_asian": 1.3, "white": 1.2}},
+            {"text": "flared", "race": {"black": 2.0, "south_asian": 1.3}},
+            {"text": "broad-tipped", "race": {"black": 1.8, "latino": 1.3, "indigenous": 1.3}},
+            {"text": "pinched", "race": {"white": 1.3}},
+            {"text": "bulbous", "age": {"older": 1.6}},
+            {"text": "soft", "age": {"young adult": 1.3}}
           ]
         }
       ]
@@ -441,6 +397,29 @@
     {"text": "deep-lined eyes under heavy lids", "age": "older"},
     {"text": "clouded, watery blue eyes", "age": "older"}
   ],
+  "nose": [
+    {"text": "a straight, well-set nose"},
+    {"text": "an aquiline nose", "race": {"middle_eastern": 1.6, "indigenous": 1.5, "white": 1.3}},
+    {"text": "a hawk-beaked nose", "race": {"middle_eastern": 1.5, "indigenous": 1.4, "white": 1.3}},
+    {"text": "a snub nose", "race": {"east_asian": 1.5}},
+    {"text": "a ski-jump nose", "race": {"white": 1.4}},
+    {"text": "a high-bridged nose", "race": {"white": 1.4, "south_asian": 1.2}},
+    {"text": "a flat-bridged, wide-set nose", "race": {"black": 2.5, "east_asian": 1.6}},
+    {"text": "a low-bridged nose", "race": {"east_asian": 1.8, "black": 1.5}},
+    {"text": "a long, narrow nose", "race": {"white": 1.3}},
+    {"text": "a broad nose, wide at the nostrils", "race": {"black": 2.5, "south_asian": 1.4, "latino": 1.3}},
+    {"text": "a small, neat nose", "race": {"east_asian": 1.5}},
+    {"text": "a blunt, wide-tipped nose", "race": {"black": 1.8, "latino": 1.3}},
+    {"text": "a pinched-tipped nose", "race": {"white": 1.3}},
+    {"text": "an upturned nose", "race": {"east_asian": 1.3}},
+    {"text": "a heavy-bridged nose", "race": {"middle_eastern": 1.4, "white": 1.3}},
+    {"text": "a boxer's nose, flattened and off-center"},
+    {"text": "a nose bent from old breaks", "age": "older"},
+    {"text": "a veined, thickened nose", "age": {"older": 1.8}},
+    {"text": "a soft round-tipped nose", "age": {"young adult": 1.3}},
+    {"text": "a blade-thin nose", "race": {"white": 1.2}},
+    {"text": "a bulbous-tipped nose", "age": {"older": 1.5}}
+  ],
   "marks": [
     {"text": "a healed scar through one eyebrow"},
     {"text": "a missing finger on the left hand"},
@@ -472,7 +451,7 @@
     {"text": "a strong jaw"},
     {"text": "thin lips pressed flat"},
     {"text": "crow's feet at the corners of the eyes", "age": "older"},
-    {"text": "a nose bent from old breaks", "age": "older"},
+    {"text": "a cleft chin"},
     {"text": "heavy brows"},
     {"text": "hollow cheeks"},
     {"text": "a smooth, unlined brow", "age": "young adult"},

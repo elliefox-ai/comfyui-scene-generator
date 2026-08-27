@@ -90,19 +90,30 @@ def _validate_features(feats, tags, problems, legacy):
                 if ax not in e:
                     continue
                 val = e[ax]
-                if val in tags[f"identity_{ax}"]:
-                    continue
+                # Dict tag = soft-weight map ({identity: multiplier}) —
+                # validate the keys; multipliers must be numeric.
+                pairs = val.items() if isinstance(val, dict) else [(val, None)]
                 alias = aliases.get(ax, {})
-                if val in alias:
-                    legacy.append(
-                        f"{pool} '{str(e.get('text', '?'))[:34]}': "
-                        f"legacy {ax} '{val}' -> '{alias[val]}'"
-                    )
-                else:
-                    problems.append(
-                        f"features '{pool}': unknown {ax} value '{val}' "
-                        f"(entry '{str(e.get('text', '?'))[:34]}')"
-                    )
+                for v, mult in pairs:
+                    label = str(e.get('text', '?'))[:34]
+                    if mult is not None and not isinstance(mult, (int, float)):
+                        problems.append(
+                            f"features '{pool}': {ax} multiplier for '{v}' "
+                            f"is not numeric (entry '{label}')"
+                        )
+                        continue
+                    if v in tags[f"identity_{ax}"]:
+                        continue
+                    if v in alias:
+                        legacy.append(
+                            f"{pool} '{label}': "
+                            f"legacy {ax} '{v}' -> '{alias[v]}'"
+                        )
+                    else:
+                        problems.append(
+                            f"features '{pool}': unknown {ax} value '{v}' "
+                            f"(entry '{label}')"
+                        )
 
 
 def _validate_wardrobe(families, tags, problems):

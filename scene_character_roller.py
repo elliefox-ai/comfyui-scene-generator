@@ -55,8 +55,8 @@ Sometimes the composition works itself out.
 
 Banks live in scene_context/ — character_wardrobe.json (families:
 genre tag, layer grammar, palettes, wear states, role-tagged concepts)
-and character_features.json (identity-tagged faces, hair, eyes, marks,
-build, demeanor; postures/positions; race-keyed complexion). Expand
+and character_features.json (identity-tagged faces, hair, eyes, nose,
+marks, build, demeanor; postures/positions; race-keyed complexion). Expand
 the banks, not the code.
 
 Outputs:
@@ -411,6 +411,7 @@ class SceneCharacterRoller:
                 # own phrase bank, descriptive register, never raw.
                 face_bits.append(rng.choice(feats["complexion"][race_res]))
             wmaybe("marks", 0.6, face_bits)
+            wmaybe("nose", 0.5, face_bits)
             if rng.random() < 0.75:
                 wmaybe("face_detail", 1.0, face_bits)
                 if rng.random() < 0.35:
