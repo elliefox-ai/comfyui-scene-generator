@@ -1,0 +1,102 @@
+{
+  "name": "cantina",
+  "subject_label": "cantina regulars",
+  "tags": [
+    "modern"
+  ],
+  "facet_tags": [
+    "small_crowd",
+    "leisure"
+  ],
+  "venue_archetype": "interior_social",
+  "features": {
+    "default": [
+      "a long, weathered wood or copper-topped main bar",
+      "candles flickering on rustic wooden tabletops",
+      "high wooden barstools with leather accents",
+      "brightly painted stucco walls in warm, earthy tones",
+      "hand-painted Mexican talavera tiles framing the back bar",
+      "vintage travel posters, tin beer signs, and framed black-and-white photos",
+      "distressed terracotta floor tiles or dark, stained concrete",
+      "exposed wooden ceiling beams with hanging dried herbs or peppers",
+      "wrought iron window grates and rustic wooden doors"
+    ],
+    "western": [
+      "a player piano against one wall",
+      "a brass spittoon on the ground near the bar"
+    ],
+    "modern,sci_fi": [
+      "dim, warm lighting from hanging pendant lamps or string lights",
+      "neon drink signs glowing against dark corners",
+      "deep booths with worn leather upholstery along the walls",
+      "string flags or papel picado banners hanging from the ceiling beams",
+      "an HDTV mounted high on the wall",
+      "a jukebox"
+    ],
+    "dieselpunk,steampunk": [
+      "a large still contraption behind the bar"
+    ],
+    "cyberpunk": [
+      "a holographic display",
+      "a wall interface port and control panel"
+    ]
+  },
+  "situations": [
+    {
+      "id": "card_game_at_the_corner_table",
+      "text": "locked in a card game at a corner table",
+      "tags": ["social", "tense_capable"],
+      "scene_type_bias": "close_group",
+      "indoor": true
+    },
+    {
+      "id": "nursing_a_drink_alone",
+      "text": "nursing a drink alone at the end of the bar",
+      "tags": ["social", "calm_capable"],
+      "scene_type_bias": "candid_moment",
+      "indoor": true
+    },
+    {
+      "id": "toasting_a_deal",
+      "text": "raising glasses to toast a freshly struck deal",
+      "tags": ["social", "calm_capable"],
+      "scene_type_bias": "close_group",
+      "indoor": true
+    },
+    {
+      "id": "tense_exchange_at_the_bar",
+      "text": "a tense exchange of words leaning close over the bar",
+      "tags": ["social", "tense_capable"],
+      "scene_type_bias": "face_off",
+      "indoor": true
+    },
+    {
+      "id": "live_music_set",
+      "text": "gathered around a small stage for a live set",
+      "tags": ["social", "calm_capable"],
+      "scene_type_bias": "gathering",
+      "indoor": true
+    },
+    {
+      "id": "morning_after_cleanup",
+      "text": "sweeping up quietly the morning after a long night",
+      "tags": ["labor", "calm_capable"],
+      "scene_type_bias": "candid_moment",
+      "indoor": true
+    },
+    {
+      "id": "stranger_in_the_doorway",
+      "text": "conversation trailing off as a stranger fills the doorway",
+      "tags": ["action", "tense_capable"],
+      "scene_type_bias": "atmospheric",
+      "indoor": true
+    },
+    {
+      "id": "shared_meal_at_a_long_table",
+      "text": "sharing a loud meal at a long communal table",
+      "tags": ["social", "calm_capable"],
+      "scene_type_bias": "gathering",
+      "indoor": true
+    }
+  ]
+}

@@ -1,0 +1,79 @@
+{
+  "name": "railhead_town",
+  "subject_label": "railhead town locals",
+  "tags": [
+    "historical",
+    "western"
+  ],
+  "facet_tags": [
+    "street",
+    "city",
+    "road"
+  ],
+  "venue_archetype": "exterior_built",
+  "features": {
+    "default": [
+      "raw pine storefronts still smelling of sawn lumber",
+      "a boardwalk raised above a rutted dirt street",
+      "stacked freight crates piled along the platform",
+      "telegraph wire strung loosely between crooked poles",
+      "a water tower looming over the tracks"
+    ],
+    "western": [
+      "a hitching rail crowded with tethered horses",
+      "a weathered depot sign swinging on one hinge",
+      "a coil of rope and branding irons stacked by the corral gate"
+    ]
+  },
+  "situations": [
+    {
+      "id": "train_pulling_in",
+      "text": "a train pulling in, whistle cutting across the street",
+      "tags": ["action", "calm_capable"],
+      "scene_type_bias": "gathering"
+    },
+    {
+      "id": "loading_freight",
+      "text": "hauling freight crates off a flatcar onto waiting wagons",
+      "tags": ["labor", "calm_capable"],
+      "scene_type_bias": "at_work"
+    },
+    {
+      "id": "waiting_on_the_mail",
+      "text": "waiting on the boardwalk for the mail sack to be thrown down",
+      "tags": ["social", "calm_capable"],
+      "scene_type_bias": "candid_moment"
+    },
+    {
+      "id": "dispute_over_land_claim",
+      "text": "an argument over a land claim spilling onto the street",
+      "tags": ["social", "tense_capable"],
+      "scene_type_bias": "face_off"
+    },
+    {
+      "id": "herd_passing_through",
+      "text": "a small herd being driven straight down the main street",
+      "tags": ["action", "tense_capable"],
+      "scene_type_bias": "atmospheric"
+    },
+    {
+      "id": "gunfight_in_the_street",
+      "text": "a standoff in the open street, hands hovering near holsters",
+      "tags": ["action", "violent_capable"],
+      "scene_type_bias": "face_off"
+    },
+    {
+      "id": "dust_storm_rolling_in",
+      "text": "dust rolling down the street ahead of a building storm",
+      "tags": ["nature", "tense_capable"],
+      "scene_type_bias": "atmospheric",
+      "env": "storm"
+    },
+    {
+      "id": "children_racing_the_platform",
+      "text": "children racing along the depot platform",
+      "tags": ["social", "calm_capable"],
+      "scene_type_bias": "candid_moment"
+    }
+  ]
+}

@@ -1,0 +1,86 @@
+{
+  "name": "frontier_saloon",
+  "subject_label": "saloon regulars",
+  "tags": [
+    "historical",
+    "western"
+  ],
+  "facet_tags": [
+    "small_crowd",
+    "leisure"
+  ],
+  "venue_archetype": "interior_social",
+  "features": {
+    "default": [
+      "a long brass-railed bar backed by a cracked mirror",
+      "sawdust scattered thick across the floorboards",
+      "a row of dusty bottles lined along a rough-hewn shelf",
+      "bullet-pocked tin ceiling tiles overhead",
+      "a hand-lettered price board nailed beside the door"
+    ],
+    "western": [
+      "a player piano wedged into the corner, keys yellowed",
+      "a brass spittoon parked at the foot of the bar",
+      "a rack of hats hung on pegs by the door",
+      "a faded wanted poster curling at the corners"
+    ]
+  },
+  "situations": [
+    {
+      "id": "card_game_at_the_table",
+      "text": "locked in a card game at a corner table",
+      "tags": ["social", "tense_capable"],
+      "scene_type_bias": "close_group",
+      "indoor": true
+    },
+    {
+      "id": "standoff_at_the_bar",
+      "text": "a standoff building between two men at the bar",
+      "tags": ["action", "tense_capable", "violent_capable"],
+      "scene_type_bias": "face_off",
+      "indoor": true
+    },
+    {
+      "id": "piano_and_dancing",
+      "text": "dancing to a player piano's tune",
+      "tags": ["social", "calm_capable"],
+      "scene_type_bias": "gathering",
+      "indoor": true
+    },
+    {
+      "id": "nursing_a_drink_alone",
+      "text": "nursing a drink alone at the far end of the bar",
+      "tags": ["social", "calm_capable"],
+      "scene_type_bias": "candid_moment",
+      "indoor": true
+    },
+    {
+      "id": "brawl_breaking_out",
+      "text": "a brawl breaking out and spilling into the tables",
+      "tags": ["action", "violent_capable"],
+      "scene_type_bias": "face_off",
+      "indoor": true
+    },
+    {
+      "id": "passing_the_bottle",
+      "text": "passing a bottle around a crowded table",
+      "tags": ["social", "calm_capable"],
+      "scene_type_bias": "close_group",
+      "indoor": true
+    },
+    {
+      "id": "newcomer_in_the_doorway",
+      "text": "conversation dying as a newcomer fills the doorway",
+      "tags": ["action", "tense_capable"],
+      "scene_type_bias": "atmospheric",
+      "indoor": true
+    },
+    {
+      "id": "settling_the_tab",
+      "text": "arguing over a tab at closing time",
+      "tags": ["social", "tense_capable"],
+      "scene_type_bias": "face_off",
+      "indoor": true
+    }
+  ]
+}

@@ -1,0 +1,81 @@
+{
+  "name": "careening_beach",
+  "subject_label": "a ship's careening crew",
+  "tags": [
+    "historical",
+    "fantasy",
+    "age_of_sail"
+  ],
+  "facet_tags": [
+    "sea",
+    "shore",
+    "age_of_sail",
+    "small_crew"
+  ],
+  "venue_archetype": "exterior_natural",
+  "features": {
+    "default": [
+      "a hull tipped on its side against the sand, ribs bared to the tide line",
+      "coils of thick rope anchoring block and tackle to driven stakes",
+      "barrels of pitch and tallow set out along the beach",
+      "driftwood fires smoking beneath cauldrons of tar",
+      "the tide line marked by a scatter of barnacles and weed"
+    ],
+    "age_of_sail": [
+      "a spare set of sails laid out to dry across the dunes",
+      "a longboat drawn up above the tide line",
+      "a lookout perched on a dune, watching the horizon"
+    ]
+  },
+  "situations": [
+    {
+      "id": "scraping_the_hull",
+      "text": "scraping barnacles from an exposed hull",
+      "tags": ["labor", "calm_capable"],
+      "scene_type_bias": "at_work"
+    },
+    {
+      "id": "patching_a_breach",
+      "text": "patching a breach in the planking with pitch and oakum",
+      "tags": ["labor", "calm_capable"],
+      "scene_type_bias": "at_work"
+    },
+    {
+      "id": "racing_the_tide",
+      "text": "racing to finish before the tide turns",
+      "tags": ["action", "tense_capable"],
+      "scene_type_bias": "atmospheric"
+    },
+    {
+      "id": "resting_on_the_sand",
+      "text": "resting in the shade of the tipped hull, sharing water",
+      "tags": ["social", "calm_capable"],
+      "scene_type_bias": "close_group"
+    },
+    {
+      "id": "lookout_on_the_dune",
+      "text": "keeping watch from atop a dune for approaching sails",
+      "tags": ["action", "tense_capable"],
+      "scene_type_bias": "candid_moment"
+    },
+    {
+      "id": "dispute_over_the_work",
+      "text": "an argument over who owes a turn at the pitch pots",
+      "tags": ["social", "tense_capable"],
+      "scene_type_bias": "face_off"
+    },
+    {
+      "id": "storm_threatens_the_careen",
+      "text": "hurrying to right the hull as a storm builds offshore",
+      "tags": ["nature", "tense_capable"],
+      "scene_type_bias": "atmospheric",
+      "env": "storm"
+    },
+    {
+      "id": "relaunching_the_ship",
+      "text": "hauling the righted hull back into the water together",
+      "tags": ["labor", "calm_capable"],
+      "scene_type_bias": "gathering"
+    }
+  ]
+}

@@ -1,0 +1,77 @@
+{
+  "name": "refugee_camp",
+  "subject_label": "refugee camp residents",
+  "tags": [
+    "sci_fi",
+    "post_apocalyptic"
+  ],
+  "facet_tags": [
+    "crowd",
+    "road"
+  ],
+  "venue_archetype": "exterior_built",
+  "features": {
+    "default": [
+      "a grid of tents and lean-tos built from salvaged tarp",
+      "a communal fire pit ringed with scavenged seating",
+      "laundry strung between makeshift poles",
+      "a hand-painted map marking safe routes",
+      "stacked water containers along a supply line"
+    ],
+    "post_apocalyptic": [
+      "a rationing board chalked with names and numbers",
+      "a watch post cobbled from scrap and sandbags",
+      "a row of salvaged solar panels angled toward the sun"
+    ]
+  },
+  "situations": [
+    {
+      "id": "rationing_supplies",
+      "text": "rationing out the day's supplies at the distribution table",
+      "tags": ["labor", "tense_capable"],
+      "scene_type_bias": "at_work"
+    },
+    {
+      "id": "building_a_shelter",
+      "text": "building a shelter frame from salvaged panels",
+      "tags": ["labor", "calm_capable"],
+      "scene_type_bias": "at_work"
+    },
+    {
+      "id": "medical_triage",
+      "text": "tending to the injured at a makeshift triage point",
+      "tags": ["labor", "tense_capable"],
+      "scene_type_bias": "close_group"
+    },
+    {
+      "id": "sharing_stories_by_the_fire",
+      "text": "sharing stories around the communal fire at night",
+      "tags": ["social", "calm_capable"],
+      "scene_type_bias": "gathering"
+    },
+    {
+      "id": "dispute_over_rations",
+      "text": "a dispute breaking out over unequal rations",
+      "tags": ["social", "tense_capable"],
+      "scene_type_bias": "face_off"
+    },
+    {
+      "id": "children_playing_among_the_tents",
+      "text": "children playing a chasing game among the tents",
+      "tags": ["social", "calm_capable"],
+      "scene_type_bias": "candid_moment"
+    },
+    {
+      "id": "watch_duty_at_the_perimeter",
+      "text": "keeping watch at the camp's scavenged perimeter",
+      "tags": ["action", "tense_capable"],
+      "scene_type_bias": "candid_moment"
+    },
+    {
+      "id": "new_arrivals_at_the_gate",
+      "text": "a wary crowd gathering as new arrivals reach the gate",
+      "tags": ["action", "tense_capable"],
+      "scene_type_bias": "atmospheric"
+    }
+  ]
+}

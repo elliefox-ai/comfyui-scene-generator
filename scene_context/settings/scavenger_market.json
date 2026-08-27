@@ -1,0 +1,79 @@
+{
+  "name": "scavenger_market",
+  "subject_label": "scavenger market traders",
+  "tags": [
+    "sci_fi",
+    "post_apocalyptic"
+  ],
+  "facet_tags": [
+    "crowd",
+    "leisure",
+    "street"
+  ],
+  "venue_archetype": "exterior_built",
+  "features": {
+    "default": [
+      "stalls built from salvaged shipping crates and scrap panel",
+      "a patchwork awning stitched from mismatched tarp",
+      "hand-lettered signs advertising parts and rations",
+      "coils of scavenged cable looped over makeshift racks",
+      "a rusted generator humming behind the nearest stall"
+    ],
+    "post_apocalyptic": [
+      "a rack of scavenged gas masks hanging by their straps",
+      "a Geiger counter passed hand to hand at one stall",
+      "water traded by the jerrycan at a corner table"
+    ]
+  },
+  "situations": [
+    {
+      "id": "haggling_over_parts",
+      "text": "haggling over a crate of salvaged parts",
+      "tags": ["social", "tense_capable"],
+      "scene_type_bias": "face_off"
+    },
+    {
+      "id": "testing_a_find",
+      "text": "testing a salvaged device to see if it still works",
+      "tags": ["labor", "calm_capable"],
+      "scene_type_bias": "at_work"
+    },
+    {
+      "id": "trading_water_rations",
+      "text": "trading water rations at a corner stall",
+      "tags": ["social", "calm_capable"],
+      "scene_type_bias": "gathering"
+    },
+    {
+      "id": "dispute_over_territory",
+      "text": "a heated dispute over stall territory",
+      "tags": ["social", "tense_capable", "violent_capable"],
+      "scene_type_bias": "face_off"
+    },
+    {
+      "id": "quiet_browsing",
+      "text": "quietly browsing a stall's scavenged wares",
+      "tags": ["social", "calm_capable"],
+      "scene_type_bias": "candid_moment"
+    },
+    {
+      "id": "new_arrivals_draw_stares",
+      "text": "a group of newcomers drawing wary stares as they enter",
+      "tags": ["action", "tense_capable"],
+      "scene_type_bias": "atmospheric"
+    },
+    {
+      "id": "counting_the_days_take",
+      "text": "counting out the day's take at a folding table",
+      "tags": ["labor", "calm_capable"],
+      "scene_type_bias": "close_group"
+    },
+    {
+      "id": "storm_scatters_the_stalls",
+      "text": "scrambling to secure stalls as a storm rolls in",
+      "tags": ["nature", "tense_capable"],
+      "scene_type_bias": "atmospheric",
+      "env": "storm"
+    }
+  ]
+}

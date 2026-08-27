@@ -1,0 +1,78 @@
+{
+  "name": "overgrowth_road",
+  "subject_label": "a convoy on a reclaimed road",
+  "tags": [
+    "sci_fi",
+    "post_apocalyptic"
+  ],
+  "facet_tags": [
+    "road",
+    "forest"
+  ],
+  "venue_archetype": "exterior_natural",
+  "features": {
+    "default": [
+      "cracked asphalt buckled by root growth",
+      "the rusted shell of an abandoned vehicle half-swallowed by vines",
+      "a collapsed overpass looming ahead, choked with vegetation",
+      "faded road signs leaning at odd angles",
+      "a canopy of reclaimed growth closing overhead"
+    ],
+    "post_apocalyptic": [
+      "a stripped fuel drum lashed to the lead vehicle",
+      "a hand-painted marker warning of the route ahead",
+      "scavenged tires stacked as makeshift barriers"
+    ]
+  },
+  "situations": [
+    {
+      "id": "clearing_a_blockage",
+      "text": "clearing fallen debris blocking the road ahead",
+      "tags": ["labor", "calm_capable"],
+      "scene_type_bias": "at_work"
+    },
+    {
+      "id": "scouting_the_ruins",
+      "text": "scouting a collapsed structure just off the road",
+      "tags": ["action", "tense_capable"],
+      "scene_type_bias": "atmospheric"
+    },
+    {
+      "id": "roadside_repair",
+      "text": "making a roadside repair before the light fails",
+      "tags": ["labor", "tense_capable"],
+      "scene_type_bias": "at_work"
+    },
+    {
+      "id": "foraging_the_verge",
+      "text": "foraging along the overgrown roadside for anything useful",
+      "tags": ["labor", "calm_capable"],
+      "scene_type_bias": "gathering"
+    },
+    {
+      "id": "ambush_from_the_treeline",
+      "text": "an ambush breaking from the treeline without warning",
+      "tags": ["action", "violent_capable"],
+      "scene_type_bias": "face_off"
+    },
+    {
+      "id": "campfire_at_dusk",
+      "text": "sharing a meal around a low fire as dusk settles",
+      "tags": ["social", "calm_capable"],
+      "scene_type_bias": "close_group"
+    },
+    {
+      "id": "storm_over_the_road",
+      "text": "pushing on as a storm closes over the road",
+      "tags": ["nature", "tense_capable"],
+      "scene_type_bias": "atmospheric",
+      "env": "storm"
+    },
+    {
+      "id": "quiet_watch_at_the_convoy",
+      "text": "keeping a quiet watch at the edge of the convoy",
+      "tags": ["action", "calm_capable"],
+      "scene_type_bias": "candid_moment"
+    }
+  ]
+}

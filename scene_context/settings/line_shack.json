@@ -1,0 +1,86 @@
+{
+  "name": "line_shack",
+  "subject_label": "a line-camp hand",
+  "tags": [
+    "historical",
+    "western"
+  ],
+  "facet_tags": [
+    "road",
+    "small_crew"
+  ],
+  "venue_archetype": "interior_domestic",
+  "features": {
+    "default": [
+      "a wood stove crowded into one corner, pipe patched with wire",
+      "saddle gear hung along one wall",
+      "a single shuttered window facing the range",
+      "a table scarred with knife marks",
+      "bunks built into the wall, blankets rolled tight"
+    ],
+    "western": [
+      "a coil of worn lariat hanging from a nail",
+      "a rifle racked above the door",
+      "a tin plate and cup set out on the table"
+    ]
+  },
+  "situations": [
+    {
+      "id": "mending_tack_by_lamplight",
+      "text": "mending a cracked saddle strap by lamplight",
+      "tags": ["labor", "calm_capable"],
+      "scene_type_bias": "at_work",
+      "indoor": true
+    },
+    {
+      "id": "cooking_over_the_stove",
+      "text": "cooking a simple meal over the wood stove",
+      "tags": ["labor", "calm_capable"],
+      "scene_type_bias": "candid_moment",
+      "indoor": true
+    },
+    {
+      "id": "waiting_out_the_storm",
+      "text": "waiting out a storm, packs stacked against the wall",
+      "tags": ["nature", "tense_capable"],
+      "scene_type_bias": "atmospheric",
+      "env": "storm",
+      "indoor": true
+    },
+    {
+      "id": "playing_cards_by_lamplight",
+      "text": "playing cards by lamplight to pass a quiet evening",
+      "tags": ["social", "calm_capable"],
+      "scene_type_bias": "close_group",
+      "indoor": true
+    },
+    {
+      "id": "checking_a_map_by_candle",
+      "text": "checking a range map spread across the table",
+      "tags": ["labor", "calm_capable"],
+      "scene_type_bias": "close_group",
+      "indoor": true
+    },
+    {
+      "id": "keeping_solitary_watch",
+      "text": "keeping a solitary watch at the shuttered window",
+      "tags": ["action", "tense_capable"],
+      "scene_type_bias": "candid_moment",
+      "indoor": true
+    },
+    {
+      "id": "arguing_over_the_next_ride",
+      "text": "a tense argument over who rides out at first light",
+      "tags": ["social", "tense_capable"],
+      "scene_type_bias": "face_off",
+      "indoor": true
+    },
+    {
+      "id": "writing_a_letter_home",
+      "text": "writing a letter home by the stove's last light",
+      "tags": ["social", "calm_capable"],
+      "scene_type_bias": "candid_moment",
+      "indoor": true
+    }
+  ]
+}
