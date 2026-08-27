@@ -3,298 +3,1476 @@
     "age_of_sail": {
       "genre": "historical",
       "layers": {
-        "outer": ["a heavy oilskin coat", "a salt-stiffened pea coat", "a long officer's coat"],
-        "torso": ["a patched linen shirt", "a knit fisherman's sweater", "a canvas work shirt"],
-        "legs": ["canvas slops", "wool trousers salt-stained at the cuffs"],
-        "feet": ["rope-soled shoes", "buckled shoes", "sea boots"],
-        "head": ["a tricorne hat", "a tattered wide-brim hat", "a knitted watch cap"]
+        "outer": [
+          "a heavy oilskin coat",
+          "a salt-stiffened pea coat",
+          "a long officer's coat"
+        ],
+        "torso": [
+          "a patched linen shirt",
+          "a knit fisherman's sweater",
+          "a canvas work shirt"
+        ],
+        "legs": [
+          "canvas slops",
+          "wool trousers salt-stained at the cuffs"
+        ],
+        "feet": [
+          "rope-soled shoes",
+          "buckled shoes",
+          "sea boots"
+        ],
+        "head": [
+          "a tricorne hat",
+          "a tattered wide-brim hat",
+          "a knitted watch cap"
+        ]
       },
-      "palettes": ["oil-black and salt-white", "tar brown and faded blue", "wet grey and brass"],
-      "wear": ["salt-stiffened", "tar-spotted", "sun-bleached"],
+      "palettes": [
+        "oil-black and salt-white",
+        "tar brown and faded blue",
+        "wet grey and brass"
+      ],
+      "wear": [
+        "salt-stiffened",
+        "tar-spotted",
+        "sun-bleached"
+      ],
       "concepts": [
-        {"text": "a weathered sea captain", "roles": ["leader"]},
-        {"text": "a ship's quartermaster", "roles": ["official"]},
-        {"text": "a topman with rope-scarred hands", "roles": ["worker"]},
-        {"text": "a ship's cook", "roles": ["worker"]},
-        {"text": "a pressed navigator", "roles": ["scholar"]},
-        {"text": "a ship's surgeon", "roles": ["healer"]},
-        {"text": "a marine private", "roles": ["warrior"]},
-        {"text": "a runaway signed on as deckhand", "roles": ["drifter"]}
+        {
+          "text": "a weathered sea captain",
+          "roles": [
+            "leader"
+          ]
+        },
+        {
+          "text": "a ship's quartermaster",
+          "roles": [
+            "official"
+          ]
+        },
+        {
+          "text": "a topman with rope-scarred hands",
+          "roles": [
+            "worker"
+          ]
+        },
+        {
+          "text": "a ship's cook",
+          "roles": [
+            "worker"
+          ]
+        },
+        {
+          "text": "a pressed navigator",
+          "roles": [
+            "scholar"
+          ]
+        },
+        {
+          "text": "a ship's surgeon",
+          "roles": [
+            "healer"
+          ]
+        },
+        {
+          "text": "a marine private",
+          "roles": [
+            "warrior"
+          ]
+        },
+        {
+          "text": "a runaway signed on as deckhand",
+          "roles": [
+            "drifter"
+          ]
+        }
       ]
     },
     "frontier": {
       "genre": "historical",
       "layers": {
-        "outer": ["a dust-caked duster coat", "a sheepskin vest"],
-        "torso": ["a collarless work shirt", "a blue army shirt, faded"],
-        "legs": ["duck trousers", "wool trousers held by suspenders"],
-        "feet": ["worn riding boots", "cowhide boots resoled twice"],
-        "head": ["a low-crowned hat", "a wide-brim hat weathered soft"]
+        "outer": [
+          "a dust-caked duster coat",
+          "a sheepskin vest"
+        ],
+        "torso": [
+          "a collarless work shirt",
+          "a blue army shirt, faded"
+        ],
+        "legs": [
+          "duck trousers",
+          "wool trousers held by suspenders"
+        ],
+        "feet": [
+          "worn riding boots",
+          "cowhide boots resoled twice"
+        ],
+        "head": [
+          "a low-crowned hat",
+          "a wide-brim hat weathered soft"
+        ]
       },
-      "palettes": ["dust brown and faded indigo", "sweat-grey and leather"],
-      "wear": ["sun-faded", "dust-caked", "frayed at the cuffs"],
+      "palettes": [
+        "dust brown and faded indigo",
+        "sweat-grey and leather"
+      ],
+      "wear": [
+        "sun-faded",
+        "dust-caked",
+        "frayed at the cuffs"
+      ],
       "concepts": [
-        {"text": "a frontier lawman", "roles": ["warrior", "official"]},
-        {"text": "a circuit judge", "roles": ["official", "leader"]},
-        {"text": "a ranch owner", "roles": ["leader"]},
-        {"text": "a horse wrangler", "roles": ["worker"]},
-        {"text": "a saloon keeper", "roles": ["worker", "official"]},
-        {"text": "a trail-worn scout", "roles": ["drifter", "worker"]},
-        {"text": "a frontier doctor", "roles": ["healer"]},
-        {"text": "a veteran of the border wars", "roles": ["warrior"]}
+        {
+          "text": "a frontier lawman",
+          "roles": [
+            "warrior",
+            "official"
+          ]
+        },
+        {
+          "text": "a circuit judge",
+          "roles": [
+            "official",
+            "leader"
+          ]
+        },
+        {
+          "text": "a ranch owner",
+          "roles": [
+            "leader"
+          ]
+        },
+        {
+          "text": "a horse wrangler",
+          "roles": [
+            "worker"
+          ]
+        },
+        {
+          "text": "a saloon keeper",
+          "roles": [
+            "worker",
+            "official"
+          ]
+        },
+        {
+          "text": "a trail-worn scout",
+          "roles": [
+            "drifter",
+            "worker"
+          ]
+        },
+        {
+          "text": "a frontier doctor",
+          "roles": [
+            "healer"
+          ]
+        },
+        {
+          "text": "a veteran of the border wars",
+          "roles": [
+            "warrior"
+          ]
+        }
       ]
     },
     "workwear": {
       "genre": "modern",
       "layers": {
-        "outer": ["a canvas chore coat", "a hi-vis vest over a flannel"],
-        "torso": ["a grease-spotted thermal shirt"],
-        "legs": ["carpenter jeans", "work trousers with a tool belt"],
-        "feet": ["steel-toed boots", "scuffed work boots"],
-        "head": ["a hard hat", "a knit beanie"]
+        "outer": [
+          "a canvas chore coat",
+          "a {flannel|thermal} {|with a hi-vis vest over}",
+          "a barn coat {|with a corduroy collar}",
+          "a painter's jacket {|white|spattered with color}"
+        ],
+        "torso": [
+          "a grease-spotted thermal shirt",
+          "a flannel {shirtsleeves|buttoned to the collar}",
+          "a pocket tee {|sun-faded}",
+          "a waffle-knit henley"
+        ],
+        "legs": [
+          "carpenter jeans",
+          "work trousers with a tool belt",
+          "double-knee canvas pants",
+          "overalls {|snapped at the waist}"
+        ],
+        "feet": [
+          "steel-toed boots",
+          "scuffed work boots",
+          "rubber muck boots",
+          "canvas high-tops {|laced tight|beaten grey}"
+        ],
+        "head": [
+          "a hard hat",
+          "a knit beanie",
+          "a sweat-lined ball cap",
+          "a bandana tied over the hair"
+        ]
       },
-      "palettes": ["olive drab and safety orange", "concrete grey and denim blue"],
-      "wear": ["paint-flecked", "frayed", "well-oiled"],
+      "palettes": [
+        "olive drab and safety orange",
+        "concrete grey and denim blue",
+        "dust grey and rust",
+        "khaki and chipped white",
+        "denim on denim"
+      ],
+      "wear": [
+        "paint-flecked",
+        "frayed",
+        "well-oiled"
+      ],
       "concepts": [
-        {"text": "a site foreman", "roles": ["leader"]},
-        {"text": "a union steward", "roles": ["official", "leader"]},
-        {"text": "a city inspector", "roles": ["official"]},
-        {"text": "a dockside welder", "roles": ["worker"]},
-        {"text": "a mechanic", "roles": ["worker"]},
-        {"text": "a combat medic", "roles": ["healer"]},
-        {"text": "a night watchman", "roles": ["warrior"]},
-        {"text": "a surveyor", "roles": ["scholar"]}
+        {
+          "text": "a site foreman",
+          "roles": [
+            "leader"
+          ]
+        },
+        {
+          "text": "a union steward",
+          "roles": [
+            "official",
+            "leader"
+          ]
+        },
+        {
+          "text": "a city inspector",
+          "roles": [
+            "official"
+          ]
+        },
+        {
+          "text": "a dockside welder",
+          "roles": [
+            "worker"
+          ]
+        },
+        {
+          "text": "a mechanic",
+          "roles": [
+            "worker"
+          ]
+        },
+        {
+          "text": "a combat medic",
+          "roles": [
+            "healer"
+          ]
+        },
+        {
+          "text": "a night watchman",
+          "roles": [
+            "warrior"
+          ]
+        },
+        {
+          "text": "a surveyor",
+          "roles": [
+            "scholar"
+          ]
+        }
       ]
     },
     "streetwear": {
       "genre": "modern",
       "layers": {
-        "outer": ["a technical shell jacket", "an oversized bomber"],
-        "torso": ["a graphic hoodie", "a cropped tank over a long sleeve"],
-        "legs": ["cargo pants stacked at the ankle", "wide-leg jeans"],
-        "feet": ["chunky sneakers, worn grey", "retro runners"],
-        "head": ["a bucket hat", "a beanie pulled low"]
+        "outer": [
+          "a technical shell jacket",
+          "an oversized bomber",
+          "a windbreaker {|zipped to the chin}",
+          "a denim jacket {|cropped|oversized}"
+        ],
+        "torso": [
+          "a graphic hoodie",
+          "a cropped tank over a long sleeve",
+          "a boxy tee {|half-tucked}",
+          "a track zip-up {|over a tee}"
+        ],
+        "legs": [
+          "cargo pants stacked at the ankle",
+          "wide-leg jeans",
+          "{tapered|baggy} joggers",
+          "pleated trousers {|low on the hips}"
+        ],
+        "feet": [
+          "chunky sneakers, worn grey",
+          "retro runners",
+          "skate shoes {|scuffed to suede}",
+          "sockless loafers"
+        ],
+        "head": [
+          "a bucket hat",
+          "a beanie pulled low",
+          "a baseball cap {|flat-brim|bent-brim}",
+          "a silk scarf tied over the hair"
+        ]
       },
-      "palettes": ["slate and acid green", "black on black", "washed earth tones"],
-      "wear": ["crisp", "deliberately distressed", "sun-washed"],
+      "palettes": [
+        "slate and acid green",
+        "black on black",
+        "washed earth tones",
+        "washed black and bone",
+        "neon accent on charcoal"
+      ],
+      "wear": [
+        "crisp",
+        "deliberately distressed",
+        "sun-washed"
+      ],
       "concepts": [
-        {"text": "a shop owner", "roles": ["leader"]},
-        {"text": "a bike courier", "roles": ["worker"]},
-        {"text": "a paramedic off shift", "roles": ["healer"]},
-        {"text": "a nightclub bouncer", "roles": ["warrior"]},
-        {"text": "a street photographer", "roles": ["scholar", "drifter"]},
-        {"text": "a skate rat", "roles": ["drifter"]},
-        {"text": "an open-mic regular", "roles": ["drifter"]}
+        {
+          "text": "a shop owner",
+          "roles": [
+            "leader"
+          ]
+        },
+        {
+          "text": "a bike courier",
+          "roles": [
+            "worker"
+          ]
+        },
+        {
+          "text": "a paramedic off shift",
+          "roles": [
+            "healer"
+          ]
+        },
+        {
+          "text": "a nightclub bouncer",
+          "roles": [
+            "warrior"
+          ]
+        },
+        {
+          "text": "a street photographer",
+          "roles": [
+            "scholar",
+            "drifter"
+          ]
+        },
+        {
+          "text": "a skate rat",
+          "roles": [
+            "drifter"
+          ]
+        },
+        {
+          "text": "an open-mic regular",
+          "roles": [
+            "drifter"
+          ]
+        }
       ]
     },
     "flightline": {
       "genre": "sci_fi",
       "layers": {
-        "outer": ["a patched flight suit", "a pressure harness over a flight jacket"],
-        "torso": ["a base-layer under a scorched vest"],
-        "legs": ["flight trousers strapped at the knee"],
-        "feet": ["mag boots", "vac-sealed boots"],
-        "head": ["a comm headset", "a flight helmet, visor up"]
+        "outer": [
+          "a patched flight suit",
+          "a pressure harness over a flight jacket"
+        ],
+        "torso": [
+          "a base-layer under a scorched vest"
+        ],
+        "legs": [
+          "flight trousers strapped at the knee"
+        ],
+        "feet": [
+          "mag boots",
+          "vac-sealed boots"
+        ],
+        "head": [
+          "a comm headset",
+          "a flight helmet, visor up"
+        ]
       },
-      "palettes": ["gunmetal and caution yellow", "off-white and worn orange"],
-      "wear": ["scorched at the cuffs", "patch-annotated"],
+      "palettes": [
+        "gunmetal and caution yellow",
+        "off-white and worn orange"
+      ],
+      "wear": [
+        "scorched at the cuffs",
+        "patch-annotated"
+      ],
       "concepts": [
-        {"text": "a flight commander", "roles": ["leader"]},
-        {"text": "a traffic controller", "roles": ["official"]},
-        {"text": "a loadmaster", "roles": ["worker"]},
-        {"text": "a deck technician", "roles": ["worker"]},
-        {"text": "a ship's medic", "roles": ["healer"]},
-        {"text": "a long-haul pilot", "roles": ["drifter"]},
-        {"text": "a hull-plate marine", "roles": ["warrior"]},
-        {"text": "a jump-route cartographer", "roles": ["scholar"]}
+        {
+          "text": "a flight commander",
+          "roles": [
+            "leader"
+          ]
+        },
+        {
+          "text": "a traffic controller",
+          "roles": [
+            "official"
+          ]
+        },
+        {
+          "text": "a loadmaster",
+          "roles": [
+            "worker"
+          ]
+        },
+        {
+          "text": "a deck technician",
+          "roles": [
+            "worker"
+          ]
+        },
+        {
+          "text": "a ship's medic",
+          "roles": [
+            "healer"
+          ]
+        },
+        {
+          "text": "a long-haul pilot",
+          "roles": [
+            "drifter"
+          ]
+        },
+        {
+          "text": "a hull-plate marine",
+          "roles": [
+            "warrior"
+          ]
+        },
+        {
+          "text": "a jump-route cartographer",
+          "roles": [
+            "scholar"
+          ]
+        }
       ]
     },
     "colony": {
       "genre": "sci_fi",
       "layers": {
-        "outer": ["a thermal parka rated for thin air", "a station coverall, badge-taped"],
-        "torso": ["a wicking underlayer", "a quilted midlayer"],
-        "legs": ["insulated trousers", "utility leggings with strap pockets"],
-        "feet": ["gripped soles for metal decking", "thermal boots"],
-        "head": ["a rebreather slung at the neck", "a hood sealed against the wind"]
+        "outer": [
+          "a thermal parka rated for thin air",
+          "a station coverall, badge-taped"
+        ],
+        "torso": [
+          "a wicking underlayer",
+          "a quilted midlayer"
+        ],
+        "legs": [
+          "insulated trousers",
+          "utility leggings with strap pockets"
+        ],
+        "feet": [
+          "gripped soles for metal decking",
+          "thermal boots"
+        ],
+        "head": [
+          "a rebreather slung at the neck",
+          "a hood sealed against the wind"
+        ]
       },
-      "palettes": ["regolith grey and signal red", "pale blue and insulation-foam white"],
-      "wear": ["dust-sealed", "sun-scoured", "taped at the seams"],
+      "palettes": [
+        "regolith grey and signal red",
+        "pale blue and insulation-foam white"
+      ],
+      "wear": [
+        "dust-sealed",
+        "sun-scoured",
+        "taped at the seams"
+      ],
       "concepts": [
-        {"text": "a station administrator", "roles": ["leader", "official"]},
-        {"text": "a hydroponics tender", "roles": ["worker"]},
-        {"text": "a colonial medic", "roles": ["healer"]},
-        {"text": "a xenobotanist", "roles": ["scholar"]},
-        {"text": "a drifter off the last transport", "roles": ["drifter"]},
-        {"text": "a dome watchman", "roles": ["warrior"]}
+        {
+          "text": "a station administrator",
+          "roles": [
+            "leader",
+            "official"
+          ]
+        },
+        {
+          "text": "a hydroponics tender",
+          "roles": [
+            "worker"
+          ]
+        },
+        {
+          "text": "a colonial medic",
+          "roles": [
+            "healer"
+          ]
+        },
+        {
+          "text": "a xenobotanist",
+          "roles": [
+            "scholar"
+          ]
+        },
+        {
+          "text": "a drifter off the last transport",
+          "roles": [
+            "drifter"
+          ]
+        },
+        {
+          "text": "a dome watchman",
+          "roles": [
+            "warrior"
+          ]
+        }
       ]
     },
     "wanderer": {
       "genre": "fantasy",
       "layers": {
-        "outer": ["a road-worn travel cloak", "patched leathers over linen"],
-        "torso": ["a coarse wool tunic", "a shirt mended with mismatched thread"],
-        "legs": ["wrapped leggings", "canvas trousers"],
-        "feet": ["walking boots resoled with rope", "wrapped footwear"],
-        "head": ["a hood thrown back", "a broad hat pinned at one side"]
+        "outer": [
+          "a road-worn travel cloak",
+          "patched leathers over linen"
+        ],
+        "torso": [
+          "a coarse wool tunic",
+          "a shirt mended with mismatched thread"
+        ],
+        "legs": [
+          "wrapped leggings",
+          "canvas trousers"
+        ],
+        "feet": [
+          "walking boots resoled with rope",
+          "wrapped footwear"
+        ],
+        "head": [
+          "a hood thrown back",
+          "a broad hat pinned at one side",
+          "a knit cowl {|pulled up}",
+          "a travel hat {|with a {feather|plume}}"
+        ]
       },
-      "palettes": ["moss green and dun brown", "faded madder and undyed wool"],
-      "wear": ["road-worn", "mended many times", "mud-hemmed"],
+      "palettes": [
+        "moss green and dun brown",
+        "faded madder and undyed wool"
+      ],
+      "wear": [
+        "road-worn",
+        "mended many times",
+        "mud-hemmed"
+      ],
       "concepts": [
-        {"text": "a road-worn mercenary captain", "roles": ["leader", "warrior"]},
-        {"text": "a wandering sword-for-hire", "roles": ["warrior"]},
-        {"text": "a caravan outrider", "roles": ["worker", "warrior"]},
-        {"text": "a tale-collecting chronicler", "roles": ["scholar"]},
-        {"text": "a pilgrim", "roles": ["drifter"]},
-        {"text": "a road-worn hedge-healer", "roles": ["healer"]},
-        {"text": "a folk healer", "roles": ["healer"]}
+        {
+          "text": "a road-worn mercenary captain",
+          "roles": [
+            "leader",
+            "warrior"
+          ]
+        },
+        {
+          "text": "a wandering sword-for-hire",
+          "roles": [
+            "warrior"
+          ]
+        },
+        {
+          "text": "a caravan outrider",
+          "roles": [
+            "worker",
+            "warrior"
+          ]
+        },
+        {
+          "text": "a tale-collecting chronicler",
+          "roles": [
+            "scholar"
+          ]
+        },
+        {
+          "text": "a pilgrim",
+          "roles": [
+            "drifter"
+          ]
+        },
+        {
+          "text": "a road-worn hedge-healer",
+          "roles": [
+            "healer"
+          ]
+        },
+        {
+          "text": "a folk healer",
+          "roles": [
+            "healer"
+          ]
+        }
       ]
     },
     "guild": {
       "genre": "fantasy",
       "layers": {
-        "outer": ["a guild-tabarded coat", "an apron over working clothes"],
-        "torso": ["an embroidered vest", "a shirt with sigil buttons"],
-        "legs": ["good wool trousers", "a kilted wrap with tool loops"],
-        "feet": ["sturdy ankle boots", "wooden clogs, waxed"],
-        "head": ["a charm-laden cap", "a stitched guild cap"]
+        "outer": [
+          "a guild-tabarded coat",
+          "an apron over working clothes"
+        ],
+        "torso": [
+          "an embroidered vest",
+          "a shirt with sigil buttons"
+        ],
+        "legs": [
+          "good wool trousers",
+          "a kilted wrap with tool loops"
+        ],
+        "feet": [
+          "sturdy ankle boots",
+          "wooden clogs, waxed"
+        ],
+        "head": [
+          "a charm-laden cap",
+          "a stitched guild cap",
+          "a hood {|drawn up}",
+          "a circlet of rank {|tarnished}"
+        ]
       },
-      "palettes": ["deep madder red and brass", "indigo and undyed linen"],
-      "wear": ["well-kept", "wax-polished", "smoke-tinged"],
+      "palettes": [
+        "deep madder red and brass",
+        "indigo and undyed linen"
+      ],
+      "wear": [
+        "well-kept",
+        "wax-polished",
+        "smoke-tinged"
+      ],
       "concepts": [
-        {"text": "a guildmaster", "roles": ["leader"]},
-        {"text": "a master of the healers' hall", "roles": ["healer"]},
-        {"text": "an archivist of the inner library", "roles": ["scholar"]},
-        {"text": "a journeyman at the bench", "roles": ["worker"]},
-        {"text": "a gate captain", "roles": ["warrior", "official"]},
-        {"text": "a toll-keeper", "roles": ["official"]},
-        {"text": "a charlatan with a healer's satchel", "roles": ["drifter"]}
+        {
+          "text": "a guildmaster",
+          "roles": [
+            "leader"
+          ]
+        },
+        {
+          "text": "a master of the healers' hall",
+          "roles": [
+            "healer"
+          ]
+        },
+        {
+          "text": "an archivist of the inner library",
+          "roles": [
+            "scholar"
+          ]
+        },
+        {
+          "text": "a journeyman at the bench",
+          "roles": [
+            "worker"
+          ]
+        },
+        {
+          "text": "a gate captain",
+          "roles": [
+            "warrior",
+            "official"
+          ]
+        },
+        {
+          "text": "a toll-keeper",
+          "roles": [
+            "official"
+          ]
+        },
+        {
+          "text": "a charlatan with a healer's satchel",
+          "roles": [
+            "drifter"
+          ]
+        }
       ]
     },
     "_neutral": {
       "layers": {
-        "outer": ["a plain work coat", "a simple everyday jacket"],
-        "torso": ["a plain work shirt", "an undyed linen shirt"],
-        "legs": ["sturdy trousers", "plain wool trousers"],
-        "feet": ["worn work boots", "plain leather shoes"],
-        "head": ["a plain knit cap", "a simple wide-brim hat"]
+        "outer": [
+          "a plain work coat",
+          "a simple everyday jacket"
+        ],
+        "torso": [
+          "a plain work shirt",
+          "an undyed linen shirt"
+        ],
+        "legs": [
+          "sturdy trousers",
+          "plain wool trousers"
+        ],
+        "feet": [
+          "worn work boots",
+          "plain leather shoes"
+        ],
+        "head": [
+          "a plain knit cap",
+          "a simple wide-brim hat"
+        ]
       },
-      "palettes": ["undyed linen and dull browns", "dust grey and homespun wool"],
-      "wear": ["well-worn", "patched"],
+      "palettes": [
+        "undyed linen and dull browns",
+        "dust grey and homespun wool"
+      ],
+      "wear": [
+        "well-worn",
+        "patched"
+      ],
       "concepts": [
-        {"text": "a figure of quiet authority", "roles": ["leader"]},
-        {"text": "a plain record-keeper", "roles": ["scholar", "official"]},
-        {"text": "a hard-working tradesperson", "roles": ["worker"]},
-        {"text": "a practiced healer", "roles": ["healer"]},
-        {"text": "a watchful veteran", "roles": ["warrior"]},
-        {"text": "a traveler passing through", "roles": ["drifter"]}
+        {
+          "text": "a figure of quiet authority",
+          "roles": [
+            "leader"
+          ]
+        },
+        {
+          "text": "a plain record-keeper",
+          "roles": [
+            "scholar",
+            "official"
+          ]
+        },
+        {
+          "text": "a hard-working tradesperson",
+          "roles": [
+            "worker"
+          ]
+        },
+        {
+          "text": "a practiced healer",
+          "roles": [
+            "healer"
+          ]
+        },
+        {
+          "text": "a watchful veteran",
+          "roles": [
+            "warrior"
+          ]
+        },
+        {
+          "text": "a traveler passing through",
+          "roles": [
+            "drifter"
+          ]
+        }
       ]
     },
     "scavenger": {
       "genre": "post_apocalyptic",
       "layers": {
-        "outer": ["a patched tarp poncho stitched from mismatched sheeting", "a canvas coat with scrap-metal plates sewn on at the shoulders", "a quilted coat padded out with stripped car-seat foam"],
-        "torso": ["a layered undershirt gone grey with wear", "a scavenged flak vest worn open over rags", "a thermal wrap stitched together from a dozen scraps"],
-        "legs": ["cargo trousers patched with strips of tire rubber", "cut-down coveralls belted at the waist", "torn denim wrapped at the shin with salvaged leather"],
-        "feet": ["boots resoled with tire tread", "mismatched work boots laced with scavenged wire", "rag-wrapped feet over cracked soles"],
-        "head": ["a filter mask slung loose at the neck", "a welding visor flipped up off the face", "a motorcycle helmet stripped of its visor"]
+        "outer": [
+          "a patched tarp poncho stitched from mismatched sheeting",
+          "a canvas coat with scrap-metal plates sewn on at the shoulders",
+          "a quilted coat padded out with stripped car-seat foam"
+        ],
+        "torso": [
+          "a layered undershirt gone grey with wear",
+          "a scavenged flak vest worn open over rags",
+          "a thermal wrap stitched together from a dozen scraps"
+        ],
+        "legs": [
+          "cargo trousers patched with strips of tire rubber",
+          "cut-down coveralls belted at the waist",
+          "torn denim wrapped at the shin with salvaged leather"
+        ],
+        "feet": [
+          "boots resoled with tire tread",
+          "mismatched work boots laced with scavenged wire",
+          "rag-wrapped feet over cracked soles"
+        ],
+        "head": [
+          "a filter mask slung loose at the neck",
+          "a welding visor flipped up off the face",
+          "a motorcycle helmet stripped of its visor"
+        ]
       },
-      "palettes": ["rust orange and faded canvas", "ash grey and patched denim", "sun-bleached khaki and scrap-metal silver"],
-      "wear": ["patched over old patches", "salt-crusted", "sun-bleached", "held together with wire"],
+      "palettes": [
+        "rust orange and faded canvas",
+        "ash grey and patched denim",
+        "sun-bleached khaki and scrap-metal silver"
+      ],
+      "wear": [
+        "patched over old patches",
+        "salt-crusted",
+        "sun-bleached",
+        "held together with wire"
+      ],
       "concepts": [
-        {"text": "a salvage runner", "roles": ["worker", "drifter"]},
-        {"text": "a fence-trader working the wreck lines", "roles": ["worker", "leader"]},
-        {"text": "a filter-tech who keeps lungs breathing with scavenged parts", "roles": ["healer"]},
-        {"text": "a scrap-baron who controls a stretch of the yard", "roles": ["leader"]},
-        {"text": "a wasteland scout reading old maps against new ruins", "roles": ["drifter", "scholar"]},
-        {"text": "a road medic stitching wounds with whatever's clean", "roles": ["healer"]},
-        {"text": "a self-taught engineer who can fix anything twice", "roles": ["scholar", "worker"]},
-        {"text": "a wandering trader with a cart of odd finds", "roles": ["drifter"]}
+        {
+          "text": "a salvage runner",
+          "roles": [
+            "worker",
+            "drifter"
+          ]
+        },
+        {
+          "text": "a fence-trader working the wreck lines",
+          "roles": [
+            "worker",
+            "leader"
+          ]
+        },
+        {
+          "text": "a filter-tech who keeps lungs breathing with scavenged parts",
+          "roles": [
+            "healer"
+          ]
+        },
+        {
+          "text": "a scrap-baron who controls a stretch of the yard",
+          "roles": [
+            "leader"
+          ]
+        },
+        {
+          "text": "a wasteland scout reading old maps against new ruins",
+          "roles": [
+            "drifter",
+            "scholar"
+          ]
+        },
+        {
+          "text": "a road medic stitching wounds with whatever's clean",
+          "roles": [
+            "healer"
+          ]
+        },
+        {
+          "text": "a self-taught engineer who can fix anything twice",
+          "roles": [
+            "scholar",
+            "worker"
+          ]
+        },
+        {
+          "text": "a wandering trader with a cart of odd finds",
+          "roles": [
+            "drifter"
+          ]
+        }
       ]
     },
     "enclave": {
       "genre": "post_apocalyptic",
       "layers": {
-        "outer": ["a quasi-military coat patched with faction colors", "a scavenged riot vest re-stitched with an armband", "a heavy canvas duty coat, collar stiff with wear"],
-        "torso": ["a uniform shirt bleached and re-dyed to a new color", "a scrounged thermal layer under strapped plating"],
-        "legs": ["cargo trousers reinforced at the knee", "salvaged tactical trousers cinched with rope"],
-        "feet": ["re-soled combat boots", "scavenged steel-toe boots, laces knotted twice"],
-        "head": ["a battered helmet stenciled with a faction mark", "a wrapped cloth hood pinned at the temple", "a riot helmet worn visor-up"]
+        "outer": [
+          "a quasi-military coat patched with faction colors",
+          "a scavenged riot vest re-stitched with an armband",
+          "a heavy canvas duty coat, collar stiff with wear"
+        ],
+        "torso": [
+          "a uniform shirt bleached and re-dyed to a new color",
+          "a scrounged thermal layer under strapped plating"
+        ],
+        "legs": [
+          "cargo trousers reinforced at the knee",
+          "salvaged tactical trousers cinched with rope"
+        ],
+        "feet": [
+          "re-soled combat boots",
+          "scavenged steel-toe boots, laces knotted twice"
+        ],
+        "head": [
+          "a battered helmet stenciled with a faction mark",
+          "a wrapped cloth hood pinned at the temple",
+          "a riot helmet worn visor-up"
+        ]
       },
-      "palettes": ["faded olive and rust-red armband", "ash black and bone-white markings", "weathered denim and brass insignia"],
-      "wear": ["patch-mended", "faction-marked", "weather-cracked"],
+      "palettes": [
+        "faded olive and rust-red armband",
+        "ash black and bone-white markings",
+        "weathered denim and brass insignia"
+      ],
+      "wear": [
+        "patch-mended",
+        "faction-marked",
+        "weather-cracked"
+      ],
       "concepts": [
-        {"text": "an enclave commander", "roles": ["leader"]},
-        {"text": "a checkpoint sentry", "roles": ["warrior", "official"]},
-        {"text": "a ration officer balancing the ledgers", "roles": ["official"]},
-        {"text": "a gate warden", "roles": ["warrior"]},
-        {"text": "an enclave medic", "roles": ["healer"]},
-        {"text": "a record-keeper of the enclave archive", "roles": ["scholar"]},
-        {"text": "a new recruit still earning their armband", "roles": ["drifter", "worker"]}
+        {
+          "text": "an enclave commander",
+          "roles": [
+            "leader"
+          ]
+        },
+        {
+          "text": "a checkpoint sentry",
+          "roles": [
+            "warrior",
+            "official"
+          ]
+        },
+        {
+          "text": "a ration officer balancing the ledgers",
+          "roles": [
+            "official"
+          ]
+        },
+        {
+          "text": "a gate warden",
+          "roles": [
+            "warrior"
+          ]
+        },
+        {
+          "text": "an enclave medic",
+          "roles": [
+            "healer"
+          ]
+        },
+        {
+          "text": "a record-keeper of the enclave archive",
+          "roles": [
+            "scholar"
+          ]
+        },
+        {
+          "text": "a new recruit still earning their armband",
+          "roles": [
+            "drifter",
+            "worker"
+          ]
+        }
       ]
     },
     "roadhouse": {
       "genre": "post_apocalyptic",
       "layers": {
-        "outer": ["a grease-stained mechanic's coverall jacket", "a road-worn leather duster patched with scrap"],
-        "torso": ["a sweat-stained undershirt", "a bartender's apron cut from old tarp"],
-        "legs": ["oil-stained work trousers", "patched denim gone soft at the knee"],
-        "feet": ["cracked leather boots", "mismatched sneakers wrapped in tape"],
-        "head": ["a bandana knotted at the neck", "a welding cap pushed back off the brow"]
+        "outer": [
+          "a grease-stained mechanic's coverall jacket",
+          "a road-worn leather duster patched with scrap"
+        ],
+        "torso": [
+          "a sweat-stained undershirt",
+          "a bartender's apron cut from old tarp"
+        ],
+        "legs": [
+          "oil-stained work trousers",
+          "patched denim gone soft at the knee"
+        ],
+        "feet": [
+          "cracked leather boots",
+          "mismatched sneakers wrapped in tape"
+        ],
+        "head": [
+          "a bandana knotted at the neck",
+          "a welding cap pushed back off the brow"
+        ]
       },
-      "palettes": ["motor-oil black and rust orange", "sun-faded denim and bar-light amber"],
-      "wear": ["grease-stained", "sun-cracked", "tape-mended"],
+      "palettes": [
+        "motor-oil black and rust orange",
+        "sun-faded denim and bar-light amber"
+      ],
+      "wear": [
+        "grease-stained",
+        "sun-cracked",
+        "tape-mended"
+      ],
       "concepts": [
-        {"text": "a roadhouse cook who feeds whoever's passing through", "roles": ["worker"]},
-        {"text": "a mechanic-wright who can rebuild an engine from memory", "roles": ["worker", "scholar"]},
-        {"text": "a watch-sitter posted at the door", "roles": ["warrior"]},
-        {"text": "a barkeep who's heard every story twice", "roles": ["leader", "drifter"]},
-        {"text": "a fixer who trades in favors, not coin", "roles": ["drifter"]},
-        {"text": "a road guard riding shotgun for hire", "roles": ["warrior", "official"]}
+        {
+          "text": "a roadhouse cook who feeds whoever's passing through",
+          "roles": [
+            "worker"
+          ]
+        },
+        {
+          "text": "a mechanic-wright who can rebuild an engine from memory",
+          "roles": [
+            "worker",
+            "scholar"
+          ]
+        },
+        {
+          "text": "a watch-sitter posted at the door",
+          "roles": [
+            "warrior"
+          ]
+        },
+        {
+          "text": "a barkeep who's heard every story twice",
+          "roles": [
+            "leader",
+            "drifter"
+          ]
+        },
+        {
+          "text": "a fixer who trades in favors, not coin",
+          "roles": [
+            "drifter"
+          ]
+        },
+        {
+          "text": "a road guard riding shotgun for hire",
+          "roles": [
+            "warrior",
+            "official"
+          ]
+        }
       ]
     },
     "frontier_town": {
       "genre": "western",
       "layers": {
-        "outer": ["a tailored frock coat", "a shopkeeper's canvas apron worn over shirtsleeves", "a fringed shawl pinned at the collar"],
-        "torso": ["a starched high-collar shirt", "an embroidered brocade waistcoat", "a calico blouse"],
-        "legs": ["pressed wool trousers", "a long cotton skirt, hem dust-grey"],
-        "feet": ["polished button boots", "low-heeled town shoes"],
-        "head": ["a bowler hat", "a feathered bonnet", "a flat tweed cap"]
+        "outer": [
+          "a tailored frock coat",
+          "a shopkeeper's canvas apron worn over shirtsleeves",
+          "a fringed shawl pinned at the collar"
+        ],
+        "torso": [
+          "a starched high-collar shirt",
+          "an embroidered brocade waistcoat",
+          "a calico blouse"
+        ],
+        "legs": [
+          "pressed wool trousers",
+          "a long cotton skirt, hem dust-grey"
+        ],
+        "feet": [
+          "polished button boots",
+          "low-heeled town shoes"
+        ],
+        "head": [
+          "a bowler hat",
+          "a feathered bonnet",
+          "a flat tweed cap"
+        ]
       },
-      "palettes": ["charcoal grey and brass buttons", "dove grey and faded rose", "black wool and ivory lace"],
-      "wear": ["crisply pressed", "dust-settled", "carefully mended at the seams"],
+      "palettes": [
+        "charcoal grey and brass buttons",
+        "dove grey and faded rose",
+        "black wool and ivory lace"
+      ],
+      "wear": [
+        "crisply pressed",
+        "dust-settled",
+        "carefully mended at the seams"
+      ],
       "concepts": [
-        {"text": "a town banker", "roles": ["leader", "official"]},
-        {"text": "a general store keeper", "roles": ["worker", "leader"]},
-        {"text": "a traveling gambler in borrowed finery", "roles": ["drifter"]},
-        {"text": "a schoolteacher", "roles": ["scholar"]},
-        {"text": "an undertaker", "roles": ["official", "worker"]},
-        {"text": "a traveling preacher", "roles": ["leader", "official"]},
-        {"text": "a saloon singer", "roles": ["drifter"]},
-        {"text": "a street urchin running errands for coin", "roles": ["drifter", "worker"]}
+        {
+          "text": "a town banker",
+          "roles": [
+            "leader",
+            "official"
+          ]
+        },
+        {
+          "text": "a general store keeper",
+          "roles": [
+            "worker",
+            "leader"
+          ]
+        },
+        {
+          "text": "a traveling gambler in borrowed finery",
+          "roles": [
+            "drifter"
+          ]
+        },
+        {
+          "text": "a schoolteacher",
+          "roles": [
+            "scholar"
+          ]
+        },
+        {
+          "text": "an undertaker",
+          "roles": [
+            "official",
+            "worker"
+          ]
+        },
+        {
+          "text": "a traveling preacher",
+          "roles": [
+            "leader",
+            "official"
+          ]
+        },
+        {
+          "text": "a saloon singer",
+          "roles": [
+            "drifter"
+          ]
+        },
+        {
+          "text": "a street urchin running errands for coin",
+          "roles": [
+            "drifter",
+            "worker"
+          ]
+        }
       ]
     },
     "portside": {
       "genre": "age_of_sail",
       "layers": {
-        "outer": ["a moth-eaten shore coat", "a chandler's waxed apron", "a shawl thrown over a plain dress"],
-        "torso": ["a cheap slop-shop shirt", "a laced bodice worn over linen"],
-        "legs": ["patched canvas trousers", "a plain wool skirt, hem salt-stained"],
-        "feet": ["buckled shore shoes", "bare feet, calloused from the dock stones"],
-        "head": ["a battered felt hat", "a headscarf knotted at the nape"]
+        "outer": [
+          "a moth-eaten shore coat",
+          "a chandler's waxed apron",
+          "a shawl thrown over a plain dress"
+        ],
+        "torso": [
+          "a cheap slop-shop shirt",
+          "a laced bodice worn over linen"
+        ],
+        "legs": [
+          "patched canvas trousers",
+          "a plain wool skirt, hem salt-stained"
+        ],
+        "feet": [
+          "buckled shore shoes",
+          "bare feet, calloused from the dock stones"
+        ],
+        "head": [
+          "a battered felt hat",
+          "a headscarf knotted at the nape"
+        ]
       },
-      "palettes": ["tar-stained brown and faded calico", "salt-bleached linen and harbor grey"],
-      "wear": ["salt-faded", "patched at the elbow", "weather-cracked"],
+      "palettes": [
+        "tar-stained brown and faded calico",
+        "salt-bleached linen and harbor grey"
+      ],
+      "wear": [
+        "salt-faded",
+        "patched at the elbow",
+        "weather-cracked"
+      ],
       "concepts": [
-        {"text": "a harbor chandler", "roles": ["worker", "leader"]},
-        {"text": "a dockside tavern keeper", "roles": ["leader", "worker"]},
-        {"text": "a press-gang recruiter working the taverns", "roles": ["official"]},
-        {"text": "a laundress working the wharf", "roles": ["worker"]},
-        {"text": "a fortune-telling dockside grifter", "roles": ["drifter"]},
-        {"text": "a portside physician", "roles": ["healer"]},
-        {"text": "a customs clerk", "roles": ["official", "scholar"]},
-        {"text": "a runaway cabin boy hiding out ashore", "roles": ["drifter"]}
+        {
+          "text": "a harbor chandler",
+          "roles": [
+            "worker",
+            "leader"
+          ]
+        },
+        {
+          "text": "a dockside tavern keeper",
+          "roles": [
+            "leader",
+            "worker"
+          ]
+        },
+        {
+          "text": "a press-gang recruiter working the taverns",
+          "roles": [
+            "official"
+          ]
+        },
+        {
+          "text": "a laundress working the wharf",
+          "roles": [
+            "worker"
+          ]
+        },
+        {
+          "text": "a fortune-telling dockside grifter",
+          "roles": [
+            "drifter"
+          ]
+        },
+        {
+          "text": "a portside physician",
+          "roles": [
+            "healer"
+          ]
+        },
+        {
+          "text": "a customs clerk",
+          "roles": [
+            "official",
+            "scholar"
+          ]
+        },
+        {
+          "text": "a runaway cabin boy hiding out ashore",
+          "roles": [
+            "drifter"
+          ]
+        }
+      ]
+    },
+    "office": {
+      "genre": "modern",
+      "layers": {
+        "outer": [
+          "a tailored blazer {|pinstriped}",
+          "a cardigan {|buttoned over a shirt}",
+          "a trench coat {|belted}",
+          "a soft-shouldered sport coat"
+        ],
+        "torso": [
+          "a dress shirt {|rolled at the cuffs}",
+          "a knit polo",
+          "a silk blouse {|loose over a camisole}",
+          "a fine-gauge sweater"
+        ],
+        "legs": [
+          "slim wool trousers",
+          "{a pencil|a pleated midi} skirt",
+          "chinos {|cuffed}",
+          "straight-leg trousers with a crease"
+        ],
+        "feet": [
+          "leather oxfords {|polished}",
+          "loafers {|sockless}",
+          "block-heel pumps",
+          "slingback flats"
+        ],
+        "head": [
+          "reading glasses {|pushed into the hair}",
+          "a tie {|knotted loose}",
+          "a lanyard badge {|clipped at the hip}"
+        ]
+      },
+      "palettes": [
+        "charcoal and oxford blue",
+        "ivory and camel",
+        "greige and burgundy",
+        "pinstripe and pearl grey"
+      ],
+      "wear": [
+        "pressed",
+        "pilled at the cuffs",
+        "lightly creased"
+      ],
+      "concepts": [
+        {
+          "text": "a junior analyst",
+          "roles": [
+            "scholar"
+          ]
+        },
+        {
+          "text": "a managing partner",
+          "roles": [
+            "leader"
+          ]
+        },
+        {
+          "text": "an HR coordinator",
+          "roles": [
+            "official"
+          ]
+        },
+        {
+          "text": "a software engineer",
+          "roles": [
+            "scholar"
+          ]
+        },
+        {
+          "text": "a paralegal",
+          "roles": [
+            "worker"
+          ]
+        },
+        {
+          "text": "a regional sales lead",
+          "roles": [
+            "official"
+          ]
+        },
+        {
+          "text": "a receptionist",
+          "roles": [
+            "worker"
+          ]
+        },
+        {
+          "text": "an auditor",
+          "roles": [
+            "official"
+          ]
+        }
+      ]
+    },
+    "leisure": {
+      "genre": "modern",
+      "layers": {
+        "outer": [
+          "a track jacket {|zipped to the collar}",
+          "a quilted vest",
+          "a heavyweight hoodie {|oversized}",
+          "a fleece {|half-zip}"
+        ],
+        "torso": [
+          "a worn college tee",
+          "a ribbed tank",
+          "a long-sleeve tee {|pushed to the elbows}",
+          "a polo {|collar popped}"
+        ],
+        "legs": [
+          "{tapered|baggy} joggers",
+          "mesh shorts {|over leggings}",
+          "fleece-lined sweatpants",
+          "lounge pants {|striped}"
+        ],
+        "feet": [
+          "running shoes {|fresh|beat grey}",
+          "slides {|over socks}",
+          "canvas slip-ons",
+          "trail sneakers {|muddy}"
+        ],
+        "head": [
+          "a dad cap",
+          "a terry headband",
+          "sunglasses {|pushed up}",
+          "earbuds {|one in}"
+        ]
+      },
+      "palettes": [
+        "heather grey and navy",
+        "faded black",
+        "collegiate maroon and gold",
+        "sage and cream"
+      ],
+      "wear": [
+        "well-loved",
+        "shrunken from the wash",
+        "brand new"
+      ],
+      "concepts": [
+        {
+          "text": "a grad student",
+          "roles": [
+            "scholar"
+          ]
+        },
+        {
+          "text": "a retired coach",
+          "roles": [
+            "leader"
+          ]
+        },
+        {
+          "text": "a dog walker",
+          "roles": [
+            "worker"
+          ]
+        },
+        {
+          "text": "a barista off shift",
+          "roles": [
+            "worker"
+          ]
+        },
+        {
+          "text": "a weekend runner",
+          "roles": [
+            "drifter"
+          ]
+        },
+        {
+          "text": "a stay-at-home parent",
+          "roles": [
+            "worker"
+          ]
+        },
+        {
+          "text": "a gamer",
+          "roles": [
+            "drifter"
+          ]
+        },
+        {
+          "text": "a gym regular",
+          "roles": [
+            "worker"
+          ]
+        }
+      ]
+    },
+    "evening": {
+      "genre": "modern",
+      "layers": {
+        "outer": [
+          "a dinner jacket {|velvet lapels}",
+          "a leather moto jacket {|zipped}",
+          "a faux-fur coat",
+          "a satin bomber"
+        ],
+        "torso": [
+          "a satin camisole",
+          "a mesh top over a bandeau",
+          "a silk shirt {|open at the collar}",
+          "a sequined tank"
+        ],
+        "legs": [
+          "tapered trousers with a sharp crease",
+          "{a bias-cut|a sequined} slip skirt",
+          "leather leggings",
+          "high-waisted wide trousers"
+        ],
+        "feet": [
+          "ankle boots {|stacked heel|stiletto}",
+          "strappy heels {|gold|black}",
+          "polished chelsea boots",
+          "platform loafers"
+        ],
+        "head": [
+          "statement earrings {|hoops|chandeliers}",
+          "a sparkly hair clip",
+          "a silk scarf tied as a headband"
+        ]
+      },
+      "palettes": [
+        "black and gold",
+        "oxblood and champagne",
+        "midnight blue and silver",
+        "emerald on black"
+      ],
+      "wear": [
+        "immaculate",
+        "creased from sitting",
+        "danced-in"
+      ],
+      "concepts": [
+        {
+          "text": "a lounge singer",
+          "roles": [
+            "leader"
+          ]
+        },
+        {
+          "text": "a cocktail waitress",
+          "roles": [
+            "worker"
+          ]
+        },
+        {
+          "text": "a sommelier",
+          "roles": [
+            "scholar"
+          ]
+        },
+        {
+          "text": "a wedding guest",
+          "roles": [
+            "drifter"
+          ]
+        },
+        {
+          "text": "a jazz trumpeter",
+          "roles": [
+            "drifter"
+          ]
+        },
+        {
+          "text": "a first date",
+          "roles": [
+            "drifter"
+          ]
+        },
+        {
+          "text": "a promoter",
+          "roles": [
+            "official"
+          ]
+        },
+        {
+          "text": "a late-night bartender",
+          "roles": [
+            "worker"
+          ]
+        }
       ]
     }
   }
