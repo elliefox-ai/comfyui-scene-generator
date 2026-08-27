@@ -490,9 +490,20 @@ class SceneCharacterRoller:
         segs = ([identity_phrase, concept["text"]] + body_bits
                 + [outfit, palette] + face_bits)
 
-        posture = rng.choice(feats["postures"]) if pose else ""
+        posture = ""
+        posture_sent = False
+        post_frag = ""
+        if pose:
+            pe = rng.choice(feats["postures"])
+            post_frag = pe.get("text", "") if isinstance(pe, dict) else pe
+            if isinstance(pe, dict) and pe.get("sentence"):
+                posture = pe["sentence"]
+                posture_sent = True
+            else:
+                posture = post_frag
         position = rng.choice(feats["positions"]) if positioning else ""
-        if posture:
+        # nameless rolls keep the old comma-joined fragment behavior
+        if posture and not posture_sent:
             segs.append(posture)
         if position:
             segs.append(position)
@@ -501,6 +512,14 @@ class SceneCharacterRoller:
         name = (name or "").strip()
         if name:
             text = f"{name}, {text}"
+        if posture_sent:
+            # name-bound posture sentence: opens clean after a period
+            if name:
+                posture = posture.replace("{name}", name)
+                text = f"{text}. {posture}"
+            elif post_frag:
+                posture = post_frag
+                text = f"{text}, {post_frag}"
 
         components = {
             "genre": genre_resolved,
