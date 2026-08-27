@@ -8,7 +8,7 @@ dumps the assembled string plus the components JSON.
 Run:
     python3 test_character_roller.py                          # default roll
     python3 test_character_roller.py --genre fantasy --consistency 1.0
-    python3 test_character_roller.py --detail high --role healer
+    python3 test_character_roller.py --face-detail high --body-detail high --role healer
     python3 test_character_roller.py --name Abigail --pose
     python3 test_character_roller.py --age older --sex female --race black
 """
@@ -27,7 +27,8 @@ def main():
     p = argparse.ArgumentParser()
     p.add_argument("--genre", default=RANDOM)
     p.add_argument("--consistency", type=float, default=0.7)
-    p.add_argument("--detail", choices=["low", "high"], default="low")
+    p.add_argument("--face-detail", dest="face_detail", choices=["low", "high"], default="low")
+    p.add_argument("--body-detail", dest="body_detail", choices=["minimal", "low", "high"], default="low")
     p.add_argument("--role", default="any")
     p.add_argument("--name", default="")
     p.add_argument("--pose", action="store_true")
@@ -40,7 +41,7 @@ def main():
 
     roller = SceneCharacterRoller()
     text, cj_raw, seed = roller.roll(
-        args.genre, args.consistency, args.detail, args.role,
+        args.genre, args.consistency, args.face_detail, args.body_detail, args.role,
         args.name, args.pose, args.positioning, args.seed,
         args.age, args.sex, args.race,
     )
@@ -48,7 +49,7 @@ def main():
     ident = cj["identity"]
     print(f"— character roll: genre={cj['genre']}{' (rolled)' if cj['genre_random'] else ''}"
           f"  target={cj['target_family']}  consistency={args.consistency}"
-          f"  detail={args.detail}  role={args.role}  seed={args.seed} —")
+          f"  face={args.face_detail} body={args.body_detail}  role={args.role}  seed={args.seed} —")
     print(f"  identity: {ident['phrase']}"
           f"  (age {'🎲' if ident['age_random'] else 'set'},"
           f" sex {'🎲' if ident['sex_random'] else 'set'},"

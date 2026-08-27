@@ -48,7 +48,7 @@ FEATS = json.load(open(os.path.join(
     os.path.dirname(os.path.abspath(__file__)),
     "scene_context", "character_features.json")))
 
-POOLS = ["face_shapes", "hair", "eyes", "nose", "marks",
+POOLS = ["face_shapes", "hair", "eyes", "nose", "mouth", "jaw", "cheekbones", "brow", "ears", "marks",
          "face_detail", "build", "demeanor"]
 GEOMETRY = ["postures", "positions"]
 

@@ -32,11 +32,16 @@ Axes:
         era-neutral basics bank and warns on console. Consent to
         cross-era mismatch belongs to the consistency dial, never
         the system. Genre-less families never join 🎲 draws.
-    Detail — low = wide-shot legible (identity phrase, outer layer +
-        palette, face shape, hair, eyes, maybe one mark). high = the
-        portrait ladder plus a complexion phrase, sampled and never
-        enumerated ("full detail doesn't mean listing each and every
-        feature").
+    Detail (split axes) — face_detail gates the face ladder,
+        body_detail the body. Face: low = wide-shot legible (shape,
+        hair, eyes, maybe a mark); high = the portrait ladder — eyes,
+        nose, mouth, jaw, cheekbones, brow, ears sampled under a
+        phrase budget (~6 face phrases per character), never
+        enumerated. Body: minimal = portrait companion — one
+        guaranteed build word for proportions, single outer garment,
+        no ladder; low = wide-shot legible; high = the garment ladder
+        plus build. Demeanor rides whichever axis is high. ("Full
+        detail doesn't mean listing each and every feature.")
     Role — genre-agnostic social function (leader / warrior / healer /
         ...), the character-side analogue of the setting archetypes.
         Filters concept banks; falls back to the full bank on empty
@@ -56,7 +61,8 @@ Sometimes the composition works itself out.
 Banks live in scene_context/ — character_wardrobe.json (families:
 genre tag, layer grammar, palettes, wear states, role-tagged concepts)
 and character_features.json (identity-tagged faces, hair, eyes, nose,
-marks, build, demeanor; postures/positions; race-keyed complexion). Expand
+mouth, jaw, cheekbones, brow, ears, marks, build, demeanor;
+postures/positions; race-keyed complexion). Expand
 the banks, not the code.
 
 Outputs:
@@ -223,8 +229,10 @@ class SceneCharacterRoller:
                     "tooltip": "🎲 rolls this character's era independently. For a shared-era cast, set the same firm genre on every roller node (a shared source input is the parked next step). A firm genre binds every draw to that era's families."}),
                 "consistency": ("FLOAT", {"default": 0.7, "min": 0.0, "max": 1.0, "step": 0.05,
                     "tooltip": "How much this character honors the genre's substyle, garment by garment. 1 = full coherence: one outfit family head to toe, one palette. 0 = random character style: every piece rolls independently (firm genre keeps the mismatch within the era). Between = mostly-family with wandering pieces."}),
-                "detail": (["low", "high"], {"default": "low",
-                    "tooltip": "low = wide-shot legible: identity phrase, outer layer + palette, face shape, hair, eyes, maybe one mark — enough to read at distance without pulling the render into a close-up. high = portrait ladder (layers, wear, face architecture, complexion, build, demeanor), sampled — never the whole list."}),
+                "face_detail": (["low", "high"], {"default": "low",
+                    "tooltip": "Face ladder. low = wide-shot legible: face shape, hair, eyes, maybe a mark — reads at distance. high = portrait ladder: complexion, nose, mouth, jaw, cheekbones, brow, ears sampled under a phrase budget (~6 face phrases, never the whole list)."}),
+                "body_detail": (["minimal", "low", "high"], {"default": "low",
+                    "tooltip": "Body depth. minimal = portrait companion: one guaranteed build word for proportions, single outer garment, no layers. low = wide-shot: outer garment + palette, build usually. high = garment ladder (wear state, layered pieces) + build. Pair with face_detail=high for closeup portraits."}),
                 "role": (_role_options(), {"default": "any",
                     "tooltip": "Genre-agnostic social function. Filters the concept banks; a family with no matching concepts falls back to its full bank."}),
                 "name": ("STRING", {"default": "", "multiline": False,
@@ -239,7 +247,7 @@ class SceneCharacterRoller:
                 "sex": (SEX_OPTIONS, {"default": RANDOM,
                     "tooltip": "🎲 rolls this figure's sex and weights feature draws toward it. Stated once in the identity phrase ('…woman' / '…man'). The wardrobe banks stay unisex — sex never gates garments."}),
                 "race": (RACE_OPTIONS, {"default": RANDOM,
-                    "tooltip": "Broad-stroke, descriptive register. 🎲 rolls this figure's race, weights feature draws toward it, and (at detail=high) adds a complexion phrase keyed to it. Dropdown values never enter the string raw — vocabulary maps through phrase banks, stated once."}),
+                    "tooltip": "Broad-stroke, descriptive register. 🎲 rolls this figure's race, weights feature draws toward it, and (at face_detail=high) adds a complexion phrase keyed to it. Dropdown values never enter the string raw — vocabulary maps through phrase banks, stated once."}),
             },
         }
 
@@ -248,8 +256,8 @@ class SceneCharacterRoller:
     FUNCTION = "roll"
     CATEGORY = "SceneGen"
 
-    def roll(self, genre, consistency, detail, role, name,
-             pose, positioning, seed, age, sex, race):
+    def roll(self, genre, consistency, face_detail, body_detail,
+             role, name, pose, positioning, seed, age, sex, race):
         rng = random.Random(seed)
         families = _load_wardrobe()
         feats = _load_features()
@@ -330,7 +338,7 @@ class SceneCharacterRoller:
         sources = {}
         outer, src = layer_draw("outer")
         sources["outer"] = src
-        if detail == "high":
+        if body_detail == "high":
             if rng.random() < 0.6:
                 # Wear state follows the garment it describes.
                 outer = f"{outer}, {rng.choice(families[src]['wear'])}"
@@ -402,28 +410,48 @@ class SceneCharacterRoller:
                     bucket.append(entry["text"] if isinstance(entry, dict) else entry)
 
         face_bits = []
-        if detail == "high":
-            wmaybe("face_shapes", 0.7, face_bits)
-            wmaybe("hair", 0.9, face_bits)
-            wmaybe("eyes", 0.8, face_bits)
-            if rng.random() < 0.75:
+        if face_detail == "high":
+            # Phrase budget: a high face samples ~6 phrases total.
+            # Gates drop as banks multiply — variety across the cast,
+            # not inventory on one face.
+            wmaybe("face_shapes", 0.65, face_bits)
+            wmaybe("hair", 0.85, face_bits)
+            wmaybe("eyes", 0.75, face_bits)
+            if rng.random() < 0.65:
                 # Complexion: the one hard-keyed draw — race selects its
                 # own phrase bank, descriptive register, never raw.
                 face_bits.append(rng.choice(feats["complexion"][race_res]))
-            wmaybe("marks", 0.6, face_bits)
-            wmaybe("nose", 0.5, face_bits)
-            if rng.random() < 0.75:
+            wmaybe("marks", 0.5, face_bits)
+            wmaybe("nose", 0.45, face_bits)
+            wmaybe("mouth", 0.3, face_bits)
+            wmaybe("jaw", 0.25, face_bits)
+            wmaybe("cheekbones", 0.3, face_bits)
+            wmaybe("brow", 0.25, face_bits)
+            wmaybe("ears", 0.2, face_bits)
+            if rng.random() < 0.65:
                 wmaybe("face_detail", 1.0, face_bits)
-                if rng.random() < 0.35:
+                if rng.random() < 0.25:
                     wmaybe("face_detail", 1.0, face_bits)
-            wmaybe("build", 0.85, face_bits)
-            wmaybe("demeanor", 0.7, face_bits)
         else:
             # wide-shot legible: shape, hair, eyes, maybe one mark
             wmaybe("face_shapes", 0.9, face_bits)
             wmaybe("hair", 0.9, face_bits)
             wmaybe("eyes", 0.85, face_bits)
             wmaybe("marks", 0.45, face_bits)
+
+        # Build rides the BODY axis. minimal = the portrait
+        # proportions anchor: one build word, always stated.
+        if body_detail == "minimal":
+            wmaybe("build", 1.0, face_bits)
+        elif body_detail == "low":
+            wmaybe("build", 0.7, face_bits)
+        else:
+            wmaybe("build", 0.85, face_bits)
+
+        # Demeanor is person-energy, not face or body — it fires
+        # when either axis asks for depth.
+        if face_detail == "high" or body_detail == "high":
+            wmaybe("demeanor", 0.7, face_bits)
 
         segs = [identity_phrase, concept["text"], outfit, palette] + face_bits
 
@@ -450,7 +478,8 @@ class SceneCharacterRoller:
             },
             "target_family": target_id,
             "consistency": consistency,
-            "detail": detail,
+            "face_detail": face_detail,
+            "body_detail": body_detail,
             "role": role,
             "name": name,
             "concept": concept["text"],
