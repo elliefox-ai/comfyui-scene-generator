@@ -1,7 +1,7 @@
 {
   "_doc": {
-    "note": "Character feature banks. Identity pools (face_shapes, hair, eyes, nose, marks, face_detail, build, demeanor) hold objects: {text, age?, sex?, race?}. Tags are SOFT AFFINITIES, never filters — draws are weighted 4 (match) / 2 (untagged) / 1 (mismatch) per axis and multiplied across axes: one stated identity, individually exclusive details, tiny randomization in every draw. The identity itself (age/sex/race words) is stated once in the identity phrase by the roller. complexion is race-keyed phrases (drawn at detail=high). postures/positions are geometry, untagged strings. _compose groups rebuild a phrase from orthogonal slots (set × shape × color) the way the legacy regex did — slot options carry the same soft affinity tags. Expand the banks, not the code.\n\nDetail split (2026-08-27): face_detail gates the face ladder, body_detail the body (minimal = one guaranteed build word — portrait companion; low = wide-shot; high = garment ladder). Five new flat banks — mouth, jaw, cheekbones, brow, ears — absorbed their strays from face_detail, which is now whole-face misc (lines, texture, flush, birthmarks); _compose.face_detail rebuilt to match. Phrase budget: a high face samples ~6 phrases total, never the inventory.",
-    "physique": "build = clean archetypes, the physique parent; drawn flat (canonical text is the key children tag on). physique children carry BOTH identity tags and a 'build' axis of soft multipliers keyed on the drawn parent value — influenced, never exclusive. body_type node input forces the parent (default random). children gates: low=torso .25; high=torso .6/legs .5/arms .4. _compose.build retired (parent must stay canonical)."
+    "note": "Character feature banks. Identity pools (face_shapes, hair, eyes, nose, marks, face_detail, build, demeanor) hold objects: {text, age?, sex?, race?}. Tags are SOFT AFFINITIES, never filters \u2014 draws are weighted 4 (match) / 2 (untagged) / 1 (mismatch) per axis and multiplied across axes: one stated identity, individually exclusive details, tiny randomization in every draw. The identity itself (age/sex/race words) is stated once in the identity phrase by the roller. complexion is race-keyed phrases (drawn at detail=high). postures/positions are geometry, untagged strings. _compose groups rebuild a phrase from orthogonal slots (set \u00d7 shape \u00d7 color) the way the legacy regex did \u2014 slot options carry the same soft affinity tags. Expand the banks, not the code.\n\nDetail split (2026-08-27): face_detail gates the face ladder, body_detail the body (minimal = one guaranteed build word \u2014 portrait companion; low = wide-shot; high = garment ladder). Five new flat banks \u2014 mouth, jaw, cheekbones, brow, ears \u2014 absorbed their strays from face_detail, which is now whole-face misc (lines, texture, flush, birthmarks); _compose.face_detail rebuilt to match. Phrase budget: a high face samples ~6 phrases total, never the inventory.",
+    "physique": "build = clean archetypes, the physique parent; drawn flat (canonical text is the key children tag on). physique children carry BOTH identity tags and a 'build' axis of soft multipliers keyed on the drawn parent value \u2014 influenced, never exclusive. body_type node input forces the parent (default random). children gates: low=torso .25; high=torso .6/legs .5/arms .4. _compose.build retired (parent must stay canonical)."
   },
   "_compose": {
     "eyes": {
@@ -618,6 +618,49 @@
             },
             {
               "text": "distracted"
+            },
+            {
+              "text": "gruff",
+              "age": {
+                "older": 1.4
+              }
+            },
+            {
+              "text": "terse"
+            },
+            {
+              "text": "gentle"
+            },
+            {
+              "text": "steely"
+            },
+            {
+              "text": "dry"
+            },
+            {
+              "text": "curt"
+            },
+            {
+              "text": "testy",
+              "age": {
+                "older": 1.2
+              }
+            },
+            {
+              "text": "sly"
+            },
+            {
+              "text": "wistful",
+              "age": {
+                "older": 1.2,
+                "middle-aged": 1.1
+              }
+            },
+            {
+              "text": "hardened",
+              "age": {
+                "older": 1.3
+              }
             }
           ]
         },
@@ -687,6 +730,55 @@
               "age": {
                 "young adult": 1.2
               }
+            },
+            {
+              "text": "forgiving",
+              "age": {
+                "older": 1.4
+              }
+            },
+            {
+              "text": "sharp",
+              "age": {
+                "older": 1.3
+              }
+            },
+            {
+              "text": "wry",
+              "age": {
+                "older": 1.2,
+                "middle-aged": 1.2
+              }
+            },
+            {
+              "text": "steady",
+              "age": {
+                "older": 1.3
+              }
+            },
+            {
+              "text": "unshaken",
+              "age": {
+                "older": 1.4
+              }
+            },
+            {
+              "text": "playful"
+            },
+            {
+              "text": "shrewd"
+            },
+            {
+              "text": "generous"
+            },
+            {
+              "text": "skeptical"
+            },
+            {
+              "text": "tender"
+            },
+            {
+              "text": "steadfast"
             }
           ]
         }
@@ -2013,33 +2105,282 @@
     },
     {
       "text": "insolent"
+    },
+    {
+      "text": "sharp-tongued"
+    },
+    {
+      "text": "quick to needle"
+    },
+    {
+      "text": "keeps its own counsel"
+    },
+    {
+      "text": "indulgent"
+    },
+    {
+      "text": "suspicious of easy answers"
+    },
+    {
+      "text": "doesn't waste a word"
+    },
+    {
+      "text": "amused by everyone's hurry"
+    },
+    {
+      "text": "immovable once decided"
+    },
+    {
+      "text": "unimpressed by rank"
+    },
+    {
+      "text": "wears silence like armor"
+    },
+    {
+      "text": "laughs easily, forgets nothing"
+    },
+    {
+      "text": "steady hands, sharp tongue"
+    },
+    {
+      "text": "doesn't flinch easily"
+    },
+    {
+      "text": "quick to correct"
+    },
+    {
+      "text": "listens more than it speaks"
+    },
+    {
+      "text": "quietly authoritative"
+    },
+    {
+      "text": "easily riled"
+    },
+    {
+      "text": "hard to read, easy to like"
+    },
+    {
+      "text": "prickly"
+    },
+    {
+      "text": "wry"
+    },
+    {
+      "text": "no-nonsense"
+    },
+    {
+      "text": "long-suffering"
+    },
+    {
+      "text": "imperious"
+    },
+    {
+      "text": "diffident"
+    },
+    {
+      "text": "gregarious"
+    },
+    {
+      "text": "taciturn"
+    },
+    {
+      "text": "self-possessed"
+    },
+    {
+      "text": "eager to prove itself",
+      "age": "young adult"
+    },
+    {
+      "text": "hungry to matter",
+      "age": "young adult"
+    },
+    {
+      "text": "easily starstruck",
+      "age": "young adult"
+    },
+    {
+      "text": "jumpy, easily flustered",
+      "age": "young adult"
+    },
+    {
+      "text": "world-weary, still game",
+      "age": "middle-aged"
+    },
+    {
+      "text": "keeps the peace",
+      "age": "middle-aged"
+    },
+    {
+      "text": "unsurprised by much",
+      "age": "middle-aged"
+    },
+    {
+      "text": "still has something to prove",
+      "age": "middle-aged"
+    },
+    {
+      "text": "sharp behind slow movements",
+      "age": "older"
+    },
+    {
+      "text": "short on patience",
+      "age": "older"
+    },
+    {
+      "text": "steady, nothing left to prove",
+      "age": "older"
+    },
+    {
+      "text": "unbothered by fuss",
+      "age": "older"
+    },
+    {
+      "text": "rarely raises its voice",
+      "age": "older"
+    },
+    {
+      "text": "long past impressing anyone",
+      "age": "older"
+    },
+    {
+      "text": "gruff, gentler underneath",
+      "age": "older"
+    },
+    {
+      "text": "still commands a room",
+      "age": "older"
+    },
+    {
+      "text": "quick-tempered, quicker to forgive",
+      "age": "older"
+    },
+    {
+      "text": "wary of being underestimated",
+      "age": "older"
+    },
+    {
+      "text": "sharp-eyed despite the years",
+      "age": "older"
+    },
+    {
+      "text": "content to let others hurry",
+      "age": "older"
+    },
+    {
+      "text": "hard-won calm",
+      "age": "older"
+    },
+    {
+      "text": "slow to anger, slower to forget",
+      "age": "older"
+    },
+    {
+      "text": "doesn't repeat itself twice",
+      "age": "older"
+    },
+    {
+      "text": "quietly done taking orders",
+      "age": "older"
     }
   ],
   "postures": [
-    {"text": "weight sunk into one hip", "sentence": "{name} stands with their weight sunk into one hip"},
-    {"text": "shoulders held stiff, spine rigid", "sentence": "{name}'s shoulders are stiff, with a rigidly upright posture"},
-    {"text": "weight forward on the balls of the feet, body coiled", "sentence": "{name} is coiled forward on the balls of their feet"},
-    {"text": "arms loose at the sides, chest open", "sentence": "{name} stands open, arms loose at their sides"},
-    {"text": "shoulders rounded inward, arms held close to the body", "sentence": "{name} holds themselves closed, shoulders rounded inward, arms close to the body"},
-    {"text": "limbs sprawled at odd angles", "sentence": "{name} is sprawled, their limbs at odd angles"},
-    {"text": "spine upright, chin level", "sentence": "{name} stands upright and formal, chin level"},
-    {"text": "back hunched, head dropped forward", "sentence": "{name} appears hunched with their head drooping forward"},
-    {"text": "feet planted wide, hands clasped behind", "sentence": "{name} stands with feet planted wide, hands clasped behind their back"},
-    {"text": "one shoulder set lower than the other", "sentence": "one of {name}'s shoulders sits lower than the other"},
-    {"text": "torso angled forward, hands on hips", "sentence": "{name}'s torso angles forward, hands on hips"},
-    {"text": "leaning back on the heels", "sentence": "{name} leans back on their heels"},
-    {"text": "weight rocking from heel to toe", "sentence": "{name} rocks their weight from heel to toe"},
-    {"text": "chin lifted, neck bared", "sentence": "{name}'s chin is lifted, neck bared"},
-    {"text": "shoulders squared, chest out", "sentence": "{name}'s shoulders are squared, chest out"},
-    {"text": "hands buried in pockets", "sentence": "{name} stands with hands buried in their pockets"},
-    {"text": "arms clasped behind the back", "sentence": "{name} stands with arms clasped behind their back"},
-    {"text": "head cocked to one side", "sentence": "{name}'s head is cocked to one side"},
-    {"text": "propped sideways on one hand", "sentence": "{name} is propped sideways on one hand"},
-    {"text": "knees bent inward, feet pigeon-toed", "sentence": "{name} stands pigeon-toed, knees bent inward"},
-    {"text": "heels together, feet splayed out", "sentence": "{name} stands with heels together, feet splayed out"},
-    {"text": "one hand gripping the other wrist in front", "sentence": "{name} stands with one hand gripping the other wrist in front"},
-    {"text": "pulled up to full height", "sentence": "{name} stands pulled up to full height"},
-    {"text": "body curled inward, head bowed to the chest", "sentence": "{name} is curled in, head bowed to their chest"}
+    {
+      "text": "weight sunk into one hip",
+      "sentence": "{name} stands with their weight sunk into one hip"
+    },
+    {
+      "text": "shoulders held stiff, spine rigid",
+      "sentence": "{name}'s shoulders are stiff, with a rigidly upright posture"
+    },
+    {
+      "text": "weight forward on the balls of the feet, body coiled",
+      "sentence": "{name} is coiled forward on the balls of their feet"
+    },
+    {
+      "text": "arms loose at the sides, chest open",
+      "sentence": "{name} stands open, arms loose at their sides"
+    },
+    {
+      "text": "shoulders rounded inward, arms held close to the body",
+      "sentence": "{name} holds themselves closed, shoulders rounded inward, arms close to the body"
+    },
+    {
+      "text": "limbs sprawled at odd angles",
+      "sentence": "{name} is sprawled, their limbs at odd angles"
+    },
+    {
+      "text": "spine upright, chin level",
+      "sentence": "{name} stands upright and formal, chin level"
+    },
+    {
+      "text": "back hunched, head dropped forward",
+      "sentence": "{name} appears hunched with their head drooping forward"
+    },
+    {
+      "text": "feet planted wide, hands clasped behind",
+      "sentence": "{name} stands with feet planted wide, hands clasped behind their back"
+    },
+    {
+      "text": "one shoulder set lower than the other",
+      "sentence": "one of {name}'s shoulders sits lower than the other"
+    },
+    {
+      "text": "torso angled forward, hands on hips",
+      "sentence": "{name}'s torso angles forward, hands on hips"
+    },
+    {
+      "text": "leaning back on the heels",
+      "sentence": "{name} leans back on their heels"
+    },
+    {
+      "text": "weight rocking from heel to toe",
+      "sentence": "{name} rocks their weight from heel to toe"
+    },
+    {
+      "text": "chin lifted, neck bared",
+      "sentence": "{name}'s chin is lifted, neck bared"
+    },
+    {
+      "text": "shoulders squared, chest out",
+      "sentence": "{name}'s shoulders are squared, chest out"
+    },
+    {
+      "text": "hands buried in pockets",
+      "sentence": "{name} stands with hands buried in their pockets"
+    },
+    {
+      "text": "arms clasped behind the back",
+      "sentence": "{name} stands with arms clasped behind their back"
+    },
+    {
+      "text": "head cocked to one side",
+      "sentence": "{name}'s head is cocked to one side"
+    },
+    {
+      "text": "propped sideways on one hand",
+      "sentence": "{name} is propped sideways on one hand"
+    },
+    {
+      "text": "knees bent inward, feet pigeon-toed",
+      "sentence": "{name} stands pigeon-toed, knees bent inward"
+    },
+    {
+      "text": "heels together, feet splayed out",
+      "sentence": "{name} stands with heels together, feet splayed out"
+    },
+    {
+      "text": "one hand gripping the other wrist in front",
+      "sentence": "{name} stands with one hand gripping the other wrist in front"
+    },
+    {
+      "text": "pulled up to full height",
+      "sentence": "{name} stands pulled up to full height"
+    },
+    {
+      "text": "body curled inward, head bowed to the chest",
+      "sentence": "{name} is curled in, head bowed to their chest"
+    }
   ],
   "positions": [
     "on the near side of the frame",
