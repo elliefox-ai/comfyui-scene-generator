@@ -184,11 +184,11 @@
           "a canvas chore coat",
           "a {flannel|thermal} {|with a hi-vis vest over}",
           "a barn coat {|with a corduroy collar}",
-          "a painter's jacket {|white|spattered with color}"
+          "a painter's jacket {|flecked white|spattered with color}"
         ],
         "torso": [
           "a grease-spotted thermal shirt",
-          "a flannel {shirtsleeves|buttoned to the collar}",
+          "a flannel {worn in shirtsleeves|buttoned to the collar}",
           "a pocket tee {|sun-faded}",
           "a waffle-knit henley"
         ],
@@ -282,7 +282,7 @@
           "a technical shell jacket",
           "an oversized bomber",
           "a windbreaker {|zipped to the chin}",
-          "a denim jacket {|cropped|oversized}"
+          "a denim jacket {|cropped at the waist|worn oversized}"
         ],
         "torso": [
           "a graphic hoodie",
@@ -305,7 +305,7 @@
         "head": [
           "a bucket hat",
           "a beanie pulled low",
-          "a baseball cap {|flat-brim|bent-brim}",
+          "{a flat-brim|a bent-brim} baseball cap",
           "a silk scarf tied over the hair"
         ]
       },
@@ -626,7 +626,7 @@
           "a charm-laden cap",
           "a stitched guild cap",
           "a hood {|drawn up}",
-          "a circlet of rank {|tarnished}"
+          "a circlet of rank {|tarnished with age}"
         ]
       },
       "palettes": [
@@ -1193,9 +1193,9 @@
       "genre": "modern",
       "layers": {
         "outer": [
-          "a tailored blazer {|pinstriped}",
+          "a tailored blazer {|in pinstripe}",
           "a cardigan {|buttoned over a shirt}",
-          "a trench coat {|belted}",
+          "a trench coat {|belted tight}",
           "a soft-shouldered sport coat"
         ],
         "torso": [
@@ -1207,12 +1207,12 @@
         "legs": [
           "slim wool trousers",
           "{a pencil|a pleated midi} skirt",
-          "chinos {|cuffed}",
+          "chinos {|cuffed at the ankle}",
           "straight-leg trousers with a crease"
         ],
         "feet": [
-          "leather oxfords {|polished}",
-          "loafers {|sockless}",
+          "leather oxfords {|polished to a shine}",
+          "loafers {|worn sockless}",
           "block-heel pumps",
           "slingback flats"
         ],
@@ -1290,26 +1290,26 @@
         "outer": [
           "a track jacket {|zipped to the collar}",
           "a quilted vest",
-          "a heavyweight hoodie {|oversized}",
-          "a fleece {|half-zip}"
+          "a heavyweight hoodie {|worn oversized}",
+          "{a half-zip|a pullover} fleece"
         ],
         "torso": [
           "a worn college tee",
           "a ribbed tank",
           "a long-sleeve tee {|pushed to the elbows}",
-          "a polo {|collar popped}"
+          "a polo {|with the collar popped}"
         ],
         "legs": [
           "{tapered|baggy} joggers",
           "mesh shorts {|over leggings}",
           "fleece-lined sweatpants",
-          "lounge pants {|striped}"
+          "lounge pants {|cuffed at the ankle|in a side stripe}"
         ],
         "feet": [
-          "running shoes {|fresh|beat grey}",
+          "running shoes {|fresh out of the box|beaten grey}",
           "slides {|over socks}",
           "canvas slip-ons",
-          "trail sneakers {|muddy}"
+          "trail sneakers {|caked with mud}"
         ],
         "head": [
           "a dad cap",
@@ -1384,7 +1384,7 @@
       "genre": "modern",
       "layers": {
         "outer": [
-          "a dinner jacket {|velvet lapels}",
+          "a dinner jacket {|with velvet lapels}",
           "a leather moto jacket {|zipped}",
           "a faux-fur coat",
           "a satin bomber"
@@ -1402,13 +1402,13 @@
           "high-waisted wide trousers"
         ],
         "feet": [
-          "ankle boots {|stacked heel|stiletto}",
-          "strappy heels {|gold|black}",
+          "ankle boots {|on a stacked heel|with a stiletto heel}",
+          "strappy heels {|in gold|in black}",
           "polished chelsea boots",
           "platform loafers"
         ],
         "head": [
-          "statement earrings {|hoops|chandeliers}",
+          "statement earrings {|as gold hoops|as chandeliers}",
           "a sparkly hair clip",
           "a silk scarf tied as a headband"
         ]
