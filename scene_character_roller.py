@@ -214,7 +214,15 @@ def _roll_hair(feats, identity, rng, name=""):
     ltext = _expand(ln.get("text", ""), rng)
     lclass = ln.get("class", "long")
     lform = ln.get("form", "modifier")
-    fam = _weighted(spec["color"]["families"], identity, rng)
+    # Race balance: family-level multipliers (spec
+    # color_family_by_race) — same pattern as the sex table. Red
+    # and blonde stay reachable on every race, just rarer where
+    # they read as dyed. Soft affinity, never a filter.
+    _rw = spec.get("color_family_by_race", {}).get(
+        identity.get("race", ""), {})
+    fam = _weighted([dict(f, weight=f.get("weight", 1)
+                          * _rw.get(f.get("name", ""), 1.0))
+                     for f in spec["color"]["families"]], identity, rng)
     shade = _weighted(fam["options"], identity, rng)
     stext = _expand(shade.get("text", ""), rng)
     sform = shade.get("form", "adj")
