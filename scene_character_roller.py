@@ -594,7 +594,8 @@ class SceneCharacterRoller:
         # drawn parent: influenced, never exclusive; skip-leg-day
         # lives in the tails. minimal = the portrait proportions
         # anchor: one build word, nothing deeper.
-        body_bits = []
+        body_bits = []     # raw fragments — debug/UI record
+        body_frags = []    # (prefix, text) — sentence-ready, in order
         arch = [e["text"] for e in feats["build"]]
         forced = None if body_type == "random" else body_type
         if forced is not None and forced not in arch:
@@ -608,26 +609,46 @@ class SceneCharacterRoller:
                 entry = _weighted(feats["build"], identity, rng)
                 build_text = entry["text"] if isinstance(entry, dict) else entry
             body_bits.append(build_text)
+            build_entry = next((e for e in feats["build"] if isinstance(e, dict)
+                                and e.get("text") == build_text), None)
+            build_frag = (build_entry or {}).get("emission")
+            if not build_frag:
+                build_frag = f"{_article(build_text)} {build_text} build"
+            body_frags.append(("", build_frag))
         if build_text and body_detail != "minimal":
             pid = dict(identity, build=build_text)
+            children = []
             if body_detail == "high":
                 for key, p in (("physique_torso", 0.6),
                                ("physique_legs", 0.5),
                                ("physique_arms", 0.4)):
                     if rng.random() < p:
                         e = _weighted(feats[key], pid, rng)
-                        body_bits.append(e["text"] if isinstance(e, dict) else e)
+                        children.append((key, e["text"] if isinstance(e, dict) else e))
             elif rng.random() < 0.25:
                 e = _weighted(feats["physique_torso"], pid, rng)
-                body_bits.append(e["text"] if isinstance(e, dict) else e)
+                children.append(("physique_torso",
+                                 e["text"] if isinstance(e, dict) else e))
+            for key, frag in children:
+                body_bits.append(frag)
+                # all children ride bare — adjectival entries
+                # ("bow-legged", "thick through the thighs") can't
+                # take "with" without breaking
+                body_frags.append(("", frag))
 
         # Demeanor is person-energy, not face or body — it fires
-        # when either axis asks for depth.
+        # when either axis asks for depth, and rides as its own
+        # sentence. Full-clause entries already carry their subject;
+        # everything else takes "They seem …".
+        demeanor_bits = []
         if face_detail == "high" or body_detail == "high":
-            wmaybe("demeanor", 0.7, face_bits)
+            wmaybe("demeanor", 0.7, demeanor_bits)
 
-        segs = ([identity_phrase, concept_text] + body_bits
-                + [outfit, palette] + face_bits)
+        # Register: identity/concept/outfit/palette stay a comma
+        # core; body, face, demeanor, hair and named posture ride as
+        # full sentences after it. Krea/T5 reads sentences, not
+        # comma chains — fragments under-convey (his 17:37 finding).
+        core = [identity_phrase, concept_text, outfit, palette]
 
         posture = ""
         posture_sent = False
@@ -641,25 +662,47 @@ class SceneCharacterRoller:
             else:
                 posture = post_frag
         position = rng.choice(feats["positions"]) if positioning else ""
-        # nameless rolls keep the old comma-joined fragment behavior
+        # nameless posture/position fragments stay in the comma core
         if posture and not posture_sent:
-            segs.append(posture)
+            core.append(posture)
         if position:
-            segs.append(position)
+            core.append(position)
 
-        text = ", ".join(segs)
+        text = ", ".join(core)
         name = (name or "").strip()
         if name:
             text = f"{name}, {text}"
+        text += "."
+
+        # Body sentence: build + physique children, one flowing pass.
+        body_sent = ""
+        if body_frags:
+            pieces = [body_frags[0][1]]
+            pieces += [(f"with {t}" if pre else t) for pre, t in body_frags[1:]]
+            body_sent = f"They have {', '.join(pieces)}."
+        # Face sentence: all face fragments as one have-list.
+        face_sent = f"They have {', '.join(face_bits)}." if face_bits else ""
+        # Demeanor sentence: "They seem {adj}." — or the entry's own
+        # clause when it already carries its subject.
+        demeanor_sent = ""
+        if demeanor_bits:
+            dfrag = demeanor_bits[0]
+            low = dfrag.lower()
+            demeanor_sent = f"{dfrag}." if low.startswith("they ") \
+                or low.startswith("their ") else f"They seem {dfrag}."
+
+        for sent in (body_sent, face_sent, demeanor_sent):
+            if sent:
+                text = f"{text} {sent}"
         if hair_sentence:
             # Modular hair rides as its own sentence — opening clean
             # after a period, like name-bound posture sentences.
-            text = f"{text}. {hair_sentence}"
+            text = f"{text} {hair_sentence}"
         if posture_sent:
             # name-bound posture sentence: opens clean after a period
             if name:
                 posture = posture.replace("{name}", name)
-                text = f"{text}. {posture}"
+                text = f"{text} {posture}"
             elif post_frag:
                 posture = post_frag
                 text = f"{text}, {post_frag}"
@@ -687,6 +730,7 @@ class SceneCharacterRoller:
             "palette_family": pal_src,
             "outfit_sources": sources,
             "face": face_bits,
+            "demeanor": demeanor_bits,
             "hair_mode": hair_mode,
             "hair": hair_details,
             "body": body_bits,

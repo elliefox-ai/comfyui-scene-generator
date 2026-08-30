@@ -2753,13 +2753,15 @@
       "age": {
         "middle-aged": 1.5,
         "older": 1.5
-      }
+      },
+      "emission": "a soft, rounded build"
     },
     {
       "text": "broad-framed",
       "sex": {
         "male": 1.5
-      }
+      },
+      "emission": "a broad, heavy frame"
     },
     {
       "text": "sturdy"
@@ -2787,7 +2789,8 @@
       "text": "slight-framed",
       "age": {
         "older": 1.5
-      }
+      },
+      "emission": "a slight, narrow frame"
     },
     {
       "text": "unremarkable"
@@ -2878,7 +2881,7 @@
       "text": "quick to needle"
     },
     {
-      "text": "keeps its own counsel"
+      "text": "They keep their own counsel"
     },
     {
       "text": "indulgent"
@@ -2887,7 +2890,7 @@
       "text": "suspicious of easy answers"
     },
     {
-      "text": "doesn't waste a word"
+      "text": "They don't waste a word"
     },
     {
       "text": "amused by everyone's hurry"
@@ -2899,22 +2902,22 @@
       "text": "unimpressed by rank"
     },
     {
-      "text": "wears silence like armor"
+      "text": "They wear silence like armor"
     },
     {
-      "text": "laughs easily, forgets nothing"
+      "text": "They laugh easily, forget nothing"
     },
     {
-      "text": "steady hands, sharp tongue"
+      "text": "They have steady hands, a sharp tongue"
     },
     {
-      "text": "doesn't flinch easily"
+      "text": "They don't flinch easily"
     },
     {
       "text": "quick to correct"
     },
     {
-      "text": "listens more than it speaks"
+      "text": "They listen more than they speak"
     },
     {
       "text": "quietly authoritative"
@@ -2953,7 +2956,7 @@
       "text": "self-possessed"
     },
     {
-      "text": "eager to prove itself",
+      "text": "eager to prove themselves",
       "age": "young adult"
     },
     {
@@ -2973,7 +2976,7 @@
       "age": "middle-aged"
     },
     {
-      "text": "keeps the peace",
+      "text": "They keep the peace",
       "age": "middle-aged"
     },
     {
@@ -2981,7 +2984,7 @@
       "age": "middle-aged"
     },
     {
-      "text": "still has something to prove",
+      "text": "They still have something to prove",
       "age": "middle-aged"
     },
     {
@@ -3001,7 +3004,7 @@
       "age": "older"
     },
     {
-      "text": "rarely raises its voice",
+      "text": "They rarely raise their voice",
       "age": "older"
     },
     {
@@ -3013,7 +3016,7 @@
       "age": "older"
     },
     {
-      "text": "still commands a room",
+      "text": "They still command a room",
       "age": "older"
     },
     {
@@ -3033,7 +3036,7 @@
       "age": "older"
     },
     {
-      "text": "hard-won calm",
+      "text": "Their calm is hard-won",
       "age": "older"
     },
     {
@@ -3041,7 +3044,7 @@
       "age": "older"
     },
     {
-      "text": "doesn't repeat itself twice",
+      "text": "They don't repeat themselves twice",
       "age": "older"
     },
     {
