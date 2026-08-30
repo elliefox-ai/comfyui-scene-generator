@@ -62,7 +62,10 @@ Banks live in scene_context/ — character_wardrobe.json (families:
 genre tag, layer grammar, palettes, wear states, role-tagged concepts)
 and character_features.json (identity-tagged faces, hair, eyes, nose,
 mouth, jaw, cheekbones, brow, ears, marks, build + physique children (torso/legs/arms), demeanor;
-postures/positions; race-keyed complexion). Expand
+postures/positions; race-keyed complexion). Hair is modular —
+'hair_v2' (length × color × gated sections) assembles into one
+sentence when hair_mode='modular'; the legacy pool + compose spec
+stay reachable via 'legacy'. Expand
 the banks, not the code.
 
 Outputs:
@@ -180,6 +183,83 @@ def _expand(tpl, rng):
         tpl = tpl[:m.start()] + pick + tpl[m.end():]
 
 
+def _article(t):
+    return "an" if t[:1].lower() in "aeiou" else "a"
+
+
+def _roll_hair(feats, identity, rng, name=""):
+    """Modular hair sentence: Alexander's facedetailer sections
+    (2026-08-29) — length x color x bangs x styled x parting x
+    texture x hairline x grooming x accessory — with explicit
+    per-option weights (no dilution strings) and length-class gating
+    (ties/braids/buns need long/medium/undercut; shorn closes
+    everything but color and hairline). Returns (sentence, details);
+    sentence is '' when the roll closes out. Runs when the node's
+    hair_mode is 'modular'; the legacy pool + compose spec remain
+    for 'legacy'."""
+    spec = feats.get("hair_v2")
+    if not spec:
+        return "", {}
+    if rng.random() > spec.get("chance", 0.97):
+        return "", {}
+    ln = _weighted(spec["length"]["options"], identity, rng)
+    ltext = _expand(ln.get("text", ""), rng)
+    lclass = ln.get("class", "long")
+    lform = ln.get("form", "modifier")
+    fam = _weighted(spec["color"]["families"], identity, rng)
+    shade = _weighted(fam["options"], identity, rng)
+    stext = _expand(shade.get("text", ""), rng)
+    sform = shade.get("form", "adj")
+    if lform == "noun":
+        if sform == "phrase":
+            core = f"{ltext} with {stext}"
+        else:
+            core = ln["emission"].replace("{color}", stext)
+    elif sform == "phrase":
+        core = f"{ltext} hair with {stext}"
+    else:
+        core = f"{ltext} {stext} hair"
+    tail = []
+    drawn = []
+    for sec in spec.get("sections", []):
+        if rng.random() > sec.get("chance", 0.3):
+            continue
+        classes = sec.get("classes")
+        if classes and lclass not in classes:
+            continue
+        pool = []
+        for pd in sec.get("pools", [{"options": sec.get("options", [])}]):
+            pc = pd.get("classes")
+            if pc and lclass not in pc:
+                continue
+            pool.extend(pd.get("options", []))
+        if not pool:
+            continue
+        pick = _weighted(pool, identity, rng)
+        text = _expand(pick.get("text", ""), rng)
+        lead = sec.get("lead")
+        if lead == "styled":
+            art = "" if pick.get("article") is False else _article(text) + " "
+            frag = f"styled in {art}{text}"
+        elif lead == "wearing":
+            frag = f"wearing {text}"
+        else:
+            frag = text
+        tail.append(frag)
+        drawn.append(f"{sec['name']}: {text}")
+    stem = f"{name} has" if name else "They have"
+    sent = f"{stem} {core}"
+    if tail:
+        joiner = " " if tail[0].startswith("with ") else ", "
+        sent += joiner + tail[0]
+        sent += "".join(", " + t for t in tail[1:])
+    details = {
+        "length": ltext, "class": lclass, "color": stext,
+        "sections": drawn, "sentence": sent + ".",
+    }
+    return sent + ".", details
+
+
 def _identity_phrase(identity):
     parts = [
         _AGE_PHRASE[identity["age"]],
@@ -219,6 +299,9 @@ def _weighted(pool, identity, rng, w_match=4, w_untagged=2, w_mismatch=1):
     weights = []
     for entry in pool:
         w = 1.0
+        # Static option weight (hair_v2 shapes frequencies with it;
+        # banks without "weight" keys are unaffected).
+        w *= entry.get("weight", 1)
         # Axes iterated: the identity axes PLUS any extra context
         # axes the caller injected (children pass the drawn build
         # archetype as identity['build'] — tags on that axis weight
@@ -259,6 +342,8 @@ class SceneCharacterRoller:
                     "tooltip": "How much this character honors the genre's substyle, garment by garment. 1 = full coherence: one outfit family head to toe, one palette. 0 = random character style: every piece rolls independently (firm genre keeps the mismatch within the era). Between = mostly-family with wandering pieces."}),
                 "face_detail": (["low", "high"], {"default": "low",
                     "tooltip": "Face ladder. low = wide-shot legible: face shape, hair, eyes, maybe a mark — reads at distance. high = portrait ladder: complexion, nose, mouth, jaw, cheekbones, brow, ears sampled under a phrase budget (~6 face phrases, never the whole list)."}),
+                "hair_mode": (["modular", "legacy"], {"default": "modular",
+                    "tooltip": "Modular: hair composed from facedetailer-style sections (length × color × bangs × style × parting × texture × hairline × grooming × accessory) into one sentence — thousands of coherent combinations, gated by length class (ties need length; shorn closes sections; pixie up, buzz/undercut rare by measurement). Legacy: the old static pool + slot compose. Same seed differs across modes (draw order changes)."}),
                 "body_detail": (["minimal", "low", "high"], {"default": "low",
                     "tooltip": "Body depth. minimal = portrait companion: one guaranteed build word for proportions, single outer garment, no layers. low = wide-shot: outer garment + palette, build usually. high = garment ladder (wear state, layered pieces) + build. Pair with face_detail=high for closeup portraits."}),
                 "body_type": (["random"] + [e["text"] for e in _load_features()["build"]],
@@ -288,7 +373,8 @@ class SceneCharacterRoller:
     CATEGORY = "SceneGen"
 
     def roll(self, genre, consistency, face_detail, body_detail, body_type,
-             role, name, pose, positioning, seed, age, sex, race):
+             role, name, pose, positioning, seed, age, sex, race,
+             hair_mode="modular"):
         rng = random.Random(seed)
         families = _load_wardrobe()
         feats = _load_features()
@@ -444,12 +530,19 @@ class SceneCharacterRoller:
                     bucket.append(entry["text"] if isinstance(entry, dict) else entry)
 
         face_bits = []
+        hair_sentence, hair_details = "", {}
+        name_str = (name or "").strip()
         if face_detail == "high":
             # Phrase budget: a high face samples ~6 phrases total.
             # Gates drop as banks multiply — variety across the cast,
             # not inventory on one face.
             wmaybe("face_shapes", 0.65, face_bits)
-            wmaybe("hair", 0.85, face_bits)
+            if hair_mode == "modular" and feats.get("hair_v2"):
+                if rng.random() < 0.85:
+                    hair_sentence, hair_details = _roll_hair(
+                        feats, identity, rng, name_str)
+            else:
+                wmaybe("hair", 0.85, face_bits)
             wmaybe("eyes", 0.75, face_bits)
             if rng.random() < 0.65:
                 # Complexion: the one hard-keyed draw — race selects its
@@ -469,7 +562,12 @@ class SceneCharacterRoller:
         else:
             # wide-shot legible: shape, hair, eyes, maybe one mark
             wmaybe("face_shapes", 0.9, face_bits)
-            wmaybe("hair", 0.9, face_bits)
+            if hair_mode == "modular" and feats.get("hair_v2"):
+                if rng.random() < 0.9:
+                    hair_sentence, hair_details = _roll_hair(
+                        feats, identity, rng, name_str)
+            else:
+                wmaybe("hair", 0.9, face_bits)
             wmaybe("eyes", 0.85, face_bits)
             wmaybe("marks", 0.25, face_bits)
 
@@ -537,6 +635,10 @@ class SceneCharacterRoller:
         name = (name or "").strip()
         if name:
             text = f"{name}, {text}"
+        if hair_sentence:
+            # Modular hair rides as its own sentence — opening clean
+            # after a period, like name-bound posture sentences.
+            text = f"{text}. {hair_sentence}"
         if posture_sent:
             # name-bound posture sentence: opens clean after a period
             if name:
@@ -569,6 +671,8 @@ class SceneCharacterRoller:
             "palette_family": pal_src,
             "outfit_sources": sources,
             "face": face_bits,
+            "hair_mode": hair_mode,
+            "hair": hair_details,
             "body": body_bits,
             "pose": posture,
             "position": position,

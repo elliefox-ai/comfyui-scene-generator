@@ -1175,6 +1175,85 @@
       "sex": "female"
     }
   ],
+  "hair_v2": {
+    "chance": 0.97,
+    "length": {
+      "options": [
+        {"text": "long flowing", "class": "long", "weight": 1.5, "sex": {"female": 1.2}},
+        {"text": "long", "class": "long", "weight": 1.5},
+        {"text": "mid-back length", "class": "long", "weight": 1.0},
+        {"text": "waist-length", "class": "long", "weight": 0.9, "sex": {"female": 1.5}},
+        {"text": "shoulder-length", "class": "medium", "weight": 1.2},
+        {"text": "collarbone-length", "class": "medium", "weight": 1.0},
+        {"text": "layered shoulder-length", "class": "medium", "weight": 0.8},
+        {"text": "a chin-length bob", "class": "short_cut", "form": "noun", "weight": 0.5, "sex": {"female": 1.2}, "emission": "a {color} chin-length bob"},
+        {"text": "a lob", "class": "short_cut", "form": "noun", "weight": 0.4, "sex": {"female": 1.2}, "emission": "a {color} lob"},
+        {"text": "a pixie cut", "class": "pixie", "form": "noun", "weight": 0.6, "sex": {"female": 1.3}, "emission": "a {color} pixie cut"},
+        {"text": "cropped", "class": "shorn", "weight": 0.2, "sex": {"male": 1.3}},
+        {"text": "a buzzcut", "class": "shorn", "form": "noun", "weight": 0.15, "sex": {"male": 1.5}, "emission": "a {color} buzzcut"},
+        {"text": "an undercut with long top", "class": "undercut", "form": "noun", "weight": 0.12, "sex": {"male": 1.4}, "emission": "{color} hair in an undercut with long top"},
+        {"text": "shaved sides with long top", "class": "undercut", "form": "noun", "weight": 0.12, "sex": {"male": 1.3}, "emission": "{color} hair with shaved sides and a long top"}
+      ]
+    },
+    "color": {
+      "families": [
+        {"name": "red", "weight": 1.0, "race": {"white": 2.0}, "options": [
+          {"text": "auburn"}, {"text": "copper"}, {"text": "dark red"}, {"text": "bright red"}, {"text": "burgundy"}, {"text": "wine red"}]},
+        {"name": "blonde", "weight": 1.0, "race": {"white": 2.0}, "options": [
+          {"text": "pale blonde"}, {"text": "ash blonde"}, {"text": "golden blonde"}, {"text": "strawberry blonde"}, {"text": "platinum blonde"}, {"text": "honey blonde"}]},
+        {"name": "black", "weight": 1.1, "race": {"black": 2.5, "east_asian": 2.5, "south_asian": 2.5, "indigenous": 2.5, "middle_eastern": 1.5}, "options": [
+          {"text": "jet black"}, {"text": "blue-black"}, {"text": "raven black"}]},
+        {"name": "brown", "weight": 1.2, "race": {"latino": 2.0, "middle_eastern": 2.0, "white": 1.2, "south_asian": 1.2}, "options": [
+          {"text": "light brown"}, {"text": "medium brown"}, {"text": "dark brown"}, {"text": "chestnut"}, {"text": "ash brown"}]},
+        {"name": "distinctive", "weight": 0.5, "options": [
+          {"text": "white", "age": {"older": 2.0}},
+          {"text": "silver", "age": {"older": 2.0}},
+          {"text": "grey", "age": {"older": 2.0, "middle-aged": 1.0}},
+          {"text": "salt-and-pepper", "age": {"older": 1.5}},
+          {"text": "sun-bleached", "age": {"young adult": 1.3}},
+          {"text": "grown-out {dark|blonde} roots showing", "form": "phrase"},
+          {"text": "pastel {pink|blue|purple|green}", "age": {"young adult": 1.5}},
+          {"text": "vibrant {red|blue|green|purple|orange}", "age": {"young adult": 1.5}},
+          {"text": "{a peekaboo|an underdye|a money piece|a skunk stripe} in {blonde|bleach|black|red|pink|green|purple}", "form": "phrase", "age": {"young adult": 1.5}},
+          {"text": "{a split-dye|a half-and-half|a two-tone block} in {pink|blue|purple|green|black}", "form": "phrase", "age": {"young adult": 1.5}},
+          {"text": "{an ombré|a dip-dye} in {blonde|black|red|pink|green|purple}", "form": "phrase", "age": {"young adult": 1.2}}
+        ]}
+      ]
+    },
+    "sections": [
+      {"name": "bangs", "chance": 0.45, "classes": ["long", "medium", "short_cut", "pixie", "undercut"], "lead": "with", "options": [
+        {"text": "blunt-cut bangs"}, {"text": "wispy bangs"}, {"text": "thick bangs"}, {"text": "curtain bangs"},
+        {"text": "side-swept bangs"}, {"text": "baby bangs"}, {"text": "feathered bangs"}, {"text": "arched bangs"}]},
+      {"name": "styled", "chance": 0.5, "pools": [
+        {"classes": ["long", "medium", "undercut"], "options": [
+          {"text": "high ponytail", "sex": {"female": 1.5}}, {"text": "low ponytail", "sex": {"female": 1.3}},
+          {"text": "side ponytail", "sex": {"female": 1.3}}, {"text": "twin pigtails", "sex": {"female": 2.0}, "age": {"young adult": 1.5}},
+          {"text": "top knot", "sex": {"female": 1.2}}, {"text": "messy bun", "sex": {"female": 1.5}},
+          {"text": "sleek bun", "sex": {"female": 1.5}}, {"text": "space buns", "sex": {"female": 2.0}, "age": {"young adult": 1.4}},
+          {"text": "french braid", "sex": {"female": 1.5}}, {"text": "dutch braid", "sex": {"female": 1.5}},
+          {"text": "braided crown", "sex": {"female": 1.8}}, {"text": "fishtail braid", "sex": {"female": 1.5}},
+          {"text": "half-up half-down", "article": false}, {"text": "chignon", "sex": {"female": 1.8}, "age": {"older": 1.3}}]},
+        {"classes": ["long", "medium"], "options": [
+          {"text": "wolf cut"}, {"text": "shag"}, {"text": "mullet", "sex": {"male": 1.4}},
+          {"text": "asymmetric cut"}, {"text": "layered cut with face-framing"}, {"text": "curtained hair", "article": false}]}
+      ]},
+      {"name": "parting", "chance": 0.3, "classes": ["long", "medium", "short_cut", "pixie", "undercut"], "options": [
+        {"text": "center-parted"}, {"text": "deep side-parted"}, {"text": "zigzag-parted"}, {"text": "middle-parted"}]},
+      {"name": "texture", "chance": 0.5, "classes": ["long", "medium", "short_cut", "pixie", "undercut"], "options": [
+        {"text": "tightly curled"}, {"text": "loosely curled"}, {"text": "wavy", "race": {"latino": 1.5, "middle_eastern": 1.5, "white": 1.0}},
+        {"text": "beach waves", "age": {"young adult": 1.2}}, {"text": "pin-straight", "race": {"east_asian": 2.0}},
+        {"text": "kinky textured", "race": {"black": 2.0}}, {"text": "in tight coils", "race": {"black": 2.5}},
+        {"text": "natural texture"}, {"text": "blow-dried smooth"}]},
+      {"name": "hairline", "chance": 0.2, "options": [
+        {"text": "with a widow's peak"}, {"text": "with a high hairline"}, {"text": "with a smooth hairline"}]},
+      {"name": "grooming", "chance": 0.35, "classes": ["long", "medium", "short_cut", "pixie", "undercut"], "options": [
+        {"text": "windswept", "age": {"young adult": 1.3}}, {"text": "tousled", "age": {"young adult": 1.3}},
+        {"text": "slicked back", "sex": {"male": 1.5}}, {"text": "neatly groomed", "age": {"middle-aged": 1.2}},
+        {"text": "bedhead", "age": {"young adult": 1.4}}, {"text": "damp-looking"}]},
+      {"name": "accessory", "chance": 0.15, "classes": ["long", "medium", "short_cut", "pixie", "undercut"], "lead": "wearing", "options": [
+        {"text": "a headband"}, {"text": "a bandana"}, {"text": "a hair scarf"}, {"text": "hair clips"}, {"text": "a ribbon", "sex": {"female": 1.8}}]}
+    ]
+  },
   "eyes": [
     {
       "text": "pale grey eyes"
