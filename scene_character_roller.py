@@ -202,7 +202,15 @@ def _roll_hair(feats, identity, rng, name=""):
         return "", {}
     if rng.random() > spec.get("chance", 0.97):
         return "", {}
-    ln = _weighted(spec["length"]["options"], identity, rng)
+    # Gender balance: class-level multipliers (spec
+    # length_class_by_sex) shift the whole distribution per sex —
+    # buzz/undercut ride mostly on men, long and pixie lean female.
+    # Soft affinity still — multipliers, never a filter.
+    _sw = spec.get("length_class_by_sex", {}).get(
+        identity.get("sex", ""), {})
+    ln = _weighted([dict(o, weight=o.get("weight", 1)
+                         * _sw.get(o.get("class", ""), 1.0))
+                    for o in spec["length"]["options"]], identity, rng)
     ltext = _expand(ln.get("text", ""), rng)
     lclass = ln.get("class", "long")
     lform = ln.get("form", "modifier")

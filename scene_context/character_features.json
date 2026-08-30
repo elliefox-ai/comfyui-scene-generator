@@ -1177,6 +1177,10 @@
   ],
   "hair_v2": {
     "chance": 0.97,
+    "length_class_by_sex": {
+      "female": {"long": 1.15, "medium": 1.0, "short_cut": 1.1, "pixie": 1.15, "shorn": 0.35, "undercut": 0.3},
+      "male": {"long": 0.8, "medium": 1.0, "short_cut": 0.7, "pixie": 0.5, "shorn": 3.5, "undercut": 2.5}
+    },
     "length": {
       "options": [
         {"text": "long flowing", "class": "long", "weight": 1.5, "sex": {"female": 1.2}},
