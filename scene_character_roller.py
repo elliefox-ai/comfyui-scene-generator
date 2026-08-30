@@ -362,6 +362,8 @@ class SceneCharacterRoller:
                     "tooltip": "Modular: hair composed from facedetailer-style sections (length × color × bangs × style × parting × texture × hairline × grooming × accessory) into one sentence — thousands of coherent combinations, gated by length class (ties need length; shorn closes sections; pixie up, buzz/undercut rare by measurement). Legacy: the old static pool + slot compose. Same seed differs across modes (draw order changes)."}),
                 "body_detail": (["minimal", "low", "high"], {"default": "low",
                     "tooltip": "Body depth. minimal = portrait companion: one guaranteed build word for proportions, single outer garment, no layers. low = wide-shot: outer garment + palette, build usually. high = garment ladder (wear state, layered pieces) + build. Pair with face_detail=high for closeup portraits."}),
+                "emphasis": (["off", "low", "high"], {"default": "off",
+                    "tooltip": "Corroboration dial for the build — the trait diffusion under-reads. low = one independent restatement rides in the body sentence ('a lean build, no wasted weight on them'); high = two. Adds angles, never intensifiers: 'very lean' does nothing, a second physical observation does. Same seed + off reproduces the plain register exactly."}),
                 "body_type": (["random"] + [e["text"] for e in _load_features()["build"]],
                     {"default": "random",
                      "tooltip": "🎲 random rolls the build archetype each time; physique children (chest/legs/arms at body detail low/high) weight toward the drawn parent. A fixed value (muscular, willowy, heavyset…) forces the parent every roll — a distinct set of characters. Children stay soft-influenced, never locked."}),
@@ -390,7 +392,7 @@ class SceneCharacterRoller:
 
     def roll(self, genre, consistency, face_detail, body_detail, body_type,
              role, name, pose, positioning, seed, age, sex, race,
-             hair_mode="modular"):
+             hair_mode="modular", emphasis="off"):
         rng = random.Random(seed)
         families = _load_wardrobe()
         feats = _load_features()
@@ -636,6 +638,22 @@ class SceneCharacterRoller:
                 # take "with" without breaking
                 body_frags.append(("", frag))
 
+        # Emphasis knob: corroboration, not intensifiers — diffusion
+        # shrugs off "very lean" but reads a second independent
+        # physical observation of the same trait. Phrases ride just
+        # after the build phrase so trait and echo stay adjacent.
+        # Guarded so emphasis="off" consumes no rng draws (same-seed
+        # output identical to the plain register).
+        if emphasis != "off" and body_frags:
+            be = next((e for e in feats["build"] if isinstance(e, dict)
+                       and e.get("text") == build_text), None)
+            pool = (be or {}).get("emph") or []
+            if pool:
+                k = 1 if emphasis == "low" else 2
+                picks = rng.sample(pool, min(k, len(pool)))
+                for pick in reversed(picks):
+                    body_frags.insert(1, ("", pick))
+
         # Demeanor is person-energy, not face or body — it fires
         # when either axis asks for depth, and rides as its own
         # sentence. Full-clause entries already carry their subject;
@@ -732,6 +750,7 @@ class SceneCharacterRoller:
             "face": face_bits,
             "demeanor": demeanor_bits,
             "hair_mode": hair_mode,
+            "emphasis": emphasis,
             "hair": hair_details,
             "body": body_bits,
             "pose": posture,

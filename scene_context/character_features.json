@@ -2700,10 +2700,20 @@
   ],
   "build": [
     {
-      "text": "lean"
+      "text": "lean",
+      "emph": [
+        "no wasted weight on them",
+        "light through the frame",
+        "thin without frailty"
+      ]
     },
     {
-      "text": "wiry"
+      "text": "wiry",
+      "emph": [
+        "wired with tendon",
+        "thin but coiled",
+        "all tendon and spring"
+      ]
     },
     {
       "text": "rangy",
@@ -2712,7 +2722,12 @@
       },
       "sex": {
         "male": 1.4
-      }
+      },
+      "emph": [
+        "long-limbed and loose-hung",
+        "built to cover ground",
+        "more reach than frame"
+      ]
     },
     {
       "text": "lanky",
@@ -2721,32 +2736,57 @@
       },
       "sex": {
         "male": 1.5
-      }
+      },
+      "emph": [
+        "all elbows and knees",
+        "stretched and narrow",
+        "limbs that arrive first"
+      ]
     },
     {
       "text": "athletic",
       "age": {
         "young adult": 1.4
-      }
+      },
+      "emph": [
+        "clear strength without bulk",
+        "cut but not heavy",
+        "built by regular work"
+      ]
     },
     {
       "text": "muscular",
       "sex": {
         "male": 2.0
-      }
+      },
+      "emph": [
+        "solid through the shoulders",
+        "carries visible mass",
+        "built under the clothes"
+      ]
     },
     {
       "text": "stocky",
       "sex": {
         "male": 1.5
-      }
+      },
+      "emph": [
+        "thick-set from the ground up",
+        "low and solid",
+        "weight packed dense"
+      ]
     },
     {
       "text": "heavyset",
       "age": {
         "middle-aged": 1.5,
         "older": 1.5
-      }
+      },
+      "emph": [
+        "weight through the middle",
+        "broad and heavy through the trunk",
+        "built on a heavy scale"
+      ]
     },
     {
       "text": "soft-bodied",
@@ -2754,46 +2794,86 @@
         "middle-aged": 1.5,
         "older": 1.5
       },
-      "emission": "a soft, rounded build"
+      "emission": "a soft, rounded build",
+      "emph": [
+        "round in the middle",
+        "soft-edged everywhere",
+        "no hard lines anywhere"
+      ]
     },
     {
       "text": "broad-framed",
       "sex": {
         "male": 1.5
       },
-      "emission": "a broad, heavy frame"
+      "emission": "a broad, heavy frame",
+      "emph": [
+        "fills a doorway",
+        "wide through the shoulders",
+        "frame built past the last size"
+      ]
     },
     {
-      "text": "sturdy"
+      "text": "sturdy",
+      "emph": [
+        "planted and hard to move",
+        "built like it's load-bearing",
+        "weight that doesn't drift"
+      ]
     },
     {
       "text": "petite",
       "sex": {
         "female": 3.0
-      }
+      },
+      "emph": [
+        "small-boned",
+        "built close to the ground",
+        "half a head shorter than most"
+      ]
     },
     {
       "text": "willowy",
       "sex": {
         "female": 2.5
-      }
+      },
+      "emph": [
+        "long and fine-boned",
+        "light in the frame",
+        "stretched thin and graceful"
+      ]
     },
     {
       "text": "statuesque",
       "age": {
         "young adult": 1.3,
         "middle-aged": 1.3
-      }
+      },
+      "emph": [
+        "tall and commanding",
+        "built on a grand scale",
+        "made to be looked up at"
+      ]
     },
     {
       "text": "slight-framed",
       "age": {
         "older": 1.5
       },
-      "emission": "a slight, narrow frame"
+      "emission": "a slight, narrow frame",
+      "emph": [
+        "bird-boned",
+        "narrow enough to miss",
+        "scarcely any frame at all"
+      ]
     },
     {
-      "text": "unremarkable"
+      "text": "unremarkable",
+      "emph": [
+        "no line of them stands out",
+        "easy to lose in a crowd",
+        "nothing the eye catches first"
+      ]
     }
   ],
   "demeanor": [
