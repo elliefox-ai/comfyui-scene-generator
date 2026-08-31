@@ -33,7 +33,7 @@ n = SceneAmbientActivity()
 banks = _load_banks()
 
 it = n.INPUT_TYPES()["required"]
-check("subject options = none + 8 pools + random + multiversal",
+check("subject options = none + 9 pools + random + multiversal",
       it["subject"][0] == ["none"] + list(am._SUBJECT_POOLS)
       + ["random", "multiversal"])
 check("treatment options", it["treatment"][0] == TREATMENT_OPTIONS)

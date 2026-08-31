@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "note": "ambient banks draft — harvest 2026-08-30. Subjects are calm, played-straight background cameos; treatments are operator phrases applied ON TOP at draw time. Braces = alternates. Objects with tags carry era metadata.",
+  "note": "ambient banks draft — harvest 2026-08-30. Subjects are calm, played-straight background cameos; treatments are operator phrases applied ON TOP at draw time. Braces = alternates. Objects with tags carry era metadata. | 2026-08-31 taste-call wave: named protest movements into militant (Alexander's construction — movement sub-options + independent optional modifiers), solemn ceremonies + cultural celebrations into accurate tagged 'ceremony' (downstream-filterable), powwow/hoop-dance rewrites added (public-performance framing), 'popculture' opt-in branded pool carved from absurd/sexy, Bond de-IP'd, funeral tagged. Dwarf troupe + crude labels were already absent from the harvest.",
   "subjects": {
     "accurate": {
       "description": "genre/era-authentic background people and activity, straight world",
@@ -507,7 +507,8 @@
         {
           "text": "a funeral procession {slow moving|a hearse|mourners|somber}",
           "tags": [
-            "genre:modern"
+            "genre:modern",
+            "ceremony"
           ]
         },
         {
@@ -543,6 +544,81 @@
           "tags": [
             "genre:sci_fi",
             "genre:historical",
+            "genre:modern"
+          ]
+        },
+        {
+          "text": "a candlelight vigil {a sea of candles|holding photographs|a moment of silence|singing softly}",
+          "tags": [
+            "genre:modern",
+            "ceremony"
+          ]
+        },
+        {
+          "text": "a religious procession {carrying icons and banners|in traditional garb|incense and candles|moving slowly through the streets}",
+          "tags": [
+            "genre:modern",
+            "ceremony"
+          ]
+        },
+        {
+          "text": "monks {in saffron robes|walking single file|collecting alms at dawn|a silent procession}",
+          "tags": [
+            "genre:modern",
+            "ceremony"
+          ]
+        },
+        {
+          "text": "a living nativity scene {children in costume|a stable and candlelight|in the town square|a donkey in attendance}",
+          "tags": [
+            "genre:modern",
+            "ceremony"
+          ]
+        },
+        {
+          "text": "a bar mitzvah {the hora with chair lifting|formal portraits on the steps|a beaming family|the Torah reading}",
+          "tags": [
+            "genre:modern",
+            "ceremony"
+          ]
+        },
+        {
+          "text": "a menorah lighting {a crowd in winter coats|the blessing sung|candles against the dusk|in the town square}",
+          "tags": [
+            "genre:modern",
+            "ceremony"
+          ]
+        },
+        {
+          "text": "a Diwali celebration {rows of oil lamps|rangoli at the thresholds|fireworks overhead|bright traditional dress}",
+          "tags": [
+            "genre:modern",
+            "ceremony"
+          ]
+        },
+        {
+          "text": "a Kwanzaa celebration {the kinara lit|kente patterns under the lights|a libation poured|a community hall gathering}",
+          "tags": [
+            "genre:modern",
+            "ceremony"
+          ]
+        },
+        {
+          "text": "a tea ceremony {in progress|deliberate precise gestures|guests kneeling on cushions|a quiet tearoom}",
+          "tags": [
+            "genre:modern",
+            "ceremony"
+          ]
+        },
+        {
+          "text": "powwow dancers {in full regalia|a grand entry|intertribal dances|drum groups under the arbor}",
+          "tags": [
+            "genre:modern"
+          ]
+        },
+        {
+          "text": "championship hoop dancers {weaving shapes with the hoops|in competition|at a street festival|an eagle formed mid-dance}",
+          "tags": [
             "genre:modern"
           ]
         }
@@ -971,18 +1047,30 @@
           "tags": [
             "genre:modern"
           ]
+        },
+        {
+          "text": "a protest march {by Occupy Wall Street|for Black Lives Matter|for climate action|by women's groups|by labor unions|by the Tea Party} {|with handmade signage} {|with painted banners and puppets} {|with a giant inflatable rat looming over the line}",
+          "tags": [
+            "genre:modern"
+          ]
+        },
+        {
+          "text": "a strike picket {with picket signs|a walking circle|megaphones and chants|a giant inflatable rat towering over the line}",
+          "tags": [
+            "genre:modern"
+          ]
+        },
+        {
+          "text": "a sit-in {arms linked|occupying a lobby|singing|a doorway blockaded}",
+          "tags": [
+            "genre:modern"
+          ]
         }
       ]
     },
     "sexy": {
       "description": "eye-candy cameos played straight — bikini teams, pin-ups, decade glamour (era-tagged)",
       "entries": [
-        {
-          "text": "the Swedish bikini team {in matching blue-and-yellow sport bikinis|with sharp blonde bobs|identical black sunglasses|black sneakers and fingerless gloves}",
-          "tags": [
-            "genre:modern"
-          ]
-        },
         {
           "text": "a {group|couple} of women in bunny suits {with ears and bow ties|high heels|posing for photos}",
           "tags": [
@@ -1003,7 +1091,7 @@
           ]
         },
         {
-          "text": "1960s Bond-girl types {in sleek evening gowns|in retro-futuristic catsuits|in mod mini dresses}",
+          "text": "1960s spy-thriller femme fatales {in sleek evening gowns|in retro-futuristic catsuits|in mod mini dresses}",
           "tags": [
             "era:1960s",
             "genre:modern",
@@ -1227,12 +1315,6 @@
           ]
         },
         {
-          "text": "stormtroopers {marching|posing|in formation|at an event}",
-          "tags": [
-            "genre:sci_fi"
-          ]
-        },
-        {
           "text": "superheroes {flying past|using powers|in action|saving someone}",
           "tags": [
             "genre:modern",
@@ -1437,12 +1519,6 @@
           "tags": [
             "genre:fantasy",
             "genre:historical"
-          ]
-        },
-        {
-          "text": "the Monopoly Man {with a monocle|a top hat|money bags|a wealthy appearance}",
-          "tags": [
-            "genre:modern"
           ]
         },
         {
@@ -2149,6 +2225,47 @@
         },
         {
           "text": "a Palm Springs tennis crowd {in retro pleated skirts|with visor caps|on the clubhouse terrace}",
+          "tags": [
+            "genre:modern"
+          ]
+        }
+      ]
+    },
+    "popculture": {
+      "description": "recognizable branded and franchise cameos — opt-in pool; the other pools stay brand-free",
+      "entries": [
+        {
+          "text": "stormtroopers {marching|posing|in formation|at an event}",
+          "tags": [
+            "genre:sci_fi"
+          ]
+        },
+        {
+          "text": "the Monopoly Man {with a monocle|a top hat|money bags|a wealthy appearance}",
+          "tags": [
+            "genre:modern"
+          ]
+        },
+        {
+          "text": "the Swedish bikini team {in matching blue-and-yellow sport bikinis|with sharp blonde bobs|identical black sunglasses|black sneakers and fingerless gloves}",
+          "tags": [
+            "genre:modern"
+          ]
+        },
+        {
+          "text": "a Macy's parade of giant character balloons {handlers in coveralls leaning into the wind|a cartoon face the size of a bus|floating down the avenue|the Thanksgiving-morning feel}",
+          "tags": [
+            "genre:modern"
+          ]
+        },
+        {
+          "text": "mascots brawling {Philly Phanatic vs Gritty style|by the concession stands|a costume fight caught on phones|a viral moment}",
+          "tags": [
+            "genre:modern"
+          ]
+        },
+        {
+          "text": "a pro-wrestling match {a folding chair produced from nowhere|an over-the-top ring entrance|a dramatic slow three-count|the crowd chanting along}",
           "tags": [
             "genre:modern"
           ]

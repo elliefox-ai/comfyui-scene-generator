@@ -16,7 +16,9 @@ Dropdowns:
              multiversal. random = ONE pool for the whole crowd
              (coherent); multiversal = each figure draws its own pool
              (crossover). The pool list supersedes the 9-entry spec
-             draft: the harvest delivered eight banks, all selectable.
+             draft: the harvest delivered nine banks, all selectable
+             — popculture is the opt-in branded pool (2026-08-31
+             taste-call wave; the other pools stay brand-free).
   treatment  none (default) | satire | chaotic | random. Militant
              satire is the blended cell (humiliation + tender
              inversion). Pools without a by-category bank fall back
@@ -57,7 +59,7 @@ def _load_banks():
 
 
 _SUBJECT_POOLS = ("accurate", "wholesome", "militant", "sexy", "absurd",
-                  "cool", "dorky", "elegant")
+                  "cool", "dorky", "elegant", "popculture")
 SUBJECT_OPTIONS = ["none"] + list(_SUBJECT_POOLS) + ["random", "multiversal"]
 TREATMENT_OPTIONS = ["none", "satire", "chaotic", "random"]
 
