@@ -2,7 +2,7 @@
 Scene Character Roller — one node, one character.
 
 Add a node per figure. Where the Picker/Composer stage *where people
-stand*, this node decides *who one person is*: role concept + wardrobe
+stand*, this node decides *who one person is*: persona + wardrobe
 family + face anchors, assembled compositionally from tagged banks
 rather than flat pools. Wire its output into a Picker/Composer
 character slot (or any text prompt).
@@ -42,11 +42,17 @@ Axes:
         no ladder; low = wide-shot legible; high = the garment ladder
         plus build (high adds physique children — chest/legs/arms, soft-weighted on the drawn archetype). Demeanor rides whichever axis is high. ("Full
         detail doesn't mean listing each and every feature.")
-    Role — genre-agnostic social function (leader / warrior / healer /
-        ...), the character-side analogue of the setting archetypes.
-        Filters concept banks; falls back to the full bank on empty
-        join. The role NAME stays portable (leader, not mayor); genre
-        flavor lives in the bank entries.
+    Persona (v2) — closed set of ten (warrior / worker / scholar /
+        healer / leader / drifter / athlete / caregiver / charmer /
+        gala) or "any". Weights the draw — wardrobe families,
+        garments, wear states, build — via multipliers in
+        personas.json. Soft affinity, never a lock. official is
+        retired (split leader/worker, Alexander 2026-08-30).
+    Authenticity — stylized / cinematic (baseline) / documentary.
+        Multiplier layer over wear and marks; gates the persona's
+        uniform-look coin (rare stylized, common documentary, where
+        it reads as UNIFORM — flat, utilitarian — not costume). No
+        new phrase banks.
 
 Name: a single optional string — "Abigail, an older white woman, a
 weathered sea captain in a heavy oilskin coat". A binding handle for
@@ -59,8 +65,9 @@ toggles — if both fire, the doubled phrase is the user's call.
 Sometimes the composition works itself out.
 
 Banks live in scene_context/ — character_wardrobe.json (families:
-genre tag, layer grammar, palettes, wear states, role-tagged concepts)
-and character_features.json (identity-tagged faces, hair, eyes, nose,
+genre tag, layer grammar, palettes, wear states), personas.json (the
+persona weight table — the v2 role surface) and
+character_features.json (identity-tagged faces, hair, eyes, nose,
 mouth, jaw, cheekbones, brow, ears, marks, build + physique children (torso/legs/arms), demeanor;
 postures/positions; race-keyed complexion). Hair is modular —
 'hair_v2' (length × color × gated sections) assembles into one
@@ -87,6 +94,11 @@ try:  # package context — how ComfyUI loads custom node packs
         _load_features,
     )
     from .scene_tags import genre_with_parents, load_tags
+    from .scene_wardrobe_heat import (
+        FOCUS_WEIGHTS, archetype_for, heat_pool, posture_pool,
+            is_short_hem,
+        legwear_pool,
+)
 except ImportError:  # standalone — test harness / direct exec
     from scene_context_node import (  # noqa: F811
         GENRE_OPTIONS,
@@ -95,6 +107,11 @@ except ImportError:  # standalone — test harness / direct exec
         _load_features,
     )
     from scene_tags import genre_with_parents, load_tags  # noqa: F811
+    from scene_wardrobe_heat import (  # noqa: F811
+        FOCUS_WEIGHTS, archetype_for, heat_pool, posture_pool,
+      is_short_hem,
+  legwear_pool,
+)
 
 WARDROBE_PATH = os.path.join(CONTEXT_DIR, "character_wardrobe.json")
 
@@ -108,15 +125,115 @@ def _load_wardrobe():
     return _CACHE["wardrobe"]
 
 
+_COSTUME_CACHE = {}
+
+
+def _load_costumes():
+    """Occupation costume table (roles + outfits). Missing file or
+    bad JSON degrades to an empty table — the feature is off."""
+    if "d" not in _COSTUME_CACHE:
+        path = os.path.join(CONTEXT_DIR, "occupation_costumes.json")
+        try:
+            with open(path, encoding="utf-8") as f:
+                _COSTUME_CACHE["d"] = json.load(f)
+        except (OSError, ValueError):
+            _COSTUME_CACHE["d"] = {"roles": [], "costumes": {}}
+    return _COSTUME_CACHE["d"]
+
+
+def _costume_for(role):
+    return _load_costumes().get("costumes", {}).get(role)
+
+
+_PERSONAS_CACHE = {}
+
+
+def _load_personas():
+    """Persona weight table (v2). Required data — a missing or broken
+    file is a hard error: personas ARE the role surface now."""
+    if "d" not in _PERSONAS_CACHE:
+        path = os.path.join(CONTEXT_DIR, "personas.json")
+        with open(path, encoding="utf-8") as f:
+            _PERSONAS_CACHE["d"] = json.load(f)
+    return _PERSONAS_CACHE["d"].get("personas", {})
+
+
 def _role_options():
-    roles = sorted({
-        r
-        for fam in _load_wardrobe().values()
-        if fam.get("genre")  # fallback-only families stay invisible
-        for c in fam["concepts"]
-        for r in c.get("roles", [])
-    })
-    return ["any"] + roles
+    return ["any"] + sorted(_load_personas())
+
+
+AUTH_OPTIONS = ["stylized", "cinematic", "documentary"]
+_AUTH_LEVEL = {"stylized": 0, "cinematic": 1, "documentary": 2}
+# Uniform-look coin by authenticity level: stylized suppresses,
+# documentary boosts — the flat, utilitarian reading (12:22).
+_UNIFORM_P = {0: 0.05, 1: 0.25, 2: 0.6}
+_MARKS_MULT = {0: 0.5, 1: 1.0, 2: 1.5}
+
+# Coarse persona intents -> real bank vocabulary. Seeded judgment
+# calls, same status as the personas.json weights: refine against
+# draws, don't harden into law.
+_WEAR_SYNONYMS = {
+    "worn": ["worn", "frayed", "patched", "mended", "faded", "creased",
+             "distressed", "danced-in", "pilled", "shrunken", "stained",
+             "dust", "sun-", "salt-", "tar-", "scorched", "cracked",
+             "mud-", "smoke", "weather", "tape", "wire", "faction"],
+    "hard-used": ["grease", "held together", "paint-flecked",
+                  "dust-caked", "tar-spotted"],
+    "pristine": ["brand new", "crisp", "pressed", "immaculate",
+                 "well-kept", "wax-polished", "well-oiled", "dust-sealed"],
+    "sweat-worn": ["danced-in", "sun-faded", "pilled"],
+    "worn-comfortable": ["well-loved", "lightly creased", "soft"],
+}
+_BUILD_SYNONYMS = {
+    "broad_build": ["broad-framed", "broad-hipped", "hulking", "muscular",
+                    "sturdy"],
+    "stocky_build": ["stocky", "husky", "blocky", "heavyset"],
+    "athletic_build": ["athletic", "lithe", "sinewy", "wiry", "rangy"],
+    "soft_build": ["soft-bodied", "heavyset", "dumpy"],
+    "lean_build": ["lean", "lanky", "willowy", "lithe", "scrawny",
+                   "slight-framed"],
+}
+
+
+def _lean_w(texts, leans, synonyms):
+    """Per-entry multipliers for plain rng.choices pools: each lean key
+    matches through its synonym fragments (case-insensitive substring);
+    a key contributes at most once per entry. Unmatched = 1.0. With no
+    leans, callers skip weighting entirely."""
+    ws = []
+    for t in texts:
+        lt = (t if isinstance(t, str) else str(t.get("text", ""))).lower()
+        w = 1.0
+        for key, m in leans.items():
+            for frag in synonyms.get(key, (key,)):
+                if frag in lt:
+                    w *= m
+                    break
+        ws.append(w)
+    return ws
+
+
+def _scaled_pool(pool, leans, synonyms):
+    """Same lean law for _weighted pools: clone entries, scale their
+    static 'weight' field — the identity affinity multiplies on top
+    unchanged."""
+    if not leans:
+        return pool
+    out = []
+    for e in pool:
+        if isinstance(e, dict):
+            e = dict(e)
+            lt = str(e.get("text", "")).lower()
+            m = 1.0
+            for key, lm in leans.items():
+                for frag in synonyms.get(key, (key,)):
+                    if frag in lt:
+                        m *= lm
+                        break
+            if m != 1.0:
+                e["weight"] = e.get("weight", 1) * m
+        out.append(e)
+    return out
 
 
 _FALLBACK_WARNED = set()
@@ -364,11 +481,15 @@ class SceneCharacterRoller:
                     "tooltip": "Body depth. minimal = portrait companion: one guaranteed build word for proportions, single outer garment, no layers. low = wide-shot: outer garment + palette, build usually. high = garment ladder (wear state, layered pieces) + build. Pair with face_detail=high for closeup portraits."}),
                 "emphasis": (["off", "low", "high"], {"default": "off",
                     "tooltip": "Corroboration dial for the build — the trait diffusion under-reads. low = one independent restatement rides in the body sentence ('a lean build, no wasted weight on them'); high = two. Adds angles, never intensifiers: 'very lean' does nothing, a second physical observation does. Same seed + off reproduces the plain register exactly."}),
+                "heat": (["off", "suggestive", "flirty", "smoldering"], {"default": "off",
+                    "tooltip": "Heat dial — silhouette & reveal only, never color or material. off = the plain register (zero extra draws; same seed, same string). suggestive = one garment gains a fit-and-fabric state ('pulled taut across the chest'). flirty = one explicit reveal ('cropped above the navel'). smoldering = two garments at the hottest states — steamy-but-clothed by design (FlatDeep-safe). With pose on, the posture draw comes from the heat register instead. Needs garments to touch: pair with body_detail=high for the full effect."}),
+                "authenticity": (AUTH_OPTIONS, {"default": "cinematic",
+                    "tooltip": "Register dial. stylized = pristine up, marks down, uniform looks rare. cinematic = the v2 baseline. documentary = worn up, marks up; the persona's uniform look fires often and reads as UNIFORM — flat, utilitarian — rather than costume. Multiplier layer only; no new phrase banks."}),
                 "body_type": (["random"] + [e["text"] for e in _load_features()["build"]],
                     {"default": "random",
                      "tooltip": "🎲 random rolls the build archetype each time; physique children (chest/legs/arms at body detail low/high) weight toward the drawn parent. A fixed value (muscular, willowy, heavyset…) forces the parent every roll — a distinct set of characters. Children stay soft-influenced, never locked."}),
                 "role": (_role_options(), {"default": "any",
-                    "tooltip": "Genre-agnostic social function. Filters the concept banks; a family with no matching concepts falls back to its full bank."}),
+                    "tooltip": "Persona register — closed set of ten (warrior, worker, scholar, healer, leader, drifter, athlete, caregiver, charmer, gala) or any. Weights the draw: wardrobe family, garments, wear states, build. Soft affinity, never a lock."}),
                 "name": ("STRING", {"default": "", "multiline": False,
                     "tooltip": "Optional. 'Abigail'. Prefixes the description — a binding handle that helps the renderer cohere details to this specific figure. Blank = no name."}),
                 "pose": ("BOOLEAN", {"default": False,
@@ -392,9 +513,28 @@ class SceneCharacterRoller:
 
     def roll(self, genre, consistency, face_detail, body_detail, body_type,
              role, name, pose, positioning, seed, age, sex, race,
-             hair_mode="modular", emphasis="off"):
+             hair_mode="modular", emphasis="off", heat="off",
+             authenticity="cinematic"):
         rng = random.Random(seed)
         families = _load_wardrobe()
+
+        # Persona weight layer (v2). Dict work only — consumes no rng,
+        # so the draw ORDER below is the plain register's order.
+        persona = {} if role == "any" else _load_personas().get(role, {})
+        auth = _AUTH_LEVEL[authenticity]
+        fam_leans = persona.get("family_leans", {})
+        gar_leans = persona.get("garment_leans", {})
+        feat_leans = persona.get("feature_leans", {})
+        wear_leans = dict(persona.get("wear_leans", {}))
+        if auth == 0:
+            wear_leans["pristine"] = wear_leans.get("pristine", 1.0) * 1.5
+            for _k in ("worn", "hard-used"):
+                wear_leans[_k] = wear_leans.get(_k, 1.0) * 0.6
+        elif auth == 2:
+            for _k in ("worn", "hard-used"):
+                wear_leans[_k] = wear_leans.get(_k, 1.0) * 1.5
+            wear_leans["pristine"] = wear_leans.get("pristine", 1.0) * 0.7
+        marks_mult = _MARKS_MULT[auth]
         feats = _load_features()
 
         # Draw order (documented for stability): identity first — who
@@ -437,7 +577,13 @@ class SceneCharacterRoller:
                     "genre-less basics bank"
                 )
         # The coherence TARGET: one family the slider pulls toward.
-        target_id, target = rng.choice(genre_pool)
+        if fam_leans:
+            target_id, target = rng.choices(
+                genre_pool,
+                weights=[fam_leans.get(fid, 1.0) for fid, _f in genre_pool],
+                k=1)[0]
+        else:
+            target_id, target = rng.choice(genre_pool)
         # Where wandering pieces roam: the era if firm, genre'd
         # families only if 🎲 — the fallback bank never roams.
         roam = genre_pool if firm else [
@@ -449,55 +595,146 @@ class SceneCharacterRoller:
             """One garment: honor the target family, or roll from the
             wider pool. Every draw flips its own coin — that's the
             dial: at 1 all honor (head-to-toe family), at 0 all roam
-            (fully independent pieces)."""
+            (fully independent pieces). Returns (text, raw, src) —
+            raw kept so the heat phase can look up the archetype;
+            draw order (choice, then expansion) is load-bearing."""
+            def _pick(fid, fam):
+                pool = fam["layers"][layer_key]
+                if gar_leans:
+                    raw = rng.choices(
+                        pool, weights=_lean_w(pool, gar_leans, {}),
+                        k=1)[0]
+                else:
+                    raw = rng.choice(pool)
+                return raw, fid
+
             if rng.random() < consistency:
-                return _expand(rng.choice(target["layers"][layer_key]), rng), target_id
-            fid, fam = rng.choice(roam)
-            return _expand(rng.choice(fam["layers"][layer_key]), rng), fid
+                raw, src = _pick(target_id, target)
+            else:
+                if fam_leans:
+                    fid, fam = rng.choices(
+                        roam,
+                        weights=[fam_leans.get(f, 1.0)
+                                 for f, _fam in roam], k=1)[0]
+                else:
+                    fid, fam = rng.choice(roam)
+                raw, src = _pick(fid, fam)
+            return _expand(raw, rng), raw, src
 
-        def concepts_of(fam):
-            cs = [
-                c for c in fam["concepts"]
-                if role == "any" or role in c.get("roles", [])
-            ]
-            return cs or fam["concepts"]
-
-        # Concept: same coin as the garments.
-        if rng.random() < consistency:
-            concept = rng.choice(concepts_of(target))
-            concept_src = target_id
-        else:
-            concept_src, fam = rng.choice(roam)
-            concept = rng.choice(concepts_of(fam))
-        # Concept text expands once; the seg and components record
-        # the SAME expansion (one draw, one result).
-        concept_text = _expand(concept["text"], rng)
+        # Concepts bank: RETIRED (Alexander, 13:39). The character
+        # line asserts only what it places — garments, features,
+        # posture — no noun identity claims. The draw order here
+        # shortens by one; v2 has no cross-version seed contract.
 
         sources = {}
-        outer, src = layer_draw("outer")
+        heat_notes = {}
+
+        # Garment phase first, in the same draw order as ever — the
+        # heat phase only ever ADDS draws, so heat="off" reproduces
+        # the plain register draw-for-draw, same seed = same string.
+        pieces = []  # [layer, text, raw]
+        text, raw, src = layer_draw("outer")
         sources["outer"] = src
+        pieces.append(["outer", text, raw])
         if body_detail == "high":
             if rng.random() < 0.35:
-                # Wear state follows the garment it describes.
-                outer = f"{outer}, {_expand(rng.choice(families[src]['wear']), rng)}"
-            outfit = f"in {outer}"
-            if rng.random() < 0.8:
-                piece, sources["torso"] = layer_draw("torso")
-                outfit += f" over {piece}"
-            tails = []
-            if rng.random() < 0.8:
-                piece, sources["legs"] = layer_draw("legs")
-                tails.append(piece)
-            if rng.random() < 0.7:
-                piece, sources["feet"] = layer_draw("feet")
-                tails.append(piece)
-            if rng.random() < 0.5:
-                piece, sources["head"] = layer_draw("head")
-                tails.append(piece)
+                # Wear state follows the garment it describes; persona
+                # wear_leans weight the pool (synonym fragments).
+                wpool = families[src]["wear"]
+                if wear_leans:
+                    wraw = rng.choices(
+                        wpool,
+                        weights=_lean_w(wpool, wear_leans, _WEAR_SYNONYMS),
+                        k=1)[0]
+                else:
+                    wraw = rng.choice(wpool)
+                w = _expand(wraw, rng)
+                pieces[0][1] = f"{pieces[0][1]}, {w}"
+            for key, p in (("torso", 0.8), ("legs", 0.8),
+                           ("feet", 0.7), ("head", 0.5)):
+                if rng.random() < p:
+                    text, raw, src = layer_draw(key)
+                    sources[key] = src
+                    pieces.append([key, text, raw])
+
+        # Uniform look: ONE weighted option inside its persona. The
+        # coin only exists for personas that declare a look — every
+        # other draw, and every draw before this point, is untouched.
+        # documentary reads it flat: base garments, accessories off
+        # ("the non-stylized uniform is very flat and utilitarian" —
+        # Alexander, 12:22).
+        uniform_rec = None
+        _look = persona.get("uniform_look")
+        if _look:
+            if rng.random() < _UNIFORM_P[auth]:
+                costume = _costume_for(_look)
+                if costume and costume.get("garments"):
+                    slots = ("outer", "torso", "legs")
+                    pieces = [[slots[i], g, g] for i, g
+                              in enumerate(costume["garments"][:3])]
+                    if auth != 2:
+                        for acc in costume.get("accessories", [])[:1]:
+                            pieces.append(["head", acc, acc])
+                    uniform_rec = {"look": _look, "fired": True,
+                                   "reading": "uniform" if auth == 2
+                                   else "costume"}
+                else:
+                    uniform_rec = {"look": _look, "fired": False,
+                                   "reason": "look missing from costume table"}
+            else:
+                uniform_rec = {"look": _look, "fired": False,
+                               "reason": "coin"}
+
+        # Heat phase — silhouette & reveal only, never color or
+        # material. Budget: one garment per dial, two at smoldering.
+        if heat != "off":
+            legs_raw = next((praw for lk, _t, praw in pieces
+                             if lk == "legs"), None)
+            hem = legs_raw is not None and is_short_hem(legs_raw)
+            eligible = []
+            for lk, t, praw in pieces:
+                if lk == "feet" and not hem:
+                    continue  # tall-boot states only read on bare thigh
+                pool = heat_pool(praw, heat)
+                if pool:
+                    eligible.append((lk, t, praw, pool))
+            budget = 2 if heat == "smoldering" else 1
+            for _ in range(min(budget, len(eligible))):
+                weights = [FOCUS_WEIGHTS.get(lk, 1)
+                           for lk, _t, _r, _p in eligible]
+                pick = rng.choices(eligible, weights=weights, k=1)[0]
+                eligible.remove(pick)
+                lk, _t, praw, pool = pick
+                phrase = rng.choice(pool)
+                heat_notes[lk] = {"archetype": archetype_for(praw),
+                                  "phrase": phrase}
+                for piece in pieces:
+                    if piece[0] == lk:
+                        piece[1] = f"{piece[1]}, {phrase}"
+                        break
+            # Legwear rides over an exposed hem only — thigh-highs
+            # under a mini skirt, never over jeans. Suggestive flips
+            # a coin; flirty and up commit. Extra draw, outside the
+            # focus budget: an accessory, not a garment state.
+            if hem:
+                pool = legwear_pool(heat)
+                if pool and (heat != "suggestive" or rng.random() < 0.5):
+                    phrase = rng.choice(pool)
+                    heat_notes["legwear"] = {"archetype": "legwear",
+                                             "phrase": phrase}
+                    pieces.append(["legwear", phrase, "legwear"])
+
+        by_layer = {lk: t for lk, t, _praw in pieces}
+        if body_detail == "high":
+            outfit = f"in {by_layer['outer']}"
+            if "torso" in by_layer:
+                outfit += f" over {by_layer['torso']}"
+            tails = [by_layer[k] for k in ("legs", "legwear", "feet", "head")
+                     if k in by_layer]
             if tails:
                 outfit += ", " + ", ".join(tails)
         else:
-            outfit = f"in {outer}"
+            outfit = f"in {by_layer['outer']}"
 
         if rng.random() < consistency:
             palette, pal_src = _expand(rng.choice(target["palettes"]), rng), target_id
@@ -517,11 +754,18 @@ class SceneCharacterRoller:
                 if cfg and rng.random() < cfg.get("chance", 0.5):
                     joiner = cfg.get("joiner", " ")
                     parts = []
+                    drawn = {}
                     for slot in cfg["slots"]:
                         if slot.get("optional") and rng.random() > slot["optional"]:
                             continue
+                        req = slot.get("requires")
+                        if req and not drawn.get(req):
+                            continue
                         opt = _weighted(slot["options"], identity, rng)
-                        parts.append(opt["text"] if isinstance(opt, dict) else opt)
+                        text = opt["text"] if isinstance(opt, dict) else opt
+                        parts.append(text)
+                        if slot.get("name"):
+                            drawn[slot["name"]] = text
                     if not parts:
                         # Every optional slot sat out — anchor on the
                         # first slot so the phrase never degenerates to
@@ -566,7 +810,7 @@ class SceneCharacterRoller:
                 # Complexion: the one hard-keyed draw — race selects its
                 # own phrase bank, descriptive register, never raw.
                 face_bits.append(rng.choice(feats["complexion"][race_res]))
-            wmaybe("marks", 0.3, face_bits)
+            wmaybe("marks", min(0.9, 0.3 * marks_mult), face_bits)
             wmaybe("nose", 0.45, face_bits)
             wmaybe("mouth", 0.3, face_bits)
             wmaybe("jaw", 0.25, face_bits)
@@ -587,7 +831,7 @@ class SceneCharacterRoller:
             else:
                 wmaybe("hair", 0.9, face_bits)
             wmaybe("eyes", 0.85, face_bits)
-            wmaybe("marks", 0.25, face_bits)
+            wmaybe("marks", min(0.9, 0.25 * marks_mult), face_bits)
 
         # Physique: build parent + influenced children. The parent
         # is a clean archetype, always drawn flat — its canonical
@@ -608,7 +852,9 @@ class SceneCharacterRoller:
         build_text = forced
         if gate >= 1.0 or rng.random() < gate:
             if forced is None:
-                entry = _weighted(feats["build"], identity, rng)
+                entry = _weighted(
+                    _scaled_pool(feats["build"], feat_leans, _BUILD_SYNONYMS),
+                    identity, rng)
                 build_text = entry["text"] if isinstance(entry, dict) else entry
             body_bits.append(build_text)
             build_entry = next((e for e in feats["build"] if isinstance(e, dict)
@@ -662,23 +908,30 @@ class SceneCharacterRoller:
         if face_detail == "high" or body_detail == "high":
             wmaybe("demeanor", 0.7, demeanor_bits)
 
-        # Register: identity/concept/outfit/palette stay a comma
+        # Register: identity/outfit/palette stay a comma
         # core; body, face, demeanor, hair and named posture ride as
         # full sentences after it. Krea/T5 reads sentences, not
         # comma chains — fragments under-convey (his 17:37 finding).
-        core = [identity_phrase, concept_text, outfit, palette]
+        core = [identity_phrase, outfit, palette]
 
         posture = ""
         posture_sent = False
         post_frag = ""
         if pose:
-            pe = rng.choice(feats["postures"])
-            post_frag = pe.get("text", "") if isinstance(pe, dict) else pe
-            if isinstance(pe, dict) and pe.get("sentence"):
-                posture = pe["sentence"]
-                posture_sent = True
-            else:
+            heat_postures = posture_pool(heat) if heat != "off" else []
+            if heat_postures:
+                # Heat register replaces the plain draw — body
+                # language is part of the dial.
+                post_frag = rng.choice(heat_postures)
                 posture = post_frag
+            else:
+                pe = rng.choice(feats["postures"])
+                post_frag = pe.get("text", "") if isinstance(pe, dict) else pe
+                if isinstance(pe, dict) and pe.get("sentence"):
+                    posture = pe["sentence"]
+                    posture_sent = True
+                else:
+                    posture = post_frag
         position = rng.choice(feats["positions"]) if positioning else ""
         # nameless posture/position fragments stay in the comma core
         if posture and not posture_sent:
@@ -739,11 +992,13 @@ class SceneCharacterRoller:
             "face_detail": face_detail,
             "body_detail": body_detail,
             "body_type": body_type,
-            "role": role,
+            "persona": {
+                "name": role,
+                "applied": bool(persona),
+                "posture_intent": persona.get("posture"),
+            },
+            "authenticity": {"level": authenticity, "uniform": uniform_rec},
             "name": name,
-            "concept": concept_text,
-            "concept_family": concept_src,
-            "roles": concept.get("roles", []),
             "palette": palette,
             "palette_family": pal_src,
             "outfit_sources": sources,
@@ -755,6 +1010,7 @@ class SceneCharacterRoller:
             "body": body_bits,
             "pose": posture,
             "position": position,
+            "heat": {"level": heat, "applied": heat_notes},
             "seed": seed,
             "text": text,
         }

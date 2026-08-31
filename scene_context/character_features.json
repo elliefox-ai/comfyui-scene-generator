@@ -496,6 +496,7 @@
         {
           "name": "placement",
           "optional": 0.75,
+          "requires": "mark",
           "options": [
             {
               "text": "across the nose"
@@ -2155,6 +2156,24 @@
       "race": {
         "white": 1.3
       }
+    },
+    {
+      "text": "a prominent nose"
+    },
+    {
+      "text": "nostrils that flare easily"
+    },
+    {
+      "text": "a nose with a bump on the bridge"
+    },
+    {
+      "text": "a nose that reddens in the cold"
+    },
+    {
+      "text": "a nose with a dent at the bridge"
+    },
+    {
+      "text": "a scar across the bridge of the nose"
     }
   ],
   "mouth": [
@@ -2248,6 +2267,48 @@
         "middle-aged": 1.2,
         "older": 1.5
       }
+    },
+    {
+      "text": "a mouth that quirks up at one corner"
+    },
+    {
+      "text": "lips bitten pink",
+      "age": {
+        "young adult": 1.3
+      }
+    },
+    {
+      "text": "an upturned mouth",
+      "age": {
+        "young adult": 1.2
+      }
+    },
+    {
+      "text": "a heart-shaped mouth",
+      "sex": {
+        "female": 1.3
+      }
+    },
+    {
+      "text": "a stubborn set to the mouth"
+    },
+    {
+      "text": "a mouth that hangs slightly open",
+      "age": {
+        "older": 1.3
+      }
+    },
+    {
+      "text": "a natural pout to the lips",
+      "sex": {
+        "female": 1.4
+      },
+      "age": {
+        "young adult": 1.2
+      }
+    },
+    {
+      "text": "a mouth set slightly off-center"
     }
   ],
   "jaw": [
@@ -2332,6 +2393,36 @@
     },
     {
       "text": "a receding chin"
+    },
+    {
+      "text": "a round chin"
+    },
+    {
+      "text": "a broad chin"
+    },
+    {
+      "text": "a narrow chin",
+      "sex": {
+        "female": 1.3
+      }
+    },
+    {
+      "text": "a flat chin"
+    },
+    {
+      "text": "a square chin"
+    },
+    {
+      "text": "a scar at the point of the chin"
+    },
+    {
+      "text": "a hollow at the base of the jaw"
+    },
+    {
+      "text": "a clean-shaven jaw",
+      "sex": {
+        "male": 1.2
+      }
     }
   ],
   "cheekbones": [
@@ -2404,6 +2495,78 @@
       "text": "doll-round cheeks",
       "age": {
         "young adult": 1.3
+      }
+    },
+    {
+      "text": "softly curved cheekbones"
+    },
+    {
+      "text": "shadowed hollows under the cheekbones",
+      "age": {
+        "older": 1.5
+      }
+    },
+    {
+      "text": "wide cheeks that round into the jaw",
+      "sex": {
+        "female": 1.3
+      }
+    },
+    {
+      "text": "a high ridge of cheekbone",
+      "age": {
+        "older": 1.2
+      }
+    },
+    {
+      "text": "cheekbones pushed forward, rounding the face",
+      "race": {
+        "east_asian": 1.5
+      }
+    },
+    {
+      "text": "gaunt cheeks over broad bone",
+      "age": {
+        "older": 1.5
+      }
+    },
+    {
+      "text": "broad cheeks with deep smile creases"
+    },
+    {
+      "text": "rosy, wind-roughened cheeks",
+      "age": {
+        "young adult": 1.2
+      }
+    },
+    {
+      "text": "cheeks beginning to pouch at the sides",
+      "age": {
+        "middle-aged": 1.6
+      }
+    },
+    {
+      "text": "taut cheekbones under thin skin",
+      "age": {
+        "older": 1.5
+      }
+    },
+    {
+      "text": "a broad sweep of cheek",
+      "sex": {
+        "female": 1.2
+      }
+    },
+    {
+      "text": "full cheeks with fine down at the edges",
+      "age": {
+        "young adult": 1.2
+      }
+    },
+    {
+      "text": "cheeks carved deep with age",
+      "age": {
+        "older": 1.7
       }
     }
   ],
@@ -2478,6 +2641,57 @@
     },
     {
       "text": "brows singed short at the ends"
+    },
+    {
+      "text": "straight, level brows"
+    },
+    {
+      "text": "brows drawn down in a perpetual frown",
+      "age": {
+        "middle-aged": 1.4
+      }
+    },
+    {
+      "text": "brows sparse and patchy",
+      "age": {
+        "older": 1.6
+      }
+    },
+    {
+      "text": "brows dark against a pale face"
+    },
+    {
+      "text": "brows set wide apart"
+    },
+    {
+      "text": "brows that meet in a worried V",
+      "age": {
+        "middle-aged": 1.5
+      }
+    },
+    {
+      "text": "thin, overplucked brows",
+      "sex": {
+        "female": 1.6
+      }
+    },
+    {
+      "text": "brows that curve down at the outer ends",
+      "age": {
+        "older": 1.3
+      }
+    },
+    {
+      "text": "brows stiff and bristling"
+    },
+    {
+      "text": "brows like two dark strokes"
+    },
+    {
+      "text": "brows feathered at the edges"
+    },
+    {
+      "text": "brows with a few long stray hairs"
     }
   ],
   "ears": [
@@ -2537,6 +2751,61 @@
     },
     {
       "text": "ears set noticeably low"
+    },
+    {
+      "text": "ears with thick, fleshy lobes"
+    },
+    {
+      "text": "ears bent forward at the top",
+      "age": {
+        "older": 1.4
+      }
+    },
+    {
+      "text": "ears with deep creases in the lobes",
+      "age": {
+        "middle-aged": 1.3,
+        "older": 1.4
+      }
+    },
+    {
+      "text": "ears sharp at the tips"
+    },
+    {
+      "text": "one ear larger than the other"
+    },
+    {
+      "text": "small ears that sit high on the head"
+    },
+    {
+      "text": "ears shell-pink inside"
+    },
+    {
+      "text": "ears speckled with age spots",
+      "age": {
+        "older": 1.6
+      }
+    },
+    {
+      "text": "ears with soft, rounded tips",
+      "age": {
+        "young adult": 1.2
+      }
+    },
+    {
+      "text": "ears thin and papery",
+      "age": {
+        "older": 1.5
+      }
+    },
+    {
+      "text": "a single gold hoop in one ear"
+    },
+    {
+      "text": "ears pale and waxy",
+      "age": {
+        "older": 1.3
+      }
     }
   ],
   "marks": [
@@ -2695,6 +2964,59 @@
       "text": "cheeks dotted with acne scars",
       "age": {
         "young adult": 1.3
+      }
+    },
+    {
+      "text": "eyelids heavy and hooded",
+      "age": {
+        "middle-aged": 1.4,
+        "older": 1.6
+      }
+    },
+    {
+      "text": "dark circles under the eyes",
+      "age": {
+        "middle-aged": 1.3
+      }
+    },
+    {
+      "text": "sun spots across the forehead",
+      "age": {
+        "older": 1.5
+      }
+    },
+    {
+      "text": "a thin scar down one cheek"
+    },
+    {
+      "text": "a heart-shaped face"
+    },
+    {
+      "text": "a high, lined forehead",
+      "age": {
+        "middle-aged": 1.4,
+        "older": 1.5
+      }
+    },
+    {
+      "text": "hollow temples",
+      "age": {
+        "older": 1.5
+      }
+    },
+    {
+      "text": "a pale face that never tans"
+    },
+    {
+      "text": "pale lashes",
+      "sex": {
+        "female": 1.2
+      }
+    },
+    {
+      "text": "a prominent Adam's apple",
+      "sex": {
+        "male": 1.6
       }
     }
   ],
@@ -2873,6 +3195,114 @@
         "no line of them stands out",
         "easy to lose in a crowd",
         "nothing the eye catches first"
+      ]
+    },
+    {
+      "text": "rawboned",
+      "emph": [
+        "big bones with nothing to spare",
+        "frame carrying no extra weight",
+        "lean and sharp-built"
+      ]
+    },
+    {
+      "text": "curvy",
+      "sex": {
+        "female": 2.5
+      },
+      "emph": [
+        "soft curves at the hips and bust",
+        "a waist that draws in",
+        "full without being heavy"
+      ]
+    },
+    {
+      "text": "angular",
+      "emph": [
+        "sharp lines of bone",
+        "all planes and edges",
+        "nothing rounded about them"
+      ]
+    },
+    {
+      "text": "dumpy",
+      "emph": [
+        "short and softly round",
+        "a low, compact figure",
+        "round-shouldered and small"
+      ]
+    },
+    {
+      "text": "scrawny",
+      "emph": [
+        "thin to the point of looking starved",
+        "bones under loose skin",
+        "a frame with nothing to spare"
+      ]
+    },
+    {
+      "text": "blocky",
+      "emph": [
+        "square through the shoulders",
+        "built in hard lines and right angles",
+        "a frame cut square"
+      ]
+    },
+    {
+      "text": "top-heavy",
+      "emph": [
+        "wide and heavy through the chest and shoulders",
+        "weight carried high",
+        "tapering below the ribs"
+      ]
+    },
+    {
+      "text": "hulking",
+      "sex": {
+        "male": 1.4
+      },
+      "emph": [
+        "big and slow-moving",
+        "a frame that looms",
+        "heavy through every part"
+      ]
+    },
+    {
+      "text": "broad-hipped",
+      "sex": {
+        "female": 2.0
+      },
+      "emph": [
+        "hips wide as the shoulders",
+        "weight carried low and steady",
+        "a strong, wide stance"
+      ]
+    },
+    {
+      "text": "husky",
+      "sex": {
+        "male": 1.3
+      },
+      "emph": [
+        "broad without being cut",
+        "solid, comfortable strength",
+        "thick-built and easy-moving"
+      ]
+    },
+    {
+      "text": "lithe",
+      "emph": [
+        "supple and quick",
+        "moves like a whip",
+        "lean with an easy grace"
+      ]
+    },
+    {
+      "text": "sinewy",
+      "emph": [
+        "long flat bands of muscle",
+        "lean and visibly defined",
+        "hard muscle with no bulk"
       ]
     }
   ],
@@ -3498,6 +3928,81 @@
         "broad-framed": 2.5,
         "stocky": 2.5
       }
+    },
+    {
+      "text": "a narrow waist",
+      "sex": {
+        "female": 1.8
+      },
+      "build": {
+        "willowy": 2.0,
+        "athletic": 1.5
+      }
+    },
+    {
+      "text": "a thick waist",
+      "age": {
+        "middle-aged": 1.5
+      },
+      "build": {
+        "heavyset": 2.5,
+        "soft-bodied": 2.0
+      }
+    },
+    {
+      "text": "a broad, flat back",
+      "sex": {
+        "male": 1.4
+      },
+      "build": {
+        "broad-framed": 2.0,
+        "muscular": 1.5
+      }
+    },
+    {
+      "text": "a narrow back",
+      "build": {
+        "slight-framed": 2.0,
+        "lean": 1.5
+      }
+    },
+    {
+      "text": "a strong, straight back",
+      "sex": {
+        "male": 1.3
+      },
+      "build": {
+        "athletic": 2.0,
+        "sturdy": 2.0
+      }
+    },
+    {
+      "text": "a chest dusted with hair",
+      "sex": {
+        "male": 1.8
+      }
+    },
+    {
+      "text": "a ribcage that shows through the skin",
+      "build": {
+        "lean": 2.0,
+        "slight-framed": 2.0
+      }
+    },
+    {
+      "text": "a long torso",
+      "build": {
+        "rangy": 2.0,
+        "lanky": 1.5,
+        "statuesque": 1.5
+      }
+    },
+    {
+      "text": "a boxy torso",
+      "build": {
+        "stocky": 2.5,
+        "broad-framed": 2.0
+      }
     }
   ],
   "physique_legs": [
@@ -3638,6 +4143,87 @@
         "sturdy": 3.0,
         "heavyset": 1.5
       }
+    },
+    {
+      "text": "slim ankles and small feet",
+      "sex": {
+        "female": 1.5
+      },
+      "build": {
+        "petite": 1.5,
+        "willowy": 1.5
+      }
+    },
+    {
+      "text": "thighs that rub together",
+      "build": {
+        "heavyset": 2.0,
+        "soft-bodied": 2.5
+      }
+    },
+    {
+      "text": "legs built for climbing",
+      "build": {
+        "athletic": 2.5,
+        "muscular": 2.0
+      }
+    },
+    {
+      "text": "calves like carved wood",
+      "build": {
+        "wiry": 2.0,
+        "athletic": 2.0
+      }
+    },
+    {
+      "text": "long shins and a short thigh",
+      "build": {
+        "rangy": 1.5,
+        "lanky": 1.5
+      }
+    },
+    {
+      "text": "thick ankles",
+      "build": {
+        "stocky": 2.0,
+        "heavyset": 1.5
+      }
+    },
+    {
+      "text": "legs of slightly different lengths"
+    },
+    {
+      "text": "soft legs",
+      "age": {
+        "middle-aged": 1.3,
+        "older": 1.3
+      },
+      "build": {
+        "soft-bodied": 3.0,
+        "heavyset": 2.0
+      }
+    },
+    {
+      "text": "knobby knees",
+      "build": {
+        "lean": 1.5,
+        "lanky": 2.0,
+        "slight-framed": 1.5
+      }
+    },
+    {
+      "text": "hipbones that jut sharply",
+      "build": {
+        "lean": 2.0,
+        "lanky": 1.5
+      }
+    },
+    {
+      "text": "legs toned from walking",
+      "build": {
+        "lean": 2.0,
+        "athletic": 2.0
+      }
     }
   ],
   "physique_arms": [
@@ -3767,6 +4353,126 @@
       "build": {
         "muscular": 3.0,
         "athletic": 2.0
+      }
+    },
+    {
+      "text": "thick wrists and heavy hands",
+      "sex": {
+        "male": 1.4
+      },
+      "build": {
+        "broad-framed": 2.0,
+        "muscular": 1.5,
+        "stocky": 1.5
+      }
+    },
+    {
+      "text": "bony shoulders",
+      "age": {
+        "older": 1.5
+      },
+      "build": {
+        "lean": 1.5,
+        "slight-framed": 2.0
+      }
+    },
+    {
+      "text": "heavy upper arms",
+      "build": {
+        "heavyset": 2.5,
+        "soft-bodied": 1.5,
+        "muscular": 1.5
+      }
+    },
+    {
+      "text": "short, powerful arms",
+      "build": {
+        "stocky": 2.5,
+        "muscular": 2.0
+      }
+    },
+    {
+      "text": "arms that hang slightly bowed",
+      "age": {
+        "older": 1.3
+      }
+    },
+    {
+      "text": "collarbones that stand out",
+      "build": {
+        "lean": 2.0,
+        "slight-framed": 2.0
+      }
+    },
+    {
+      "text": "hands with long, nimble fingers",
+      "sex": {
+        "female": 1.3
+      },
+      "build": {
+        "willowy": 1.5,
+        "lean": 1.3
+      }
+    },
+    {
+      "text": "arms lean with hard-won muscle",
+      "build": {
+        "lean": 2.0,
+        "athletic": 2.5
+      }
+    },
+    {
+      "text": "compact, dense arms",
+      "build": {
+        "stocky": 2.5,
+        "muscular": 2.0
+      }
+    },
+    {
+      "text": "gangling arms",
+      "build": {
+        "lanky": 3.0,
+        "rangy": 2.0
+      }
+    },
+    {
+      "text": "shoulders rolled forward",
+      "age": {
+        "older": 1.4
+      },
+      "build": {
+        "heavyset": 1.5
+      }
+    },
+    {
+      "text": "pale, freckled arms",
+      "sex": {
+        "female": 1.2
+      },
+      "build": {
+        "petite": 1.5,
+        "lean": 1.5
+      }
+    },
+    {
+      "text": "burly arms",
+      "sex": {
+        "male": 1.5
+      },
+      "build": {
+        "broad-framed": 2.5,
+        "muscular": 2.0,
+        "heavyset": 2.0
+      }
+    },
+    {
+      "text": "thin wrists and knobbed knuckles",
+      "age": {
+        "older": 1.4
+      },
+      "build": {
+        "lean": 1.5,
+        "slight-framed": 2.0
       }
     }
   ]

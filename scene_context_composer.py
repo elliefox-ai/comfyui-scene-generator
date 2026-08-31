@@ -110,6 +110,7 @@ class SceneContextComposer:
                     "tooltip": "Stage the cast with placement templates — lateral/relational phrases per cast size ('on the near side of the frame, …'). Off (default) = no placement language; the renderer arranges."}),
             },
             "optional": {
+                **{
                 f"character_{i}": ("STRING", {
                     "forceInput": True,
                     "tooltip": (
@@ -121,6 +122,9 @@ class SceneContextComposer:
                     ),
                 })
                 for i in range(1, 5)
+                },
+                "ambient": ("STRING", {"forceInput": True,
+                    "tooltip": "Wire the Scene Ambient Activity output — background figures and activity, slotted into the scene line. Leave unwired for none."}),
             },
         }
 
@@ -194,10 +198,13 @@ class SceneContextComposer:
 
         chars = [kwargs.get(f"character_{i}") or "" for i in (1, 2, 3, 4)]
         staging = _stage_characters(chars, rng, pose=pose, positioning=positioning)
+        ambient = (kwargs.get("ambient") or "").strip()
 
         parts = [chosen['subject_label'], situation['text'], modifier]
         if staging:
             parts.append(staging)
+        if ambient:
+            parts.append(f"in the background, {ambient}")
         parts.append(flourish)
         context_text = ", ".join(parts)
 
@@ -244,6 +251,7 @@ class SceneContextComposer:
             "tone_modifier": modifier,
             "atmosphere": flourish,
             "characters_staged": staging,
+            "ambient": ambient,
             "pose": pose,
             "positioning": positioning,
             "env": situation.get("env", ""),

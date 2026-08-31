@@ -1,0 +1,454 @@
+{
+  "version": 1,
+  "heat_levels": {
+    "off": 0,
+    "suggestive": 1,
+    "flirty": 2,
+    "smoldering": 3
+  },
+  "archetypes": {
+    "top": {
+      "heat": {
+        "1": [
+          "pulled taut across the chest",
+          "fitted close, fabric straining lightly",
+          "collar loose and slipping toward one shoulder",
+          "sleeves shoved up past the elbows",
+          "a bra strap slipped down one arm"
+        ],
+        "2": [
+          "unbuttoned past the collarbone",
+          "cropped above the navel",
+          "knotted under the bust",
+          "slipped off one shoulder",
+          "neckline scooped low, straps showing",
+          "both bra straps down the arms",
+          "a sheer panel inset at the front",
+          "sheer enough to trace the bra line beneath"
+        ],
+        "3": [
+          "unbuttoned to the sternum",
+          "cropped to underbust, midriff bare",
+          "off both shoulders, clinging at the ribs",
+          "knotted high under the bust, tied in front"
+        ]
+      }
+    },
+    "outer": {
+      "heat": {
+        "1": [
+          "worn open",
+          "collar turned up",
+          "sleeves shoved to the elbows"
+        ],
+        "2": [
+          "slipped off one shoulder",
+          "cinched tight at the waist",
+          "worn loose and swinging open"
+        ],
+        "3": [
+          "slid off both shoulders, caught at the elbows",
+          "cinched to a corset line at the waist",
+          "worn hanging open, slipping low"
+        ]
+      }
+    },
+    "trousers": {
+      "heat": {
+        "1": [
+          "sitting low on the hips",
+          "pulled taut across the seat",
+          "belted loose, waistband sitting wide"
+        ],
+        "2": [
+          "slung low, hip bones showing",
+          "cuffs rolled high above the ankle",
+          "waistband rolled down at the top",
+          "the V of a thong rising above the waistband in back"
+        ],
+        "3": [
+          "slung dangerously low on the hips",
+          "unbuttoned at the top, rolled into a waistband",
+          "riding low, belt slung loose on the hips"
+        ]
+      }
+    },
+    "skirt": {
+      "heat": {
+        "1": [
+          "pulled taut across the hips",
+          "hem swinging at mid-thigh"
+        ],
+        "2": [
+          "hiked to mid-thigh",
+          "hem riding up with every step"
+        ],
+        "3": [
+          "slit to the upper thigh",
+          "slit to the hip",
+          "short enough to be a problem, worn anyway"
+        ]
+      }
+    },
+    "dress": {
+      "heat": {
+        "1": [
+          "pulled taut across the bust",
+          "hem swaying at the knee"
+        ],
+        "2": [
+          "hem lifted to mid-thigh",
+          "neckline dropped low",
+          "back open to mid-spine"
+        ],
+        "3": [
+          "slit to the hip",
+          "plunging to the navel, halter-tied",
+          "backless to the waist"
+        ]
+      }
+    },
+    "coverall": {
+      "heat": {
+        "1": [
+          "unzipped a few inches",
+          "sleeves shorn off at the shoulder",
+          "top half hanging loose from the hips"
+        ],
+        "2": [
+          "unzipped to the sternum, sleeves tied at the waist",
+          "peeled to the waist and knotted at the hips"
+        ],
+        "3": [
+          "unzipped to the navel and tied off at the waist",
+          "peeled to the hips, sleeves knotted under the bust"
+        ]
+      }
+    },
+    "apron": {
+      "heat": {
+        "1": [
+          "strings trailing loose"
+        ],
+        "2": [
+          "knotted high above the waist",
+          "riding up over the hips"
+        ],
+        "3": [
+          "slung low across the hips, tied loose in front",
+          "knotted in a bow at the back, barely hanging on"
+        ]
+      }
+    },
+    "footwear": {
+      "heat": {
+        "2": [
+          "meeting bare skin at mid-thigh"
+        ]
+      }
+    },
+    "headwear": {
+      "heat": {}
+    },
+    "legwear": {
+      "heat": {
+        "1": [
+          "ribbed knee socks tugged high",
+          "knee-high socks cuffed at the top",
+          "socks pulled up to just under the knee"
+        ],
+        "2": [
+          "thigh-high socks hugged tight",
+          "stockings rising to mid-thigh",
+          "stockings with a band of bare skin above"
+        ],
+        "3": [
+          "stockings with garter straps showing",
+          "garter straps crossing bare thighs",
+          "stockings ending high, the hem riding above"
+        ]
+      }
+    }
+  },
+  "posture_heat": {
+    "1": [
+      "weight shifted onto one hip",
+      "chin lifted, gaze steady"
+    ],
+    "2": [
+      "weight sunk into one hip",
+      "leaning back, chest lifted",
+      "shoulders rolled back, chin tilted"
+    ],
+    "3": [
+      "arched, weight on one hip, chin tilted down",
+      "stretched long, back arched",
+      "hip cocked, looking back over one shoulder"
+    ]
+  },
+  "item_tags": {
+    "a heavy oilskin coat": "outer",
+    "a salt-stiffened pea coat": "outer",
+    "a long officer's coat": "outer",
+    "a patched linen shirt": "top",
+    "a knit fisherman's sweater": "top",
+    "a canvas work shirt": "top",
+    "canvas slops": "trousers",
+    "wool trousers salt-stained at the cuffs": "trousers",
+    "rope-soled shoes": "footwear",
+    "buckled shoes": "footwear",
+    "sea boots": "footwear",
+    "a tricorne hat": "headwear",
+    "a tattered wide-brim hat": "headwear",
+    "a knitted watch cap": "headwear",
+    "a dust-caked duster coat": "outer",
+    "a sheepskin vest": "outer",
+    "a collarless work shirt": "top",
+    "a blue army shirt, faded": "top",
+    "duck trousers": "trousers",
+    "wool trousers held by suspenders": "trousers",
+    "worn riding boots": "footwear",
+    "cowhide boots resoled twice": "footwear",
+    "a low-crowned hat": "headwear",
+    "a wide-brim hat weathered soft": "headwear",
+    "a canvas chore coat": "outer",
+    "a {flannel|thermal} {|with a hi-vis vest over}": "outer",
+    "a barn coat {|with a corduroy collar}": "outer",
+    "a painter's jacket {|flecked white|spattered with color}": "outer",
+    "a grease-spotted thermal shirt": "top",
+    "a flannel {worn in shirtsleeves|buttoned to the collar}": "top",
+    "a pocket tee {|sun-faded}": "top",
+    "a waffle-knit henley": "top",
+    "carpenter jeans": "trousers",
+    "work trousers with a tool belt": "trousers",
+    "double-knee canvas pants": "trousers",
+    "overalls {|snapped at the waist}": "coverall",
+    "steel-toed boots": "footwear",
+    "scuffed work boots": "footwear",
+    "rubber muck boots": "footwear",
+    "canvas high-tops {|laced tight|beaten grey}": "footwear",
+    "a hard hat": "headwear",
+    "a knit beanie": "headwear",
+    "a sweat-lined ball cap": "headwear",
+    "a bandana tied over the hair": "headwear",
+    "a technical shell jacket": "outer",
+    "an oversized bomber": "outer",
+    "a windbreaker {|zipped to the chin}": "outer",
+    "a denim jacket {|cropped at the waist|worn oversized}": "outer",
+    "a graphic hoodie": "top",
+    "a cropped tank over a long sleeve": "top",
+    "a boxy tee {|half-tucked}": "top",
+    "a track zip-up {|over a tee}": "outer",
+    "cargo pants stacked at the ankle": "trousers",
+    "wide-leg jeans": "trousers",
+    "{tapered|baggy} joggers": "trousers",
+    "pleated trousers {|low on the hips}": "trousers",
+    "chunky sneakers, worn grey": "footwear",
+    "retro runners": "footwear",
+    "skate shoes {|scuffed to suede}": "footwear",
+    "sockless loafers": "footwear",
+    "a bucket hat": "headwear",
+    "a beanie pulled low": "headwear",
+    "{a flat-brim|a bent-brim} baseball cap": "headwear",
+    "a silk scarf tied over the hair": "headwear",
+    "a patched flight suit": "coverall",
+    "a pressure harness over a flight jacket": "outer",
+    "a base-layer under a scorched vest": "outer",
+    "flight trousers strapped at the knee": "trousers",
+    "mag boots": "footwear",
+    "vac-sealed boots": "footwear",
+    "a comm headset": "headwear",
+    "a flight helmet, visor up": "headwear",
+    "a thermal parka rated for thin air": "outer",
+    "a station coverall, badge-taped": "coverall",
+    "a wicking underlayer": "top",
+    "a quilted midlayer": "top",
+    "insulated trousers": "trousers",
+    "utility leggings with strap pockets": "trousers",
+    "gripped soles for metal decking": "footwear",
+    "thermal boots": "footwear",
+    "a rebreather slung at the neck": "headwear",
+    "a hood sealed against the wind": "headwear",
+    "a road-worn travel cloak": "outer",
+    "patched leathers over linen": "outer",
+    "a coarse wool tunic": "top",
+    "a shirt mended with mismatched thread": "top",
+    "wrapped leggings": "trousers",
+    "canvas trousers": "trousers",
+    "walking boots resoled with rope": "footwear",
+    "wrapped footwear": "footwear",
+    "a hood thrown back": "headwear",
+    "a broad hat pinned at one side": "headwear",
+    "a knit cowl {|pulled up}": "headwear",
+    "a travel hat {|with a {feather|plume}}": "headwear",
+    "a guild-tabarded coat": "outer",
+    "an apron over working clothes": "apron",
+    "an embroidered vest": "outer",
+    "a shirt with sigil buttons": "top",
+    "good wool trousers": "trousers",
+    "a kilted wrap with tool loops": "skirt",
+    "sturdy ankle boots": "footwear",
+    "wooden clogs, waxed": "footwear",
+    "a charm-laden cap": "headwear",
+    "a stitched guild cap": "headwear",
+    "a hood {|drawn up}": "headwear",
+    "a circlet of rank {|tarnished with age}": "headwear",
+    "a plain work coat": "outer",
+    "a simple everyday jacket": "outer",
+    "a plain work shirt": "top",
+    "an undyed linen shirt": "top",
+    "sturdy trousers": "trousers",
+    "plain wool trousers": "trousers",
+    "worn work boots": "footwear",
+    "plain leather shoes": "footwear",
+    "a plain knit cap": "headwear",
+    "a simple wide-brim hat": "headwear",
+    "a patched tarp poncho stitched from mismatched sheeting": "outer",
+    "a canvas coat with scrap-metal plates sewn on at the shoulders": "outer",
+    "a quilted coat padded out with stripped car-seat foam": "outer",
+    "a layered undershirt gone grey with wear": "top",
+    "a scavenged flak vest worn open over rags": "outer",
+    "a thermal wrap stitched together from a dozen scraps": "top",
+    "cargo trousers patched with strips of tire rubber": "trousers",
+    "cut-down coveralls belted at the waist": "coverall",
+    "torn denim wrapped at the shin with salvaged leather": "trousers",
+    "boots resoled with tire tread": "footwear",
+    "mismatched work boots laced with scavenged wire": "footwear",
+    "rag-wrapped feet over cracked soles": "footwear",
+    "a filter mask slung loose at the neck": "headwear",
+    "a welding visor flipped up off the face": "headwear",
+    "a motorcycle helmet stripped of its visor": "headwear",
+    "a quasi-military coat patched with faction colors": "outer",
+    "a scavenged riot vest re-stitched with an armband": "outer",
+    "a heavy canvas duty coat, collar stiff with wear": "outer",
+    "a uniform shirt bleached and re-dyed to a new color": "top",
+    "a scrounged thermal layer under strapped plating": "top",
+    "cargo trousers reinforced at the knee": "trousers",
+    "salvaged tactical trousers cinched with rope": "trousers",
+    "re-soled combat boots": "footwear",
+    "scavenged steel-toe boots, laces knotted twice": "footwear",
+    "a battered helmet stenciled with a faction mark": "headwear",
+    "a wrapped cloth hood pinned at the temple": "headwear",
+    "a riot helmet worn visor-up": "headwear",
+    "a grease-stained mechanic's coverall jacket": "outer",
+    "a road-worn leather duster patched with scrap": "outer",
+    "a sweat-stained undershirt": "top",
+    "a bartender's apron cut from old tarp": "apron",
+    "oil-stained work trousers": "trousers",
+    "patched denim gone soft at the knee": "trousers",
+    "cracked leather boots": "footwear",
+    "mismatched sneakers wrapped in tape": "footwear",
+    "a bandana knotted at the neck": "headwear",
+    "a welding cap pushed back off the brow": "headwear",
+    "a tailored frock coat": "outer",
+    "a shopkeeper's canvas apron worn over shirtsleeves": "apron",
+    "a fringed shawl pinned at the collar": "outer",
+    "a starched high-collar shirt": "top",
+    "an embroidered brocade waistcoat": "outer",
+    "a calico blouse": "top",
+    "pressed wool trousers": "trousers",
+    "a long cotton skirt, hem dust-grey": "skirt",
+    "polished button boots": "footwear",
+    "low-heeled town shoes": "footwear",
+    "a bowler hat": "headwear",
+    "a feathered bonnet": "headwear",
+    "a flat tweed cap": "headwear",
+    "a moth-eaten shore coat": "outer",
+    "a chandler's waxed apron": "apron",
+    "a shawl thrown over a plain dress": "outer",
+    "a cheap slop-shop shirt": "top",
+    "a laced bodice worn over linen": "top",
+    "patched canvas trousers": "trousers",
+    "a plain wool skirt, hem salt-stained": "skirt",
+    "buckled shore shoes": "footwear",
+    "bare feet, calloused from the dock stones": "footwear",
+    "a battered felt hat": "headwear",
+    "a headscarf knotted at the nape": "headwear",
+    "a tailored blazer {|in pinstripe}": "outer",
+    "a cardigan {|buttoned over a shirt}": "outer",
+    "a trench coat {|belted tight}": "outer",
+    "a soft-shouldered sport coat": "outer",
+    "a dress shirt {|rolled at the cuffs}": "top",
+    "a knit polo": "top",
+    "a silk blouse {|loose over a camisole}": "top",
+    "a fine-gauge sweater": "top",
+    "slim wool trousers": "trousers",
+    "{a pencil|a pleated midi} skirt": "skirt",
+    "chinos {|cuffed at the ankle}": "trousers",
+    "straight-leg trousers with a crease": "trousers",
+    "leather oxfords {|polished to a shine}": "footwear",
+    "loafers {|worn sockless}": "footwear",
+    "block-heel pumps": "footwear",
+    "slingback flats": "footwear",
+    "reading glasses {|pushed into the hair}": "headwear",
+    "a tie {|knotted loose}": "headwear",
+    "a lanyard badge {|clipped at the hip}": "headwear",
+    "a track jacket {|zipped to the collar}": "outer",
+    "a quilted vest": "outer",
+    "a heavyweight hoodie {|worn oversized}": "outer",
+    "{a half-zip|a pullover} fleece": "outer",
+    "a worn college tee": "top",
+    "a ribbed tank": "top",
+    "a long-sleeve tee {|pushed to the elbows}": "top",
+    "a polo {|with the collar popped}": "top",
+    "mesh shorts {|over leggings}": "trousers",
+    "fleece-lined sweatpants": "trousers",
+    "lounge pants {|cuffed at the ankle|in a side stripe}": "trousers",
+    "running shoes {|fresh out of the box|beaten grey}": "footwear",
+    "slides {|over socks}": "footwear",
+    "canvas slip-ons": "footwear",
+    "trail sneakers {|caked with mud}": "footwear",
+    "a dad cap": "headwear",
+    "a terry headband": "headwear",
+    "sunglasses {|pushed up}": "headwear",
+    "earbuds {|one in}": "headwear",
+    "a dinner jacket {|with velvet lapels}": "outer",
+    "a leather moto jacket {|zipped}": "outer",
+    "a faux-fur coat": "outer",
+    "a satin bomber": "outer",
+    "a satin camisole": "top",
+    "a mesh top over a bandeau": "top",
+    "a silk shirt {|open at the collar}": "top",
+    "a sequined tank": "top",
+    "tapered trousers with a sharp crease": "trousers",
+    "{a bias-cut|a sequined} slip skirt": "skirt",
+    "leather leggings": "trousers",
+    "high-waisted wide trousers": "trousers",
+    "ankle boots {|on a stacked heel|with a stiletto heel}": "footwear",
+    "strappy heels {|in gold|in black}": "footwear",
+    "polished chelsea boots": "footwear",
+    "platform loafers": "footwear",
+    "statement earrings {|as gold hoops|as chandeliers}": "headwear",
+    "a sparkly hair clip": "headwear",
+    "a silk scarf tied as a headband": "headwear",
+    "cutoff denim shorts": "trousers",
+    "a flared mini skirt": "skirt",
+    "a leather mini skirt": "skirt",
+    "thigh-high boots {|on a stacked heel}": "footwear",
+    "a tulip skirt {|in a muted check}": "skirt",
+    "a short tennis skirt {|over shorts}": "skirt",
+    "a denim skirt patched at the hem": "skirt",
+    "a calico skirt {|gathered at the waist}": "skirt",
+    "a coarse linen skirt {|kilted up at one hip}": "skirt",
+    "a bias-cut slip dress {|with a slit to the thigh}": "dress",
+    "a column dress {|with a keyhole back}": "dress",
+    "a sheath dress {|under a blazer}": "dress",
+    "a wrap dress {|belted at the waist}": "dress",
+    "a ribbed knit dress {|worn oversized}": "dress",
+    "a faded cotton dress {|with the hem knotted up at the hip}": "dress",
+    "a rough-woven dress, salt-bleached at the hem": "dress",
+    "a full-skirted calico dress": "dress",
+    "a painter's canvas apron {|flecked with dried paint}": "apron",
+    "a patched bar apron {|tied at the hip}": "apron",
+    "a scrap-tarp apron {|tied with cord}": "apron",
+    "a cotton work coverall {|with a chest pocket}": "coverall",
+    "a deck crew coverall {|patched at the elbows}": "coverall"
+  },
+  "short_hem": [
+    "mesh shorts {|over leggings}",
+    "cutoff denim shorts",
+    "a flared mini skirt",
+    "a leather mini skirt",
+    "a short tennis skirt {|over shorts}"
+  ]
+}

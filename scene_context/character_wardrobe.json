@@ -184,7 +184,8 @@
           "a canvas chore coat",
           "a {flannel|thermal} {|with a hi-vis vest over}",
           "a barn coat {|with a corduroy collar}",
-          "a painter's jacket {|flecked white|spattered with color}"
+          "a painter's jacket {|flecked white|spattered with color}",
+          "a painter's canvas apron {|flecked with dried paint}"
         ],
         "torso": [
           "a grease-spotted thermal shirt",
@@ -196,7 +197,8 @@
           "carpenter jeans",
           "work trousers with a tool belt",
           "double-knee canvas pants",
-          "overalls {|snapped at the waist}"
+          "overalls {|snapped at the waist}",
+          "a cotton work coverall {|with a chest pocket}"
         ],
         "feet": [
           "steel-toed boots",
@@ -294,7 +296,8 @@
           "cargo pants stacked at the ankle",
           "wide-leg jeans",
           "{tapered|baggy} joggers",
-          "pleated trousers {|low on the hips}"
+          "pleated trousers {|low on the hips}",
+          "a flared mini skirt"
         ],
         "feet": [
           "chunky sneakers, worn grey",
@@ -378,7 +381,8 @@
           "a base-layer under a scorched vest"
         ],
         "legs": [
-          "flight trousers strapped at the knee"
+          "flight trousers strapped at the knee",
+          "a deck crew coverall {|patched at the elbows}"
         ],
         "feet": [
           "mag boots",
@@ -761,7 +765,8 @@
         "outer": [
           "a patched tarp poncho stitched from mismatched sheeting",
           "a canvas coat with scrap-metal plates sewn on at the shoulders",
-          "a quilted coat padded out with stripped car-seat foam"
+          "a quilted coat padded out with stripped car-seat foam",
+          "a scrap-tarp apron {|tied with cord}"
         ],
         "torso": [
           "a layered undershirt gone grey with wear",
@@ -938,7 +943,8 @@
       "layers": {
         "outer": [
           "a grease-stained mechanic's coverall jacket",
-          "a road-worn leather duster patched with scrap"
+          "a road-worn leather duster patched with scrap",
+          "a patched bar apron {|tied at the hip}"
         ],
         "torso": [
           "a sweat-stained undershirt",
@@ -946,7 +952,9 @@
         ],
         "legs": [
           "oil-stained work trousers",
-          "patched denim gone soft at the knee"
+          "patched denim gone soft at the knee",
+          "a denim skirt patched at the hem",
+          "a faded cotton dress {|with the hem knotted up at the hip}"
         ],
         "feet": [
           "cracked leather boots",
@@ -1023,7 +1031,9 @@
         ],
         "legs": [
           "pressed wool trousers",
-          "a long cotton skirt, hem dust-grey"
+          "a long cotton skirt, hem dust-grey",
+          "a calico skirt {|gathered at the waist}",
+          "a full-skirted calico dress"
         ],
         "feet": [
           "polished button boots",
@@ -1115,7 +1125,9 @@
         ],
         "legs": [
           "patched canvas trousers",
-          "a plain wool skirt, hem salt-stained"
+          "a plain wool skirt, hem salt-stained",
+          "a coarse linen skirt {|kilted up at one hip}",
+          "a rough-woven dress, salt-bleached at the hem"
         ],
         "feet": [
           "buckled shore shoes",
@@ -1208,7 +1220,10 @@
           "slim wool trousers",
           "{a pencil|a pleated midi} skirt",
           "chinos {|cuffed at the ankle}",
-          "straight-leg trousers with a crease"
+          "straight-leg trousers with a crease",
+          "a tulip skirt {|in a muted check}",
+          "a sheath dress {|under a blazer}",
+          "a wrap dress {|belted at the waist}"
         ],
         "feet": [
           "leather oxfords {|polished to a shine}",
@@ -1303,7 +1318,10 @@
           "{tapered|baggy} joggers",
           "mesh shorts {|over leggings}",
           "fleece-lined sweatpants",
-          "lounge pants {|cuffed at the ankle|in a side stripe}"
+          "lounge pants {|cuffed at the ankle|in a side stripe}",
+          "cutoff denim shorts",
+          "a short tennis skirt {|over shorts}",
+          "a ribbed knit dress {|worn oversized}"
         ],
         "feet": [
           "running shoes {|fresh out of the box|beaten grey}",
@@ -1399,13 +1417,17 @@
           "tapered trousers with a sharp crease",
           "{a bias-cut|a sequined} slip skirt",
           "leather leggings",
-          "high-waisted wide trousers"
+          "high-waisted wide trousers",
+          "a leather mini skirt",
+          "a bias-cut slip dress {|with a slit to the thigh}",
+          "a column dress {|with a keyhole back}"
         ],
         "feet": [
           "ankle boots {|on a stacked heel|with a stiletto heel}",
           "strappy heels {|in gold|in black}",
           "polished chelsea boots",
-          "platform loafers"
+          "platform loafers",
+          "thigh-high boots {|on a stacked heel}"
         ],
         "head": [
           "statement earrings {|as gold hoops|as chandeliers}",

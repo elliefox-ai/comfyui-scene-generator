@@ -1,0 +1,2407 @@
+{
+  "version": 1,
+  "note": "ambient banks draft — harvest 2026-08-30. Subjects are calm, played-straight background cameos; treatments are operator phrases applied ON TOP at draw time. Braces = alternates. Objects with tags carry era metadata.",
+  "subjects": {
+    "accurate": {
+      "description": "genre/era-authentic background people and activity, straight world",
+      "entries": [
+        {
+          "text": "a group of {skaters|cyclists|rollerbladers|parkour athletes|breakdancers} {racing past|performing tricks|practicing moves|showing off}",
+          "tags": [
+            "genre:modern"
+          ]
+        },
+        {
+          "text": "a {sports team|cheer squad|marching band|drum line} {practicing|performing|warming up|in formation}",
+          "tags": [
+            "genre:modern"
+          ]
+        },
+        {
+          "text": "a film crew {shooting a scene|setting up equipment|interviewing someone|filming a commercial}",
+          "tags": [
+            "genre:modern"
+          ]
+        },
+        {
+          "text": "a news reporter {doing a live report|interviewing people|with a camera crew|gesturing dramatically}",
+          "tags": [
+            "genre:modern"
+          ]
+        },
+        {
+          "text": "a protest march {moving through the street|gathering|with signs and chants|dispersing}",
+          "tags": [
+            "genre:modern"
+          ]
+        },
+        {
+          "text": "a parade {passing by|in full swing|with floats and performers|with marching bands}",
+          "tags": [
+            "genre:modern"
+          ]
+        },
+        {
+          "text": "a food truck {serving customers|with a long line|with staff cooking|with a crowd gathered}",
+          "tags": [
+            "genre:modern"
+          ]
+        },
+        {
+          "text": "street performers {juggling fire|doing acrobatics|playing music|miming|posing as statues|doing magic tricks}",
+          "tags": []
+        },
+        {
+          "text": "a circus troupe {practicing|performing|setting up|breaking down}",
+          "tags": []
+        },
+        {
+          "text": "construction workers {operating machinery|building something|demolishing|taking a break}",
+          "tags": [
+            "genre:modern"
+          ]
+        },
+        {
+          "text": "firefighters {conducting drills|washing the trucks|in training|resting between calls}",
+          "tags": [
+            "genre:modern"
+          ]
+        },
+        {
+          "text": "paramedics {loading an ambulance|attending to someone|rushing with a stretcher}",
+          "tags": [
+            "genre:modern"
+          ]
+        },
+        {
+          "text": "astronauts {in full gear|doing a PR event|training|walking dramatically}",
+          "tags": [
+            "genre:modern",
+            "genre:sci_fi"
+          ]
+        },
+        {
+          "text": "scientists {with equipment|taking samples|conducting an experiment|making observations}",
+          "tags": [
+            "genre:modern",
+            "genre:sci_fi"
+          ]
+        },
+        {
+          "text": "archaeologists {excavating|examining findings|at a dig site|with tools}",
+          "tags": [
+            "genre:modern"
+          ]
+        },
+        {
+          "text": "athletes {training|competing|warming up|celebrating a victory}",
+          "tags": []
+        },
+        {
+          "text": "dancers {rehearsing|performing|in a synchronized routine|freestyle battling}",
+          "tags": []
+        },
+        {
+          "text": "bodybuilders {flexing|posing|working out|competing}",
+          "tags": [
+            "genre:modern"
+          ]
+        },
+        {
+          "text": "a yoga class {in session|in difficult poses|in a synchronized flow|outdoors}",
+          "tags": [
+            "genre:modern"
+          ]
+        },
+        {
+          "text": "tai chi practitioners {in slow motion|in formation|at morning practice}",
+          "tags": [
+            "genre:modern"
+          ]
+        },
+        {
+          "text": "martial artists {sparring|demonstrating forms|breaking boards|in a tournament}",
+          "tags": []
+        },
+        {
+          "text": "fencers {dueling|in competition|practicing|in full gear}",
+          "tags": [
+            "genre:modern",
+            "genre:historical"
+          ]
+        },
+        {
+          "text": "archers {at targets|in competition|practicing|in historical costume}",
+          "tags": [
+            "genre:modern",
+            "genre:historical",
+            "genre:fantasy"
+          ]
+        },
+        {
+          "text": "equestrians {riding horses|jumping obstacles|in formation|at a competition}",
+          "tags": [
+            "genre:modern",
+            "genre:historical",
+            "genre:western"
+          ]
+        },
+        {
+          "text": "acrobats {tumbling|building human pyramids|on aerial silks|on the trapeze}",
+          "tags": []
+        },
+        {
+          "text": "tightrope walkers {high above|with a balance pole|making a crossing|performing in the street}",
+          "tags": []
+        },
+        {
+          "text": "BMX riders {doing tricks|racing|mid-jump|at the skate park}",
+          "tags": [
+            "genre:modern"
+          ]
+        },
+        {
+          "text": "a car show {with vintage vehicles|hoods open|owners polishing|an admiring crowd}",
+          "tags": [
+            "genre:modern"
+          ]
+        },
+        {
+          "text": "a lowrider show {hydraulics bouncing|candy paint gleaming|cars hopping|judging in progress}",
+          "tags": [
+            "genre:modern"
+          ]
+        },
+        {
+          "text": "an orchestra {playing outdoors|a conductor directing|a formal performance|classical music}",
+          "tags": [
+            "genre:modern",
+            "genre:historical"
+          ]
+        },
+        {
+          "text": "a rock band {playing loud|an energetic set|crowd headbanging|amplifiers stacked}",
+          "tags": [
+            "genre:modern"
+          ]
+        },
+        {
+          "text": "a DJ {spinning records|hands in the air|with a light show|a dancing crowd}",
+          "tags": [
+            "genre:modern"
+          ]
+        },
+        {
+          "text": "a string quartet {in formal attire|classical instruments|an intimate performance}",
+          "tags": [
+            "genre:modern",
+            "genre:historical"
+          ]
+        },
+        {
+          "text": "a mariachi band {in traditional outfits|trumpets gleaming|serenading|playing festive music}",
+          "tags": [
+            "genre:modern"
+          ]
+        },
+        {
+          "text": "taiko drummers {powerful strikes|synchronized rhythm|traditional costume|a dramatic performance}",
+          "tags": [
+            "genre:modern",
+            "genre:historical"
+          ]
+        },
+        {
+          "text": "fire dancers {spinning flames|poi performance|breathing fire|dangerous beauty}",
+          "tags": []
+        },
+        {
+          "text": "living statues {perfectly still|painted gold or silver|breaking pose|street performance}",
+          "tags": []
+        },
+        {
+          "text": "mimes {trapped in an invisible box|pulling an invisible rope|exaggerated expressions|silent performance}",
+          "tags": []
+        },
+        {
+          "text": "clowns {with balloons|making balloon animals|juggling|in colorful costumes}",
+          "tags": [
+            "genre:modern"
+          ]
+        },
+        {
+          "text": "balloon artists {creating animals|twisting balloons|a crowd of children|colorful displays}",
+          "tags": [
+            "genre:modern"
+          ]
+        },
+        {
+          "text": "caricature artists {drawing quickly|exaggerated features|a customer sitting|a display of work}",
+          "tags": []
+        },
+        {
+          "text": "chalk artists {on pavement|3D illusions|elaborate drawings|street art}",
+          "tags": [
+            "genre:modern"
+          ]
+        },
+        {
+          "text": "graffiti artists {spray painting|wearing masks|a large mural|urban art}",
+          "tags": [
+            "genre:modern"
+          ]
+        },
+        {
+          "text": "ice sculptors {carving|chainsaw art|detailed sculptures|melting beauty}",
+          "tags": [
+            "genre:modern"
+          ]
+        },
+        {
+          "text": "blacksmiths {at the forge|hammer striking|sparks flying|shaping metal}",
+          "tags": [
+            "genre:historical",
+            "genre:fantasy",
+            "genre:western"
+          ]
+        },
+        {
+          "text": "glassblowers {shaping molten glass|intense heat|colorful creations|artistic craft}",
+          "tags": [
+            "genre:historical",
+            "genre:modern"
+          ]
+        },
+        {
+          "text": "barbers {giving haircuts|a straight razor shave|a barber pole|a traditional shop}",
+          "tags": [
+            "genre:modern",
+            "genre:historical"
+          ]
+        },
+        {
+          "text": "tattoo artists {tattooing a client|focused work|machines buzzing|body art}",
+          "tags": [
+            "genre:modern"
+          ]
+        },
+        {
+          "text": "beekeepers {in protective suits|with a smoker|checking hives|covered in bees}",
+          "tags": []
+        },
+        {
+          "text": "fishermen {casting lines|pulling in nets|with their catch|on boats}",
+          "tags": []
+        },
+        {
+          "text": "farmers {harvesting|driving a tractor|tending livestock|working the fields}",
+          "tags": [
+            "genre:modern"
+          ]
+        },
+        {
+          "text": "a rodeo {bull riding|cowboys|an arena|a Western event}",
+          "tags": [
+            "genre:western",
+            "genre:modern"
+          ]
+        },
+        {
+          "text": "a demolition derby, cars colliding dramatically, {smoke|sparks}",
+          "tags": [
+            "genre:modern"
+          ]
+        },
+        {
+          "text": "a monster truck rally {crushing cars|massive wheels|an arena|loud engines}",
+          "tags": [
+            "genre:modern"
+          ]
+        },
+        {
+          "text": "a pie eating contest {faces in pies|messy eating|in competition|county fair}",
+          "tags": [
+            "genre:modern"
+          ]
+        },
+        {
+          "text": "a chili cookoff {tasting|judging|steaming pots|in competition}",
+          "tags": [
+            "genre:modern"
+          ]
+        },
+        {
+          "text": "a chess tournament {timed moves|intense concentration|a hushed crowd|intellectual}",
+          "tags": []
+        },
+        {
+          "text": "a spelling bee {a nervous contestant|a microphone|an auditorium|academic pressure}",
+          "tags": [
+            "genre:modern"
+          ]
+        },
+        {
+          "text": "a science fair {project displays|young scientists|a volcano erupting|educational}",
+          "tags": [
+            "genre:modern"
+          ]
+        },
+        {
+          "text": "a flea market {vintage items|haggling|eclectic goods|treasure hunting}",
+          "tags": [
+            "genre:modern"
+          ]
+        },
+        {
+          "text": "a farmers market {fresh produce|vendors|tasting samples|local goods}",
+          "tags": []
+        },
+        {
+          "text": "a comic con {cosplayers|vendors|panels|nerd culture}",
+          "tags": [
+            "genre:modern"
+          ]
+        },
+        {
+          "text": "sumo wrestling {massive wrestlers|ceremonial|mawashi|a Japanese sport}",
+          "tags": [
+            "genre:historical",
+            "genre:modern"
+          ]
+        },
+        {
+          "text": "a boxing match {gloves flying|a ring|a referee|combat sport}",
+          "tags": [
+            "genre:modern"
+          ]
+        },
+        {
+          "text": "a parkour demonstration {urban flipping|wall runs|creative movement|athletic}",
+          "tags": [
+            "genre:modern"
+          ]
+        },
+        {
+          "text": "a skateboarding competition {halfpipe|tricks|youth culture}",
+          "tags": [
+            "genre:modern"
+          ]
+        },
+        {
+          "text": "a surfing competition {catching waves|judges watching|a beach|water sport}",
+          "tags": [
+            "genre:modern"
+          ]
+        },
+        {
+          "text": "skydivers {freefalling|parachutes deployed|adrenaline|extreme}",
+          "tags": [
+            "genre:modern"
+          ]
+        },
+        {
+          "text": "rock climbers {scaling a wall|ropes and harnesses|indoor or outdoor|athletic}",
+          "tags": [
+            "genre:modern"
+          ]
+        },
+        {
+          "text": "scuba divers {underwater|colorful fish|reefs|ocean exploration}",
+          "tags": [
+            "genre:modern"
+          ]
+        },
+        {
+          "text": "a belly flop contest {huge splashes|in competition|a pool}",
+          "tags": [
+            "genre:modern"
+          ]
+        },
+        {
+          "text": "kayakers {paddling|whitewater or calm|individual boats|outdoor}",
+          "tags": []
+        },
+        {
+          "text": "a sailing regatta {wind-powered|competing boats|tactical racing|nautical}",
+          "tags": [
+            "genre:modern",
+            "genre:age_of_sail"
+          ]
+        },
+        {
+          "text": "a gondolier {Venice style|a striped shirt|singing|romantic}",
+          "tags": [
+            "genre:historical",
+            "genre:modern"
+          ]
+        },
+        {
+          "text": "a Ferris wheel {giant|rotating|carnival|a romantic view}",
+          "tags": [
+            "genre:modern"
+          ]
+        },
+        {
+          "text": "a carousel {merry-go-round|painted horses|calliope music|nostalgic}",
+          "tags": [
+            "genre:modern"
+          ]
+        },
+        {
+          "text": "a roller coaster {riders with hands up|loops and drops|a thrill ride|amusement park}",
+          "tags": [
+            "genre:modern"
+          ]
+        },
+        {
+          "text": "a trampoline park {bouncing|flipping|walls|energetic fun}",
+          "tags": [
+            "genre:modern"
+          ]
+        },
+        {
+          "text": "hot air balloons {colorful|floating|a festival|peaceful ascent}",
+          "tags": [
+            "genre:modern",
+            "genre:historical"
+          ]
+        },
+        {
+          "text": "a marching band {in formation|brass instruments|uniforms|coordinated}",
+          "tags": [
+            "genre:modern",
+            "genre:historical"
+          ]
+        },
+        {
+          "text": "a drill team {precise formation|rifles or flags|military precision|performance}",
+          "tags": [
+            "genre:modern",
+            "genre:historical"
+          ]
+        },
+        {
+          "text": "majorettes {high-stepping|batons twirling|uniforms|leading the parade}",
+          "tags": [
+            "genre:modern"
+          ]
+        },
+        {
+          "text": "a ticker tape parade {paper falling|celebrating heroes|an urban canyon|historic style}",
+          "tags": [
+            "genre:modern"
+          ]
+        },
+        {
+          "text": "a rose parade {flower-covered floats|New Year's|beautiful}",
+          "tags": [
+            "genre:modern"
+          ]
+        },
+        {
+          "text": "a graduation ceremony {caps and gowns|diplomas|proud families|a milestone}",
+          "tags": [
+            "genre:modern"
+          ]
+        },
+        {
+          "text": "a funeral procession {slow moving|a hearse|mourners|somber}",
+          "tags": [
+            "genre:modern"
+          ]
+        },
+        {
+          "text": "cosplayers {in elaborate costumes|posing for photos|in character|group photos}",
+          "tags": [
+            "genre:modern"
+          ]
+        },
+        {
+          "text": "LARPers {in mock combat|in costume|roleplaying a scene|with foam weapons}",
+          "tags": [
+            "genre:modern",
+            "genre:fantasy"
+          ]
+        },
+        {
+          "text": "a renaissance faire {participants in period costume|sword fighting|jousting|merchants}",
+          "tags": [
+            "genre:modern",
+            "genre:historical",
+            "genre:fantasy"
+          ]
+        },
+        {
+          "text": "historical reenactors {in battle|in period dress|demonstrating|with authentic equipment}",
+          "tags": [
+            "genre:modern",
+            "genre:historical"
+          ]
+        },
+        {
+          "text": "steampunk enthusiasts {in elaborate costumes|with props|posing|gathering}",
+          "tags": [
+            "genre:sci_fi",
+            "genre:historical",
+            "genre:modern"
+          ]
+        }
+      ]
+    },
+    "wholesome": {
+      "description": "warm, harmless charm played straight — Santa, fairies, pet parades",
+      "entries": [
+        {
+          "text": "Santa Claus {with sleigh and reindeer|ho-ho-ho-ing|delivering presents|an off-season appearance}",
+          "tags": [
+            "genre:fantasy",
+            "genre:modern"
+          ]
+        },
+        {
+          "text": "the Easter Bunny {with a basket|hiding eggs|hopping|in a giant costume}",
+          "tags": [
+            "genre:fantasy",
+            "genre:modern"
+          ]
+        },
+        {
+          "text": "the Tooth Fairy {with a wand|leaving money|in a shimmering dress}",
+          "tags": [
+            "genre:fantasy"
+          ]
+        },
+        {
+          "text": "Santa's workshop {elves working|toy assembly|the North Pole|Christmas magic}",
+          "tags": [
+            "genre:fantasy"
+          ]
+        },
+        {
+          "text": "an Easter egg hunt {children searching|colorful eggs|baskets|a spring celebration}",
+          "tags": [
+            "genre:modern"
+          ]
+        },
+        {
+          "text": "a petting zoo {with children|with various animals|a handler feeding animals}",
+          "tags": [
+            "genre:modern"
+          ]
+        },
+        {
+          "text": "an animal rescue {with cages|volunteers with animals|an adoption event}",
+          "tags": [
+            "genre:modern"
+          ]
+        },
+        {
+          "text": "a dog show {with handlers|dogs performing|judging in progress|a grooming area}",
+          "tags": [
+            "genre:modern"
+          ]
+        },
+        {
+          "text": "a butterfly release {a swarm of butterflies|people releasing|a magical moment}",
+          "tags": []
+        },
+        {
+          "text": "bird watchers {with binoculars|pointing excitedly|with telescopes|taking notes}",
+          "tags": [
+            "genre:modern"
+          ]
+        },
+        {
+          "text": "a baby shower {games in progress|opening gifts|a decorated venue|an expecting mother}",
+          "tags": [
+            "genre:modern"
+          ]
+        },
+        {
+          "text": "a retirement party {a gold watch|speeches|cake cutting|emotional goodbyes}",
+          "tags": [
+            "genre:modern"
+          ]
+        },
+        {
+          "text": "a birthday party {cake with candles|a balloon arch|party hats|singing}",
+          "tags": [
+            "genre:modern"
+          ]
+        },
+        {
+          "text": "a wedding party {posing for photos|celebrating|arriving|departing}",
+          "tags": [
+            "genre:modern",
+            "genre:historical"
+          ]
+        },
+        {
+          "text": "a lemonade stand {children operating|a cardboard sign|a neighborhood}",
+          "tags": [
+            "genre:modern"
+          ]
+        },
+        {
+          "text": "an ice cream truck {playing music|children running toward|nostalgic|summery}",
+          "tags": [
+            "genre:modern"
+          ]
+        },
+        {
+          "text": "crossing guards {safety vests|stop signs|protecting children|community service}",
+          "tags": [
+            "genre:modern"
+          ]
+        },
+        {
+          "text": "a playground scene {children playing|swings and slides|recess|energetic}",
+          "tags": [
+            "genre:modern"
+          ]
+        },
+        {
+          "text": "hopscotch {chalk outlines|children jumping|a sidewalk game|classic}",
+          "tags": [
+            "genre:modern"
+          ]
+        },
+        {
+          "text": "tug of war {rope pulling|teams straining|a competition|strength contest}",
+          "tags": []
+        },
+        {
+          "text": "a sack race {hopping in bags|a field day|in burlap sacks}",
+          "tags": []
+        },
+        {
+          "text": "an egg and spoon race {careful balance|concentration|a field day|delicate}",
+          "tags": []
+        },
+        {
+          "text": "a Thanksgiving parade {giant balloons|marching bands|floats|a family tradition}",
+          "tags": [
+            "genre:modern"
+          ]
+        },
+        {
+          "text": "a Christmas parade {a Santa finale|holiday floats|festive|winter celebration}",
+          "tags": [
+            "genre:modern",
+            "genre:fantasy"
+          ]
+        },
+        {
+          "text": "a bounce house {an inflatable castle|jumping children|a party rental|colorful}",
+          "tags": [
+            "genre:modern"
+          ]
+        },
+        {
+          "text": "fairies {with wings|in gossamer costume|dancing|a magical performance}",
+          "tags": [
+            "genre:fantasy"
+          ]
+        },
+        {
+          "text": "a pet parade {dogs in costumes|cats in strollers|children leading pets|a neighborhood event}",
+          "tags": [
+            "genre:modern"
+          ]
+        },
+        {
+          "text": "an elderly couple {feeding pigeons|walking hand in hand|sitting on a bench}",
+          "tags": []
+        },
+        {
+          "text": "children {blowing bubbles|flying kites|chasing each other}",
+          "tags": []
+        },
+        {
+          "text": "a kite festival {colorful kites|children running|families picnicking}",
+          "tags": []
+        },
+        {
+          "text": "a family picnic {a blanket spread|a basket of food|children playing}",
+          "tags": []
+        },
+        {
+          "text": "a puppy training class {puppies on leashes|treats in hand|owners crouching}",
+          "tags": [
+            "genre:modern"
+          ]
+        },
+        {
+          "text": "a pony ride {children riding|a handler leading|a small circuit}",
+          "tags": []
+        },
+        {
+          "text": "a community garden {raised beds|volunteers watering|butterflies}",
+          "tags": [
+            "genre:modern"
+          ]
+        },
+        {
+          "text": "a bake sale {tables of treats|neighbors browsing|a community lawn}",
+          "tags": [
+            "genre:modern"
+          ]
+        },
+        {
+          "text": "a storytime circle {a librarian reading|children sitting|cross-legged crowd}",
+          "tags": [
+            "genre:modern"
+          ]
+        },
+        {
+          "text": "a little league game {kids batting|parents cheering|dugout snacks}",
+          "tags": [
+            "genre:modern"
+          ]
+        },
+        {
+          "text": "a puppet show {children watching|a portable stage|a hidden puppeteer}",
+          "tags": []
+        },
+        {
+          "text": "a pet adoption fair {dogs in pens|volunteers with leashes|families looking}",
+          "tags": [
+            "genre:modern"
+          ]
+        },
+        {
+          "text": "a teddy bear picnic {children with stuffed animals|blankets|afternoon tea}",
+          "tags": [
+            "genre:modern"
+          ]
+        },
+        {
+          "text": "holiday carolers {with songbooks|harmonizing|going door to door}",
+          "tags": [
+            "genre:modern",
+            "genre:historical"
+          ]
+        },
+        {
+          "text": "a Santa photo line {children waiting|elves taking names|a red velvet backdrop}",
+          "tags": [
+            "genre:modern",
+            "genre:fantasy"
+          ]
+        }
+      ]
+    },
+    "militant": {
+      "description": "armed or authoritarian presence played straight — patrols, aides, drills, checkpoints",
+      "entries": [
+        {
+          "text": "police officers {on patrol|directing traffic|investigating a scene|at a checkpoint}",
+          "tags": [
+            "genre:modern"
+          ]
+        },
+        {
+          "text": "military personnel {in formation|marching|conducting exercises|on maneuvers}",
+          "tags": [
+            "genre:modern",
+            "genre:historical",
+            "genre:sci_fi",
+            "genre:fantasy"
+          ]
+        },
+        {
+          "text": "a security detail {escorting a principal|scanning the crowd|in earpieces and sunglasses}",
+          "tags": [
+            "genre:modern",
+            "genre:sci_fi"
+          ]
+        },
+        {
+          "text": "secret service agents {forming a cordon|scanning rooftops|talking into sleeves}",
+          "tags": [
+            "genre:modern"
+          ]
+        },
+        {
+          "text": "a military checkpoint {vehicles stopped|soldiers with rifles|documents checked}",
+          "tags": [
+            "genre:modern",
+            "genre:post_apocalyptic",
+            "genre:sci_fi"
+          ]
+        },
+        {
+          "text": "soldiers on leave {in uniform|walking through town|in a group}",
+          "tags": [
+            "genre:modern",
+            "genre:historical",
+            "genre:sci_fi",
+            "genre:fantasy"
+          ]
+        },
+        {
+          "text": "riot police {in full gear|with shields|standing in a line}",
+          "tags": [
+            "genre:modern",
+            "genre:post_apocalyptic",
+            "genre:sci_fi"
+          ]
+        },
+        {
+          "text": "mounted police {on horses|patrolling|in formation}",
+          "tags": [
+            "genre:modern",
+            "genre:historical",
+            "genre:western"
+          ]
+        },
+        {
+          "text": "a K9 unit {a dog on a leash|a handler in uniform|a scent drill}",
+          "tags": [
+            "genre:modern"
+          ]
+        },
+        {
+          "text": "a military band {in dress uniforms|marching|playing a march}",
+          "tags": [
+            "genre:modern",
+            "genre:historical"
+          ]
+        },
+        {
+          "text": "cadets {in uniform|drilling|at attention}",
+          "tags": [
+            "genre:modern",
+            "genre:historical",
+            "genre:sci_fi",
+            "genre:fantasy"
+          ]
+        },
+        {
+          "text": "a tank {parked on display|on a transporter|in a parade}",
+          "tags": [
+            "genre:modern",
+            "genre:sci_fi"
+          ]
+        },
+        {
+          "text": "an armored vehicle {parked|on patrol|at a checkpoint}",
+          "tags": [
+            "genre:modern",
+            "genre:sci_fi",
+            "genre:post_apocalyptic"
+          ]
+        },
+        {
+          "text": "naval officers {in dress whites|walking in formation|at attention}",
+          "tags": [
+            "genre:modern",
+            "genre:historical",
+            "genre:age_of_sail"
+          ]
+        },
+        {
+          "text": "a drill sergeant {in front of a formation|with a platoon|voicing orders}",
+          "tags": [
+            "genre:modern",
+            "genre:historical",
+            "genre:sci_fi",
+            "genre:fantasy"
+          ]
+        },
+        {
+          "text": "armed guards {at a bank entrance|standing post|in suits}",
+          "tags": [
+            "genre:modern"
+          ]
+        },
+        {
+          "text": "an honor guard {at attention|rifles on shoulders|formal uniform}",
+          "tags": [
+            "genre:modern",
+            "genre:historical"
+          ]
+        },
+        {
+          "text": "sentries {standing post|at a gate|rigid attention}",
+          "tags": [
+            "genre:historical",
+            "genre:fantasy",
+            "genre:modern",
+            "genre:sci_fi"
+          ]
+        },
+        {
+          "text": "bodyguards {flanking a figure|in sunglasses|forming a wedge}",
+          "tags": [
+            "genre:modern"
+          ]
+        },
+        {
+          "text": "a military convoy {trucks in line|escort vehicles|rolling through}",
+          "tags": [
+            "genre:modern",
+            "genre:post_apocalyptic",
+            "genre:sci_fi"
+          ]
+        },
+        {
+          "text": "a general {with aides|in dress uniform|reviewing troops}",
+          "tags": [
+            "genre:historical",
+            "genre:modern",
+            "genre:sci_fi",
+            "genre:fantasy"
+          ]
+        },
+        {
+          "text": "coast guard members {in uniform|patrolling the harbor|on a cutter}",
+          "tags": [
+            "genre:modern"
+          ]
+        },
+        {
+          "text": "customs officers {at a checkpoint|in uniform|an inspection in progress}",
+          "tags": [
+            "genre:modern"
+          ]
+        },
+        {
+          "text": "private security {at a mall entrance|in suits|with earpieces}",
+          "tags": [
+            "genre:modern"
+          ]
+        }
+      ]
+    },
+    "sexy": {
+      "description": "eye-candy cameos played straight — bikini teams, pin-ups, decade glamour (era-tagged)",
+      "entries": [
+        {
+          "text": "the Swedish bikini team {in matching blue-and-yellow sport bikinis|with sharp blonde bobs|identical black sunglasses|black sneakers and fingerless gloves}",
+          "tags": [
+            "genre:modern"
+          ]
+        },
+        {
+          "text": "a {group|couple} of women in bunny suits {with ears and bow ties|high heels|posing for photos}",
+          "tags": [
+            "genre:modern"
+          ]
+        },
+        {
+          "text": "a trophy wife in upscale designer clothing {towing a small dog|on her phone|at the valet stand}",
+          "tags": [
+            "genre:modern"
+          ]
+        },
+        {
+          "text": "1950s pin-up girls {in rockabilly styling|with victory rolls|in high-waisted shorts|in polka dot tops}",
+          "tags": [
+            "era:1950s",
+            "genre:modern"
+          ]
+        },
+        {
+          "text": "1960s Bond-girl types {in sleek evening gowns|in retro-futuristic catsuits|in mod mini dresses}",
+          "tags": [
+            "era:1960s",
+            "genre:modern",
+            "genre:sci_fi"
+          ]
+        },
+        {
+          "text": "1970s disco queens {in shimmering metallic jumpsuits|with platform shoes|with feathered hair}",
+          "tags": [
+            "era:1970s",
+            "genre:modern"
+          ]
+        },
+        {
+          "text": "1980s aerobic instructors {in neon high-cut leotards|with leg warmers|with oversized headbands}",
+          "tags": [
+            "era:1980s",
+            "genre:modern"
+          ]
+        },
+        {
+          "text": "1990s supermodels {in minimalist slip dresses|in high-fashion tailoring|walking in a line}",
+          "tags": [
+            "era:1990s",
+            "genre:modern"
+          ]
+        },
+        {
+          "text": "2000s pop princesses {in low-rise jeans|with rhinestone accents|with chunky highlights}",
+          "tags": [
+            "era:2000s",
+            "genre:modern"
+          ]
+        },
+        {
+          "text": "B-movie scream queens {in distressed crop tops|in tiny denim shorts|in leather jackets}",
+          "tags": [
+            "genre:modern"
+          ]
+        },
+        {
+          "text": "cyberpunk femme fatales {in sleek vinyl trench coats|with neon hair accents|with high-tech visors}",
+          "tags": [
+            "genre:sci_fi",
+            "genre:modern"
+          ]
+        },
+        {
+          "text": "space-western barmaids {in stylized frontier corsetry|with futuristic sci-fi accoutrements}",
+          "tags": [
+            "genre:sci_fi",
+            "genre:western"
+          ]
+        },
+        {
+          "text": "noir lounge singers {in silk high-slit gowns|with satin opera gloves}",
+          "tags": [
+            "genre:modern",
+            "genre:sci_fi"
+          ]
+        },
+        {
+          "text": "glitzy pageant queens {in elaborate evening gowns|with glittering tiaras|in satin winner's sashes}",
+          "tags": [
+            "genre:modern"
+          ]
+        },
+        {
+          "text": "Las Vegas showgirls {with dramatic feathered headpieces|in ultra-high-cut sequined bodices|with sheer leggings}",
+          "tags": [
+            "genre:modern"
+          ]
+        },
+        {
+          "text": "apres-ski socialites {with oversized designer sunglasses|in luxury puffer jackets|with faux-fur boots}",
+          "tags": [
+            "genre:modern"
+          ]
+        },
+        {
+          "text": "Monaco yacht guests {in crisp white linen|with oversized sun hats|with designer sunglasses}",
+          "tags": [
+            "genre:modern"
+          ]
+        },
+        {
+          "text": "red carpet starlets {in dramatic floor-length designer gowns|with high leg slits}",
+          "tags": [
+            "genre:modern"
+          ]
+        },
+        {
+          "text": "decora-kei operators {in bright pink tactical vests|with rainbow knee socks|with layered hair clips}",
+          "tags": [
+            "genre:modern"
+          ]
+        },
+        {
+          "text": "gothic lolitas {in intricate black lace dresses|in heavy velvet|with decorative parasols}",
+          "tags": [
+            "genre:modern"
+          ]
+        },
+        {
+          "text": "Harajuku pop idols {in layered pastel tulle skirts|with colorful platform sneakers|with playful accessories}",
+          "tags": [
+            "genre:modern"
+          ]
+        },
+        {
+          "text": "Y2K cyber-goths {in platform combat boots|with fishnet sleeves|in reflective PVC jackets}",
+          "tags": [
+            "era:2000s",
+            "genre:modern",
+            "genre:sci_fi"
+          ]
+        },
+        {
+          "text": "dieselpunk aviatrixes {in leather bomber jackets|with sheepskin collars|with brass-rimmed flight goggles}",
+          "tags": [
+            "genre:sci_fi",
+            "genre:historical"
+          ]
+        },
+        {
+          "text": "fantasy tavern adventuresses {in stylized leather bodices|in bikini armor|with adventuring gear}",
+          "tags": [
+            "genre:fantasy"
+          ]
+        },
+        {
+          "text": "post-apocalyptic scavengers {in tactical cargo pants|in asymmetrical crop tops|with weathered goggles}",
+          "tags": [
+            "genre:post_apocalyptic"
+          ]
+        },
+        {
+          "text": "safari explorers {in tailored khaki shorts|in utility shirts|with pith helmets}",
+          "tags": [
+            "genre:historical",
+            "genre:modern"
+          ]
+        },
+        {
+          "text": "spies in disguise {in sleek evening wear|with high slits|with plunging necklines}",
+          "tags": [
+            "genre:modern",
+            "genre:sci_fi"
+          ]
+        },
+        {
+          "text": "fit runners {in racing briefs|in crop tops|at a track}",
+          "tags": [
+            "genre:modern"
+          ]
+        },
+        {
+          "text": "a beach volleyball team {in two-piece kits|warming up|diving for balls}",
+          "tags": [
+            "genre:modern"
+          ]
+        },
+        {
+          "text": "a cabaret chorus line {with high kicks|in feathered costumes|with top hats}",
+          "tags": [
+            "genre:modern",
+            "genre:historical"
+          ]
+        },
+        {
+          "text": "a pin-up calendar photo shoot {with a vintage car backdrop|classic poses|a retro camera}",
+          "tags": [
+            "genre:modern"
+          ]
+        },
+        {
+          "text": "a car wash fundraiser {women in bikinis|soap suds|sponges}",
+          "tags": [
+            "genre:modern"
+          ]
+        },
+        {
+          "text": "a figure skating pair {in sequined costumes|in matching outfits}",
+          "tags": [
+            "genre:modern"
+          ]
+        },
+        {
+          "text": "a model posing on a motorcycle {at a show|leaning on the tank|with a helmet under her arm}",
+          "tags": [
+            "genre:modern"
+          ]
+        },
+        {
+          "text": "synchronized swimmers {in glittering suits|marching in step|poolside}",
+          "tags": [
+            "genre:modern"
+          ]
+        }
+      ]
+    },
+    "absurd": {
+      "description": "single non-sequitur intrusions played straight — the world does not comment",
+      "entries": [
+        {
+          "text": "a giant rubber duck {floating|impossibly large|installed as art|surreally still}",
+          "tags": [
+            "genre:modern"
+          ]
+        },
+        {
+          "text": "inflatable tube men {waving wildly|at a car dealership|attention-getting|a floppy dance}",
+          "tags": [
+            "genre:modern"
+          ]
+        },
+        {
+          "text": "a giant {walking past|sitting down|interacting with normal-sized people|a looming presence}",
+          "tags": [
+            "genre:fantasy"
+          ]
+        },
+        {
+          "text": "stormtroopers {marching|posing|in formation|at an event}",
+          "tags": [
+            "genre:sci_fi"
+          ]
+        },
+        {
+          "text": "superheroes {flying past|using powers|in action|saving someone}",
+          "tags": [
+            "genre:modern",
+            "genre:sci_fi",
+            "genre:fantasy"
+          ]
+        },
+        {
+          "text": "villains {cackling|a dramatic pose|an evil scheme|confronting a hero}",
+          "tags": []
+        },
+        {
+          "text": "sidekicks {following a hero|helping|enthusiastic}",
+          "tags": []
+        },
+        {
+          "text": "zombies {shambling|in makeup|a zombie walk|a horde moving}",
+          "tags": [
+            "genre:modern",
+            "genre:post_apocalyptic"
+          ]
+        },
+        {
+          "text": "vampires {in gothic attire|dramatic poses|capes swirling|a group of}",
+          "tags": [
+            "genre:fantasy",
+            "genre:historical"
+          ]
+        },
+        {
+          "text": "witches {in pointed hats|with brooms|casting spells|a coven gathering}",
+          "tags": [
+            "genre:fantasy"
+          ]
+        },
+        {
+          "text": "wizards {in robes|with staffs|performing magic tricks|a bearded group}",
+          "tags": [
+            "genre:fantasy"
+          ]
+        },
+        {
+          "text": "mermaids {with tails|in costume|performing|a photo shoot}",
+          "tags": [
+            "genre:fantasy",
+            "genre:modern"
+          ]
+        },
+        {
+          "text": "pirates {in full costume|sword fighting|with props|a crew together}",
+          "tags": [
+            "genre:age_of_sail",
+            "genre:fantasy",
+            "genre:modern"
+          ]
+        },
+        {
+          "text": "ninjas {in black|doing flips|sneaking dramatically|a demonstration}",
+          "tags": [
+            "genre:historical",
+            "genre:modern"
+          ]
+        },
+        {
+          "text": "samurai {in armor|with swords|formal poses|a demonstration}",
+          "tags": [
+            "genre:historical",
+            "genre:modern"
+          ]
+        },
+        {
+          "text": "knights {in armor|jousting practice|with shields and swords|ceremonial}",
+          "tags": [
+            "genre:historical",
+            "genre:fantasy"
+          ]
+        },
+        {
+          "text": "Vikings {with weapons|in furs|a reenactment|with horned helmets}",
+          "tags": [
+            "genre:historical",
+            "genre:fantasy"
+          ]
+        },
+        {
+          "text": "gladiators {in costume|mock combat|with weapons|an arena demonstration}",
+          "tags": [
+            "genre:historical",
+            "genre:fantasy"
+          ]
+        },
+        {
+          "text": "cowboys {on horses|with lassos|in full western gear|a rodeo}",
+          "tags": [
+            "genre:western"
+          ]
+        },
+        {
+          "text": "a UFO {hovering|beaming light down|flying past|landing}",
+          "tags": [
+            "genre:sci_fi"
+          ]
+        },
+        {
+          "text": "aliens {grey types|in spacesuits|emerging from a craft|examining humans}",
+          "tags": [
+            "genre:sci_fi"
+          ]
+        },
+        {
+          "text": "robots {walking around|mechanical movements|serving|interacting}",
+          "tags": [
+            "genre:sci_fi",
+            "genre:modern"
+          ]
+        },
+        {
+          "text": "androids {human-like|glitching|sophisticated movement|uncanny valley}",
+          "tags": [
+            "genre:sci_fi",
+            "genre:modern"
+          ]
+        },
+        {
+          "text": "cyborgs {with visible tech|enhanced humans|mechanical parts showing|futuristic}",
+          "tags": [
+            "genre:sci_fi"
+          ]
+        },
+        {
+          "text": "time travelers {materializing|in anachronistic clothing|with a device|a confused look}",
+          "tags": [
+            "genre:sci_fi"
+          ]
+        },
+        {
+          "text": "ghosts {translucent figures|floating|haunting|ethereal presence}",
+          "tags": [
+            "genre:fantasy"
+          ]
+        },
+        {
+          "text": "cryptids {Bigfoot|Loch Ness Monster|Chupacabra|mothman} {being spotted|a casual appearance|interacting normally}",
+          "tags": [
+            "genre:fantasy",
+            "genre:modern"
+          ]
+        },
+        {
+          "text": "dinosaurs {walking past|a T-Rex roaring|herbivores grazing|prehistoric}",
+          "tags": [
+            "genre:modern",
+            "genre:sci_fi"
+          ]
+        },
+        {
+          "text": "dragons {flying overhead|breathing fire|perched|majestic}",
+          "tags": [
+            "genre:fantasy"
+          ]
+        },
+        {
+          "text": "unicorns {prancing|horns gleaming|magical|mythical beauty}",
+          "tags": [
+            "genre:fantasy"
+          ]
+        },
+        {
+          "text": "giant monsters {Godzilla-style|destroying buildings|towering over|kaiju}",
+          "tags": [
+            "genre:sci_fi",
+            "genre:modern"
+          ]
+        },
+        {
+          "text": "sea monsters {emerging from water|tentacles|oceanic horror}",
+          "tags": [
+            "genre:fantasy"
+          ]
+        },
+        {
+          "text": "giant robots {mecha|walking|a battle stance|piloted}",
+          "tags": [
+            "genre:sci_fi"
+          ]
+        },
+        {
+          "text": "a trojan horse {being wheeled|historical|a large wooden structure|a Greek scene}",
+          "tags": [
+            "genre:historical",
+            "genre:fantasy"
+          ]
+        },
+        {
+          "text": "mascots battling {a costume fight|playful aggression|a viral moment}",
+          "tags": [
+            "genre:modern"
+          ]
+        },
+        {
+          "text": "Cupid {shooting arrows|with a bow|causing love|a cherub appearance}",
+          "tags": [
+            "genre:fantasy",
+            "genre:historical"
+          ]
+        },
+        {
+          "text": "the Monopoly Man {with a monocle|a top hat|money bags|a wealthy appearance}",
+          "tags": [
+            "genre:modern"
+          ]
+        },
+        {
+          "text": "a penguin {waddling through|in a tuxedo|attending politely}",
+          "tags": []
+        },
+        {
+          "text": "a T-Rex {in a business suit|waiting at a bus stop|holding a briefcase}",
+          "tags": [
+            "genre:modern"
+          ]
+        },
+        {
+          "text": "a shark {circling in a fountain|in a rooftop pool|in a flooded street}",
+          "tags": [
+            "genre:modern"
+          ]
+        },
+        {
+          "text": "an elephant {standing at a newspaper stand|at a sidewalk cafe|in a crosswalk}",
+          "tags": [
+            "genre:modern"
+          ]
+        },
+        {
+          "text": "a yeti {at a ski lodge|in a hot spring|browsing a grocery store}",
+          "tags": [
+            "genre:modern",
+            "genre:fantasy"
+          ]
+        },
+        {
+          "text": "a giant tortoise {strolling down the street|blocking a crosswalk|at a farmer's market}",
+          "tags": [
+            "genre:modern"
+          ]
+        },
+        {
+          "text": "a camel {at a drive-thru window|tethered outside a bar|in a parking lot}",
+          "tags": [
+            "genre:modern"
+          ]
+        },
+        {
+          "text": "a peacock {perched on a parked car|in a fountain|on a restaurant terrace}",
+          "tags": [
+            "genre:modern"
+          ]
+        },
+        {
+          "text": "a ringing telephone booth {standing in a field|on a beach|in a desert}",
+          "tags": [
+            "genre:modern"
+          ]
+        },
+        {
+          "text": "a vending machine {standing in a forest|on a clifftop|at a remote bus stop}",
+          "tags": [
+            "genre:modern"
+          ]
+        },
+        {
+          "text": "an iceberg {drifting in the harbor|sitting in a field|floating in a pond}",
+          "tags": []
+        },
+        {
+          "text": "a chandelier {hanging from a tree|in a parking lot|at a bus shelter}",
+          "tags": [
+            "genre:modern"
+          ]
+        },
+        {
+          "text": "a grand piano {standing in a field|on a beach|in the middle of a road}",
+          "tags": []
+        },
+        {
+          "text": "a full suit of armor {standing at a bus stop|holding a briefcase|waiting at a crosswalk}",
+          "tags": [
+            "genre:historical",
+            "genre:fantasy",
+            "genre:modern"
+          ]
+        },
+        {
+          "text": "a rocket {standing in a backyard|on a trailer in a driveway|in a cornfield}",
+          "tags": [
+            "genre:sci_fi",
+            "genre:modern"
+          ]
+        },
+        {
+          "text": "a deep-sea diver in full gear {walking across a parking lot|at a diner|waiting for a bus}",
+          "tags": [
+            "genre:modern"
+          ]
+        },
+        {
+          "text": "a horse {waiting at a crosswalk|standing in a lobby|trotting through a store}",
+          "tags": [
+            "genre:modern"
+          ]
+        },
+        {
+          "text": "a panda {sitting at a cafe table|reading a menu|ordering politely}",
+          "tags": [
+            "genre:modern"
+          ]
+        },
+        {
+          "text": "a lighthouse {standing in a parking lot|in the middle of a field|casting its beam over a suburb}",
+          "tags": [
+            "genre:modern"
+          ]
+        }
+      ]
+    },
+    "cool": {
+      "description": "badass-to-ominous background presence — noir and sci-fi flavored stock",
+      "entries": [
+        {
+          "text": "a figure in a leather jacket {leaning against a lamppost|in the rain|watching the crowd}",
+          "tags": [
+            "genre:modern",
+            "genre:sci_fi"
+          ]
+        },
+        {
+          "text": "a motorcycle {parked nearby|chrome gleaming|engine still ticking}",
+          "tags": [
+            "genre:modern",
+            "genre:sci_fi",
+            "genre:post_apocalyptic"
+          ]
+        },
+        {
+          "text": "a stranger in sunglasses {at night|face half-lit|unmoving}",
+          "tags": [
+            "genre:modern",
+            "genre:sci_fi"
+          ]
+        },
+        {
+          "text": "a figure at the edge of the frame {face half-lit|in shadow|perfectly still}",
+          "tags": []
+        },
+        {
+          "text": "a detective in a trench coat {hat pulled low|in a doorway|nursing a coffee}",
+          "tags": [
+            "genre:modern",
+            "genre:sci_fi"
+          ]
+        },
+        {
+          "text": "a saxophonist {under a streetlight|on a fire escape|in a doorway}",
+          "tags": [
+            "genre:modern"
+          ]
+        },
+        {
+          "text": "a pool hustler {chalking a cue|in a smoky hall|at a back table}",
+          "tags": [
+            "genre:modern"
+          ]
+        },
+        {
+          "text": "a getaway car {idling|engine running|dark tinted windows}",
+          "tags": [
+            "genre:modern"
+          ]
+        },
+        {
+          "text": "a helicopter {circling overhead|a searchlight sweeping|low and slow}",
+          "tags": [
+            "genre:modern",
+            "genre:sci_fi"
+          ]
+        },
+        {
+          "text": "men in long coats {standing in a row|in the fog|at the end of a pier}",
+          "tags": [
+            "genre:modern",
+            "genre:historical"
+          ]
+        },
+        {
+          "text": "a black sedan {parked across the street|engine idling|tinted windows}",
+          "tags": [
+            "genre:modern",
+            "genre:sci_fi"
+          ]
+        },
+        {
+          "text": "a bodyguard {standing at a door|hands clasped|in a dark suit}",
+          "tags": [
+            "genre:modern"
+          ]
+        },
+        {
+          "text": "a figure in a fedora {at a cafe table|behind a newspaper|in a train station}",
+          "tags": [
+            "genre:modern"
+          ]
+        },
+        {
+          "text": "a gunslinger {in a duster|at a bar|quiet and still}",
+          "tags": [
+            "genre:western"
+          ]
+        },
+        {
+          "text": "a duelist {in white gloves|at dawn|checking a pocket watch}",
+          "tags": [
+            "genre:historical",
+            "genre:western"
+          ]
+        },
+        {
+          "text": "a man in a black turtleneck {in a diner|reading|in the corner}",
+          "tags": [
+            "genre:modern",
+            "genre:sci_fi"
+          ]
+        },
+        {
+          "text": "a race car driver {in a firesuit|leaning on a car|helmet under arm}",
+          "tags": [
+            "genre:modern"
+          ]
+        },
+        {
+          "text": "a stunt pilot {in a leather jacket|leaning against a biplane|goggles around the neck}",
+          "tags": [
+            "genre:modern",
+            "genre:sci_fi"
+          ]
+        },
+        {
+          "text": "a boxer {shadowboxing|in the corner of a gym|hands wrapped}",
+          "tags": [
+            "genre:modern"
+          ]
+        },
+        {
+          "text": "a mechanic {in grease-stained coveralls|leaning on a workbench|in a garage doorway}",
+          "tags": [
+            "genre:modern",
+            "genre:post_apocalyptic",
+            "genre:sci_fi"
+          ]
+        },
+        {
+          "text": "a dockworker {in a flat cap|at the pier|in the fog}",
+          "tags": [
+            "genre:modern",
+            "genre:historical",
+            "genre:age_of_sail"
+          ]
+        },
+        {
+          "text": "a woman in a long coat {smoking by a window|in a doorway|watching the street}",
+          "tags": [
+            "genre:modern",
+            "genre:sci_fi"
+          ]
+        },
+        {
+          "text": "a woman in a red dress {at the top of the stairs|in a doorway|unmoving in the crowd}",
+          "tags": [
+            "genre:modern",
+            "genre:sci_fi"
+          ]
+        },
+        {
+          "text": "a man with a briefcase handcuffed to his wrist {in a train station|at a hotel}",
+          "tags": [
+            "genre:modern"
+          ]
+        },
+        {
+          "text": "a man with a scar {in a booth|in the corner|watching the door}",
+          "tags": []
+        },
+        {
+          "text": "motorcycle stunt riders {wheelies|jumps|burnouts|formation riding}",
+          "tags": [
+            "genre:modern"
+          ]
+        },
+        {
+          "text": "a drag race {cars launching|burnout smoke|strip racing|speed}",
+          "tags": [
+            "genre:modern"
+          ]
+        },
+        {
+          "text": "a drift competition {sideways sliding|tire smoke|controlled chaos|motorsport}",
+          "tags": [
+            "genre:modern"
+          ]
+        },
+        {
+          "text": "a figure in a hoodie {in an alley|in the rain|standing very still}",
+          "tags": [
+            "genre:modern"
+          ]
+        },
+        {
+          "text": "a lone chess player {in a park|at a small table|against a stranger}",
+          "tags": []
+        }
+      ]
+    },
+    "dorky": {
+      "description": "earnest charm played straight — tourists, hobbyists, leagues, earnest energy",
+      "entries": [
+        {
+          "text": "a tourist family {mugging through photos|with matching fanny packs|checking a paper map}",
+          "tags": [
+            "genre:modern"
+          ]
+        },
+        {
+          "text": "a man with a selfie stick {at a landmark|turning in circles|documenting everything}",
+          "tags": [
+            "genre:modern"
+          ]
+        },
+        {
+          "text": "an amateur birdwatcher {with a field guide|binoculars on a strap|a notepad}",
+          "tags": [
+            "genre:modern"
+          ]
+        },
+        {
+          "text": "a train enthusiast {with a camera|noting numbers|in an anorak}",
+          "tags": [
+            "genre:modern"
+          ]
+        },
+        {
+          "text": "a model train club {setting up a layout|in a community hall|in matching polo shirts}",
+          "tags": [
+            "genre:modern"
+          ]
+        },
+        {
+          "text": "a stamp collector {at a show|with tweezers|at a table of albums}",
+          "tags": [
+            "genre:modern"
+          ]
+        },
+        {
+          "text": "a ham radio operator {with a headset|tuning dials|in a small shack}",
+          "tags": [
+            "genre:modern"
+          ]
+        },
+        {
+          "text": "a chess club {in a park|with portable boards|in folding chairs}",
+          "tags": []
+        },
+        {
+          "text": "a book club {on a lawn|with matching tote bags|in a circle}",
+          "tags": [
+            "genre:modern"
+          ]
+        },
+        {
+          "text": "a scrapbooking circle {with scissors and stickers|at a long table|sharing photos}",
+          "tags": [
+            "genre:modern"
+          ]
+        },
+        {
+          "text": "a cosplayer {practicing poses|adjusting a costume|consulting a reference photo}",
+          "tags": [
+            "genre:modern"
+          ]
+        },
+        {
+          "text": "a D&D group {with dice trays|with miniatures|in a back room}",
+          "tags": [
+            "genre:modern",
+            "genre:fantasy"
+          ]
+        },
+        {
+          "text": "a robot-building team {with soldering irons|wiring a bot|in a garage}",
+          "tags": [
+            "genre:modern",
+            "genre:sci_fi"
+          ]
+        },
+        {
+          "text": "a drone pilot {with goggles|at a park|flying practice circuits}",
+          "tags": [
+            "genre:modern",
+            "genre:sci_fi"
+          ]
+        },
+        {
+          "text": "a metal detectorist {with headphones|sweeping a beach|with a finds pouch}",
+          "tags": [
+            "genre:modern"
+          ]
+        },
+        {
+          "text": "a geocacher {with a GPS|peering under a bench|with a logbook}",
+          "tags": [
+            "genre:modern"
+          ]
+        },
+        {
+          "text": "a mushroom forager {with a basket|a field guide|kneeling in the grass}",
+          "tags": []
+        },
+        {
+          "text": "a history buff {with a camera|at a plaque|reading aloud}",
+          "tags": [
+            "genre:modern"
+          ]
+        },
+        {
+          "text": "a cornhole tournament {bean bags|in a backyard|brackets on a clipboard}",
+          "tags": [
+            "genre:modern"
+          ]
+        },
+        {
+          "text": "a trivia night {teams at tables|at a bar|buzzers in hand}",
+          "tags": [
+            "genre:modern"
+          ]
+        },
+        {
+          "text": "a bingo session {daubers in hand|cards spread out|called numbers}",
+          "tags": [
+            "genre:modern"
+          ]
+        },
+        {
+          "text": "a line dancing class {in boots|in a hall|following an instructor}",
+          "tags": [
+            "genre:modern",
+            "genre:western"
+          ]
+        },
+        {
+          "text": "a square dance {a caller shouting|checked shirts|in a barn}",
+          "tags": [
+            "genre:modern",
+            "genre:western"
+          ]
+        },
+        {
+          "text": "a karaoke bar {amateur singers|with a songbook|at a small stage}",
+          "tags": [
+            "genre:modern"
+          ]
+        },
+        {
+          "text": "a community theater rehearsal {actors with scripts|blocking on stage|in a community hall}",
+          "tags": [
+            "genre:modern"
+          ]
+        },
+        {
+          "text": "a knitting circle {with yarn bags|in a cafe|counting stitches}",
+          "tags": []
+        },
+        {
+          "text": "a homebrew competition {numbered bottles|judges sipping|at a community center}",
+          "tags": [
+            "genre:modern"
+          ]
+        },
+        {
+          "text": "a pickleball game {with paddles|on a converted court|between neighbors}",
+          "tags": [
+            "genre:modern"
+          ]
+        },
+        {
+          "text": "a disc golf course {players with discs|through the park|at the baskets}",
+          "tags": [
+            "genre:modern"
+          ]
+        },
+        {
+          "text": "a mini golf course {a windmill obstacle|putters and balls|in neon light}",
+          "tags": [
+            "genre:modern"
+          ]
+        },
+        {
+          "text": "a bowling league {in matching shirts|team names on the back|at the lanes}",
+          "tags": [
+            "genre:modern"
+          ]
+        },
+        {
+          "text": "a croquet game {with mallets|in a backyard|with wickets}",
+          "tags": [
+            "genre:modern",
+            "genre:historical"
+          ]
+        },
+        {
+          "text": "a model rocket launch {in a field|with a countdown|kids watching}",
+          "tags": [
+            "genre:modern",
+            "genre:sci_fi"
+          ]
+        },
+        {
+          "text": "an astronomy club {with telescopes|in a field at dusk|pointing at the sky}",
+          "tags": [
+            "genre:modern",
+            "genre:sci_fi"
+          ]
+        }
+      ]
+    },
+    "elegant": {
+      "description": "high-register dress played straight — gowns, black tie, gala-goers, old money",
+      "entries": [
+        {
+          "text": "red carpet starlets {in dramatic floor-length designer gowns|with high leg slits}",
+          "tags": [
+            "genre:modern"
+          ]
+        },
+        {
+          "text": "glitzy pageant queens {in elaborate evening gowns|with glittering tiaras|in satin winner's sashes}",
+          "tags": [
+            "genre:modern"
+          ]
+        },
+        {
+          "text": "Monaco yacht guests {in crisp white linen|with oversized sun hats|with designer sunglasses}",
+          "tags": [
+            "genre:modern"
+          ]
+        },
+        {
+          "text": "noir lounge singers {in silk high-slit gowns|with satin opera gloves}",
+          "tags": [
+            "genre:modern",
+            "genre:sci_fi"
+          ]
+        },
+        {
+          "text": "apres-ski socialites {with oversized designer sunglasses|in luxury puffer jackets|with faux-fur boots}",
+          "tags": [
+            "genre:modern"
+          ]
+        },
+        {
+          "text": "Havana nightclub patrons {in vibrant tropical print dresses|with ruffled skirts|with vintage updos}",
+          "tags": [
+            "genre:modern"
+          ]
+        },
+        {
+          "text": "a debutante ball {young women in white gowns|escorts in black tie|a grand staircase}",
+          "tags": [
+            "genre:modern",
+            "genre:historical"
+          ]
+        },
+        {
+          "text": "an opera crowd {evening gowns and tuxedos|the grand staircase|during intermission}",
+          "tags": [
+            "genre:modern",
+            "genre:historical"
+          ]
+        },
+        {
+          "text": "a charity gala {black tie|auction paddles|a glittering ballroom}",
+          "tags": [
+            "genre:modern"
+          ]
+        },
+        {
+          "text": "an old-money family {in linen and seersucker|on a veranda|with a silver tea set}",
+          "tags": [
+            "genre:historical",
+            "genre:modern"
+          ]
+        },
+        {
+          "text": "a polo match crowd {in pastel dresses|with wide-brimmed hats|champagne in hand}",
+          "tags": [
+            "genre:modern",
+            "genre:historical"
+          ]
+        },
+        {
+          "text": "a yacht club dock party {members in blazers|white trousers|moored boats}",
+          "tags": [
+            "genre:modern"
+          ]
+        },
+        {
+          "text": "a vineyard tasting {in elegant attire|swirling glasses|on a terrace}",
+          "tags": [
+            "genre:modern"
+          ]
+        },
+        {
+          "text": "a museum opening {in gowns and tuxedos|in front of a velvet rope|with cocktails}",
+          "tags": [
+            "genre:modern"
+          ]
+        },
+        {
+          "text": "a society wedding {hats and gloves|a white marquee|a string quartet}",
+          "tags": [
+            "genre:modern",
+            "genre:historical"
+          ]
+        },
+        {
+          "text": "a bridge club {in pearls|at card tables|in a drawing room}",
+          "tags": [
+            "genre:modern",
+            "genre:historical"
+          ]
+        },
+        {
+          "text": "a race day crowd {in fascinators|with betting slips|at the paddock}",
+          "tags": [
+            "genre:modern",
+            "genre:historical"
+          ]
+        },
+        {
+          "text": "a masquerade ball {masks and velvet|a candlelit hall|feathers and jewels}",
+          "tags": [
+            "genre:historical",
+            "genre:fantasy",
+            "genre:modern"
+          ]
+        },
+        {
+          "text": "a high tea {tiered stands|a grand hotel lobby|ladies in gloves}",
+          "tags": [
+            "genre:modern",
+            "genre:historical"
+          ]
+        },
+        {
+          "text": "a jazz-age party {flapper dresses|feather headbands|a speakeasy band}",
+          "tags": [
+            "era:1920s",
+            "genre:modern"
+          ]
+        },
+        {
+          "text": "a Regency promenade {bonnets and tailcoats|in a park|strolling at a measured pace}",
+          "tags": [
+            "era:1810s",
+            "genre:historical"
+          ]
+        },
+        {
+          "text": "a Viennese waltz evening {ball gowns|a glittering hall|a live orchestra}",
+          "tags": [
+            "genre:historical",
+            "genre:modern"
+          ]
+        },
+        {
+          "text": "an elegant older woman {in a tailored tweed suit|with a pearl necklace|at a cafe}",
+          "tags": [
+            "genre:modern"
+          ]
+        },
+        {
+          "text": "a sommelier {in a cellar|decanting wine|a tastevin at the chest}",
+          "tags": [
+            "genre:modern",
+            "genre:historical"
+          ]
+        },
+        {
+          "text": "a butler in tails {standing at a door|with a silver tray|in a grand hallway}",
+          "tags": [
+            "genre:modern",
+            "genre:historical"
+          ]
+        },
+        {
+          "text": "a chauffeur in livery {holding a door|beside a long black car}",
+          "tags": [
+            "genre:modern"
+          ]
+        },
+        {
+          "text": "a gallery owner in black {at an opening|with a wine glass|by the entrance}",
+          "tags": [
+            "genre:modern"
+          ]
+        },
+        {
+          "text": "a Palm Springs tennis crowd {in retro pleated skirts|with visor caps|on the clubhouse terrace}",
+          "tags": [
+            "genre:modern"
+          ]
+        }
+      ]
+    }
+  },
+  "treatments": {
+    "satire": {
+      "generic_humiliation": [
+        "stumbling ungracefully",
+        "tripping over a curb",
+        "losing grip on a prop",
+        "a shoelace coming undone at the worst moment",
+        "slipping on a wet patch",
+        "marching confidently in the wrong direction",
+        "a hat blowing off in the wind",
+        "fumbling for keys",
+        "dropping something important",
+        "a cellphone falling from a pocket",
+        "getting tangled in a coat",
+        "a gust of wind ruining the moment",
+        "stepping in a puddle",
+        "a chair collapsing underneath",
+        "a dog pulling them off balance",
+        "caught mid-sneeze",
+        "glasses sliding off a nose",
+        "spinning around looking for the source of a sound",
+        "a bird landing on a head",
+        "getting stuck in a revolving door"
+      ],
+      "by_category": {
+        "wholesome": [
+          "getting into a fistfight over a parking spot",
+          "arguing loudly with a stranger",
+          "cutting in line and daring anyone to object",
+          "giving a passing car an aggressive gesture",
+          "yelling at children for no reason",
+          "making an obscene gesture at a neighbor",
+          "elbowing through a crowd",
+          "berating a barista over the foam",
+          "throwing a tantrum mid-sentence",
+          "screaming at a pigeon",
+          "in a heated argument with a mannequin",
+          "kicking a vending machine"
+        ],
+        "militant": {
+          "humiliation": [
+            "an aide stumbling ungracefully",
+            "a commander's hat blowing off mid-speech",
+            "a soldier tripping on a curb during the drill",
+            "a salute aimed the wrong way",
+            "a checklist fluttering away in the wind",
+            "a radio crackling with static at the worst moment",
+            "a belt buckle giving way",
+            "a boot coming off in the mud",
+            "a formation marching into a low-hanging branch",
+            "a stern order delivered in a squeaky voice"
+          ],
+          "tender_inversion": [
+            "lavish attention on a small animal",
+            "crocheting a large scarf",
+            "knitting between patrols",
+            "hand-feeding a stray cat",
+            "pressing a flower into a field journal",
+            "darning socks with great care",
+            "tucking a teddy bear into a pocket",
+            "humming a lullaby at attention",
+            "polishing a teacup with great ceremony",
+            "collecting wildflowers in a helmet"
+          ]
+        },
+        "sexy": [
+          "caught mid-LARP",
+          "stumbling and falling ungracefully",
+          "a hair extension swinging loose",
+          "a heel snapping off mid-stride",
+          "a strap slipping at the worst moment",
+          "wind plastering hair across the face",
+          "a sudden sneeze ruining the pose",
+          "a tan line revealed at the worst moment",
+          "a seagull stealing a snack",
+          "getting drenched by a passing truck",
+          "a giant bug landing on an arm",
+          "tripping over a camera cable",
+          "posing perfectly into a sprinkler"
+        ],
+        "cool": [
+          "walking into a lamppost",
+          "coughing mid-puff",
+          "a chair tipping over while leaning back",
+          "the motorcycle refusing to start",
+          "a pigeon landing on a shoulder",
+          "the collar flipped up against a breeze that isn't there",
+          "sunglasses falling off mid-stare",
+          "a voice crack in the middle of a one-liner",
+          "a jacket sleeve caught in a car door",
+          "the dramatic exit door being locked",
+          "a wallet chain caught on a railing",
+          "dramatically walking into a closed door"
+        ],
+        "dorky": [
+          "nailing a heroic pose by accident",
+          "the map reading turning out to be correct",
+          "accidentally catching a dropped item with one hand",
+          "a stumble turning into a smooth step",
+          "the fanny pack catching the light just right",
+          "looking genuinely cool in the photo they fumbled for",
+          "a selfie stick extended at an accidentally dramatic angle",
+          "the wind catching a poncho like a cape",
+          "an accidental silhouette against the sunset",
+          "the double-take from a stranger being admiration",
+          "a shoe flick caught mid-air",
+          "flailing arms landing in a perfect gesture"
+        ],
+        "elegant": [
+          "a gown caught in a car door",
+          "a toupee askew",
+          "a champagne tragedy",
+          "a champagne tower toppling",
+          "a heel sinking into a lawn",
+          "a train stepped on by an escort",
+          "a tiara sliding sideways",
+          "a monocle dropping into a drink",
+          "a glove snapped off by a door handle",
+          "pearls scattering across the floor",
+          "a lipstick smudge discovered too late",
+          "mispronouncing the host's name",
+          "a glass shattered by a toast",
+          "an umbrella turning inside out in a gust"
+        ]
+      }
+    },
+    "chaotic": {
+      "generic": [
+        "a sudden downpour sending everyone running",
+        "an alarm blaring from a nearby building",
+        "a flock of birds bursting into the air",
+        "a loose dog tearing through the crowd",
+        "a firecracker going off nearby",
+        "a car backfiring like a gunshot",
+        "a spotlight swinging wildly",
+        "a table overturning with everything on it",
+        "shattering glass somewhere nearby",
+        "a sudden rush toward one spot",
+        "a freight train horn blasting through",
+        "a power line sparking overhead"
+      ],
+      "by_category": {
+        "wholesome": [
+          "a cupcake tower collapsing into the crowd",
+          "an unholy amount of glitter everywhere",
+          "a sprinkler turning on mid-event",
+          "a balloon popping with a bang",
+          "a pie launched across the room",
+          "face paint smearing into a rainbow disaster",
+          "a bounce house slowly deflating",
+          "a cake landing face-first on the ground",
+          "confetti cannons firing at the wrong moment",
+          "the puppet show erupting into shouting",
+          "a tug of war rope snapping",
+          "a full-on food fight breaking out"
+        ],
+        "militant": [
+          "a drill turning into a full-on charge",
+          "a checkpoint descending into a shouting match",
+          "a mock standoff with rifles raised",
+          "a vehicle doing a sudden 180 in the street",
+          "smoke grenades going off across the square",
+          "a formation scattering for cover at a loud noise",
+          "an armored vehicle flooring it through the intersection",
+          "a salute turning into a shoving match",
+          "orders barked over a blaring siren",
+          "a helicopter banking sharply overhead",
+          "a roadblock thrown together in seconds",
+          "boots thundering in a synchronized charge"
+        ],
+        "sexy": [
+          "a crowd forming instantly around them",
+          "a passing car full of people hollering",
+          "phone cameras everywhere",
+          "a stranger proposing mid-scene",
+          "a photobomb turning into a mob",
+          "a crowd pressing against the glass",
+          "a flash mob forming around them",
+          "cars slowing to gawk",
+          "an impromptu catwalk forming down the sidewalk",
+          "whistles from every direction",
+          "a paparazzi scrum materializing out of nowhere",
+          "a fan rushing the scene"
+        ],
+        "cool": [
+          "a series of explosions somewhere off-frame",
+          "a car chase tearing past",
+          "tires screeching in the distance",
+          "a helicopter thundering low over the rooftops",
+          "debris raining from a rooftop",
+          "a motorcycle vaulting over a ramp mid-street",
+          "the street flooding in a torrent",
+          "a building facade crumbling somewhere behind them",
+          "a car on fire rolling past",
+          "sparks showering from a grinding collision",
+          "a chase on foot cutting through the crowd",
+          "a brawl flaring up at the scene's edge",
+          "a spotlight sweeping across and locking on them"
+        ],
+        "dorky": [
+          "everyone joining the demonstration at once",
+          "the whole block joining in",
+          "a chorus of happy shouting",
+          "applause and cheering from strangers",
+          "a line forming instantly behind them",
+          "the group hug becoming a pile",
+          "enthusiasm spilling into the street",
+          "a chant starting up that everyone knows",
+          "handshakes and high-fives cascading",
+          "an impromptu parade forming",
+          "the game expanding to include everyone nearby",
+          "a sea of thumbs-ups"
+        ],
+        "elegant": [
+          "a chandelier crashing into the punch bowl",
+          "a music stand collapsing mid-aria",
+          "a gown tearing from hem to hip",
+          "the cake toppling off the tiered stand",
+          "a valet driving the wrong car into the fountain",
+          "a champagne tower collapsing in slow motion",
+          "the floor shaking from a sudden stampede",
+          "a parrot landing in the middle of a toast",
+          "a souffle deflating with the room watching",
+          "the guest of honor dunked in the fountain",
+          "a fight breaking out over the seating chart",
+          "the red carpet rolling up with someone still on it"
+        ]
+      }
+    }
+  },
+  "review_flags": [
+    "dwarf troupe (legacy) — explicitly flagged in spec: sensitive framing, not ported",
+    "Named protest/political events (Pride parade, veterans parade, women's march, climate march, Black Lives Matter march, March for Our Lives, Tea Party rally, Occupy protest, union rally, peace rally, strike picket, sit-in, die-in, march on Washington) — politically specific; kept only the generic 'protest march' in accurate",
+    "Religious ceremonies (nativity scene, menorah lighting, Kwanzaa, Diwali, Chinese New Year, Day of the Dead, Carnival, Mardi Gras, Oktoberfest, religious procession, pilgrimage, monks in procession, bar mitzvah, quinceanera, religious ceremony in progress) — religiously/culturally specific per spec; not ported",
+    "Native Americans in traditional dress (ceremony/regalia), hoop dancers 'Native performance', geishas tea ceremony — specific regalia/ceremony per spec; not ported",
+    "Torture/execution devices (guillotine, gallows, iron maiden, rack, stocks/stockade, battering ram, catapult, trebuchet) — violent/horror imagery unsuitable for ambient cameos",
+    "'Hot Bitch' legacy entry — crude/derogatory naming; concept (attitude-dressed women) salvageable in a later pass",
+    "Bachelorette party with male stripper / bachelor party with strip club — explicit adult-venue content; not ported (kept generic 'wedding party')",
+    "Uncle Sam recruiting — political iconography; not ported",
+    "Grim Reaper / Death personified — death iconography; taste call deferred",
+    "Macy's balloons, Philly Phanatic vs Gritty, WWE, X Games, Goodyear — trademarks; genericized (hot air balloons, mascots battling) or dropped",
+    "Gender reveal party — modern culturally-charged trope; taste call deferred",
+    "Exotic animals 'performing' (animal acts) — animal-welfare sensitivity; only neutral animal scenes ported",
+    "Organ grinder 'with a monkey' — dropped the monkey, kept the period street musician",
+    "Holiday-specific: pumpkin carvers kept (Halloween decor is universal); nativity/menorah kept out per religious-ceremony rule",
+    "Sexy pool keeps 'the Swedish bikini team' and 'bunny suits' as genericized archetypes — brand-adjacent (Old Milwaukee ads, Playboy) but widely parodied stock; rename if needed",
+    "Absurd pool keeps stormtroopers, Godzilla-style, Cthulhu-esque, Loch Ness Monster, Bigfoot — trademark/pop-culture genre stock; swap if licensing-sensitive"
+  ]
+}

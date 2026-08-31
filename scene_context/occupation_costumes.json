@@ -1,0 +1,337 @@
+{
+  "version": 1,
+  "roles": [
+    "barista",
+    "bartender",
+    "blacksmith",
+    "chef",
+    "courier",
+    "dancer",
+    "dockworker",
+    "drifter",
+    "engineer",
+    "farmer",
+    "fisher",
+    "florist",
+    "healer",
+    "innkeeper",
+    "leader",
+    "librarian",
+    "line cook",
+    "maid",
+    "mechanic",
+    "musician",
+    "night guard",
+    "nurse",
+    "official",
+    "painter",
+    "ranch hand",
+    "scholar",
+    "sommelier",
+    "surveyor",
+    "tailor",
+    "teacher",
+    "warrior",
+    "worker"
+  ],
+  "costumes": {
+    "barista": {
+      "garments": [
+        "a canvas apron over a plain denim shirt"
+      ],
+      "accessories": [
+        "a folded linen towel hooked at the waist"
+      ]
+    },
+    "bartender": {
+      "garments": [
+        "a black waistcoat",
+        "a plain white shirt",
+        "a pair of dark trousers"
+      ],
+      "accessories": [
+        "a clean bar towel draped over one shoulder"
+      ]
+    },
+    "blacksmith": {
+      "garments": [
+        "a leather apron over a coarse linen shirt",
+        "a pair of rolled canvas trousers"
+      ],
+      "accessories": [
+        "a pair of heavy leather work gloves"
+      ]
+    },
+    "chef": {
+      "garments": [
+        "a white chef's jacket",
+        "a pair of plain black trousers"
+      ],
+      "accessories": [
+        "a folded neckerchief tied at the collar"
+      ]
+    },
+    "courier": {
+      "garments": [
+        "a satin bomber",
+        "a pair of cargo pants with patched knees"
+      ],
+      "accessories": [
+        "a messenger bag slung across the chest"
+      ]
+    },
+    "dancer": {
+      "garments": [
+        "a leather mini skirt",
+        "a fitted crop top in deep teal"
+      ],
+      "accessories": [
+        "statement earrings as chandeliers"
+      ]
+    },
+    "dockworker": {
+      "garments": [
+        "a thick canvas work jacket",
+        "a pair of salt-stained denim trousers"
+      ],
+      "accessories": [
+        "a wool watch cap"
+      ]
+    },
+    "drifter": {
+      "garments": [
+        "a heavy wool overcoat with a patched elbow",
+        "a pair of worn denim trousers"
+      ],
+      "accessories": [
+        "a battered satchel strap across the chest",
+        "a bandana tied at the neck"
+      ]
+    },
+    "engineer": {
+      "garments": [
+        "a collared shirt with a pocket protector",
+        "a pair of straight-leg khaki trousers"
+      ],
+      "accessories": [
+        "a hard hat",
+        "a pencil tucked behind one ear"
+      ]
+    },
+    "farmer": {
+      "garments": [
+        "a faded chambray shirt",
+        "a pair of sturdy denim overalls"
+      ],
+      "accessories": [
+        "a wide straw hat",
+        "a red bandana at the neck"
+      ]
+    },
+    "fisher": {
+      "garments": [
+        "a heavy oilskin coat",
+        "a pair of rubber hip waders"
+      ],
+      "accessories": [
+        "a wide-brimmed rain hat"
+      ]
+    },
+    "florist": {
+      "garments": [
+        "a moss-green apron over a plain cotton blouse",
+        "a pair of dark denim trousers"
+      ],
+      "accessories": [
+        "a pair of pruning shears clipped to the waist",
+        "a sprig of baby's breath behind one ear"
+      ]
+    },
+    "healer": {
+      "garments": [
+        "a loose linen robe in pale sage",
+        "a simple cotton tunic"
+      ],
+      "accessories": [
+        "a drawstring herb pouch at the belt"
+      ]
+    },
+    "innkeeper": {
+      "garments": [
+        "a wool vest over a homespun shirt",
+        "a pair of plain brown trousers"
+      ],
+      "accessories": [
+        "a brass key ring at the belt"
+      ]
+    },
+    "leader": {
+      "garments": [
+        "a long wool coat with brass buttons",
+        "a pair of dark tailored trousers"
+      ],
+      "accessories": [
+        "a brass signet ring on one finger"
+      ]
+    },
+    "librarian": {
+      "garments": [
+        "a cardigan in dusty rose over a collared blouse",
+        "a long tweed skirt"
+      ],
+      "accessories": [
+        "a pair of reading glasses on a beaded chain"
+      ]
+    },
+    "line cook": {
+      "garments": [
+        "a waffle-knit henley",
+        "a pair of dark work trousers"
+      ],
+      "accessories": [
+        "a striped kitchen towel tucked at the waist"
+      ]
+    },
+    "maid": {
+      "garments": [
+        "a plain black dress",
+        "a crisp white pinafore apron"
+      ],
+      "accessories": [
+        "a feather duster tucked under one arm"
+      ]
+    },
+    "mechanic": {
+      "garments": [
+        "a navy zip-up coverall"
+      ],
+      "accessories": [
+        "a red shop rag hanging from a pocket"
+      ]
+    },
+    "musician": {
+      "garments": [
+        "a loose t-shirt",
+        "a pair of patched denim jeans"
+      ],
+      "accessories": [
+        "a guitar pick on a leather cord"
+      ]
+    },
+    "night guard": {
+      "garments": [
+        "a dark wool uniform coat",
+        "a pair of plain black trousers"
+      ],
+      "accessories": [
+        "a flashlight clipped to the belt",
+        "a brass whistle on a cord"
+      ]
+    },
+    "nurse": {
+      "garments": [
+        "a nurse's uniform dress in pale blue with white piping"
+      ],
+      "accessories": [
+        "a stethoscope looped around the neck",
+        "a fob watch pinned to the collar"
+      ]
+    },
+    "official": {
+      "garments": [
+        "a tailored dark suit",
+        "a crisp white shirt"
+      ],
+      "accessories": [
+        "a leather satchel slung across the body",
+        "a brass lapel pin"
+      ]
+    },
+    "painter": {
+      "garments": [
+        "a painter's jacket",
+        "a pair of paint-spattered linen trousers"
+      ],
+      "accessories": [
+        "a brush tucked behind one ear"
+      ]
+    },
+    "ranch hand": {
+      "garments": [
+        "a faded denim work shirt",
+        "a pair of sturdy denim jeans"
+      ],
+      "accessories": [
+        "a wide-brimmed felt hat",
+        "a pair of leather work gloves"
+      ]
+    },
+    "scholar": {
+      "garments": [
+        "a dark wool robe",
+        "a plain linen undershirt"
+      ],
+      "accessories": [
+        "a leather satchel strap across the chest",
+        "an ink-stained quill tucked behind one ear"
+      ]
+    },
+    "sommelier": {
+      "garments": [
+        "a black apron",
+        "a crisp white shirt",
+        "a pair of dark trousers"
+      ],
+      "accessories": [
+        "a tastevin cup on a chain at the neck"
+      ]
+    },
+    "surveyor": {
+      "garments": [
+        "a high-vis vest over a plain work shirt",
+        "a pair of khaki trousers"
+      ],
+      "accessories": [
+        "a brass compass on a lanyard"
+      ]
+    },
+    "tailor": {
+      "garments": [
+        "a charcoal waistcoat over a plain shirt",
+        "a pair of dark wool trousers"
+      ],
+      "accessories": [
+        "a measuring tape draped around the neck",
+        "a pincushion strapped to one wrist"
+      ]
+    },
+    "teacher": {
+      "garments": [
+        "a tweed blazer with suede elbow patches",
+        "a pair of plain wool trousers"
+      ],
+      "accessories": [
+        "a pair of half-moon reading glasses"
+      ]
+    },
+    "warrior": {
+      "garments": [
+        "a studded leather jerkin",
+        "a pair of thick canvas trousers"
+      ],
+      "accessories": [
+        "a sword belt at the waist",
+        "a scarred metal armband"
+      ]
+    },
+    "worker": {
+      "garments": [
+        "a sturdy cotton work shirt",
+        "a pair of heavy canvas trousers"
+      ],
+      "accessories": [
+        "a leather tool belt at the waist"
+      ]
+    }
+  }
+}
