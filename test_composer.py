@@ -10,6 +10,7 @@ Run:
     python3 test_composer.py --setting harbor_tavern
     python3 test_composer.py --genre modern --n 20
     python3 test_composer.py --composition face_off --tone violent
+    python3 test_composer.py --cast 2 --ambient "a giant rubber duck floating impossibly large"
 """
 
 import argparse
@@ -21,6 +22,13 @@ import sys
 sys.path.insert(0, os.path.dirname(__file__))
 
 from scene_context_composer import SceneContextComposer, RANDOM, NONE_OPT
+
+CAST_SAMPLES = [
+    "a tall woman in a weathered duster",
+    "a wiry man with rope-scarred hands",
+    "an older woman in mechanic's coveralls",
+    "a broad-shouldered sailor in a knit cap",
+]
 
 
 def main():
@@ -36,6 +44,15 @@ def main():
     parser.add_argument("--composition", default=RANDOM)
     parser.add_argument("--n", type=int, default=10, help="Number of samples")
     parser.add_argument("--seed", type=int, default=None, help="Master seed")
+    parser.add_argument(
+        "--cast", type=int, default=0,
+        help="Wire N sample characters with pose+positioning staging "
+             "(exercises the _stage_characters path)",
+    )
+    parser.add_argument(
+        "--ambient", default="",
+        help="Wire this ambient fragment (exercises the ambient slot)",
+    )
     args = parser.parse_args()
 
     rng = random.Random(args.seed)
@@ -50,12 +67,24 @@ def main():
 
     for i in range(args.n):
         seed = rng.randrange(2**32)
+        kwargs = {}
+        if args.cast:
+            kwargs["pose"] = True
+            kwargs["positioning"] = True
+            for j in range(args.cast):
+                kwargs[f"character_{j + 1}"] = CAST_SAMPLES[j % len(CAST_SAMPLES)]
+        if args.ambient:
+            kwargs["ambient"] = args.ambient
         ctx, rp, cj, _ = compose(
             None, args.genre, args.genre2, args.tone,
-            args.setting, args.composition, seed,
+            args.setting, args.composition, seed, **kwargs,
         )
         c = json.loads(cj)
         notes = []
+        if args.cast:
+            notes.append(f"cast {args.cast} staged")
+        if args.ambient:
+            notes.append("ambient wired")
         if c["archetype_narrowed"]:
             notes.append("archetype gated the pool")
         if c["genre_narrowed"]:

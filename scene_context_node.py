@@ -154,9 +154,10 @@ def _decorate_cast(chars, rng, pool_key):
         if len(chars) <= len(feats)
         else [rng.choice(feats) for _ in chars]
     )
+    phrases = [p if isinstance(p, str) else p.get("text", "") for p in picks]
     return [
-        f"{c}, {p}" if p not in c else c
-        for c, p in zip(chars, picks)
+        f"{c}, {p}" if p and p not in c else c
+        for c, p in zip(chars, phrases)
     ]
 
 
