@@ -246,3 +246,25 @@ fallback; no hard locks (same law as personas). Unifying line, Alexander's:
 - Alexander gave the window ("Let's deploy, I'll restart"). Wave md5-verified post-copy: roller (v2 personas/authenticity), composer (ambient slot), scene_ambient.py (new), __init__.py (4 nodes), personas.json + ambient_banks_draft.json (new data). heat was SAME (v1.1 already live; no-op). All six test harnesses shipped for pack self-consistency; scene_context drift sweep clean. Backups: /tmp/deploy-backup-v2-144705/.
 - Deploy lesson: cp -p TO /mnt/e aborts (drvfs rejects utimes) — plain cp, md5 gate. First pass died mid-wave on this; idempotent re-copy recovered cleanly.
 - Live verification pending Alexander's restart: object_info must show SceneAmbientActivity + composer ambient input; then smoke roll.
+
+## Amendment 2026-08-31 — authenticity dial → character register
+
+Alexander split the old dial's two jobs: **picture stylization** (how the
+image is drawn — parked as a future composer knob) vs **character register**
+(what the character IS in the frame — his four-pirate test). The register
+subsumes the dial: documentary→authentic, stylized→costume, cinematic→none.
+
+- **authentic** — the real thing. Wear up, marks up; full-rig reads UNIFORM.
+  family_wear: fine families (evening, office) keep their clothes.
+- **pulp** — romanticized. Scars become backstory, swagger in every seam.
+- **costume** — a person in costume. Pristine, props, reads COSTUME.
+- **cartoon** — drawn for Saturday morning. Pristine, marks rare, one
+  exaggeration clause. Ceiling: sheet words can't bend the render style.
+- **none** — fair dice, silent sheet. Consumes zero draws; byte-identical
+  to the plain sheet at the same seed.
+- **random** — per-character draw; mixed-register crowds come free.
+
+Data in `scene_context/character_registers.json` (sentence pools, tilts,
+uniform coin, family_wear); the roller only composes. Sentence rides
+second in the sheet, drawn LAST. Breaking change: `authenticity` removed;
+old seeds die.

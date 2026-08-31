@@ -48,11 +48,13 @@ Axes:
         garments, wear states, build — via multipliers in
         personas.json. Soft affinity, never a lock. official is
         retired (split leader/worker, Alexander 2026-08-30).
-    Authenticity — stylized / cinematic (baseline) / documentary.
-        Multiplier layer over wear and marks; gates the persona's
-        uniform-look coin (rare stylized, common documentary, where
-        it reads as UNIFORM — flat, utilitarian — not costume). No
-        new phrase banks.
+    Character register — none (baseline) / authentic / pulp /
+        costume / cartoon (+ random). What the character IS in the
+        frame: a direct identification sentence rides second in the
+        sheet, plus multipliers over wear and marks, the persona's
+        uniform-look coin (authentic reads it as UNIFORM — flat,
+        utilitarian — not costume), and per-family wear overrides.
+        All data lives in scene_context/character_registers.json.
 
 Name: a single optional string — "Abigail, an older white woman, a
 weathered sea captain in a heavy oilskin coat". A binding handle for
@@ -162,12 +164,23 @@ def _role_options():
     return ["any"] + sorted(_load_personas())
 
 
-AUTH_OPTIONS = ["stylized", "cinematic", "documentary"]
-_AUTH_LEVEL = {"stylized": 0, "cinematic": 1, "documentary": 2}
-# Uniform-look coin by authenticity level: stylized suppresses,
-# documentary boosts — the flat, utilitarian reading (12:22).
-_UNIFORM_P = {0: 0.05, 1: 0.25, 2: 0.6}
-_MARKS_MULT = {0: 0.5, 1: 1.0, 2: 1.5}
+REGISTER_OPTIONS = ["random", "none", "authentic", "pulp", "costume",
+                    "cartoon"]
+# Character register (Alexander, 2026-08-31): what the character IS
+# in the frame. Sentences, wear/marks tilts, the uniform-look coin
+# and per-family wear overrides live in
+# scene_context/character_registers.json — data, not code. The old
+# authenticity dial maps documentary->authentic, stylized->costume,
+# cinematic->none.
+_REGISTER_PATH = os.path.join(CONTEXT_DIR, "character_registers.json")
+_REG_CACHE = {"data": None}
+
+
+def _load_registers():
+    if _REG_CACHE["data"] is None:
+        with open(_REGISTER_PATH, encoding="utf-8") as f:
+            _REG_CACHE["data"] = json.load(f)["registers"]
+    return _REG_CACHE["data"]
 
 # Coarse persona intents -> real bank vocabulary. Seeded judgment
 # calls, same status as the personas.json weights: refine against
@@ -483,8 +496,8 @@ class SceneCharacterRoller:
                     "tooltip": "Corroboration dial for the build — the trait diffusion under-reads. low = one independent restatement rides in the body sentence ('a lean build, no wasted weight on them'); high = two. Adds angles, never intensifiers: 'very lean' does nothing, a second physical observation does. Same seed + off reproduces the plain register exactly."}),
                 "heat": (["off", "suggestive", "flirty", "smoldering"], {"default": "off",
                     "tooltip": "Heat dial — silhouette & reveal only, never color or material. off = the plain register (zero extra draws; same seed, same string). suggestive = one garment gains a fit-and-fabric state ('pulled taut across the chest'). flirty = one explicit reveal ('cropped above the navel'). smoldering = two garments at the hottest states — steamy-but-clothed by design (FlatDeep-safe). With pose on, the posture draw comes from the heat register instead. Needs garments to touch: pair with body_detail=high for the full effect."}),
-                "authenticity": (AUTH_OPTIONS, {"default": "cinematic",
-                    "tooltip": "Register dial. stylized = pristine up, marks down, uniform looks rare. cinematic = the v2 baseline. documentary = worn up, marks up; the persona's uniform look fires often and reads as UNIFORM — flat, utilitarian — rather than costume. Multiplier layer only; no new phrase banks."}),
+                "character_register": (REGISTER_OPTIONS, {"default": "none",
+                    "tooltip": "🎲 What this character IS in the frame — the sheet says it in words and the dice follow. none = fair dice, silent sheet (the old cinematic). authentic = the real thing — wear up, marks up, but fine families (evening, office) keep their clothes; a role's full-rig reads as UNIFORM. pulp = romanticized — scars become backstory, swagger in every seam. costume = a person in costume — pristine, props, reads as COSTUME. cartoon = drawn for Saturday morning — pristine, marks rare, one exaggeration clause (known ceiling: sheet words can't bend the render style). random = rolls a mode per character, so mixed-register crowds come free. Retired dial mapping: documentary→authentic, stylized→costume, cinematic→none. Old seeds die."}),
                 "body_type": (["random"] + [e["text"] for e in _load_features()["build"]],
                     {"default": "random",
                      "tooltip": "🎲 random rolls the build archetype each time; physique children (chest/legs/arms at body detail low/high) weight toward the drawn parent. A fixed value (muscular, willowy, heavyset…) forces the parent every roll — a distinct set of characters. Children stay soft-influenced, never locked."}),
@@ -514,27 +527,33 @@ class SceneCharacterRoller:
     def roll(self, genre, consistency, face_detail, body_detail, body_type,
              role, name, pose, positioning, seed, age, sex, race,
              hair_mode="modular", emphasis="off", heat="off",
-             authenticity="cinematic"):
+             character_register="none"):
         rng = random.Random(seed)
         families = _load_wardrobe()
 
         # Persona weight layer (v2). Dict work only — consumes no rng,
         # so the draw ORDER below is the plain register's order.
         persona = {} if role == "any" else _load_personas().get(role, {})
-        auth = _AUTH_LEVEL[authenticity]
+        # Register mode — resolved first so "random" costs exactly
+        # one draw, here, before everything else. Any fixed mode
+        # costs nothing: same seed, same plain content.
+        _reg_mode = character_register
+        if _reg_mode == "random":
+            _reg_mode = rng.choice([m for m in REGISTER_OPTIONS
+                                    if m != "random"])
+        _reg = _load_registers().get(_reg_mode, {})
         fam_leans = persona.get("family_leans", {})
         gar_leans = persona.get("garment_leans", {})
         feat_leans = persona.get("feature_leans", {})
         wear_leans = dict(persona.get("wear_leans", {}))
-        if auth == 0:
-            wear_leans["pristine"] = wear_leans.get("pristine", 1.0) * 1.5
-            for _k in ("worn", "hard-used"):
-                wear_leans[_k] = wear_leans.get(_k, 1.0) * 0.6
-        elif auth == 2:
-            for _k in ("worn", "hard-used"):
-                wear_leans[_k] = wear_leans.get(_k, 1.0) * 1.5
-            wear_leans["pristine"] = wear_leans.get("pristine", 1.0) * 0.7
-        marks_mult = _MARKS_MULT[auth]
+        for _k, _m in _reg.get("wear", {}).items():
+            wear_leans[_k] = wear_leans.get(_k, 1.0) * _m
+        marks_mult = _reg.get("marks", 1.0)
+        _reg_uniform_p = _reg.get("uniform_p", 0.25)
+        _reg_uniform_label = _reg.get("uniform_label", "costume")
+        _reg_family_wear = _reg.get("family_wear", {})
+        _reg_sentence_pool = _reg.get("sentence_pool", [])
+        _reg_exag_pool = _reg.get("exaggeration_pool", [])
         feats = _load_features()
 
         # Draw order (documented for stability): identity first — who
@@ -639,12 +658,22 @@ class SceneCharacterRoller:
         if body_detail == "high":
             if rng.random() < 0.35:
                 # Wear state follows the garment it describes; persona
-                # wear_leans weight the pool (synonym fragments).
+                # and register leans weight the pool (synonym
+                # fragments). The register's family_wear keys on the
+                # family the garment actually came from (src) — the
+                # prestige fix: fine families keep their clothes even
+                # at authentic.
                 wpool = families[src]["wear"]
-                if wear_leans:
+                _eff_wear = wear_leans
+                _fwo = _reg_family_wear.get(src)
+                if _fwo:
+                    _eff_wear = dict(wear_leans)
+                    for _k, _m in _fwo.items():
+                        _eff_wear[_k] = _eff_wear.get(_k, 1.0) * _m
+                if _eff_wear:
                     wraw = rng.choices(
                         wpool,
-                        weights=_lean_w(wpool, wear_leans, _WEAR_SYNONYMS),
+                        weights=_lean_w(wpool, _eff_wear, _WEAR_SYNONYMS),
                         k=1)[0]
                 else:
                     wraw = rng.choice(wpool)
@@ -660,24 +689,23 @@ class SceneCharacterRoller:
         # Uniform look: ONE weighted option inside its persona. The
         # coin only exists for personas that declare a look — every
         # other draw, and every draw before this point, is untouched.
-        # documentary reads it flat: base garments, accessories off
+        # authentic reads it flat: base garments, accessories off
         # ("the non-stylized uniform is very flat and utilitarian" —
         # Alexander, 12:22).
         uniform_rec = None
         _look = persona.get("uniform_look")
         if _look:
-            if rng.random() < _UNIFORM_P[auth]:
+            if rng.random() < _reg_uniform_p:
                 costume = _costume_for(_look)
                 if costume and costume.get("garments"):
                     slots = ("outer", "torso", "legs")
                     pieces = [[slots[i], g, g] for i, g
                               in enumerate(costume["garments"][:3])]
-                    if auth != 2:
+                    if _reg_uniform_label != "uniform":
                         for acc in costume.get("accessories", [])[:1]:
                             pieces.append(["head", acc, acc])
                     uniform_rec = {"look": _look, "fired": True,
-                                   "reading": "uniform" if auth == 2
-                                   else "costume"}
+                                   "reading": _reg_uniform_label}
                 else:
                     uniform_rec = {"look": _look, "fired": False,
                                    "reason": "look missing from costume table"}
@@ -933,6 +961,14 @@ class SceneCharacterRoller:
                 else:
                     posture = post_frag
         position = rng.choice(feats["positions"]) if positioning else ""
+        # Register sentence — drawn LAST of all draws so register
+        # modes never disturb the existing draw order: none consumes
+        # nothing, same seed = the plain sheet, byte for byte.
+        reg_sentence = ""
+        if _reg_sentence_pool:
+            reg_sentence = rng.choice(_reg_sentence_pool)
+            if _reg_exag_pool:
+                reg_sentence = f"{reg_sentence} {rng.choice(_reg_exag_pool)}"
         # nameless posture/position fragments stay in the comma core
         if posture and not posture_sent:
             core.append(posture)
@@ -944,6 +980,10 @@ class SceneCharacterRoller:
         if name:
             text = f"{name}, {text}"
         text += "."
+        # Register sentence rides second — adjacent to the outfit it
+        # summarizes, ahead of the body/face sentences.
+        if reg_sentence:
+            text = f"{text} {reg_sentence}"
 
         # Body sentence: build + physique children, one flowing pass.
         body_sent = ""
@@ -997,7 +1037,9 @@ class SceneCharacterRoller:
                 "applied": bool(persona),
                 "posture_intent": persona.get("posture"),
             },
-            "authenticity": {"level": authenticity, "uniform": uniform_rec},
+            "character_register": {"mode": _reg_mode,
+                                   "sentence": reg_sentence,
+                                   "uniform": uniform_rec},
             "name": name,
             "palette": palette,
             "palette_family": pal_src,

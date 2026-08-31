@@ -115,33 +115,43 @@ for level in lw:
             lw[level] += 1
 check("legwear never at off", lw["off"] == 0)
 check("legwear fires over an exposed hem at flirty", lw["flirty"] > 0)
-# --- v2: persona uniform looks (nurse via healer@documentary) ---
+# --- register: persona uniform looks (nurse via healer@authentic) ---
 _fired = None
 for _sd in range(30):
     _t, _cj, _ = r.roll(**dict(KW, role="healer"), seed=_sd,
-                        heat="off", authenticity="documentary")
-    _u = ((json.loads(_cj).get("authenticity") or {}).get("uniform")) or {}
+                        heat="off", character_register="authentic")
+    _u = ((json.loads(_cj).get("character_register") or {}).get("uniform")) or {}
     if _u.get("fired"):
         _fired = (_t, _u)
         break
-check("uniform look: nurse renders via healer@documentary",
+check("uniform look: nurse renders via healer@authentic",
       _fired is not None and "nurse" in _fired[0], repr(_fired and _fired[1]))
-check("uniform look: documentary reads flat (no stethoscope)",
+check("uniform look: authentic reads flat (no stethoscope)",
       _fired is not None and "stethoscope" not in _fired[0])
 _roles_expected = ["any"] + sorted(json.load(open(os.path.join(
     os.path.dirname(os.path.abspath(__file__)), "scene_context",
     "personas.json")))["personas"])
 check("role list is the closed persona set (no sommelier)",
       r.INPUT_TYPES()["required"]["role"][0] == _roles_expected)
-check("authenticity deterministic (same seed)",
-      r.roll(**KW, seed=5, heat="off", authenticity="documentary")[0]
-      == r.roll(**KW, seed=5, heat="off", authenticity="documentary")[0])
+check("register deterministic (same seed)",
+      r.roll(**KW, seed=5, heat="off", character_register="authentic")[0]
+      == r.roll(**KW, seed=5, heat="off", character_register="authentic")[0])
 _diff = sum(
-    r.roll(**dict(KW, seed=_sd), heat="off", authenticity="stylized")[0]
-    != r.roll(**dict(KW, seed=_sd), heat="off", authenticity="documentary")[0]
+    r.roll(**dict(KW, seed=_sd), heat="off", character_register="costume")[0]
+    != r.roll(**dict(KW, seed=_sd), heat="off",
+              character_register="authentic")[0]
     for _sd in range(40))
-check("authenticity registers diverge across seeds", _diff > 0,
+check("register modes diverge across seeds", _diff > 0,
       f"diff={_diff}/40")
+check("register none == plain sheet, byte for byte",
+      r.roll(**KW, seed=11, heat="off", character_register="none")[0]
+      == r.roll(**KW, seed=11, heat="off")[0])
+_s = r.roll(**KW, seed=7, heat="off", character_register="costume")[0]
+check("register sentence lands in the sheet at costume",
+      any(w in _s for w in ("costume", "party", "dress-up")), _s)
+check("character_register enum is the closed set",
+      r.INPUT_TYPES()["required"]["character_register"][0] == [
+          "random", "none", "authentic", "pulp", "costume", "cartoon"])
 check("same seed, same string at flirty",
       r.roll(**KW, seed=9, heat="flirty")[0]
       == r.roll(**KW, seed=9, heat="flirty")[0])

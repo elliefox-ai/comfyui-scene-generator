@@ -1,0 +1,66 @@
+{
+  "version": 1,
+  "note": "Character register modes (Alexander, 2026-08-31): what the character IS in the frame. Subsumes the retired authenticity dial (documentary->authentic, stylized->costume, cinematic->none). Per mode: sentence_pool = direct identification sentences (Alexander's design), wear = multipliers on the wear-state leans, marks = scar/marks probability multiplier, uniform_p + uniform_label = the role full-rig coin, family_wear = per-wardrobe-family wear overrides keyed to character_wardrobe.json families (the prestige fix: fine families keep their clothes even at authentic), exaggeration_pool = cartoon-only second sentence. Sentences draw LAST: register=none consumes no draws and reproduces the plain sheet byte-for-byte.",
+  "registers": {
+    "none": {
+      "sentence_pool": [],
+      "wear": {},
+      "marks": 1.0,
+      "uniform_p": 0.25,
+      "uniform_label": "costume"
+    },
+    "authentic": {
+      "sentence_pool": [
+        "Their apparel is the real thing — kit that has done the work, not costume.",
+        "Nothing about their dress is for show; it is what the job actually wears.",
+        "Their clothing is authentic to the life, worn where a body actually wears it."
+      ],
+      "wear": {"pristine": 0.7, "worn": 1.5, "hard-used": 1.5},
+      "marks": 1.5,
+      "uniform_p": 0.6,
+      "uniform_label": "uniform",
+      "family_wear": {
+        "evening": {"pristine": 1.3, "hard-used": 0.25},
+        "office": {"pristine": 1.3, "hard-used": 0.25}
+      }
+    },
+    "pulp": {
+      "sentence_pool": [
+        "Their outfit has pulp-cover drama, a wind-caught collar and colors a shade too heroic.",
+        "They dress like a lurid paperback hero, swagger in every seam.",
+        "Their kit has storybook bravado, every crease dramatic, every buckle gleaming."
+      ],
+      "wear": {"pristine": 1.1, "worn": 1.2},
+      "marks": 1.2,
+      "uniform_p": 0.25,
+      "uniform_label": "costume"
+    },
+    "costume": {
+      "sentence_pool": [
+        "Their outfit is a costume worn by a person at a party, props rather than kit.",
+        "The clothes read costume-party: right shapes, wrong materials, price-tag creases.",
+        "Their apparel is dress-up, a convincing silhouette assembled from mass-produced pieces."
+      ],
+      "wear": {"pristine": 1.5, "worn": 0.6, "hard-used": 0.6},
+      "marks": 0.5,
+      "uniform_p": 0.05,
+      "uniform_label": "costume"
+    },
+    "cartoon": {
+      "sentence_pool": [
+        "Their outfit is drawn for Saturday morning, oversized, simplified, one shade too bright.",
+        "They are dressed like a cartoon, exaggerated shapes and a bouncy silhouette in flat cheerful color.",
+        "Their apparel is Saturday-morning logic: boots too big, colors too clean, nothing ever scuffed."
+      ],
+      "wear": {"pristine": 1.5, "hard-used": 0.5},
+      "marks": 0.25,
+      "uniform_p": 0.05,
+      "uniform_label": "costume",
+      "exaggeration_pool": [
+        "The boots alone are impossibly oversized.",
+        "The whole silhouette is simplified down to bold shapes.",
+        "Every color runs a shade too bright."
+      ]
+    }
+  }
+}
