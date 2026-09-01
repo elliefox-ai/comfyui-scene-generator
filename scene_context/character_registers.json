@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "note": "Character register modes (Alexander, 2026-08-31): what the character IS in the frame. Subsumes the retired authenticity dial (documentary->authentic, stylized->costume, cinematic->none). Per mode: sentence_pool = direct identification sentences (Alexander's design), wear = multipliers on the wear-state leans, marks = scar/marks probability multiplier, uniform_p + uniform_label = the role full-rig coin, family_wear = per-wardrobe-family wear overrides keyed to character_wardrobe.json families (the prestige fix: fine families keep their clothes even at authentic), exaggeration_pool = cartoon-only second sentence. Sentences draw LAST: register=none consumes no draws and reproduces the plain sheet byte-for-byte. Sentence language principle (Alexander, 2026-08-31, refined): the sentence speaks the class-agnostic realness axis only (real/well-made/well-fitted/clean; caption-frequent tokens, no negation, no metaphor, no aesthetic labels); the wear axis belongs to the wear tilts, which adapt per wardrobe family via family_wear. Authenticity is not grittiness - worn/faded is one class's signature, not the invariant.",
+  "note": "Character register modes (Alexander, 2026-08-31): what the character IS in the frame. Subsumes the retired authenticity dial (documentary->authentic, stylized->costume, cinematic->none). Per mode: sentence_pool = direct identification sentences (Alexander's design), wear = multipliers on the wear-state leans, marks = scar/marks probability multiplier, uniform_p + uniform_label = the role full-rig coin, family_wear = per-wardrobe-family wear overrides keyed to character_wardrobe.json families (the prestige fix: fine families keep their clothes even at authentic), exaggeration_pool = cartoon-only second sentence. Sentences draw LAST: register=none consumes no draws and reproduces the plain sheet byte-for-byte. Sentence language principle (Alexander, 2026-08-31, final): authentic is the generator's default assumption for a realistic outfit, so its sentence is a minimal marker only - which also anchors the character against style bleed in illustrated scenes. Explicit clarification belongs to the non-default registers (costume: 'their apparel is a costume version of ...'). Physical manifestation lives in the wear tilts, which adapt per wardrobe family via family_wear.",
   "registers": {
     "none": {
       "sentence_pool": [],
@@ -11,9 +11,7 @@
     },
     "authentic": {
       "sentence_pool": [
-        "They wear real, well-made clothes that fit them properly",
-        "Their clothing is well-fitted and clean, real clothes in real fabrics",
-        "Their outfit is genuine and well-made, real clothes for their work and their life"
+        "Their outfit is authentic."
       ],
       "wear": {"pristine": 0.7, "worn": 1.5, "hard-used": 1.5},
       "marks": 1.5,
