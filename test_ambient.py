@@ -158,8 +158,9 @@ for sd in range(40):
 check("treatment random covers satire and chaotic", both_s and both_c)
 
 # --- genre filter (v2.1) ---
-check("genre options = any + roller genres minus sentinel",
-      GENRE_INPUT_OPTIONS == ["any"] + [g for g in GENRE_OPTIONS if g != RANDOM])
+check("genre options = any + roller genres + 🎲 sentinel",
+      GENRE_INPUT_OPTIONS == ["any"]
+      + [g for g in GENRE_OPTIONS if g != RANDOM] + [RANDOM])
 check("genre default is any",
       n.INPUT_TYPES()["required"]["genre"][1]["default"] == "any")
 
@@ -203,7 +204,7 @@ def _simulate_g(mode, count, seed, genre):
     return "; ".join(segs)
 
 _gm = None
-for g in [x for x in GENRE_INPUT_OPTIONS if x != "any"]:
+for g in [x for x in GENRE_INPUT_OPTIONS if x not in ("any", RANDOM)]:
     for sd in range(10):
         for m in ("accurate", "random", "multiversal"):
             if n.roll(subject=m, treatment="none", count=2, seed=sd,
@@ -211,6 +212,28 @@ for g in [x for x in GENRE_INPUT_OPTIONS if x != "any"]:
                 _gm = (g, sd, m)
 check("genre draws match documented order (7 genres x 3 modes x 10 seeds)",
       _gm is None, repr(_gm))
+
+def _simulate_rand(mode, count, seed):
+    rng = random.Random(seed)
+    g = rng.choice([x for x in GENRE_OPTIONS if x != RANDOM])
+    base = mode if mode != "random" else rng.choice(POOLS)
+    segs = []
+    for _ in range(count):
+        pool = base
+        if mode == "multiversal":
+            pool = rng.choice(POOLS)
+        entries = _candidates(banks["subjects"][pool]["entries"], g)
+        segs.append(_expand(_entry_text(rng.choice(entries)), rng))
+    return "; ".join(segs)
+
+_rm = None
+for sd in range(10):
+    for m in ("accurate", "random", "multiversal"):
+        if n.roll(subject=m, treatment="none", count=2, seed=sd,
+                  genre=RANDOM)[0] != _simulate_rand(m, 2, sd):
+            _rm = (sd, m)
+check("🎲 random = one genre rolled first, then filters (3 modes x 10 seeds)",
+      _rm is None, repr(_rm))
 
 _tagged = any(isinstance(e, dict) and any(str(t).startswith("genre:")
               for t in e.get("tags", []))

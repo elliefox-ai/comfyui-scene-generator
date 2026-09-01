@@ -23,8 +23,9 @@ Dropdowns:
              satire is the blended cell (humiliation + tender
              inversion). Pools without a by-category bank fall back
              to the generic operator. random = per-figure 50/50.
-  genre      any (default) | a roller genre id. Setting it filters
-             each pool to entries tagged for the genre plus tagless
+  genre      any (default) | a roller genre id | the roller's 🎲
+             random sentinel. Setting it filters each pool to entries
+             tagged for the genre plus tagless
              (setting-neutral) entries; zero matches falls back to
              the full pool. any is byte-identical to legacy draws.
 
@@ -63,9 +64,12 @@ _SUBJECT_POOLS = ("accurate", "wholesome", "militant", "sexy", "absurd",
 SUBJECT_OPTIONS = ["none"] + list(_SUBJECT_POOLS) + ["random", "multiversal"]
 TREATMENT_OPTIONS = ["none", "satire", "chaotic", "random"]
 
-# Genre filter vocabulary: the roller's genre ids minus the random
-# sentinel, plus "any" (unfiltered = byte-identical legacy draws).
-GENRE_INPUT_OPTIONS = ["any"] + [g for g in GENRE_OPTIONS if g != RANDOM]
+# Genre filter vocabulary: "any" (unfiltered = byte-identical legacy
+# draws), the roller's genre ids, and the roller's 🎲 sentinel so
+# synced primitives validate across the node family. 🎲 rolls ONCE
+# into a concrete genre (coherent crowd), then filters exactly like it.
+_GENRE_IDS = [g for g in GENRE_OPTIONS if g != RANDOM]
+GENRE_INPUT_OPTIONS = ["any"] + _GENRE_IDS + [RANDOM]
 
 
 def _entries(banks, pool):
@@ -125,7 +129,7 @@ class SceneAmbientActivity:
                 "seed": ("INT", {"default": 0, "min": 0, "max": 2**32 - 1,
                     "tooltip": "Own seed — keep the cast, reroll the crowd. Same seed, same crowd."}),
                 "genre": (GENRE_INPUT_OPTIONS, {"default": "any",
-                    "tooltip": "Filter the crowd pool to entries tagged for this genre — tagless entries always eligible; never empty. any = no filter."}),
+                    "tooltip": "Filter the crowd pool to entries tagged for this genre — tagless entries always eligible; never empty. any = no filter. 🎲 random rolls one genre per generation — one coherent crowd."}),
             },
         }
 
@@ -139,6 +143,11 @@ class SceneAmbientActivity:
             return ("",)
         banks = _load_banks()
         rng = random.Random(seed)
+        # 🎲 random resolves ONCE per generation — one coherent genre
+        # for the whole crowd — before any other draw. Every other
+        # value consumes nothing, so legacy draws stay byte-identical.
+        if genre == RANDOM:
+            genre = rng.choice(_GENRE_IDS)
 
         # One upfront pool draw for random — a coherent crowd.
         # multiversal defers pool resolution to the loop (per figure);
@@ -152,9 +161,10 @@ class SceneAmbientActivity:
 
         out = []
         for _ in range(count):
-            # Draw order (documented for stability): pool (multiversal
-            # only), genre filter (no rng), subject entry, treatment
-            # pick (random only), treatment phrase.
+            # Draw order (documented for stability): genre sentinel
+            # (🎲 random only), pool (multiversal only), genre filter
+            # (no rng), subject entry, treatment pick (random only),
+            # treatment phrase.
             if subject == "multiversal":
                 pool = rng.choice(_SUBJECT_POOLS)
                 entries = _candidates(_entries(banks, pool), genre)
