@@ -100,6 +100,61 @@
       ],
       "scene_type_bias": "atmospheric",
       "env": "storm"
+    },
+    {
+      "id": "stripping_wiring",
+      "text": "stripping salvaged wiring from a dead vehicle",
+      "tags": [
+        "labor",
+        "calm_capable"
+      ],
+      "scene_type_bias": "at_work"
+    },
+    {
+      "id": "oil_drum_heat",
+      "text": "sharing heat around a burning oil drum",
+      "tags": [
+        "social",
+        "calm_capable"
+      ],
+      "scene_type_bias": "close_group"
+    },
+    {
+      "id": "convoy_clears_the_lane",
+      "text": "clearing the lane as a convoy of armed rigs rolls through",
+      "tags": [
+        "action",
+        "tense_capable"
+      ],
+      "scene_type_bias": "atmospheric"
+    },
+    {
+      "id": "picking_the_collapse",
+      "text": "picking through a collapsed structure while it settles",
+      "tags": [
+        "labor",
+        "tense_capable"
+      ],
+      "scene_type_bias": "at_work"
+    },
+    {
+      "id": "bartering_the_photograph",
+      "text": "bartering an old photograph out of a collector's case",
+      "tags": [
+        "social",
+        "calm_capable"
+      ],
+      "scene_type_bias": "candid_moment"
+    },
+    {
+      "id": "vault_standoff",
+      "text": "two crews facing down over a freshly breached vault",
+      "tags": [
+        "social",
+        "tense_capable",
+        "violent_capable"
+      ],
+      "scene_type_bias": "face_off"
     }
   ]
 }

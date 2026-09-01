@@ -89,6 +89,66 @@
       ],
       "scene_type_bias": "candid_moment",
       "indoor": true
+    },
+    {
+      "id": "calibrating_the_nav_array",
+      "text": "calibrating a nav array on an open workstand",
+      "tags": [
+        "labor",
+        "calm_capable"
+      ],
+      "scene_type_bias": "at_work",
+      "indoor": true
+    },
+    {
+      "id": "crate_meal",
+      "text": "sharing a shift meal on crates beside the landed freighter",
+      "tags": [
+        "social",
+        "calm_capable"
+      ],
+      "scene_type_bias": "close_group",
+      "indoor": true
+    },
+    {
+      "id": "coolant_leak_rescue",
+      "text": "hauling an injured deckhand clear of a coolant leak",
+      "tags": [
+        "action",
+        "tense_capable"
+      ],
+      "scene_type_bias": "at_work",
+      "indoor": true
+    },
+    {
+      "id": "gantry_coffee",
+      "text": "trading shift rumors over coffee in the gantry shadow",
+      "tags": [
+        "social",
+        "calm_capable"
+      ],
+      "scene_type_bias": "candid_moment",
+      "indoor": true
+    },
+    {
+      "id": "scorched_airlock",
+      "text": "boarding up a scorched airlock after a rough docking",
+      "tags": [
+        "labor",
+        "tense_capable"
+      ],
+      "scene_type_bias": "at_work",
+      "indoor": true
+    },
+    {
+      "id": "priority_order",
+      "text": "crowding around a deck terminal reading a cryptic priority order",
+      "tags": [
+        "social",
+        "tense_capable"
+      ],
+      "scene_type_bias": "close_group",
+      "indoor": true
     }
   ],
   "group": "the deck crew"

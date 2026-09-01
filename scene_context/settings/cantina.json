@@ -122,6 +122,67 @@
       ],
       "scene_type_bias": "gathering",
       "indoor": true
+    },
+    {
+      "id": "swapping_the_keg",
+      "text": "replacing a tapped-out keg behind the bar mid-rush",
+      "tags": [
+        "labor",
+        "tense_capable"
+      ],
+      "scene_type_bias": "at_work",
+      "indoor": true
+    },
+    {
+      "id": "brawl_eruption",
+      "text": "chairs scraping back as a brawl erupts between two tables",
+      "tags": [
+        "action",
+        "tense_capable",
+        "violent_capable"
+      ],
+      "scene_type_bias": "face_off",
+      "indoor": true
+    },
+    {
+      "id": "trading_stories_at_the_bar",
+      "text": "trading stories with the bartender over an empty glass",
+      "tags": [
+        "social",
+        "calm_capable"
+      ],
+      "scene_type_bias": "candid_moment",
+      "indoor": true
+    },
+    {
+      "id": "wiping_down_the_bar",
+      "text": "wiping down the bar ahead of the evening rush",
+      "tags": [
+        "labor",
+        "calm_capable"
+      ],
+      "scene_type_bias": "at_work",
+      "indoor": true
+    },
+    {
+      "id": "power_cut_hush",
+      "text": "a hush falling as the power cuts out mid-song",
+      "tags": [
+        "action",
+        "tense_capable"
+      ],
+      "scene_type_bias": "atmospheric",
+      "indoor": true
+    },
+    {
+      "id": "afternoon_dozer",
+      "text": "dozing in a corner booth through the afternoon heat",
+      "tags": [
+        "social",
+        "calm_capable"
+      ],
+      "scene_type_bias": "candid_moment",
+      "indoor": true
     }
   ]
 }

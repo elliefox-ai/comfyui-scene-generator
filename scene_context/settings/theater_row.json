@@ -77,6 +77,69 @@
         "calm_capable"
       ],
       "scene_type_bias": "gathering"
+    },
+    {
+      "id": "pickpocket_chase",
+      "text": "chasing a pickpocket through the ticket queue",
+      "tags": [
+        "action",
+        "tense_capable"
+      ],
+      "scene_type_bias": "atmospheric"
+    },
+    {
+      "id": "interval_pigeons",
+      "text": "feeding pigeons while waiting out the interval queue",
+      "tags": [
+        "nature",
+        "calm_capable"
+      ],
+      "scene_type_bias": "candid_moment"
+    },
+    {
+      "id": "scenery_wagon",
+      "text": "wrestling a stubborn scenery wagon up the loading ramp",
+      "tags": [
+        "labor",
+        "tense_capable"
+      ],
+      "scene_type_bias": "at_work"
+    },
+    {
+      "id": "stage_door_cluster",
+      "text": "huddled in a chorus line's smoking cluster by the stage door",
+      "tags": [
+        "social",
+        "calm_capable"
+      ],
+      "scene_type_bias": "close_group"
+    },
+    {
+      "id": "scathing_review",
+      "text": "reading a scathing review aloud over someone's shoulder",
+      "tags": [
+        "social",
+        "tense_capable"
+      ],
+      "scene_type_bias": "candid_moment"
+    },
+    {
+      "id": "encore_on_the_steps",
+      "text": "singing an impromptu encore on the steps after the show",
+      "tags": [
+        "social",
+        "calm_capable"
+      ],
+      "scene_type_bias": "gathering"
+    },
+    {
+      "id": "fire_bell",
+      "text": "heads turning as a fire bell rings somewhere down the block",
+      "tags": [
+        "action",
+        "tense_capable"
+      ],
+      "scene_type_bias": "atmospheric"
     }
   ],
   "group": "the crowd"

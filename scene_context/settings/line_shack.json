@@ -105,6 +105,62 @@
       ],
       "scene_type_bias": "candid_moment",
       "indoor": true
+    },
+    {
+      "id": "doctoring_the_pack_horse",
+      "text": "doctoring a saddle sore on a pack horse in the lean-to",
+      "tags": [
+        "labor",
+        "tense_capable"
+      ],
+      "scene_type_bias": "at_work",
+      "indoor": true
+    },
+    {
+      "id": "smoke_on_the_far_ridge",
+      "text": "saddling in a hurry at the sight of smoke on the far ridge",
+      "tags": [
+        "action",
+        "tense_capable"
+      ],
+      "scene_type_bias": "atmospheric"
+    },
+    {
+      "id": "porch_supper",
+      "text": "sharing supper on the porch as the light goes out of the sky",
+      "tags": [
+        "social",
+        "calm_capable"
+      ],
+      "scene_type_bias": "gathering"
+    },
+    {
+      "id": "mending_fence_line",
+      "text": "mending broken fence line down the north stretch",
+      "tags": [
+        "labor",
+        "calm_capable"
+      ],
+      "scene_type_bias": "at_work"
+    },
+    {
+      "id": "crooked_horse_trade",
+      "text": "refusing to shake on a crooked horse trade",
+      "tags": [
+        "social",
+        "tense_capable"
+      ],
+      "scene_type_bias": "face_off",
+      "indoor": true
+    },
+    {
+      "id": "breaking_the_colt",
+      "text": "breaking a green colt in the corral",
+      "tags": [
+        "action",
+        "calm_capable"
+      ],
+      "scene_type_bias": "candid_moment"
     }
   ],
   "group": "the line-camp hand"
