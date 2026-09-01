@@ -1513,6 +1513,7 @@
       {
         "name": "styled",
         "chance": 0.5,
+        "lead": "styled",
         "pools": [
           {
             "classes": [
@@ -1546,7 +1547,8 @@
                 },
                 "age": {
                   "young adult": 1.5
-                }
+                },
+                "article": false
               },
               {
                 "text": "top knot",
@@ -1573,7 +1575,8 @@
                 },
                 "age": {
                   "young adult": 1.4
-                }
+                },
+                "article": false
               },
               {
                 "text": "french braid",
@@ -1639,8 +1642,8 @@
                 "text": "layered cut with face-framing"
               },
               {
-                "text": "curtained hair",
-                "article": false
+                "text": "curtained cut",
+                "article": true
               }
             ]
           }
@@ -1719,7 +1722,7 @@
             }
           },
           {
-            "text": "beach waves",
+            "text": "beach-waved",
             "age": {
               "young adult": 1.2
             },
@@ -1770,7 +1773,7 @@
             }
           },
           {
-            "text": "natural texture",
+            "text": "worn natural",
             "race": {
               "white": 1.5,
               "black": 1.8,
@@ -1846,7 +1849,7 @@
             }
           },
           {
-            "text": "bedhead",
+            "text": "with bedhead",
             "age": {
               "young adult": 1.4
             }

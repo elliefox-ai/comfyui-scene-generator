@@ -383,12 +383,14 @@ def _roll_hair(feats, identity, rng, name=""):
             continue
         pick = _weighted(pool, identity, rng)
         text = _expand(pick.get("text", ""), rng)
-        lead = sec.get("lead")
+        lead = pick.get("lead") or sec.get("lead")
         if lead == "styled":
             art = "" if pick.get("article") is False else _article(text) + " "
             frag = f"styled in {art}{text}"
         elif lead == "wearing":
             frag = f"wearing {text}"
+        elif lead == "with":
+            frag = f"with {text}"
         else:
             frag = text
         tail.append(frag)
