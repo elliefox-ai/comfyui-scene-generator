@@ -80,10 +80,30 @@ def _load_archetypes():
 
 
 def _setting_options():
-    """One dropdown, two tiers: archetype labels first (casual path),
-    then concrete venue names (author override path)."""
-    labels = [a["label"] for a in _load_archetypes().values()]
-    return [RANDOM] + labels + sorted(_load_settings().keys())
+    """One dropdown, family-clustered: each archetype label sits directly
+    above the venues it can roll (facet-superset membership — the same
+    rule compose() applies), so the flat list reads as grouped families.
+    Hierarchy is order-only on purpose: in a ComfyUI combo the display
+    string IS the persisted value, so cosmetic prefixes/indents would
+    rewrite what saved workflows store. Venues may appear under several
+    families (facets are axes, not partitions) and the unclaimed tail
+    keeps every venue reachable in one scan."""
+    archetypes = _load_archetypes()
+    settings = _load_settings()
+    entries = [RANDOM]
+    claimed = set()
+    for arch in archetypes.values():
+        facets = set(arch["facets"])
+        members = sorted(
+            v for v, d in settings.items()
+            if facets <= set(d.get("facet_tags", []))
+        )
+        if not members:
+            continue  # a family that can't roll is noise in the list
+        entries.append(arch["label"])
+        entries.extend(members)
+        claimed.update(members)
+    return entries + sorted(v for v in settings if v not in claimed)
 
 
 def _short_group(subject_label, venue_words):
