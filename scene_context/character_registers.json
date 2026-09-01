@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "note": "Character register modes (Alexander, 2026-08-31): what the character IS in the frame. Subsumes the retired authenticity dial (documentary->authentic, stylized->costume, cinematic->none). Per mode: sentence_pool = direct identification sentences (Alexander's design), wear = multipliers on the wear-state leans, marks = scar/marks probability multiplier, uniform_p + uniform_label = the role full-rig coin, family_wear = per-wardrobe-family wear overrides keyed to character_wardrobe.json families (the prestige fix: fine families keep their clothes even at authentic), exaggeration_pool = cartoon-only second sentence. Sentences draw LAST: register=none consumes no draws and reproduces the plain sheet byte-for-byte.",
+  "note": "Character register modes (Alexander, 2026-08-31): what the character IS in the frame. Subsumes the retired authenticity dial (documentary->authentic, stylized->costume, cinematic->none). Per mode: sentence_pool = direct identification sentences (Alexander's design), wear = multipliers on the wear-state leans, marks = scar/marks probability multiplier, uniform_p + uniform_label = the role full-rig coin, family_wear = per-wardrobe-family wear overrides keyed to character_wardrobe.json families (the prestige fix: fine families keep their clothes even at authentic), exaggeration_pool = cartoon-only second sentence. Sentences draw LAST: register=none consumes no draws and reproduces the plain sheet byte-for-byte. Sentence language principle (Alexander, 2026-08-31): physical manifestation only - worn/faded/mended, caption-frequent tokens; no negation, no metaphor, no aesthetic labels (the encoder reads tokens, not pragmatics; cf. dumpy->emission).",
   "registers": {
     "none": {
       "sentence_pool": [],
@@ -11,9 +11,9 @@
     },
     "authentic": {
       "sentence_pool": [
-        "Their apparel is the real thing — kit that has done the work, not costume.",
-        "Nothing about their dress is for show; it is what the job actually wears.",
-        "Their clothing is authentic to the life, worn where a body actually wears it."
+        "They wear hard-worn, practical clothes, faded and patched at the seams",
+        "Their clothing is practical and well-worn, faded and mended from years of hard use",
+        "Their clothes are well-worn working clothes, softened and faded by real use"
       ],
       "wear": {"pristine": 0.7, "worn": 1.5, "hard-used": 1.5},
       "marks": 1.5,
