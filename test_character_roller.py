@@ -34,6 +34,7 @@ def main():
     p.add_argument("--name", default="")
     p.add_argument("--pose", action="store_true")
     p.add_argument("--positioning", action="store_true")
+    p.add_argument("--expression", action="store_true")
     p.add_argument("--seed", type=int, default=42)
     p.add_argument("--age", default=RANDOM)
     p.add_argument("--sex", default=RANDOM)
@@ -43,7 +44,7 @@ def main():
     roller = SceneCharacterRoller()
     text, cj_raw, seed = roller.roll(
         args.genre, args.consistency, args.face_detail, args.body_detail, args.body_type, args.role,
-        args.name, args.pose, args.positioning, args.seed,
+        args.name, args.pose, args.positioning, args.expression, args.seed,
         args.age, args.sex, args.race,
     )
     cj = json.loads(cj_raw)

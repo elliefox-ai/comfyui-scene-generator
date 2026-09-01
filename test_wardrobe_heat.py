@@ -66,8 +66,8 @@ ALL_PHRASES = {p for spec in bank["archetypes"].values()
                for pool in spec.get("heat", {}).values() for p in pool}
 KW = dict(genre="modern", consistency=0.8, face_detail="low",
           body_detail="high", body_type="random", role="any", name="",
-          pose=True, positioning=False, age=RANDOM, sex=RANDOM,
-          race=RANDOM)
+          pose=True, positioning=False, expression=False,
+          age=RANDOM, sex=RANDOM, race=RANDOM)
 
 off_texts, off_comps = [], []
 for seed in range(24):

@@ -61,7 +61,7 @@ weathered sea captain in a heavy oilskin coat". A binding handle for
 the renderer (the randomizer's `xxxx` substitution, promoted to a
 field).
 
-Pose / positioning toggles (default off): bake a posture / position
+Pose / positioning / expression toggles (default off): bake a posture / position / expression
 phrase into the character string. The scene nodes carry the same
 toggles — if both fire, the doubled phrase is the user's call.
 Sometimes the composition works itself out.
@@ -511,6 +511,8 @@ class SceneCharacterRoller:
                     "tooltip": "Bake a posture phrase into the character ('weight sunk into one hip'). Static stance register — no actions."}),
                 "positioning": ("BOOLEAN", {"default": False,
                     "tooltip": "Bake a position phrase into the character ('on the near side of the frame'). The scene nodes have the same toggle — if both fire, doubled placement is on you."}),
+                "expression": ("BOOLEAN", {"default": False,
+                    "tooltip": "Bake a facial-expression sentence into the character ('brow knotted, lips a thin line'). Name-bound when the figure has a name, bare fragment otherwise — same pool as the scene nodes' expression toggle."}),
                 "seed": ("INT", {"default": 42, "min": 0, "max": 2**32 - 1}),
                 "age": (AGE_OPTIONS, {"default": RANDOM,
                     "tooltip": "🎲 rolls this figure's age, then weights every feature draw toward it (soft affinity — never a filter; the occasional age-mismatched detail is the point). Stated once in the identity phrase: 'an older…'. Fixed values weight the pools the same way."}),
@@ -527,7 +529,7 @@ class SceneCharacterRoller:
     CATEGORY = "SceneGen"
 
     def roll(self, genre, consistency, face_detail, body_detail, body_type,
-             role, name, pose, positioning, seed, age, sex, race,
+             role, name, pose, positioning, expression, seed, age, sex, race,
              hair_mode="modular", emphasis="off", heat="off",
              character_register="none"):
         rng = random.Random(seed)
@@ -962,6 +964,24 @@ class SceneCharacterRoller:
                     posture_sent = True
                 else:
                     posture = post_frag
+        # Expression toggle: off = zero draws, same seed = same string,
+        # byte for byte. On = one extra draw here; downstream draws shift
+        # for that seed (new territory, no prior contract).
+        expr_sent = ""
+        expr_frag = ""
+        if expression:
+            ee = rng.choice(feats["expressions"])
+            if isinstance(ee, dict):
+                expr_sent = ee.get("sentence", "")
+                expr_frag = ee.get("text", "")
+            else:
+                expr_frag = ee
+            if expr_sent:
+                if not (name or "").strip():
+                    expr_sent = ""  # no name to bind — fragment rides the core
+                else:
+                    expr_frag = ""  # sentence wins; never both
+
         position = rng.choice(feats["positions"]) if positioning else ""
         # Register sentence — drawn LAST of all draws so register
         # modes never disturb the existing draw order: none consumes
@@ -974,6 +994,8 @@ class SceneCharacterRoller:
         # nameless posture/position fragments stay in the comma core
         if posture and not posture_sent:
             core.append(posture)
+        if expr_frag:
+            core.append(expr_frag)
         if position:
             core.append(position)
 
@@ -1007,6 +1029,9 @@ class SceneCharacterRoller:
         for sent in (body_sent, face_sent, demeanor_sent):
             if sent:
                 text = f"{text} {sent}"
+        if expr_sent:
+            expr_sent = expr_sent.replace("{name}", name)
+            text = f"{text} {expr_sent}"
         if hair_sentence:
             # Modular hair rides as its own sentence — opening clean
             # after a period, like name-bound posture sentences.
@@ -1053,6 +1078,7 @@ class SceneCharacterRoller:
             "hair": hair_details,
             "body": body_bits,
             "pose": posture,
+            "expression": expr_sent or expr_frag,
             "position": position,
             "heat": {"level": heat, "applied": heat_notes},
             "seed": seed,
