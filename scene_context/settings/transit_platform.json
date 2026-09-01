@@ -1,4 +1,5 @@
 {
+  "locative": "on",
   "name": "transit_platform",
   "subject_label": "transit platform commuters",
   "tags": [

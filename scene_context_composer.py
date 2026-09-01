@@ -222,6 +222,7 @@ class SceneContextComposer:
         # no broken referents, no abstraction without a spine.
         venue_words = chosen["name"].replace("_", " ")
         venue_art = "an" if venue_words[:1].lower() in "aeiou" else "a"
+        locative = str(chosen.get("locative", "in")).capitalize()
         group = chosen.get("group") or _short_group(
             chosen["subject_label"], venue_words
         )
@@ -237,13 +238,13 @@ class SceneContextComposer:
         if situation.get("role") == "aside":
             # second-subject scene event — its own absolute sentence, no
             # group clause: the stranger/crowd/train is the subject.
-            scene = f"In {venue_art} {venue_words}, {text}"
+            scene = f"{locative} {venue_art} {venue_words}, {text}"
         else:
             if verbled:
                 act = text
             else:
                 act = f"in {text}"  # NP event: light carrier keeps it grammatical
-            scene = f"In {venue_art} {venue_words}, {group} {verb} {act}"
+            scene = f"{locative} {venue_art} {venue_words}, {group} {verb} {act}"
         if flourish:
             scene = f"{scene}, {flourish}"
         sentences = [scene + "."]
