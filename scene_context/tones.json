@@ -3,8 +3,8 @@
     "label": "Violent / Tense",
     "modifiers": [
       "two groups clashing, shoves and raised fists",
-      "a tense standoff, weapons half-drawn",
-      "open shouting, figures scrambling apart"
+      "figures in a tense standoff, weapons half-drawn",
+      "figures shouting openly, scrambling apart"
     ],
     "compatible": [
       "violent_capable",
@@ -15,9 +15,9 @@
   "charming": {
     "label": "Charming / Idyllic",
     "modifiers": [
-      "chatting in small groups, shoulders relaxed",
-      "heads tipped back laughing, hands resting on shoulders",
-      "leaning back, unhurried gestures, quiet smiles"
+      "small groups chatting, shoulders relaxed",
+      "some subjects with heads tipped back laughing, hands resting on each other's shoulders",
+      "figures leaning back, unhurried gestures, quiet smiles"
     ],
     "compatible": [
       "calm_capable"
@@ -27,9 +27,9 @@
   "satirical": {
     "label": "Satirical / Comedic",
     "modifiers": [
-      "exaggerated poses and faces, wide grins, arms flung out",
+      "subjects striking exaggerated poses, wide grins, arms flung out",
       "one figure hamming it up, arms spread, a deep theatrical bow",
-      "grimaces and raised eyebrows, oversized gestures"
+      "subjects with exaggerated grimaces, raised eyebrows, oversized gestures"
     ],
     "summary": "playful"
   },
@@ -37,8 +37,8 @@
     "label": "Eerie / Uncanny",
     "modifiers": [
       "figures frozen mid-step, heads turned all the same way",
-      "faces too still, gazes fixed on something out of view",
-      "lips pressed shut, eyes tracking movement"
+      "subjects too still, gazes fixed on something out of view",
+      "subjects with lips pressed shut, eyes tracking movement"
     ],
     "compatible": [
       "tense_capable",
@@ -49,9 +49,9 @@
   "mundane": {
     "label": "Mundane / Domestic",
     "modifiers": [
-      "heads down over everyday tasks, eyes on their work",
-      "going about separate tasks, barely glancing at each other",
-      "hands in pockets, small talk, mid-stride"
+      "subjects with heads down over everyday tasks, eyes on their work",
+      "figures going about separate tasks, barely glancing at each other",
+      "subjects mid-stride, hands in pockets, exchanging small talk"
     ],
     "compatible": [
       "calm_capable"
@@ -61,9 +61,9 @@
   "triumphant": {
     "label": "Triumphant / Victorious",
     "modifiers": [
-      "fists pumped, chins lifted",
-      "hands raised overhead, backs straight, wide grins",
-      "shoulders dropping, heads tipping back, wide smiles"
+      "some subjects with fists pumped, chins lifted",
+      "some subjects with hands raised overhead, backs straight, wide grins",
+      "subjects with shoulders dropping, heads tipped back, wide smiles"
     ],
     "compatible": [
       "action",
@@ -75,8 +75,8 @@
     "label": "Melancholy / Wistful",
     "modifiers": [
       "seated figures, elbows on knees, eyes down",
-      "slow to leave, glancing back over one shoulder",
-      "downcast eyes, slack shoulders, slow small movements"
+      "one figure reluctant to leave, glancing back over their shoulder",
+      "subjects with downcast eyes, slack shoulders, slow small movements"
     ],
     "compatible": [
       "calm_capable"
@@ -86,9 +86,9 @@
   "solemn": {
     "label": "Solemn / Ceremonial",
     "modifiers": [
-      "standing in neat rows, hands folded, eyes down",
-      "measured, deliberate movement, heads bowed",
-      "slow deliberate gestures, straight backs, silence"
+      "figures standing in neat rows, hands folded, eyes down",
+      "figures moving with measured deliberation, heads bowed",
+      "figures with slow deliberate gestures, straight backs, silence"
     ],
     "compatible": [
       "calm_capable",
@@ -100,8 +100,8 @@
     "label": "Romantic / Tender",
     "modifiers": [
       "two figures standing close, foreheads nearly touching",
-      "leaning into each other, faces turned toward one another",
-      "a long held gaze, soft smiles"
+      "two figures leaning into each other, faces turned toward one another",
+      "two figures sharing a long gaze, soft smiles"
     ],
     "compatible": [
       "calm_capable",
@@ -112,9 +112,9 @@
   "restless": {
     "label": "Restless / Anxious",
     "modifiers": [
-      "shifting weight foot to foot, hands rubbing together",
-      "fidgeting hands, eyes darting sideways",
-      "hands balled into fists, tight shoulders, short glances"
+      "figures shifting weight foot to foot, hands rubbing together",
+      "some subjects appear suspicious, hands fidgeting, eyes darting sideways",
+      "some subjects with hands balled into fists, tight shoulders, short glances"
     ],
     "compatible": [
       "tense_capable",
