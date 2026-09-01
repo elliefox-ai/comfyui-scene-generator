@@ -83,6 +83,66 @@
     {
       "text": "in the dim hum of enclosed, artificial light",
       "env": "indoor"
+    },
+    {
+      "text": "as the first fat drops start to land",
+      "env": "storm"
+    },
+    {
+      "text": "lightning flickering low on the horizon",
+      "env": "storm"
+    },
+    {
+      "text": "wind driving the rain in long sideways strokes",
+      "env": "storm"
+    },
+    {
+      "text": "with a hard rain still coming down",
+      "env": "storm"
+    },
+    {
+      "text": "with the sun high and the shadows short",
+      "env": "clear"
+    },
+    {
+      "text": "the sky a hard blue from edge to edge",
+      "env": "clear"
+    },
+    {
+      "text": "as the morning haze burns away",
+      "env": "clear"
+    },
+    {
+      "text": "heat shimmer rising off the flat ground",
+      "env": "clear"
+    },
+    {
+      "text": "cloud shadows dragging across the ground",
+      "env": "overcast"
+    },
+    {
+      "text": "with the sky a flat sheet of grey",
+      "env": "overcast"
+    },
+    {
+      "text": "as the light goes flat and pewter",
+      "env": "overcast"
+    },
+    {
+      "text": "as the afternoon light goes long",
+      "env": "neutral"
+    },
+    {
+      "text": "the first stars just showing",
+      "env": "neutral"
+    },
+    {
+      "text": "in the flat silver light before sunrise",
+      "env": "neutral"
+    },
+    {
+      "text": "dust hanging in the last of the light",
+      "env": "neutral"
     }
   ]
 }
