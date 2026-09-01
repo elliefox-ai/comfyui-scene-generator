@@ -1,0 +1,177 @@
+{
+  "name": "train_dining_car",
+  "subject_label": "dining car passengers",
+  "group": "the passengers",
+  "tags": [
+    "historical",
+    "modern"
+  ],
+  "facet_tags": [
+    "crowd",
+    "leisure"
+  ],
+  "venue_archetype": "interior_social",
+  "features": {
+    "default": [
+      "a narrow aisle between tables bolted to the floor",
+      "white tablecloths pinned by silverware at every place",
+      "swivel chairs with a worn shine on the armrests",
+      "a band of tall windows showing the country sliding by",
+      "an overhead rack of hats and cases",
+      "a gleaming coffee urn at the galley end",
+      "vestibule doors rattling gently at both ends of the car",
+      "a bell push by the doorpost"
+    ],
+    "historical": [
+      "silver service catching the swaying lamplight",
+      "a coal range glowing through the open galley door"
+    ],
+    "modern": [
+      "tray slides and an espresso machine crowding the galley",
+      "table numbers standing in little brass clips"
+    ]
+  },
+  "situations": [
+    {
+      "id": "laying_the_cloths",
+      "text": "laying white cloths and silverware at speed",
+      "tags": [
+        "labor",
+        "calm_capable"
+      ],
+      "scene_type_bias": "at_work",
+      "indoor": true
+    },
+    {
+      "id": "strangers_at_one_table",
+      "text": "strangers sharing a bolted-down table in careful silence",
+      "tags": [
+        "social",
+        "tense_capable"
+      ],
+      "scene_type_bias": "close_group",
+      "indoor": true
+    },
+    {
+      "id": "trays_through_a_sway",
+      "text": "balancing trays down the aisle through a sway",
+      "tags": [
+        "labor",
+        "tense_capable"
+      ],
+      "scene_type_bias": "at_work",
+      "indoor": true
+    },
+    {
+      "id": "landscape_past_the_glass",
+      "text": "watching the landscape pour past the windows",
+      "tags": [
+        "nature",
+        "calm_capable"
+      ],
+      "scene_type_bias": "candid_moment",
+      "indoor": true
+    },
+    {
+      "id": "coffee_pot_down_the_table",
+      "text": "passing the coffee pot down the table",
+      "tags": [
+        "social",
+        "calm_capable"
+      ],
+      "scene_type_bias": "close_group",
+      "indoor": true
+    },
+    {
+      "id": "dropped_tray_applause",
+      "text": "a dropped tray, and the car applauding the sweep-up",
+      "tags": [
+        "action",
+        "calm_capable"
+      ],
+      "scene_type_bias": "candid_moment",
+      "indoor": true
+    },
+    {
+      "id": "rain_lashing_the_glass",
+      "text": "rain lashing the dining car glass",
+      "tags": [
+        "nature",
+        "tense_capable"
+      ],
+      "scene_type_bias": "atmospheric",
+      "indoor": true,
+      "env": "storm"
+    },
+    {
+      "id": "cards_on_the_track",
+      "text": "dealing cards to pass the long stretch of track",
+      "tags": [
+        "social",
+        "calm_capable"
+      ],
+      "scene_type_bias": "close_group",
+      "indoor": true
+    },
+    {
+      "id": "seat_assignments",
+      "text": "arguing seat assignments with the manifest in hand",
+      "tags": [
+        "social",
+        "tense_capable"
+      ],
+      "scene_type_bias": "face_off",
+      "indoor": true
+    },
+    {
+      "id": "clearing_as_we_arrive",
+      "text": "clearing plates as the station slides in",
+      "tags": [
+        "labor",
+        "calm_capable"
+      ],
+      "scene_type_bias": "at_work",
+      "indoor": true
+    },
+    {
+      "id": "lingering_over_refills",
+      "text": "lingering over coffee long after the cups are empty",
+      "tags": [
+        "social",
+        "calm_capable"
+      ],
+      "scene_type_bias": "candid_moment",
+      "indoor": true
+    },
+    {
+      "id": "bracing_the_service_door",
+      "text": "bracing the service door through a hard curve",
+      "tags": [
+        "action",
+        "tense_capable"
+      ],
+      "scene_type_bias": "atmospheric",
+      "indoor": true
+    },
+    {
+      "id": "newspaper_between_tables",
+      "text": "passing a folded newspaper between tables",
+      "tags": [
+        "social",
+        "calm_capable"
+      ],
+      "scene_type_bias": "candid_moment",
+      "indoor": true
+    },
+    {
+      "id": "locking_the_galley",
+      "text": "locking the galley at the end of the run",
+      "tags": [
+        "labor",
+        "calm_capable"
+      ],
+      "scene_type_bias": "candid_moment",
+      "indoor": true
+    }
+  ]
+}

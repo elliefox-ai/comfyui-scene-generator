@@ -1,0 +1,171 @@
+{
+  "name": "late_night_diner",
+  "subject_label": "diner regulars",
+  "group": "the regulars",
+  "tags": [
+    "modern"
+  ],
+  "facet_tags": [
+    "city",
+    "small_crowd",
+    "leisure"
+  ],
+  "venue_archetype": "interior_social",
+  "features": {
+    "default": [
+      "a long chrome counter lined with swivel stools",
+      "vinyl booths with cracked, mended upholstery",
+      "a steel pass-through window to the kitchen",
+      "a glass pie case beside the register",
+      "steaming coffee urns on a warming plate",
+      "fluorescent panels humming over checkerboard linoleum",
+      "a neon sign buzzing pink in the front window",
+      "a rack of creamer cups and paper napkin dispensers",
+      "a wall-mounted menu board with grease-pencil specials"
+    ]
+  },
+  "situations": [
+    {
+      "id": "pouring_bottomless_coffee",
+      "text": "pouring bottomless coffee down the counter",
+      "tags": [
+        "labor",
+        "calm_capable"
+      ],
+      "scene_type_bias": "at_work",
+      "indoor": true
+    },
+    {
+      "id": "corner_booth_refill",
+      "text": "hunched over a refilled coffee in a corner booth",
+      "tags": [
+        "social",
+        "calm_capable"
+      ],
+      "scene_type_bias": "candid_moment",
+      "indoor": true
+    },
+    {
+      "id": "splitting_fries",
+      "text": "splitting a plate of fries across the counter stools",
+      "tags": [
+        "social",
+        "calm_capable"
+      ],
+      "scene_type_bias": "close_group",
+      "indoor": true
+    },
+    {
+      "id": "dine_and_dash",
+      "text": "chasing a dine-and-dash out into the lot",
+      "tags": [
+        "action",
+        "tense_capable"
+      ],
+      "scene_type_bias": "atmospheric",
+      "indoor": true
+    },
+    {
+      "id": "dozing_driver",
+      "text": "a dozing driver slumped over a booth table, duffel on the bench",
+      "tags": [
+        "social",
+        "calm_capable"
+      ],
+      "scene_type_bias": "candid_moment",
+      "indoor": true
+    },
+    {
+      "id": "register_dispute",
+      "text": "a disagreement at the register turning heads",
+      "tags": [
+        "social",
+        "tense_capable"
+      ],
+      "scene_type_bias": "face_off",
+      "indoor": true
+    },
+    {
+      "id": "rain_on_the_glass",
+      "text": "rain streaking the big front windows",
+      "tags": [
+        "nature",
+        "calm_capable"
+      ],
+      "scene_type_bias": "atmospheric",
+      "indoor": true,
+      "env": "storm"
+    },
+    {
+      "id": "restocking_the_pie_case",
+      "text": "restocking the pie case for the morning shift",
+      "tags": [
+        "labor",
+        "calm_capable"
+      ],
+      "scene_type_bias": "at_work",
+      "indoor": true
+    },
+    {
+      "id": "steaming_jackets",
+      "text": "shouldering in from the rain, jackets steaming under the fluorescents",
+      "tags": [
+        "social",
+        "calm_capable"
+      ],
+      "scene_type_bias": "atmospheric",
+      "indoor": true,
+      "env": "storm"
+    },
+    {
+      "id": "flat_top_burgers",
+      "text": "flipping hamburgers at the flat-top",
+      "tags": [
+        "labor",
+        "calm_capable"
+      ],
+      "scene_type_bias": "at_work",
+      "indoor": true
+    },
+    {
+      "id": "jukebox_shift_change",
+      "text": "crowding the jukebox at the shift change",
+      "tags": [
+        "social",
+        "calm_capable"
+      ],
+      "scene_type_bias": "gathering",
+      "indoor": true
+    },
+    {
+      "id": "warrant_card",
+      "text": "a warrant card landing on the counter mid-bite",
+      "tags": [
+        "action",
+        "tense_capable"
+      ],
+      "scene_type_bias": "face_off",
+      "indoor": true
+    },
+    {
+      "id": "last_booth_before_close",
+      "text": "wiping down the last booth before close",
+      "tags": [
+        "labor",
+        "calm_capable"
+      ],
+      "scene_type_bias": "candid_moment",
+      "indoor": true
+    },
+    {
+      "id": "splitting_the_tips",
+      "text": "splitting the tip jar after a long double shift",
+      "tags": [
+        "social",
+        "calm_capable"
+      ],
+      "scene_type_bias": "close_group",
+      "indoor": true
+    }
+  ]
+}

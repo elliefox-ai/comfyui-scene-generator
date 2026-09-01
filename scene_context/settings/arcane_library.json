@@ -1,0 +1,176 @@
+{
+  "name": "arcane_library",
+  "subject_label": "reading room scholars",
+  "group": "the scholars",
+  "tags": [
+    "fantasy",
+    "historical"
+  ],
+  "facet_tags": [
+    "small_crowd",
+    "leisure"
+  ],
+  "venue_archetype": "interior_social",
+  "features": {
+    "default": [
+      "shelves climbing to a vaulted, shadowed ceiling",
+      "long reading tables set with candle stands",
+      "chained volumes slotted into their alcoves",
+      "a rolling ladder on brass rails",
+      "a librarian's desk with a ledger of borrowings",
+      "a globe on a wooden stand by the arches",
+      "dust drifting through slanted lamplight",
+      "a reading stand holding an open folio"
+    ],
+    "fantasy": [
+      "faintly glowing sigils inlaid along the shelf ends",
+      "a cracked crystal lens mounted over the catalog desk"
+    ],
+    "historical": [
+      "copying benches with ink pots, quills, and blotters",
+      "a wax-sealed register chained to the desk"
+    ]
+  },
+  "situations": [
+    {
+      "id": "copying_by_candlelight",
+      "text": "copying manuscripts by candlelight",
+      "tags": [
+        "labor",
+        "calm_capable"
+      ],
+      "scene_type_bias": "at_work",
+      "indoor": true
+    },
+    {
+      "id": "disputed_passage",
+      "text": "arguing over a disputed passage, books open at both elbows",
+      "tags": [
+        "social",
+        "tense_capable"
+      ],
+      "scene_type_bias": "close_group",
+      "indoor": true
+    },
+    {
+      "id": "dusting_high_shelves",
+      "text": "dusting the high shelves from a rolling ladder",
+      "tags": [
+        "labor",
+        "calm_capable"
+      ],
+      "scene_type_bias": "at_work",
+      "indoor": true
+    },
+    {
+      "id": "hissed_argument",
+      "text": "leaned into a hissed argument between the stacks",
+      "tags": [
+        "social",
+        "tense_capable"
+      ],
+      "scene_type_bias": "face_off",
+      "indoor": true
+    },
+    {
+      "id": "tracing_the_star_chart",
+      "text": "tracing a star chart by lamplight",
+      "tags": [
+        "labor",
+        "calm_capable"
+      ],
+      "scene_type_bias": "candid_moment",
+      "indoor": true
+    },
+    {
+      "id": "reading_until_gutter",
+      "text": "reading until the candles gutter low",
+      "tags": [
+        "social",
+        "calm_capable"
+      ],
+      "scene_type_bias": "candid_moment",
+      "indoor": true
+    },
+    {
+      "id": "hush_at_the_door",
+      "text": "a raised finger and a hush falling at the door",
+      "tags": [
+        "social",
+        "calm_capable"
+      ],
+      "scene_type_bias": "atmospheric",
+      "indoor": true
+    },
+    {
+      "id": "misfiled_volume",
+      "text": "hauling a misfiled volume back to its rightful chain",
+      "tags": [
+        "action",
+        "calm_capable"
+      ],
+      "scene_type_bias": "candid_moment",
+      "indoor": true
+    },
+    {
+      "id": "ink_at_the_copy_bench",
+      "text": "inking a fresh impression at the copy bench",
+      "tags": [
+        "labor",
+        "calm_capable"
+      ],
+      "scene_type_bias": "at_work",
+      "indoor": true
+    },
+    {
+      "id": "locked_grille_shelf",
+      "text": "a locked grille shelf drawing stares",
+      "tags": [
+        "action",
+        "tense_capable"
+      ],
+      "scene_type_bias": "atmospheric",
+      "indoor": true
+    },
+    {
+      "id": "dust_from_the_folio",
+      "text": "blowing dust from a folio over the reading stand",
+      "tags": [
+        "labor",
+        "calm_capable"
+      ],
+      "scene_type_bias": "candid_moment",
+      "indoor": true
+    },
+    {
+      "id": "sigil_light",
+      "text": "following a drifting sigil-light between the stacks",
+      "tags": [
+        "nature",
+        "calm_capable"
+      ],
+      "scene_type_bias": "candid_moment",
+      "indoor": true
+    },
+    {
+      "id": "note_between_carrels",
+      "text": "passing a folded note between the carrels",
+      "tags": [
+        "social",
+        "tense_capable"
+      ],
+      "scene_type_bias": "candid_moment",
+      "indoor": true
+    },
+    {
+      "id": "returns_cart",
+      "text": "stacking returns onto a cart for reshelving",
+      "tags": [
+        "labor",
+        "calm_capable"
+      ],
+      "scene_type_bias": "at_work",
+      "indoor": true
+    }
+  ]
+}

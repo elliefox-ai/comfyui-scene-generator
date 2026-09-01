@@ -1,0 +1,175 @@
+{
+  "name": "great_house_kitchen",
+  "subject_label": "great house kitchen staff",
+  "group": "the kitchen crew",
+  "tags": [
+    "historical",
+    "fantasy"
+  ],
+  "facet_tags": [
+    "small_crew",
+    "leisure"
+  ],
+  "venue_archetype": "interior_domestic",
+  "features": {
+    "default": [
+      "a long scrubbed prep table dusted with flour",
+      "copper pots hanging from hooks over the range",
+      "a black cast-iron range with gleaming doors",
+      "bunches of dried herbs trailing from the beams",
+      "a stone sink with a hand pump",
+      "a dresser crowded with crockery and tins",
+      "market baskets under the prep table",
+      "a butter churn wedged in the corner"
+    ],
+    "historical": [
+      "a spit crank and dripping pan before the fire",
+      "a bell board of house calls by the passage door"
+    ],
+    "fantasy": [
+      "a cauldron swinging on an iron chain over the fire"
+    ]
+  },
+  "situations": [
+    {
+      "id": "scrubbing_copper",
+      "text": "scrubbing copper pots at the long sink",
+      "tags": [
+        "labor",
+        "calm_capable"
+      ],
+      "scene_type_bias": "at_work",
+      "indoor": true
+    },
+    {
+      "id": "directing_the_feast",
+      "text": "directing the feast prep from the end of the table",
+      "tags": [
+        "labor",
+        "tense_capable"
+      ],
+      "scene_type_bias": "at_work",
+      "indoor": true
+    },
+    {
+      "id": "stealing_warm_bread",
+      "text": "stealing warm bread off the cooling rack",
+      "tags": [
+        "action",
+        "calm_capable"
+      ],
+      "scene_type_bias": "candid_moment",
+      "indoor": true
+    },
+    {
+      "id": "scorched_sauce",
+      "text": "arguing over a scorched sauce at the range",
+      "tags": [
+        "social",
+        "tense_capable"
+      ],
+      "scene_type_bias": "face_off",
+      "indoor": true
+    },
+    {
+      "id": "kneading_dough",
+      "text": "kneading dough on the flour-dredged board",
+      "tags": [
+        "labor",
+        "calm_capable"
+      ],
+      "scene_type_bias": "at_work",
+      "indoor": true
+    },
+    {
+      "id": "housekeeper_above",
+      "text": "a hush when the housekeeper's steps cross the passage above",
+      "tags": [
+        "social",
+        "tense_capable"
+      ],
+      "scene_type_bias": "atmospheric",
+      "indoor": true
+    },
+    {
+      "id": "laying_good_silver",
+      "text": "laying the good silver for a full house",
+      "tags": [
+        "labor",
+        "calm_capable"
+      ],
+      "scene_type_bias": "at_work",
+      "indoor": true
+    },
+    {
+      "id": "tea_at_the_scrubbed_end",
+      "text": "sharing tea and the day's gossip at the scrubbed end of the table",
+      "tags": [
+        "social",
+        "calm_capable"
+      ],
+      "scene_type_bias": "close_group",
+      "indoor": true
+    },
+    {
+      "id": "water_barrel_before_freeze",
+      "text": "hauling the water barrel in before the well freezes",
+      "tags": [
+        "action",
+        "tense_capable"
+      ],
+      "scene_type_bias": "at_work",
+      "indoor": true
+    },
+    {
+      "id": "tasting_the_pot",
+      "text": "tasting the pot and reaching for the spice shelf",
+      "tags": [
+        "labor",
+        "calm_capable"
+      ],
+      "scene_type_bias": "candid_moment",
+      "indoor": true
+    },
+    {
+      "id": "feet_on_the_range_rail",
+      "text": "resting tired feet on the range rail before the breakfast call",
+      "tags": [
+        "social",
+        "calm_capable"
+      ],
+      "scene_type_bias": "candid_moment",
+      "indoor": true
+    },
+    {
+      "id": "banking_the_fire",
+      "text": "banking the fire for the night",
+      "tags": [
+        "labor",
+        "calm_capable"
+      ],
+      "scene_type_bias": "candid_moment",
+      "indoor": true
+    },
+    {
+      "id": "birthday_cake_in_the_crockery",
+      "text": "a crooked birthday cake hiding in the crockery cupboard",
+      "tags": [
+        "social",
+        "calm_capable"
+      ],
+      "scene_type_bias": "candid_moment",
+      "indoor": true
+    },
+    {
+      "id": "sherry_into_the_trifle",
+      "text": "sneaking the last of the sherry into the trifle",
+      "tags": [
+        "action",
+        "calm_capable"
+      ],
+      "scene_type_bias": "candid_moment",
+      "indoor": true
+    }
+  ]
+}

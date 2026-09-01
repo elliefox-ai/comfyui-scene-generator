@@ -60,6 +60,87 @@
         "tense_capable"
       ],
       "scene_type_bias": "close_group"
+    },
+    {
+      "id": "black_flag_prize",
+      "text": "taking a prize under a black flag",
+      "tags": [
+        "action",
+        "tense_capable"
+      ],
+      "scene_type_bias": "atmospheric"
+    },
+    {
+      "id": "shanty_at_the_capstan",
+      "text": "singing a shanty at the capstan",
+      "tags": [
+        "labor",
+        "calm_capable"
+      ],
+      "scene_type_bias": "gathering"
+    },
+    {
+      "id": "charts_by_candle",
+      "text": "navigating by candle beside the quartermaster's charts",
+      "tags": [
+        "labor",
+        "calm_capable"
+      ],
+      "scene_type_bias": "at_work"
+    },
+    {
+      "id": "stowaway_before_the_captain",
+      "text": "a stowaway hauled before the captain",
+      "tags": [
+        "social",
+        "tense_capable"
+      ],
+      "scene_type_bias": "face_off"
+    },
+    {
+      "id": "becalmed",
+      "text": "becalmed under a windless sky, sails hanging slack",
+      "tags": [
+        "nature",
+        "tense_capable"
+      ],
+      "scene_type_bias": "atmospheric"
+    },
+    {
+      "id": "knife_throwing_wager",
+      "text": "a knife-throwing wager against the mast",
+      "tags": [
+        "action",
+        "calm_capable"
+      ],
+      "scene_type_bias": "candid_moment"
+    },
+    {
+      "id": "broadside_drill",
+      "text": "running out the guns for a broadside drill",
+      "tags": [
+        "action",
+        "tense_capable"
+      ],
+      "scene_type_bias": "at_work"
+    },
+    {
+      "id": "sail_on_the_horizon",
+      "text": "spotting sail on the horizon from the masthead",
+      "tags": [
+        "action",
+        "tense_capable"
+      ],
+      "scene_type_bias": "atmospheric"
+    },
+    {
+      "id": "committed_to_the_deep",
+      "text": "committing a crewman to the deep",
+      "tags": [
+        "social",
+        "calm_capable"
+      ],
+      "scene_type_bias": "atmospheric"
     }
   ],
   "group": "the crew"

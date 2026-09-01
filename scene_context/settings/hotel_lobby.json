@@ -1,0 +1,180 @@
+{
+  "name": "hotel_lobby",
+  "subject_label": "hotel lobby guests",
+  "group": "the guests",
+  "tags": [
+    "historical",
+    "modern"
+  ],
+  "facet_tags": [
+    "city",
+    "crowd",
+    "leisure"
+  ],
+  "venue_archetype": "interior_social",
+  "features": {
+    "default": [
+      "a wide marble floor gleaming under the lights",
+      "a long front desk backed by a wall of room keys",
+      "a brass-edged luggage cart stacked with trunks and cases",
+      "potted palms flanking a row of armchairs",
+      "a grand staircase sweeping up past a landing mirror",
+      "a lobby clock above the registration book",
+      "a coat rack and umbrella stand by the doors",
+      "low tables scattered with newspapers"
+    ],
+    "historical": [
+      "candle sconces and oil lamps glowing along the walls",
+      "a birdcage of brass letter slots behind the desk",
+      "an inkwell and blotter at the register"
+    ],
+    "modern": [
+      "a key-card rack and a computer terminal at the desk",
+      "a revolving door spinning slow at the entrance",
+      "a digital arrivals board by the elevators"
+    ]
+  },
+  "situations": [
+    {
+      "id": "hauling_luggage",
+      "text": "hauling stacked luggage on a brass-edged cart",
+      "tags": [
+        "labor",
+        "calm_capable"
+      ],
+      "scene_type_bias": "at_work",
+      "indoor": true
+    },
+    {
+      "id": "checking_in_under_the_clock",
+      "text": "checking in under the lobby clock",
+      "tags": [
+        "social",
+        "calm_capable"
+      ],
+      "scene_type_bias": "candid_moment",
+      "indoor": true
+    },
+    {
+      "id": "double_booked",
+      "text": "arguing over a double-booked room at the front desk",
+      "tags": [
+        "social",
+        "tense_capable"
+      ],
+      "scene_type_bias": "face_off",
+      "indoor": true
+    },
+    {
+      "id": "waiting_out_the_rain",
+      "text": "waiting out the rain on the lobby sofas",
+      "tags": [
+        "social",
+        "calm_capable"
+      ],
+      "scene_type_bias": "gathering",
+      "indoor": true,
+      "env": "storm"
+    },
+    {
+      "id": "sweeping_the_marble",
+      "text": "sweeping the marble before the morning rush",
+      "tags": [
+        "labor",
+        "calm_capable"
+      ],
+      "scene_type_bias": "at_work",
+      "indoor": true
+    },
+    {
+      "id": "watching_the_doors",
+      "text": "turning to watch every arrival through the doors",
+      "tags": [
+        "social",
+        "calm_capable"
+      ],
+      "scene_type_bias": "candid_moment",
+      "indoor": true
+    },
+    {
+      "id": "porter_at_the_run",
+      "text": "a porter racing a trolley of plates to the upper floors",
+      "tags": [
+        "action",
+        "tense_capable"
+      ],
+      "scene_type_bias": "at_work",
+      "indoor": true
+    },
+    {
+      "id": "fresh_flowers",
+      "text": "arranging fresh flowers at the registration desk",
+      "tags": [
+        "labor",
+        "calm_capable"
+      ],
+      "scene_type_bias": "candid_moment",
+      "indoor": true
+    },
+    {
+      "id": "pleading_at_the_night_desk",
+      "text": "a late arrival pleading at the night desk",
+      "tags": [
+        "social",
+        "tense_capable"
+      ],
+      "scene_type_bias": "face_off",
+      "indoor": true
+    },
+    {
+      "id": "after_checkout",
+      "text": "sinking into the armchairs after checkout, bags at their feet",
+      "tags": [
+        "social",
+        "calm_capable"
+      ],
+      "scene_type_bias": "candid_moment",
+      "indoor": true
+    },
+    {
+      "id": "polishing_brass",
+      "text": "polishing the brass fittings on the front desk",
+      "tags": [
+        "labor",
+        "calm_capable"
+      ],
+      "scene_type_bias": "at_work",
+      "indoor": true
+    },
+    {
+      "id": "fire_alarm_crowd",
+      "text": "crowding the desk when the fire alarm trips",
+      "tags": [
+        "action",
+        "tense_capable"
+      ],
+      "scene_type_bias": "atmospheric",
+      "indoor": true
+    },
+    {
+      "id": "tray_to_the_suite",
+      "text": "carrying a tray of drinks up to a suite",
+      "tags": [
+        "labor",
+        "calm_capable"
+      ],
+      "scene_type_bias": "at_work",
+      "indoor": true
+    },
+    {
+      "id": "lobby_rumors",
+      "text": "trading rumors in the lobby's quiet corners",
+      "tags": [
+        "social",
+        "tense_capable"
+      ],
+      "scene_type_bias": "close_group",
+      "indoor": true
+    }
+  ]
+}

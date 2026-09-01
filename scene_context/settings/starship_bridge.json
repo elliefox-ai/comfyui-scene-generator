@@ -1,0 +1,167 @@
+{
+  "name": "starship_bridge",
+  "subject_label": "starship bridge crew",
+  "group": "the bridge crew",
+  "tags": [
+    "sci_fi"
+  ],
+  "facet_tags": [
+    "vessel",
+    "small_crew"
+  ],
+  "venue_archetype": "interior_industrial",
+  "features": {
+    "default": [
+      "a tiered command deck facing a wide viewport",
+      "console banks glowing with readouts",
+      "two command chairs on a raised platform",
+      "a central plot table casting a pale hologram",
+      "handrails worn bright along the command walk",
+      "a comm panel with a looping channel light",
+      "dim status strips running the length of the ceiling",
+      "a viewport dark with stars"
+    ]
+  },
+  "situations": [
+    {
+      "id": "mid_watch_walk",
+      "text": "walking the console banks at the mid-watch",
+      "tags": [
+        "labor",
+        "calm_capable"
+      ],
+      "scene_type_bias": "at_work",
+      "indoor": true
+    },
+    {
+      "id": "course_corrections",
+      "text": "calling out course corrections across the deck",
+      "tags": [
+        "labor",
+        "tense_capable"
+      ],
+      "scene_type_bias": "at_work",
+      "indoor": true
+    },
+    {
+      "id": "nebula_past_the_viewport",
+      "text": "watching a nebula roll slowly past the viewport",
+      "tags": [
+        "nature",
+        "calm_capable"
+      ],
+      "scene_type_bias": "candid_moment",
+      "indoor": true
+    },
+    {
+      "id": "course_change_argument",
+      "text": "arguing a course change over the nav table",
+      "tags": [
+        "social",
+        "tense_capable"
+      ],
+      "scene_type_bias": "face_off",
+      "indoor": true
+    },
+    {
+      "id": "hand_flying_debris",
+      "text": "hand-flying the ship through a debris belt",
+      "tags": [
+        "action",
+        "tense_capable"
+      ],
+      "scene_type_bias": "at_work",
+      "indoor": true
+    },
+    {
+      "id": "shift_handover",
+      "text": "shift handover over heated coffee at the plot table",
+      "tags": [
+        "social",
+        "calm_capable"
+      ],
+      "scene_type_bias": "close_group",
+      "indoor": true
+    },
+    {
+      "id": "long_haul_quiet",
+      "text": "long-haul quiet, nothing on the scope but dust",
+      "tags": [
+        "nature",
+        "calm_capable"
+      ],
+      "scene_type_bias": "atmospheric",
+      "indoor": true
+    },
+    {
+      "id": "proximity_alarm",
+      "text": "a proximity alarm clearing the deck of idlers",
+      "tags": [
+        "action",
+        "tense_capable"
+      ],
+      "scene_type_bias": "atmospheric",
+      "indoor": true
+    },
+    {
+      "id": "slingshot_by_hand",
+      "text": "plotting a slingshot correction by hand",
+      "tags": [
+        "labor",
+        "calm_capable"
+      ],
+      "scene_type_bias": "at_work",
+      "indoor": true
+    },
+    {
+      "id": "faint_distress_repeat",
+      "text": "relaying a faint distress repeat on the comm loop",
+      "tags": [
+        "social",
+        "tense_capable"
+      ],
+      "scene_type_bias": "at_work",
+      "indoor": true
+    },
+    {
+      "id": "comet_across_the_glass",
+      "text": "dimming the deck to watch a comet cross the glass",
+      "tags": [
+        "nature",
+        "calm_capable"
+      ],
+      "scene_type_bias": "candid_moment",
+      "indoor": true
+    },
+    {
+      "id": "failing_relay",
+      "text": "tracing a flickering readout to a failing relay",
+      "tags": [
+        "labor",
+        "tense_capable"
+      ],
+      "scene_type_bias": "at_work",
+      "indoor": true
+    },
+    {
+      "id": "clean_burn",
+      "text": "celebrating a clean burn at the end of the run",
+      "tags": [
+        "social",
+        "calm_capable"
+      ],
+      "scene_type_bias": "gathering",
+      "indoor": true
+    },
+    {
+      "id": "logging_alone",
+      "text": "logging the watch alone under the status hologram",
+      "tags": [
+        "labor",
+        "calm_capable"
+      ],
+      "scene_type_bias": "candid_moment",
+      "indoor": true
+    }
+  ]
+}
