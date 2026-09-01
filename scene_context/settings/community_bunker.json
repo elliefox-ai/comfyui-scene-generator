@@ -1,0 +1,95 @@
+{
+  "name": "community_bunker",
+  "subject_label": "bunker residents",
+  "tags": [
+    "sci_fi",
+    "post_apocalyptic"
+  ],
+  "facet_tags": [
+    "crowd",
+    "small_crowd",
+    "interior"
+  ],
+  "venue_archetype": "interior_social",
+  "situations": [
+    {
+      "id": "mess_line",
+      "text": "queuing at the mess line, tin cups out",
+      "tags": [
+        "social",
+        "calm_capable"
+      ],
+      "scene_type_bias": "gathering",
+      "indoor": true
+    },
+    {
+      "id": "ration_dispute",
+      "text": "a dispute over rations at the supply shelf",
+      "tags": [
+        "social",
+        "tense_capable",
+        "violent_capable"
+      ],
+      "scene_type_bias": "face_off",
+      "indoor": true
+    },
+    {
+      "id": "radio_watch",
+      "text": "huddled close round the radio, waiting on a signal",
+      "tags": [
+        "social",
+        "tense_capable"
+      ],
+      "scene_type_bias": "close_group",
+      "indoor": true
+    },
+    {
+      "id": "bunk_rows",
+      "text": "turned in on the bunk rows behind a hung tarp",
+      "tags": [
+        "calm_capable"
+      ],
+      "scene_type_bias": "candid_moment",
+      "indoor": true
+    },
+    {
+      "id": "water_line",
+      "text": "hauling water up the stairwell by bucket line",
+      "tags": [
+        "labor"
+      ],
+      "scene_type_bias": "at_work",
+      "indoor": true
+    },
+    {
+      "id": "filter_shift",
+      "text": "trading shifts at the air filters",
+      "tags": [
+        "labor",
+        "calm_capable"
+      ],
+      "scene_type_bias": "at_work",
+      "indoor": true
+    },
+    {
+      "id": "newcomer_vouch",
+      "text": "vouching a newcomer in past the blast door",
+      "tags": [
+        "social",
+        "tense_capable"
+      ],
+      "scene_type_bias": "candid_moment",
+      "indoor": true
+    },
+    {
+      "id": "brownout",
+      "text": "the generator dipping, lights browning out row by row",
+      "tags": [
+        "social",
+        "tense_capable"
+      ],
+      "scene_type_bias": "atmospheric",
+      "indoor": true
+    }
+  ]
+}

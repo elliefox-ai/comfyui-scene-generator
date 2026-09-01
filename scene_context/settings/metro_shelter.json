@@ -1,0 +1,96 @@
+{
+  "name": "metro_shelter",
+  "subject_label": "platform dwellers",
+  "tags": [
+    "modern",
+    "post_apocalyptic"
+  ],
+  "facet_tags": [
+    "city",
+    "small_crowd",
+    "interior"
+  ],
+  "venue_archetype": "interior_domestic",
+  "situations": [
+    {
+      "id": "tarp_rows",
+      "text": "stringing tarps between the pillar rows",
+      "tags": [
+        "labor",
+        "social"
+      ],
+      "scene_type_bias": "at_work",
+      "indoor": true
+    },
+    {
+      "id": "stove_gather",
+      "text": "sharing a cook stove's heat at the platform edge",
+      "tags": [
+        "social",
+        "calm_capable"
+      ],
+      "scene_type_bias": "gathering",
+      "indoor": true
+    },
+    {
+      "id": "tunnel_wind",
+      "text": "the tunnel wind rising out of the dark",
+      "tags": [
+        "nature",
+        "tense_capable"
+      ],
+      "scene_type_bias": "atmospheric",
+      "indoor": true
+    },
+    {
+      "id": "fare_gate_stalls",
+      "text": "trading at the fare-gate stalls",
+      "tags": [
+        "social",
+        "calm_capable"
+      ],
+      "scene_type_bias": "close_group",
+      "indoor": true
+    },
+    {
+      "id": "tunnel_map",
+      "text": "arguing over a hand-drawn tunnel map by candlelight",
+      "tags": [
+        "social",
+        "tense_capable"
+      ],
+      "scene_type_bias": "close_group",
+      "indoor": true
+    },
+    {
+      "id": "tunnel_mouth_watch",
+      "text": "keeping watch at the dark tunnel mouth",
+      "tags": [
+        "calm_capable",
+        "tense_capable"
+      ],
+      "scene_type_bias": "at_work",
+      "indoor": true
+    },
+    {
+      "id": "fever_watch",
+      "text": "nursing a fever in the station office",
+      "tags": [
+        "social",
+        "calm_capable"
+      ],
+      "scene_type_bias": "candid_moment",
+      "indoor": true
+    },
+    {
+      "id": "last_train_stories",
+      "text": "telling stories of the last train that ran",
+      "tags": [
+        "social",
+        "calm_capable"
+      ],
+      "scene_type_bias": "gathering",
+      "indoor": true
+    }
+  ]
+}

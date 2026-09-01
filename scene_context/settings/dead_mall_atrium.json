@@ -1,0 +1,97 @@
+{
+  "name": "dead_mall_atrium",
+  "subject_label": "atrium traders",
+  "tags": [
+    "modern",
+    "post_apocalyptic"
+  ],
+  "facet_tags": [
+    "crowd",
+    "leisure",
+    "interior"
+  ],
+  "venue_archetype": "interior_social",
+  "situations": [
+    {
+      "id": "stall_barter",
+      "text": "bargaining over scavenged goods under the dead skylight",
+      "tags": [
+        "social",
+        "calm_capable",
+        "tense_capable"
+      ],
+      "scene_type_bias": "close_group",
+      "indoor": true
+    },
+    {
+      "id": "fountain_camp",
+      "text": "camped round the dry fountain, cook smoke climbing",
+      "tags": [
+        "social",
+        "calm_capable"
+      ],
+      "scene_type_bias": "gathering",
+      "indoor": true
+    },
+    {
+      "id": "escalator_haul",
+      "text": "hauling salvage down the dead escalators",
+      "tags": [
+        "labor"
+      ],
+      "scene_type_bias": "at_work",
+      "indoor": true
+    },
+    {
+      "id": "skylight_rain",
+      "text": "rain sheeting through the broken skylight panes",
+      "tags": [
+        "nature",
+        "tense_capable"
+      ],
+      "scene_type_bias": "atmospheric",
+      "indoor": true
+    },
+    {
+      "id": "bike_race",
+      "text": "kids racing bikes between the stalled escalators",
+      "tags": [
+        "action",
+        "social"
+      ],
+      "scene_type_bias": "candid_moment",
+      "indoor": true
+    },
+    {
+      "id": "turf_line",
+      "text": "two stall rows facing off across a chalked line",
+      "tags": [
+        "social",
+        "tense_capable",
+        "violent_capable"
+      ],
+      "scene_type_bias": "face_off",
+      "indoor": true
+    },
+    {
+      "id": "shutter_call",
+      "text": "pulling the stall shutters down as the light goes",
+      "tags": [
+        "calm_capable",
+        "social"
+      ],
+      "scene_type_bias": "candid_moment",
+      "indoor": true
+    },
+    {
+      "id": "railing_watch",
+      "text": "keeping the lookout at the railing above the floor",
+      "tags": [
+        "calm_capable",
+        "tense_capable"
+      ],
+      "scene_type_bias": "at_work",
+      "indoor": true
+    }
+  ]
+}

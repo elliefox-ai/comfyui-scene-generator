@@ -26,7 +26,8 @@
     "forest": "Woodland cover.",
     "mountain": "Altitude: passes, ridgelines, thin air.",
     "station": "A fixed operating post — ranger or relay; outpost infrastructure.",
-    "leisure": "Recreation and pleasure — patrons, travelers, audiences rather than workers."
+    "leisure": "Recreation and pleasure — patrons, travelers, audiences rather than workers.",
+    "interior": "Under a roof — enclosed interiors: halls, holds, shelters, domestic rooms."
   },
   "situation": {
     "calm_capable": "Skilled action at ease; unhurried competence.",

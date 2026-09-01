@@ -19,6 +19,10 @@
     "urban": {
       "label": "on a city street",
       "facets": ["city", "street"]
+    },
+    "indoors": {
+      "label": "indoors",
+      "facets": ["interior"]
     }
   }
 }

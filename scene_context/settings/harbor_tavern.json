@@ -11,7 +11,8 @@
     "shore",
     "small_crowd",
     "leisure",
-    "age_of_sail"
+    "age_of_sail",
+    "interior"
   ],
   "venue_archetype": "interior_social",
   "situations": [
