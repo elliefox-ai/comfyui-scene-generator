@@ -142,6 +142,10 @@ class SceneContextComposer:
                     "tooltip": "Append a posture phrase to each staged character (static stance register). The Scene Character Roller has the same toggle — if both fire, doubled cues are yours."}),
                 "positioning": ("BOOLEAN", {"default": False,
                     "tooltip": "Stage the cast with placement templates — lateral/relational phrases per cast size ('on the near side of the frame, …'). Off (default) = no placement language; the renderer arranges."}),
+                "include_setting": ("BOOLEAN", {"default": True,
+                    "tooltip": "Emit the venue phrase ('In an arcane library') that opens the scene line. Off = no location language; the renderer places the scene. The venue still rolls — tone and composition still draw from it — only the text is gated."}),
+                "include_context": ("BOOLEAN", {"default": True,
+                    "tooltip": "Emit the situation clause (what the group is doing). Off = place and mood only. The situation still rolls — tone compatibility and composition bias still key off it; only the text is gated."}),
             },
             "optional": {
                 **{
@@ -167,7 +171,8 @@ class SceneContextComposer:
     FUNCTION = "compose"
     CATEGORY = "SceneGen"
 
-    def compose(self, genre, genre2, tone, setting, composition, seed, pose=False, positioning=False, **kwargs):
+    def compose(self, genre, genre2, tone, setting, composition, seed, pose=False, positioning=False,
+                include_setting=True, include_context=True, **kwargs):
         rng = random.Random(seed)
         settings = _load_settings()
         tones = _load_tones()
@@ -240,6 +245,8 @@ class SceneContextComposer:
         # something over something, then a mood summary anchored by its
         # behavior clause. Off-limits stays structural: no era presumption,
         # no broken referents, no abstraction without a spine.
+        # include_setting / include_context gate TEXT emission only — the
+        # rolls above are untouched, so tone/composition keys stay stable.
         venue_words = chosen["name"].replace("_", " ")
         venue_art = "an" if venue_words[:1].lower() in "aeiou" else "a"
         locative = str(chosen.get("locative", "in")).capitalize()
@@ -258,16 +265,25 @@ class SceneContextComposer:
         if situation.get("role") == "aside":
             # second-subject scene event — its own absolute sentence, no
             # group clause: the stranger/crowd/train is the subject.
-            scene = f"{locative} {venue_art} {venue_words}, {text}"
+            body = text
         else:
             if verbled:
                 act = text
             else:
                 act = f"in {text}"  # NP event: light carrier keeps it grammatical
-            scene = f"{locative} {venue_art} {venue_words}, {group} {verb} {act}"
-        if flourish:
+            body = f"{group} {verb} {act}"
+        venue_phrase = f"{locative} {venue_art} {venue_words}"
+        if include_setting and include_context:
+            scene = f"{venue_phrase}, {body}"
+        elif include_setting:
+            scene = venue_phrase
+        elif include_context:
+            scene = body[:1].upper() + body[1:]
+        else:
+            scene = ""  # no scene sentence — a bare flourish would be an orphan
+        if scene and flourish:
             scene = f"{scene}, {flourish}"
-        sentences = [scene + "."]
+        sentences = [scene + "."] if scene else []
         mood = f"The mood is {summary}"
         if modifier:
             mood = f"{mood} — {modifier}"
@@ -329,6 +345,8 @@ class SceneContextComposer:
             "ambient": ambient,
             "pose": pose,
             "positioning": positioning,
+            "include_setting": include_setting,
+            "include_context": include_context,
             "env": situation.get("env", ""),
             "composition": comp_key,
             "composition_phrase": comp_phrase,
