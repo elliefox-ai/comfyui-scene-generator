@@ -56,7 +56,8 @@
         "action",
         "tense_capable"
       ],
-      "scene_type_bias": "face_off"
+      "scene_type_bias": "face_off",
+      "role": "aside"
     },
     {
       "id": "cargo_inspection",
@@ -74,7 +75,8 @@
         "social",
         "calm_capable"
       ],
-      "scene_type_bias": "gathering"
+      "scene_type_bias": "gathering",
+      "role": "aside"
     },
     {
       "id": "storm_scramble",

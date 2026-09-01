@@ -45,56 +45,81 @@
     {
       "id": "card_game_at_the_corner_table",
       "text": "locked in a card game at a corner table",
-      "tags": ["social", "tense_capable"],
+      "tags": [
+        "social",
+        "tense_capable"
+      ],
       "scene_type_bias": "close_group",
       "indoor": true
     },
     {
       "id": "nursing_a_drink_alone",
       "text": "nursing a drink alone at the end of the bar",
-      "tags": ["social", "calm_capable"],
+      "tags": [
+        "social",
+        "calm_capable"
+      ],
       "scene_type_bias": "candid_moment",
       "indoor": true
     },
     {
       "id": "toasting_a_deal",
       "text": "raising glasses to toast a freshly struck deal",
-      "tags": ["social", "calm_capable"],
+      "tags": [
+        "social",
+        "calm_capable"
+      ],
       "scene_type_bias": "close_group",
       "indoor": true
     },
     {
       "id": "tense_exchange_at_the_bar",
       "text": "a tense exchange of words leaning close over the bar",
-      "tags": ["social", "tense_capable"],
+      "tags": [
+        "social",
+        "tense_capable"
+      ],
       "scene_type_bias": "face_off",
       "indoor": true
     },
     {
       "id": "live_music_set",
       "text": "gathered around a small stage for a live set",
-      "tags": ["social", "calm_capable"],
+      "tags": [
+        "social",
+        "calm_capable"
+      ],
       "scene_type_bias": "gathering",
       "indoor": true
     },
     {
       "id": "morning_after_cleanup",
       "text": "sweeping up quietly the morning after a long night",
-      "tags": ["labor", "calm_capable"],
+      "tags": [
+        "labor",
+        "calm_capable"
+      ],
       "scene_type_bias": "candid_moment",
       "indoor": true
     },
     {
       "id": "stranger_in_the_doorway",
       "text": "conversation trailing off as a stranger fills the doorway",
-      "tags": ["action", "tense_capable"],
+      "tags": [
+        "action",
+        "tense_capable"
+      ],
       "scene_type_bias": "atmospheric",
-      "indoor": true
+      "indoor": true,
+      "role": "aside"
     },
     {
       "id": "shared_meal_at_a_long_table",
       "text": "sharing a loud meal at a long communal table",
-      "tags": ["social", "calm_capable"],
+      "tags": [
+        "social",
+        "calm_capable"
+      ],
       "scene_type_bias": "gathering",
       "indoor": true
     }

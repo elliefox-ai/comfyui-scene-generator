@@ -79,7 +79,8 @@
       ],
       "scene_type_bias": "atmospheric",
       "env": "storm",
-      "indoor": true
+      "indoor": true,
+      "role": "aside"
     }
   ]
 }

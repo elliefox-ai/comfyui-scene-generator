@@ -9,7 +9,8 @@
     "compatible": [
       "violent_capable",
       "tense_capable"
-    ]
+    ],
+    "summary": "tense"
   },
   "charming": {
     "label": "Charming / Idyllic",
@@ -20,7 +21,8 @@
     ],
     "compatible": [
       "calm_capable"
-    ]
+    ],
+    "summary": "warm"
   },
   "satirical": {
     "label": "Satirical / Comedic",
@@ -28,7 +30,8 @@
       "exaggerated poses and faces, wide grins, arms flung out",
       "one figure hamming it up, arms spread, a deep theatrical bow",
       "grimaces and raised eyebrows, oversized gestures"
-    ]
+    ],
+    "summary": "playful"
   },
   "eerie": {
     "label": "Eerie / Uncanny",
@@ -40,7 +43,8 @@
     "compatible": [
       "tense_capable",
       "calm_capable"
-    ]
+    ],
+    "summary": "eerie"
   },
   "mundane": {
     "label": "Mundane / Domestic",
@@ -51,7 +55,8 @@
     ],
     "compatible": [
       "calm_capable"
-    ]
+    ],
+    "summary": "matter-of-fact"
   },
   "triumphant": {
     "label": "Triumphant / Victorious",
@@ -63,7 +68,8 @@
     "compatible": [
       "action",
       "tense_capable"
-    ]
+    ],
+    "summary": "triumphant"
   },
   "melancholy": {
     "label": "Melancholy / Wistful",
@@ -74,7 +80,8 @@
     ],
     "compatible": [
       "calm_capable"
-    ]
+    ],
+    "summary": "melancholy"
   },
   "solemn": {
     "label": "Solemn / Ceremonial",
@@ -86,7 +93,8 @@
     "compatible": [
       "calm_capable",
       "social"
-    ]
+    ],
+    "summary": "solemn"
   },
   "romantic": {
     "label": "Romantic / Tender",
@@ -98,7 +106,8 @@
     "compatible": [
       "calm_capable",
       "social"
-    ]
+    ],
+    "summary": "tender"
   },
   "restless": {
     "label": "Restless / Anxious",
@@ -110,6 +119,7 @@
     "compatible": [
       "tense_capable",
       "action"
-    ]
+    ],
+    "summary": "uneasy"
   }
 }

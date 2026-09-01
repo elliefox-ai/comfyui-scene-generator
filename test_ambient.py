@@ -234,7 +234,7 @@ r2 = comp.compose(**kw, ambient="a giant rubber duck installed as art")
 check("composer without ambient: no background clause",
       "in the background" not in r1[0])
 check("composer with ambient: clause lands in the scene line",
-      "in the background, a giant rubber duck installed as art" in r2[0])
+      "In the background, a giant rubber duck installed as art." in r2[0])
 c2 = json.loads(r2[2])
 check("components records ambient",
       c2.get("ambient") == "a giant rubber duck installed as art")

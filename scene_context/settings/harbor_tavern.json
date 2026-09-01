@@ -65,7 +65,8 @@
         "tense_capable"
       ],
       "scene_type_bias": "atmospheric",
-      "env": "storm"
+      "env": "storm",
+      "role": "aside"
     },
     {
       "id": "shared_meal",
@@ -85,7 +86,8 @@
         "tense_capable"
       ],
       "scene_type_bias": "atmospheric",
-      "indoor": true
+      "indoor": true,
+      "role": "aside"
     },
     {
       "id": "deal_sour",

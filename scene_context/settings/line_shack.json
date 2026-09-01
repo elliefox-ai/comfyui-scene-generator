@@ -28,21 +28,30 @@
     {
       "id": "mending_tack_by_lamplight",
       "text": "mending a cracked saddle strap by lamplight",
-      "tags": ["labor", "calm_capable"],
+      "tags": [
+        "labor",
+        "calm_capable"
+      ],
       "scene_type_bias": "at_work",
       "indoor": true
     },
     {
       "id": "cooking_over_the_stove",
       "text": "cooking a simple meal over the wood stove",
-      "tags": ["labor", "calm_capable"],
+      "tags": [
+        "labor",
+        "calm_capable"
+      ],
       "scene_type_bias": "candid_moment",
       "indoor": true
     },
     {
       "id": "waiting_out_the_storm",
       "text": "waiting out a storm, packs stacked against the wall",
-      "tags": ["nature", "tense_capable"],
+      "tags": [
+        "nature",
+        "tense_capable"
+      ],
       "scene_type_bias": "atmospheric",
       "env": "storm",
       "indoor": true
@@ -50,37 +59,53 @@
     {
       "id": "playing_cards_by_lamplight",
       "text": "playing cards by lamplight to pass a quiet evening",
-      "tags": ["social", "calm_capable"],
+      "tags": [
+        "social",
+        "calm_capable"
+      ],
       "scene_type_bias": "close_group",
       "indoor": true
     },
     {
       "id": "checking_a_map_by_candle",
       "text": "checking a range map spread across the table",
-      "tags": ["labor", "calm_capable"],
+      "tags": [
+        "labor",
+        "calm_capable"
+      ],
       "scene_type_bias": "close_group",
       "indoor": true
     },
     {
       "id": "keeping_solitary_watch",
       "text": "keeping a solitary watch at the shuttered window",
-      "tags": ["action", "tense_capable"],
+      "tags": [
+        "action",
+        "tense_capable"
+      ],
       "scene_type_bias": "candid_moment",
       "indoor": true
     },
     {
       "id": "arguing_over_the_next_ride",
-      "text": "a tense argument over who rides out at first light",
-      "tags": ["social", "tense_capable"],
+      "text": "arguing over who rides out at first light",
+      "tags": [
+        "social",
+        "tense_capable"
+      ],
       "scene_type_bias": "face_off",
       "indoor": true
     },
     {
       "id": "writing_a_letter_home",
       "text": "writing a letter home by the stove's last light",
-      "tags": ["social", "calm_capable"],
+      "tags": [
+        "social",
+        "calm_capable"
+      ],
       "scene_type_bias": "candid_moment",
       "indoor": true
     }
-  ]
+  ],
+  "group": "the line-camp hand"
 }

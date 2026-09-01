@@ -28,50 +28,76 @@
     {
       "id": "rationing_supplies",
       "text": "rationing out the day's supplies at the distribution table",
-      "tags": ["labor", "tense_capable"],
+      "tags": [
+        "labor",
+        "tense_capable"
+      ],
       "scene_type_bias": "at_work"
     },
     {
       "id": "building_a_shelter",
       "text": "building a shelter frame from salvaged panels",
-      "tags": ["labor", "calm_capable"],
+      "tags": [
+        "labor",
+        "calm_capable"
+      ],
       "scene_type_bias": "at_work"
     },
     {
       "id": "medical_triage",
       "text": "tending to the injured at a makeshift triage point",
-      "tags": ["labor", "tense_capable"],
+      "tags": [
+        "labor",
+        "tense_capable"
+      ],
       "scene_type_bias": "close_group"
     },
     {
       "id": "sharing_stories_by_the_fire",
       "text": "sharing stories around the communal fire at night",
-      "tags": ["social", "calm_capable"],
+      "tags": [
+        "social",
+        "calm_capable"
+      ],
       "scene_type_bias": "gathering"
     },
     {
       "id": "dispute_over_rations",
       "text": "a dispute breaking out over unequal rations",
-      "tags": ["social", "tense_capable"],
+      "tags": [
+        "social",
+        "tense_capable"
+      ],
       "scene_type_bias": "face_off"
     },
     {
       "id": "children_playing_among_the_tents",
       "text": "children playing a chasing game among the tents",
-      "tags": ["social", "calm_capable"],
-      "scene_type_bias": "candid_moment"
+      "tags": [
+        "social",
+        "calm_capable"
+      ],
+      "scene_type_bias": "candid_moment",
+      "role": "aside"
     },
     {
       "id": "watch_duty_at_the_perimeter",
       "text": "keeping watch at the camp's scavenged perimeter",
-      "tags": ["action", "tense_capable"],
+      "tags": [
+        "action",
+        "tense_capable"
+      ],
       "scene_type_bias": "candid_moment"
     },
     {
       "id": "new_arrivals_at_the_gate",
       "text": "a wary crowd gathering as new arrivals reach the gate",
-      "tags": ["action", "tense_capable"],
-      "scene_type_bias": "atmospheric"
+      "tags": [
+        "action",
+        "tense_capable"
+      ],
+      "scene_type_bias": "atmospheric",
+      "role": "aside"
     }
   ]
 }

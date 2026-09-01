@@ -12,7 +12,7 @@ Axes:
         Archetype ('on a nautical vessel') gates venues by facet tags
         Venue (pirate_ship) pins a specific setting outright
     Setting -> Situation (may declare an `env` requirement)
-    Tone (independent) -> modifier phrase
+    Tone (independent) -> summary word + behavior clause
     Atmosphere (env-constrained) -> flourish
     Composition (first-class, new) -> framing phrase keyed by the
         situation's scene_type_bias; unknown/missing keys fall back to
@@ -20,7 +20,8 @@ Axes:
         nothing until a pool is deliberately added)
 
 Outputs:
-    context_text    subject, situation, tone modifier, atmosphere
+    context_text    whole-scene sentences: locative + subject + activity,
+                    anchored mood summary, behavior ground
     render_prompt   context_text + composition phrase (model-ready)
     components_json every piece separately, for remixing downstream
     seed_used       pass-through so samplers can share the roll
@@ -83,6 +84,19 @@ def _setting_options():
     then concrete venue names (author override path)."""
     labels = [a["label"] for a in _load_archetypes().values()]
     return [RANDOM] + labels + sorted(_load_settings().keys())
+
+
+def _short_group(subject_label, venue_words):
+    """Short in-sentence subject: the fragment register carried the venue
+    as a compound-noun prefix ('salvage yard crew'); in a sentence the
+    locative already says it. Falls back to the full label, de-articled."""
+    label = subject_label.strip()
+    low = venue_words.lower()
+    if label.lower().startswith(low + " "):
+        return "the " + label[len(low) + 1:]
+    if label[:2].lower() in ("a ", "an "):
+        return "the " + label[2:].lstrip()
+    return "the " + label
 
 
 class SceneContextComposer:
@@ -194,19 +208,57 @@ class SceneContextComposer:
 
         situation = rng.choice(tone_pool)
         modifier = rng.choice(tones[tone_key]["modifiers"])
+        summary = tones[tone_key].get("summary") or tone_key
         flourish = _pick_flourish(_load_atmosphere(), situation, rng)
 
         chars = [kwargs.get(f"character_{i}") or "" for i in (1, 2, 3, 4)]
         staging = _stage_characters(chars, rng, pose=pose, positioning=positioning)
         ambient = (kwargs.get("ambient") or "").strip()
 
-        parts = [chosen['subject_label'], situation['text'], modifier]
+        # Whole-scene sentence assembly (2026-08-31): syntax carries the
+        # relations a comma-pile can't — locative context, a subject doing
+        # something over something, then a mood summary anchored by its
+        # behavior clause. Off-limits stays structural: no era presumption,
+        # no broken referents, no abstraction without a spine.
+        venue_words = chosen["name"].replace("_", " ")
+        venue_art = "an" if venue_words[:1].lower() in "aeiou" else "a"
+        group = chosen.get("group") or _short_group(
+            chosen["subject_label"], venue_words
+        )
+        verb = "are" if group.rstrip().endswith("s") else "is"
+
+        text = situation["text"].strip()
+        words = text.split()
+        verbled = words[0].lower().endswith(("ing", "ed")) or (
+            len(words) > 1
+            and words[1].lower().endswith(("ing", "ed"))
+            and words[0].lower() not in ("a", "an", "the")
+        )
+        if situation.get("role") == "aside":
+            # second-subject scene event — its own absolute sentence, no
+            # group clause: the stranger/crowd/train is the subject.
+            scene = f"In {venue_art} {venue_words}, {text}"
+        else:
+            if verbled:
+                act = text
+            else:
+                act = f"in {text}"  # NP event: light carrier keeps it grammatical
+            scene = f"In {venue_art} {venue_words}, {group} {verb} {act}"
+        if flourish:
+            scene = f"{scene}, {flourish}"
+        sentences = [scene + "."]
+        mood = f"The mood is {summary}"
+        if modifier:
+            mood = f"{mood} — {modifier}"
+        sentences.append(mood + ".")
         if staging:
-            parts.append(staging)
+            lead = staging[0].upper() + staging[1:]
+            if not lead.rstrip().endswith((".", "!", "?")):
+                lead += "."
+            sentences.append(lead)
         if ambient:
-            parts.append(f"in the background, {ambient}")
-        parts.append(flourish)
-        context_text = ", ".join(parts)
+            sentences.append(f"In the background, {ambient}.")
+        context_text = " ".join(sentences)
 
         comp_pool = _load_composition()
         comp_key = ""
@@ -249,6 +301,8 @@ class SceneContextComposer:
             "situation_text": situation["text"],
             "tone": tone_key,
             "tone_modifier": modifier,
+            "tone_summary": summary,
+            "group": group,
             "atmosphere": flourish,
             "characters_staged": staging,
             "ambient": ambient,

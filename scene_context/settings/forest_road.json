@@ -28,7 +28,8 @@
         "action",
         "violent_capable"
       ],
-      "scene_type_bias": "face_off"
+      "scene_type_bias": "face_off",
+      "role": "aside"
     },
     {
       "id": "fording_the_stream",
