@@ -2,9 +2,9 @@
   "violent": {
     "label": "Violent / Tense",
     "modifiers": [
-      "violent action between one group against another",
+      "two groups clashing, shoves and raised fists",
       "a tense standoff, weapons half-drawn",
-      "chaos breaking out, shouts and scrambling"
+      "open shouting, figures scrambling apart"
     ],
     "compatible": [
       "violent_capable",
@@ -14,9 +14,9 @@
   "charming": {
     "label": "Charming / Idyllic",
     "modifiers": [
-      "casual, peaceful socialization between subjects",
-      "warm camaraderie, easy laughter",
-      "a relaxed, unhurried moment"
+      "chatting in small groups, shoulders relaxed",
+      "heads tipped back laughing, hands resting on shoulders",
+      "leaning back, unhurried gestures, quiet smiles"
     ],
     "compatible": [
       "calm_capable"
@@ -25,17 +25,17 @@
   "satirical": {
     "label": "Satirical / Comedic",
     "modifiers": [
-      "exaggerated, playful antics",
-      "a moment of absurd showmanship",
-      "an air of comic exaggeration"
+      "exaggerated poses and faces, wide grins, arms flung out",
+      "one figure hamming it up, arms spread, a deep theatrical bow",
+      "grimaces and raised eyebrows, oversized gestures"
     ]
   },
   "eerie": {
     "label": "Eerie / Uncanny",
     "modifiers": [
-      "an unsettling stillness hanging over the scene",
-      "something quietly wrong just beneath the surface",
-      "a hushed, watchful tension"
+      "figures frozen mid-step, heads turned all the same way",
+      "faces too still, gazes fixed on something out of view",
+      "lips pressed shut, eyes tracking movement"
     ],
     "compatible": [
       "tense_capable",
@@ -45,9 +45,9 @@
   "mundane": {
     "label": "Mundane / Domestic",
     "modifiers": [
-      "figures absorbed in ordinary business, unaware of the frame",
-      "an unremarkable slice of daily routine",
-      "neither spectacle nor crisis, just the everyday"
+      "heads down over everyday tasks, eyes on their work",
+      "going about separate tasks, barely glancing at each other",
+      "hands in pockets, small talk, mid-stride"
     ],
     "compatible": [
       "calm_capable"
@@ -56,9 +56,9 @@
   "triumphant": {
     "label": "Triumphant / Victorious",
     "modifiers": [
-      "a surge of hard-won triumph, chins lifted",
-      "hands raised, victory taking hold",
-      "clean, exultant relief after a struggle won"
+      "fists pumped, chins lifted",
+      "hands raised overhead, backs straight, wide grins",
+      "shoulders dropping, heads tipping back, wide smiles"
     ],
     "compatible": [
       "action",
@@ -68,9 +68,9 @@
   "melancholy": {
     "label": "Melancholy / Wistful",
     "modifiers": [
-      "a quiet ache beneath the stillness",
-      "figures lingering as if reluctant to leave",
-      "a soft, unhurried sorrow"
+      "seated figures, elbows on knees, eyes down",
+      "slow to leave, glancing back over one shoulder",
+      "downcast eyes, slack shoulders, slow small movements"
     ],
     "compatible": [
       "calm_capable"
@@ -79,9 +79,9 @@
   "solemn": {
     "label": "Solemn / Ceremonial",
     "modifiers": [
-      "a hushed formality settling over the scene",
+      "standing in neat rows, hands folded, eyes down",
       "measured, deliberate movement, heads bowed",
-      "gravity in every gesture, nothing rushed"
+      "slow deliberate gestures, straight backs, silence"
     ],
     "compatible": [
       "calm_capable",
@@ -91,9 +91,9 @@
   "romantic": {
     "label": "Romantic / Tender",
     "modifiers": [
-      "an intimacy in the space between two figures",
-      "unhurried closeness, attention paid only to each other",
-      "warmth held in a lingering glance"
+      "two figures standing close, foreheads nearly touching",
+      "leaning into each other, faces turned toward one another",
+      "a long held gaze, soft smiles"
     ],
     "compatible": [
       "calm_capable",
@@ -103,9 +103,9 @@
   "restless": {
     "label": "Restless / Anxious",
     "modifiers": [
-      "a nervous energy that won't settle",
-      "fidgeting hands, eyes darting toward the door",
-      "tension without release, waiting for something to break"
+      "shifting weight foot to foot, hands rubbing together",
+      "fidgeting hands, eyes darting sideways",
+      "hands balled into fists, tight shoulders, short glances"
     ],
     "compatible": [
       "tense_capable",
