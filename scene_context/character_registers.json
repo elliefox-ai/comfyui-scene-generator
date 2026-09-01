@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "note": "Character register modes (Alexander, 2026-08-31): what the character IS in the frame. Subsumes the retired authenticity dial (documentary->authentic, stylized->costume, cinematic->none). Per mode: sentence_pool = direct identification sentences (Alexander's design), wear = multipliers on the wear-state leans, marks = scar/marks probability multiplier, uniform_p + uniform_label = the role full-rig coin, family_wear = per-wardrobe-family wear overrides keyed to character_wardrobe.json families (the prestige fix: fine families keep their clothes even at authentic), exaggeration_pool = cartoon-only second sentence. Sentences draw LAST: register=none consumes no draws and reproduces the plain sheet byte-for-byte. Sentence language principle (Alexander, 2026-08-31, final): authentic is the generator's default assumption for a realistic outfit, so its sentence is a minimal marker only - which also anchors the character against style bleed in illustrated scenes. Explicit clarification belongs to the non-default registers (costume: 'their apparel is a costume version of ...'). Physical manifestation lives in the wear tilts, which adapt per wardrobe family via family_wear.",
+  "note": "Character register modes (Alexander, 2026-08-31): what the character IS in the frame. Subsumes the retired authenticity dial (documentary->authentic, stylized->costume, cinematic->none). Per mode: sentence_pool = direct identification sentences (Alexander's design), wear = multipliers on the wear-state leans, marks = scar/marks probability multiplier, uniform_p + uniform_label = the role full-rig coin, family_wear = per-wardrobe-family wear overrides keyed to character_wardrobe.json families (the prestige fix: fine families keep their clothes even at authentic), exaggeration_pool = cartoon-only second sentence. Sentences draw LAST: register=none consumes no draws and reproduces the plain sheet byte-for-byte. Sentence language principle (Alexander, 2026-08-31, final): authentic is the generator's default assumption for a realistic outfit, so its sentence is a minimal marker only - which also anchors the character against style bleed in illustrated scenes. Explicit clarification belongs to the non-default registers (costume: 'their apparel is a costume version of ...'). Physical manifestation lives in the wear tilts, which adapt per wardrobe family via family_wear. Non-default marking is generalized - the sentence states what the register means for any outfit: costume recasts it as a replica, pulp as hero drama. No class presumptions (pirate, businessman, scientist alike).",
   "registers": {
     "none": {
       "sentence_pool": [],
@@ -24,10 +24,11 @@
     },
     "pulp": {
       "sentence_pool": [
-        "Their outfit has pulp-cover drama, a wind-caught collar and colors a shade too heroic.",
-        "They dress like a lurid paperback hero, swagger in every seam.",
-        "Their kit has storybook bravado, every crease dramatic, every buckle gleaming."
-      ],
+        "Their clothing is a pulp-adventure hero's outfit: dramatic, bold, a touch too perfect.",
+
+        "They dress like an adventure-movie hero - swaggering, romantic, larger than life.",
+
+        "Their outfit has pulp swagger - a wind-caught collar, bold colors, made for a movie poster."],
       "wear": {"pristine": 1.1, "worn": 1.2},
       "marks": 1.2,
       "uniform_p": 0.25,
@@ -35,10 +36,11 @@
     },
     "costume": {
       "sentence_pool": [
-        "Their outfit is a costume worn by a person at a party, props rather than kit.",
-        "The clothes read costume-party: right shapes, wrong materials, price-tag creases.",
-        "Their apparel is dress-up, a convincing silhouette assembled from mass-produced pieces."
-      ],
+        "Their outfit is a costume version of the real thing - too clean, too new, made for show.",
+
+        "Their clothing is a costume replica: the right shapes in the wrong materials, price-tag creases still showing.",
+
+        "They wear a costume of the role - stage-ready, prop-like, assembled from mass-produced pieces."],
       "wear": {"pristine": 1.5, "worn": 0.6, "hard-used": 0.6},
       "marks": 0.5,
       "uniform_p": 0.05,
