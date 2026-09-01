@@ -3566,6 +3566,80 @@
       "age": "older"
     }
   ],
+  "expressions": [
+      {
+          "text": "grin breaking wide, eyes crinkling at the corners",
+          "sentence": "{name}'s grin breaks wide, eyes crinkling at the corners"
+      },
+      {
+          "text": "lips pressed tight against a rising laugh, brows high",
+          "sentence": "{name}'s lips press tight against a rising laugh, brows high"
+      },
+      {
+          "text": "smile gone crooked, one brow cocked",
+          "sentence": "{name}'s smile goes crooked, one brow cocked"
+      },
+      {
+          "text": "brow knotted, lips a thin line",
+          "sentence": "{name}'s brow is knotted, lips a thin line"
+      },
+      {
+          "text": "jaw set hard, stare fixed past the frame",
+          "sentence": "{name}'s jaw is set hard, stare fixed past the frame"
+      },
+      {
+          "text": "eyes narrowed, mouth pulled to one side",
+          "sentence": "{name}'s eyes narrow, mouth pulled to one side"
+      },
+      {
+          "text": "teeth bared in something too tight to be a smile",
+          "sentence": "{name} bares their teeth in something too tight to be a smile"
+      },
+      {
+          "text": "eyes heavy-lidded, mouth slack with tiredness",
+          "sentence": "{name}'s eyes are heavy-lidded, mouth slack with tiredness"
+      },
+      {
+          "text": "features flattened out, gaze fixed on nothing",
+          "sentence": "{name}'s features flatten out, gaze fixed on nothing"
+      },
+      {
+          "text": "brows drawn together, lips parted mid-sigh",
+          "sentence": "{name}'s brows draw together, lips parted mid-sigh"
+      },
+      {
+          "text": "eyes blazing, nostrils flared",
+          "sentence": "{name}'s eyes blaze, nostrils flared"
+      },
+      {
+          "text": "lip curled, chin jutting",
+          "sentence": "{name}'s lip curls, chin jutting"
+      },
+      {
+          "text": "features gone soft, eyes warm and steady",
+          "sentence": "{name}'s features go soft, eyes warm and steady"
+      },
+      {
+          "text": "small closed-mouth smile, lashes low",
+          "sentence": "{name} holds a small closed-mouth smile, lashes low"
+      },
+      {
+          "text": "brows shot up, eyes wide and bright",
+          "sentence": "{name}'s brows shoot up, eyes wide and bright"
+      },
+      {
+          "text": "mouth open mid-word, eyes still wide",
+          "sentence": "{name}'s mouth hangs open mid-word, eyes still wide"
+      },
+      {
+          "text": "eyes glinting sideways, mouth curved just barely",
+          "sentence": "{name}'s eyes glint sideways, mouth curved just barely"
+      },
+      {
+          "text": "one brow arched, the beginnings of a smirk",
+          "sentence": "{name} arches one brow, the beginnings of a smirk"
+      }
+  ],
   "postures": [
     {
       "text": "weight sunk into one hip",

@@ -161,14 +161,15 @@ def _decorate_cast(chars, rng, pool_key):
     ]
 
 
-def _stage_characters(chars, rng, pose=False, positioning=False):
+def _stage_characters(chars, rng, pose=False, positioning=False, expression=False):
     """Turn a list of character descriptions into one staging phrase,
     or "" when no characters are supplied. Silence by default: toggles
     off emit no placement or posture language at all — the renderer
     arranges the cast.
 
     pose=True appends a static posture phrase to each figure (from
-    character_features.json). positioning=True stages the cast with
+    character_features.json); expression=True appends a facial
+    expression phrase the same way. positioning=True stages the cast with
     the placement templates — lateral/relational only, photograph
     staging register, scaling with cast size (1..4, soft cap —
     diffusion muddies past ~3 named subjects). The Scene Character
@@ -185,6 +186,8 @@ def _stage_characters(chars, rng, pose=False, positioning=False):
     n = min(len(chars), 4)
     chars = chars[:n]
 
+    if expression:
+        chars = _decorate_cast(chars, rng, "expressions")
     if pose:
         chars = _decorate_cast(chars, rng, "postures")
     if not positioning:
@@ -232,6 +235,8 @@ class SceneContextPicker:
                     "tooltip": "Append a posture phrase to each staged character (static stance register). The Scene Character Roller has the same toggle — if both fire, doubled cues are yours."}),
                 "positioning": ("BOOLEAN", {"default": False,
                     "tooltip": "Stage the cast with placement templates — lateral/relational phrases per cast size ('on the near side of the frame, …'). Off (default) = no placement language; the renderer arranges."}),
+                "expression": ("BOOLEAN", {"default": False,
+                    "tooltip": "Append a facial-expression phrase to each staged character ('brow knotted, lips a thin line'). Pairs with pose; if both fire, the cues compound."}),
             },
             "optional": {
                 f"character_{i}": ("STRING", {
@@ -254,7 +259,7 @@ class SceneContextPicker:
     FUNCTION = "generate"
     CATEGORY = "SceneGen"
 
-    def generate(self, genre, genre2, tone, setting, seed, pose=False, positioning=False, **kwargs):
+    def generate(self, genre, genre2, tone, setting, seed, pose=False, positioning=False, expression=False, **kwargs):
         rng = random.Random(seed)
         settings = _load_settings()
         tones = _load_tones()
@@ -275,7 +280,7 @@ class SceneContextPicker:
         flourish = _pick_flourish(atmosphere, situation, rng)
 
         chars = [kwargs.get(f"character_{i}") or "" for i in (1, 2, 3, 4)]
-        staging = _stage_characters(chars, rng, pose=pose, positioning=positioning)
+        staging = _stage_characters(chars, rng, pose=pose, positioning=positioning, expression=expression)
 
         parts = [chosen_setting['subject_label'], situation['text'], modifier]
         if staging:

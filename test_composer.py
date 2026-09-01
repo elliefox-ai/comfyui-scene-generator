@@ -55,6 +55,15 @@ def _selfcheck():
     c_c = json.loads(cj_c)
     ctx_n, _, cj_n, _ = draw(include_setting=False, include_context=False)
 
+    char = "a tall woman in a weathered duster"
+    _, _, cj_b, _ = draw(character_1=char)
+    c_b = json.loads(cj_b)
+    _, _, cj_e, _ = draw(character_1=char, expression=True)
+    c_e = json.loads(cj_e)
+    _fpath = os.path.join(os.path.dirname(__file__), "scene_context", "character_features.json")
+    _exprs = [pp["text"] if isinstance(pp, dict) else pp
+              for pp in json.load(open(_fpath, encoding="utf-8"))["expressions"]]
+
     checks = [
         ("default == explicit both-on", ctx_d == ctx_x and cj_d == cj_x),
         ("default: venue present", venue_words in ctx_d),
@@ -72,6 +81,11 @@ def _selfcheck():
         ("flags recorded in components",
             c_d["include_setting"] is True and c_d["include_context"] is True
             and c_s["include_setting"] is False and c_c["include_context"] is False),
+        ("no expression: bare staging", c_b["characters_staged"] == char),
+        ("expression-on: pool phrase appended",
+            c_e["characters_staged"].startswith(char)
+            and any(pp in c_e["characters_staged"] for pp in _exprs)),
+        ("expression flag recorded", c_b["expression"] is False and c_e["expression"] is True),
     ]
     bad = [name for name, ok in checks if not ok]
     for name, ok in checks:
@@ -102,6 +116,8 @@ def main():
         help="Wire N sample characters with pose+positioning staging "
              "(exercises the _stage_characters path)",
     )
+    parser.add_argument("--expression", action="store_true",
+                    help="Wire the expression toggle (exercises the expressions pool)")
     parser.add_argument(
         "--ambient", default="",
         help="Wire this ambient fragment (exercises the ambient slot)",
@@ -128,6 +144,8 @@ def main():
                 kwargs[f"character_{j + 1}"] = CAST_SAMPLES[j % len(CAST_SAMPLES)]
         if args.ambient:
             kwargs["ambient"] = args.ambient
+        if args.expression:
+            kwargs["expression"] = True
         ctx, rp, cj, _ = compose(
             None, args.genre, args.genre2, args.tone,
             args.setting, args.composition, seed, **kwargs,

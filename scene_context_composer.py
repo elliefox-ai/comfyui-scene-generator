@@ -142,6 +142,8 @@ class SceneContextComposer:
                     "tooltip": "Append a posture phrase to each staged character (static stance register). The Scene Character Roller has the same toggle — if both fire, doubled cues are yours."}),
                 "positioning": ("BOOLEAN", {"default": False,
                     "tooltip": "Stage the cast with placement templates — lateral/relational phrases per cast size ('on the near side of the frame, …'). Off (default) = no placement language; the renderer arranges."}),
+                "expression": ("BOOLEAN", {"default": False,
+                    "tooltip": "Append a facial-expression phrase to each staged character ('brow knotted, lips a thin line'). Pairs with pose; if both fire, the cues compound."}),
                 "include_setting": ("BOOLEAN", {"default": True,
                     "tooltip": "Emit the venue phrase ('In an arcane library') that opens the scene line. Off = no location language; the renderer places the scene. The venue still rolls — tone and composition still draw from it — only the text is gated."}),
                 "include_context": ("BOOLEAN", {"default": True,
@@ -171,7 +173,7 @@ class SceneContextComposer:
     FUNCTION = "compose"
     CATEGORY = "SceneGen"
 
-    def compose(self, genre, genre2, tone, setting, composition, seed, pose=False, positioning=False,
+    def compose(self, genre, genre2, tone, setting, composition, seed, pose=False, positioning=False, expression=False,
                 include_setting=True, include_context=True, **kwargs):
         rng = random.Random(seed)
         settings = _load_settings()
@@ -237,7 +239,7 @@ class SceneContextComposer:
         flourish = _pick_flourish(_load_atmosphere(), situation, rng)
 
         chars = [kwargs.get(f"character_{i}") or "" for i in (1, 2, 3, 4)]
-        staging = _stage_characters(chars, rng, pose=pose, positioning=positioning)
+        staging = _stage_characters(chars, rng, pose=pose, positioning=positioning, expression=expression)
         ambient = (kwargs.get("ambient") or "").strip()
 
         # Whole-scene sentence assembly (2026-08-31): syntax carries the
@@ -345,6 +347,7 @@ class SceneContextComposer:
             "ambient": ambient,
             "pose": pose,
             "positioning": positioning,
+            "expression": expression,
             "include_setting": include_setting,
             "include_context": include_context,
             "env": situation.get("env", ""),
