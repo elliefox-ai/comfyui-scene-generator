@@ -81,6 +81,73 @@
         "calm_capable"
       ],
       "scene_type_bias": "candid_moment"
+    },
+    {
+      "id": "clearing_the_snowed_in_doorway",
+      "text": "shoveling a fresh snowdrift away from the station doorway",
+      "tags": [
+        "labor",
+        "calm_capable"
+      ],
+      "scene_type_bias": "at_work"
+    },
+    {
+      "id": "splicing_the_cable_junction",
+      "text": "splicing a damaged cable junction in the equipment bay",
+      "tags": [
+        "labor",
+        "calm_capable"
+      ],
+      "scene_type_bias": "at_work",
+      "indoor": true
+    },
+    {
+      "id": "updating_the_route_map",
+      "text": "penciling route updates onto a wall map of the mountain passes",
+      "tags": [
+        "labor",
+        "calm_capable"
+      ],
+      "scene_type_bias": "at_work",
+      "indoor": true
+    },
+    {
+      "id": "signaling_a_stranded_party",
+      "text": "signaling with a lamp toward a stranded party on the ridge",
+      "tags": [
+        "action",
+        "tense_capable"
+      ],
+      "scene_type_bias": "atmospheric"
+    },
+    {
+      "id": "generator_restart",
+      "text": "kick-starting the backup generator in the power room",
+      "tags": [
+        "labor",
+        "tense_capable"
+      ],
+      "scene_type_bias": "at_work",
+      "indoor": true
+    },
+    {
+      "id": "late_dinner_in_the_kitchen",
+      "text": "cooking a late dinner together in the station kitchen",
+      "tags": [
+        "social",
+        "calm_capable"
+      ],
+      "scene_type_bias": "close_group",
+      "indoor": true
+    },
+    {
+      "id": "digging_out_after_the_avalanche",
+      "text": "digging out the antenna yard after an avalanche",
+      "tags": [
+        "action",
+        "tense_capable"
+      ],
+      "scene_type_bias": "atmospheric"
     }
   ],
   "group": "the relay crew"

@@ -80,6 +80,77 @@
       ],
       "scene_type_bias": "candid_moment",
       "indoor": true
+    },
+    {
+      "id": "examining_specimens",
+      "text": "examining samples under a magnifier rig in the laboratory",
+      "tags": [
+        "labor",
+        "calm_capable"
+      ],
+      "scene_type_bias": "at_work",
+      "indoor": true
+    },
+    {
+      "id": "tending_the_hydroponics",
+      "text": "tending rows of experimental crops in the hydroponic bay",
+      "tags": [
+        "labor",
+        "calm_capable"
+      ],
+      "scene_type_bias": "at_work",
+      "indoor": true
+    },
+    {
+      "id": "suiting_up_for_survey",
+      "text": "sealing suit seams at the airlock before a surface survey",
+      "tags": [
+        "labor",
+        "tense_capable"
+      ],
+      "scene_type_bias": "at_work",
+      "indoor": true
+    },
+    {
+      "id": "season_data_uplink",
+      "text": "transmitting a season of survey data from the comms room",
+      "tags": [
+        "labor",
+        "calm_capable"
+      ],
+      "scene_type_bias": "at_work",
+      "indoor": true
+    },
+    {
+      "id": "sealing_the_hatches",
+      "text": "sealing hatches against an advancing dust storm",
+      "tags": [
+        "action",
+        "tense_capable"
+      ],
+      "scene_type_bias": "atmospheric",
+      "env": "storm",
+      "indoor": true
+    },
+    {
+      "id": "arguing_over_findings",
+      "text": "arguing over a contested reading, notes spread across the table",
+      "tags": [
+        "social",
+        "tense_capable"
+      ],
+      "scene_type_bias": "close_group",
+      "indoor": true
+    },
+    {
+      "id": "meteor_shower_watch",
+      "text": "watching a meteor shower streak past the observation dome",
+      "tags": [
+        "nature",
+        "calm_capable"
+      ],
+      "scene_type_bias": "candid_moment",
+      "indoor": true
     }
   ]
 }
