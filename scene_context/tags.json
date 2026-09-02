@@ -36,10 +36,7 @@
     },
     "post_apocalyptic": {
       "desc": "Collapse-aftermath subgenre spanning sci_fi and modern — ruined infrastructure, scavenger economies.",
-      "parents": [
-        "sci_fi",
-        "modern"
-      ]
+      "derived_from": ["sci_fi", "modern"]
     }
   },
   "facet": {

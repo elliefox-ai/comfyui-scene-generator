@@ -61,8 +61,8 @@ if __name__ == "__main__":
     main()
 
 
-# --- pool direction regression (2026-09-01) ---
-from scene_context_node import _pool_genres
+# --- pool direction + treatment-lineage regression (2026-09-01) ---
+from scene_context_node import _pool_genres, _genre_parents
 
 assert _pool_genres("western") == {"western"}
 assert _pool_genres("historical") == {"historical", "western", "age_of_sail"}
@@ -71,3 +71,6 @@ assert _pool_genres("modern") == {"modern"}
 assert _pool_genres("fantasy") == {"fantasy"}
 assert _pool_genres("age_of_sail") == {"age_of_sail"}
 assert _pool_genres("sci_fi") == {"sci_fi"}
+assert _genre_parents()["post_apocalyptic"] == ["sci_fi", "modern"]
+assert _genre_parents()["western"] == ["historical"]
+assert _genre_parents()["historical"] == []

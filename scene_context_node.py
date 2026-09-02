@@ -147,8 +147,14 @@ def _genre_registry():
 
 
 def _genre_parents():
-    """Genre registry parents (western -> historical, ...)."""
-    return {k: v.get("parents", []) for k, v in _genre_registry().items()}
+    """Voice-fallback chain per genre: period parents first, then
+    treatment lineages (`derived_from` — post_apocalyptic's link to
+    sci_fi/modern). Pools never read derived_from; only the text
+    resolver does (2026-09-01)."""
+    return {
+        k: v.get("parents", []) + v.get("derived_from", [])
+        for k, v in _genre_registry().items()
+    }
 
 
 def _pool_genres(genre):
