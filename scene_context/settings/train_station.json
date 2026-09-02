@@ -1,0 +1,143 @@
+{
+  "name": "train_station",
+  "subject_label": {
+    "historical": "station travelers",
+    "modern": "commuters",
+    "sci_fi": "transit passengers"
+  },
+  "tags": [
+    "historical",
+    "modern",
+    "sci_fi"
+  ],
+  "facet_tags": [
+    "city",
+    "crowd",
+    "interior"
+  ],
+  "venue_archetype": "interior_social",
+  "situations": [
+    {
+      "id": "board_watch",
+      "text": {
+        "historical": "checking the great painted board as a clerk flips the letters by hand",
+        "modern": "watching the split-flap board clatter through its rows",
+        "sci_fi": "reading the arrival lattice as it reshuffles in midair"
+      },
+      "tags": [
+        "calm_capable",
+        "social"
+      ],
+      "scene_type_bias": "candid_moment",
+      "indoor": true
+    },
+    {
+      "id": "platform_edge",
+      "text": {
+        "historical": "waiting at the platform edge as the engine sighs in on a pillar of steam",
+        "modern": "waiting at the platform edge, rails ticking as the train slows in",
+        "sci_fi": "waiting at the platform edge as the maglev settles onto its cushion of light"
+      },
+      "tags": [
+        "calm_capable"
+      ],
+      "scene_type_bias": "candid_moment",
+      "indoor": true
+    },
+    {
+      "id": "the_goodbye",
+      "text": {
+        "historical": "a farewell at the carriage door, a hand held a moment too long",
+        "modern": "a goodbye at the turnstiles, half-hugged and already boarding",
+        "sci_fi": "a farewell at the seal gate, palms pressed to the glass a moment"
+      },
+      "tags": [
+        "social"
+      ],
+      "scene_type_bias": "close_group",
+      "indoor": true
+    },
+    {
+      "id": "arrival_scan",
+      "text": {
+        "historical": "scanning the steam and straw hats for a face come home on the morning train",
+        "modern": "scanning the arrivals screen, then the crowd, then the screen",
+        "sci_fi": "scanning the crowd against the manifest glow on their sleeve"
+      },
+      "tags": [
+        "social",
+        "calm_capable"
+      ],
+      "scene_type_bias": "candid_moment",
+      "indoor": true
+    },
+    {
+      "id": "ticket_line",
+      "text": {
+        "historical": "queuing at the ticket window, coin by coin across the brass rail",
+        "modern": "queuing at the ticket machines, tapping through the fare menu",
+        "sci_fi": "queueing at the fare gate while a synthetic voice sorts the lines"
+      },
+      "tags": [
+        "social",
+        "calm_capable"
+      ],
+      "scene_type_bias": "gathering",
+      "indoor": true
+    },
+    {
+      "id": "luggage_haul",
+      "text": {
+        "historical": "hauling trunks across the concourse on a porter's trolley",
+        "modern": "threading roller bags through the concourse crowd",
+        "sci_fi": "hauling cargo crates that drift a hand's width off the floor"
+      },
+      "tags": [
+        "labor"
+      ],
+      "scene_type_bias": "at_work",
+      "indoor": true
+    },
+    {
+      "id": "missed_connection",
+      "text": {
+        "historical": "running for the departed express, hat in hand, the chase already lost",
+        "modern": "shouldering through the crowd to beat the closing doors",
+        "sci_fi": "sprinting the platform as the shield field starts its slow seal"
+      },
+      "tags": [
+        "action",
+        "tense_capable"
+      ],
+      "scene_type_bias": "candid_moment",
+      "indoor": true
+    },
+    {
+      "id": "clock_rendezvous",
+      "text": {
+        "historical": "keeping a rendezvous under the great station clock",
+        "modern": "keeping a rendezvous under the station clock, one eye on a phone",
+        "sci_fi": "keeping a rendezvous beneath the clock ring, its hands a slow orbit"
+      },
+      "tags": [
+        "social",
+        "calm_capable"
+      ],
+      "scene_type_bias": "close_group",
+      "indoor": true
+    },
+    {
+      "id": "bench_doze",
+      "text": {
+        "historical": "dozing on a bench between trains, boot hooked over a carpetbag",
+        "modern": "dozing against a backpack between connections",
+        "sci_fi": "dozing in a sling chair while the concourse dims for night cycle"
+      },
+      "tags": [
+        "calm_capable"
+      ],
+      "scene_type_bias": "atmospheric",
+      "indoor": true
+    }
+  ]
+}

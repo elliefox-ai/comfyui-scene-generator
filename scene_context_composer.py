@@ -44,6 +44,7 @@ try:  # package context — how ComfyUI loads custom node packs
         _load_tones,
         _load_atmosphere,
         _pick_flourish,
+        _era_text,
         _filter_by_genre,
         _stage_characters,
     )
@@ -57,6 +58,7 @@ except ImportError:  # standalone — test harness / direct exec
         _load_tones,
         _load_atmosphere,
         _pick_flourish,
+        _era_text,
         _filter_by_genre,
         _stage_characters,
     )
@@ -234,6 +236,8 @@ class SceneContextComposer:
         tone_narrowed = len(tone_pool) < len(chosen["situations"])
 
         situation = rng.choice(tone_pool)
+        resolved_subject = _era_text(chosen["subject_label"], genre)
+        resolved_text = _era_text(situation["text"], genre)
         modifier = rng.choice(tones[tone_key]["modifiers"])
         summary = tones[tone_key].get("summary") or tone_key
         flourish = _pick_flourish(_load_atmosphere(), situation, rng)
@@ -253,11 +257,11 @@ class SceneContextComposer:
         venue_art = "an" if venue_words[:1].lower() in "aeiou" else "a"
         locative = str(chosen.get("locative", "in")).capitalize()
         group = chosen.get("group") or _short_group(
-            chosen["subject_label"], venue_words
+            resolved_subject, venue_words
         )
         verb = "are" if group.rstrip().endswith("s") else "is"
 
-        text = situation["text"].strip()
+        text = resolved_text.strip()
         words = text.split()
         verbled = words[0].lower().endswith(("ing", "ed")) or (
             len(words) > 1
@@ -335,9 +339,9 @@ class SceneContextComposer:
             "genre_narrowed": genre_narrowed,
             "archetype_narrowed": archetype_narrowed,
             "tone_narrowed": tone_narrowed,
-            "subject": chosen["subject_label"],
+            "subject": resolved_subject,
             "situation_id": situation["id"],
-            "situation_text": situation["text"],
+            "situation_text": resolved_text,
             "tone": tone_key,
             "tone_modifier": modifier,
             "tone_summary": summary,

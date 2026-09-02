@@ -131,6 +131,42 @@ def _pick_flourish(atmosphere, situation, rng):
     return rng.choice(outdoor)["text"]
 
 
+_ERA_TAGS_PATH = os.path.join(
+    os.path.dirname(__file__), "scene_context", "tags.json"
+)
+_GENRE_PARENTS = None
+
+
+def _genre_parents():
+    """Genre registry parents (western -> historical, ...) — read once."""
+    global _GENRE_PARENTS
+    if _GENRE_PARENTS is None:
+        with open(_ERA_TAGS_PATH, encoding="utf-8") as f:
+            _GENRE_PARENTS = {
+                k: v.get("parents", [])
+                for k, v in json.load(f)["genre"].items()
+            }
+    return _GENRE_PARENTS
+
+
+def _era_text(value, genre=None):
+    """Era-keyed text for the modular venue format (2026-09-01): one
+    venue, many eras. A plain string serves every genre unchanged; a
+    dict maps genre -> line and resolves by the drawn genre, falling
+    back through the registry's genre parents (western inherits
+    historical) and then to the first entry — so partial era coverage
+    and genre-less paths degrade safely instead of rendering a dict."""
+    if not isinstance(value, dict):
+        return value
+    if genre:
+        if genre in value:
+            return value[genre]
+        for parent in _genre_parents().get(genre, []):
+            if parent in value:
+                return value[parent]
+    return next(iter(value.values()))
+
+
 def _load_character_slots():
     if _CACHE["character_slots"] is None:
         with open(CHARACTER_SLOTS_PATH, encoding="utf-8") as f:
@@ -273,6 +309,9 @@ class SceneContextPicker:
 
         situation = rng.choice(chosen_setting["situations"])
 
+        subject = _era_text(chosen_setting['subject_label'], genre)
+        sit_text = _era_text(situation['text'], genre)
+
         chosen_tone_key = tone if tone != RANDOM else rng.choice(list(tones.keys()))
         tone_data = tones[chosen_tone_key]
         modifier = rng.choice(tone_data["modifiers"])
@@ -282,7 +321,7 @@ class SceneContextPicker:
         chars = [kwargs.get(f"character_{i}") or "" for i in (1, 2, 3, 4)]
         staging = _stage_characters(chars, rng, pose=pose, positioning=positioning, expression=expression)
 
-        parts = [chosen_setting['subject_label'], situation['text'], modifier]
+        parts = [subject, sit_text, modifier]
         if staging:
             parts.append(staging)
         parts.append(flourish)
