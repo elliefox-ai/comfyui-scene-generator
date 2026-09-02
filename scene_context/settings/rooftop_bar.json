@@ -1,0 +1,86 @@
+{
+  "name": "rooftop_bar",
+  "subject_label": "rooftop crowd",
+  "tags": [
+    "modern"
+  ],
+  "facet_tags": [
+    "city",
+    "crowd",
+    "leisure"
+  ],
+  "venue_archetype": "exterior_built",
+  "situations": [
+    {
+      "id": "skyline_round",
+      "text": "toasting over the skyline, wind off the glass towers",
+      "tags": [
+        "social",
+        "calm_capable"
+      ],
+      "scene_type_bias": "gathering"
+    },
+    {
+      "id": "rail_lean",
+      "text": "leaning on the rail watching traffic pulse below",
+      "tags": [
+        "calm_capable"
+      ],
+      "scene_type_bias": "candid_moment"
+    },
+    {
+      "id": "hvac_booths",
+      "text": "claiming the booths by the humming HVAC units",
+      "tags": [
+        "social",
+        "calm_capable"
+      ],
+      "scene_type_bias": "close_group"
+    },
+    {
+      "id": "door_list",
+      "text": "working the rope and a clipboard list at the stair door",
+      "tags": [
+        "social",
+        "tense_capable"
+      ],
+      "scene_type_bias": "face_off"
+    },
+    {
+      "id": "sunset_shots",
+      "text": "angling phones against the sunset for the skyline shot",
+      "tags": [
+        "social",
+        "action"
+      ],
+      "scene_type_bias": "candid_moment"
+    },
+    {
+      "id": "last_call",
+      "text": "closing out tabs as the terrace thins under string lights",
+      "tags": [
+        "social",
+        "calm_capable"
+      ],
+      "scene_type_bias": "gathering"
+    },
+    {
+      "id": "beacon_sweep",
+      "text": "a rooftop beacon sweeping the terrace tables",
+      "tags": [
+        "calm_capable",
+        "tense_capable"
+      ],
+      "scene_type_bias": "atmospheric"
+    },
+    {
+      "id": "elevator_queue",
+      "text": "queuing the single service elevator up and down",
+      "tags": [
+        "social",
+        "calm_capable"
+      ],
+      "scene_type_bias": "candid_moment"
+    }
+  ]
+}

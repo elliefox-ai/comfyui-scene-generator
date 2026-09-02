@@ -1,0 +1,93 @@
+{
+  "name": "subway_car",
+  "subject_label": "subway riders",
+  "tags": [
+    "modern"
+  ],
+  "facet_tags": [
+    "city",
+    "crowd",
+    "interior"
+  ],
+  "venue_archetype": "interior_social",
+  "situations": [
+    {
+      "id": "pole_lean",
+      "text": "leaning on the pole through the tunnel sway",
+      "tags": [
+        "calm_capable"
+      ],
+      "scene_type_bias": "candid_moment",
+      "indoor": true
+    },
+    {
+      "id": "seat_shift",
+      "text": "wordlessly trading seats as the car thins",
+      "tags": [
+        "social",
+        "calm_capable"
+      ],
+      "scene_type_bias": "candid_moment",
+      "indoor": true
+    },
+    {
+      "id": "busker_car",
+      "text": "a busker working the car between stops",
+      "tags": [
+        "social",
+        "calm_capable"
+      ],
+      "scene_type_bias": "close_group",
+      "indoor": true
+    },
+    {
+      "id": "rush_shove",
+      "text": "shouldering through a jammed door at rush hour",
+      "tags": [
+        "action",
+        "tense_capable"
+      ],
+      "scene_type_bias": "candid_moment",
+      "indoor": true
+    },
+    {
+      "id": "speaker_blare",
+      "text": "flinching at a phone blaring on speaker",
+      "tags": [
+        "tense_capable",
+        "social"
+      ],
+      "scene_type_bias": "atmospheric",
+      "indoor": true
+    },
+    {
+      "id": "delay_flare",
+      "text": "a dispute flaring over the delays by the far door",
+      "tags": [
+        "social",
+        "tense_capable"
+      ],
+      "scene_type_bias": "face_off",
+      "indoor": true
+    },
+    {
+      "id": "dark_stretch",
+      "text": "the car lights browning through a long dark stretch",
+      "tags": [
+        "tense_capable",
+        "calm_capable"
+      ],
+      "scene_type_bias": "atmospheric",
+      "indoor": true
+    },
+    {
+      "id": "last_train_drift",
+      "text": "drifting off against the window on the last train",
+      "tags": [
+        "calm_capable"
+      ],
+      "scene_type_bias": "candid_moment",
+      "indoor": true
+    }
+  ]
+}

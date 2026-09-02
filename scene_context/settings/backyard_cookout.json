@@ -1,0 +1,86 @@
+{
+  "name": "backyard_cookout",
+  "subject_label": "cookout guests",
+  "tags": [
+    "modern"
+  ],
+  "facet_tags": [
+    "suburban",
+    "small_crowd",
+    "leisure"
+  ],
+  "venue_archetype": "exterior_built",
+  "situations": [
+    {
+      "id": "grill_shift",
+      "text": "manning the grill with tongs and opinions",
+      "tags": [
+        "labor",
+        "social"
+      ],
+      "scene_type_bias": "at_work"
+    },
+    {
+      "id": "lawn_chairs",
+      "text": "sprawled in lawn chairs, drinks sweating on the armrests",
+      "tags": [
+        "social",
+        "calm_capable"
+      ],
+      "scene_type_bias": "candid_moment"
+    },
+    {
+      "id": "sprinkler_run",
+      "text": "kids running the sprinkler line between the tomato beds",
+      "tags": [
+        "action",
+        "social"
+      ],
+      "scene_type_bias": "candid_moment"
+    },
+    {
+      "id": "fence_line",
+      "text": "leaning on the fence line trading next door's gossip",
+      "tags": [
+        "social",
+        "calm_capable"
+      ],
+      "scene_type_bias": "close_group"
+    },
+    {
+      "id": "cornhole",
+      "text": "a cornhole tournament nobody agreed was official",
+      "tags": [
+        "action",
+        "social"
+      ],
+      "scene_type_bias": "gathering"
+    },
+    {
+      "id": "cooler_dispute",
+      "text": "a dispute over the last cold bottle in the cooler",
+      "tags": [
+        "social",
+        "tense_capable"
+      ],
+      "scene_type_bias": "face_off"
+    },
+    {
+      "id": "dusk_glow",
+      "text": "string lights coming on as the coals settle",
+      "tags": [
+        "calm_capable"
+      ],
+      "scene_type_bias": "atmospheric"
+    },
+    {
+      "id": "sparkler_chase",
+      "text": "kids chasing sparklers across the darkening lawn",
+      "tags": [
+        "action",
+        "social"
+      ],
+      "scene_type_bias": "gathering"
+    }
+  ]
+}

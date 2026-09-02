@@ -1,16 +1,46 @@
 {
   "_doc": "Single source of truth for every tag vocabulary in the scene packs. Namespaces: genre (venue era/mode pools; UI enums DERIVE from this registry at import — they cannot drift), facet (venue texture; may overlap freely), situation (action register on a situation), identity_age / identity_sex / identity_race (character identity axes; canonical values drawn through the roller's soft-affinity weighting). Adding a genre: add the id here, then tag venues honestly and give the genre two wardrobe families. Cross-tag honesty rule: a venue may carry genre G only if it is welcome in every pool built from G. _aliases holds legacy spellings accepted by validation — add no new ones. Unknown tags fail ComfyUI startup via scene_tags.validate_scene_tags(), naming the venue and the tag.",
   "_aliases": {
-    "age": { "young": "young adult" }
+    "age": {
+      "young": "young adult"
+    }
   },
   "genre": {
-    "historical": {"desc": "Real-world past, pre-20th-century texture. Actions stay era-neutral; props belong to the renderer.", "parents": []},
-    "modern": {"desc": "Present-day ordinary world.", "parents": []},
-    "sci_fi": {"desc": "Engineered futures — spacecraft, colonies, advanced infrastructure.", "parents": []},
-    "fantasy": {"desc": "Pre-industrial worlds where the impossible is ordinary — mythic cultures, invented orders.", "parents": []},
-    "western": {"desc": "Frontier subgenre of historical — lawmen, ranches, border towns.", "parents": ["historical"]},
-    "age_of_sail": {"desc": "Wooden-ship maritime subgenre of historical — frigates, pirates, tall ships.", "parents": ["historical"]},
-    "post_apocalyptic": {"desc": "Collapse-aftermath subgenre spanning sci_fi and modern — ruined infrastructure, scavenger economies.", "parents": ["sci_fi", "modern"]}
+    "historical": {
+      "desc": "Real-world past, pre-20th-century texture. Actions stay era-neutral; props belong to the renderer.",
+      "parents": []
+    },
+    "modern": {
+      "desc": "Present-day ordinary world.",
+      "parents": []
+    },
+    "sci_fi": {
+      "desc": "Engineered futures — spacecraft, colonies, advanced infrastructure.",
+      "parents": []
+    },
+    "fantasy": {
+      "desc": "Pre-industrial worlds where the impossible is ordinary — mythic cultures, invented orders.",
+      "parents": []
+    },
+    "western": {
+      "desc": "Frontier subgenre of historical — lawmen, ranches, border towns.",
+      "parents": [
+        "historical"
+      ]
+    },
+    "age_of_sail": {
+      "desc": "Wooden-ship maritime subgenre of historical — frigates, pirates, tall ships.",
+      "parents": [
+        "historical"
+      ]
+    },
+    "post_apocalyptic": {
+      "desc": "Collapse-aftermath subgenre spanning sci_fi and modern — ruined infrastructure, scavenger economies.",
+      "parents": [
+        "sci_fi",
+        "modern"
+      ]
+    }
   },
   "facet": {
     "sea": "Open water or offshore; horizon and weather carry the frame.",
@@ -21,6 +51,7 @@
     "small_crowd": "A handful of people; intimate scale, faces readable.",
     "crowd": "Many people plausible; background density welcome.",
     "city": "Urban built density.",
+    "suburban": "Suburban low-density edges: yards, strips, culs-de-sac.",
     "street": "Street level: storefronts, foot traffic, doorways.",
     "road": "A route through — travel, transit, passage.",
     "forest": "Woodland cover.",

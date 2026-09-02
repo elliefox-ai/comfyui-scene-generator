@@ -2,27 +2,50 @@
   "archetypes": {
     "nautical_vessel": {
       "label": "on a nautical vessel",
-      "facets": ["sea", "vessel"]
+      "facets": [
+        "sea",
+        "vessel"
+      ]
     },
     "coastal": {
       "label": "on the coast",
-      "facets": ["sea", "shore"]
+      "facets": [
+        "sea",
+        "shore"
+      ]
     },
     "mountain": {
       "label": "on a mountain road",
-      "facets": ["mountain", "road"]
+      "facets": [
+        "mountain",
+        "road"
+      ]
     },
     "forest": {
       "label": "in the forest",
-      "facets": ["forest", "road"]
+      "facets": [
+        "forest",
+        "road"
+      ]
     },
     "urban": {
       "label": "on a city street",
-      "facets": ["city", "street"]
+      "facets": [
+        "city",
+        "street"
+      ]
+    },
+    "suburbs": {
+      "label": "in the suburbs",
+      "facets": [
+        "suburban"
+      ]
     },
     "indoors": {
       "label": "indoors",
-      "facets": ["interior"]
+      "facets": [
+        "interior"
+      ]
     }
   }
 }

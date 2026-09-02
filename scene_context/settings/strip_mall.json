@@ -1,0 +1,86 @@
+{
+  "name": "strip_mall",
+  "subject_label": "strip mall regulars",
+  "tags": [
+    "modern"
+  ],
+  "facet_tags": [
+    "suburban",
+    "small_crowd",
+    "leisure"
+  ],
+  "venue_archetype": "exterior_built",
+  "situations": [
+    {
+      "id": "lot_meander",
+      "text": "drifting the lot between the nail salon and the taqueria",
+      "tags": [
+        "social",
+        "calm_capable"
+      ],
+      "scene_type_bias": "candid_moment"
+    },
+    {
+      "id": "curbside_line",
+      "text": "idling in the curbside pickup line",
+      "tags": [
+        "calm_capable"
+      ],
+      "scene_type_bias": "candid_moment"
+    },
+    {
+      "id": "vacant_storefront",
+      "text": "peering through a vacant storefront's papered windows",
+      "tags": [
+        "calm_capable",
+        "tense_capable"
+      ],
+      "scene_type_bias": "atmospheric"
+    },
+    {
+      "id": "sign_spinner",
+      "text": "a sign-spinner working the median for the phone repair shop",
+      "tags": [
+        "labor",
+        "social"
+      ],
+      "scene_type_bias": "at_work"
+    },
+    {
+      "id": "taqueria_rush",
+      "text": "queuing for the taqueria's lunch rush",
+      "tags": [
+        "social",
+        "calm_capable"
+      ],
+      "scene_type_bias": "gathering"
+    },
+    {
+      "id": "spot_dispute",
+      "text": "a dispute over a parking spot at the market entrance",
+      "tags": [
+        "social",
+        "tense_capable",
+        "violent_capable"
+      ],
+      "scene_type_bias": "face_off"
+    },
+    {
+      "id": "sodium_dusk",
+      "text": "sodium lights buzzing on over the emptying lot",
+      "tags": [
+        "calm_capable"
+      ],
+      "scene_type_bias": "atmospheric"
+    },
+    {
+      "id": "cart_roundup",
+      "text": "herding runaway carts back across the lot",
+      "tags": [
+        "labor",
+        "action"
+      ],
+      "scene_type_bias": "at_work"
+    }
+  ]
+}

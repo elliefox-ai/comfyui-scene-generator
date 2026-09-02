@@ -1,0 +1,92 @@
+{
+  "name": "laundromat",
+  "subject_label": "laundromat regulars",
+  "tags": [
+    "modern"
+  ],
+  "facet_tags": [
+    "city",
+    "small_crowd",
+    "interior"
+  ],
+  "venue_archetype": "interior_domestic",
+  "situations": [
+    {
+      "id": "dryer_guard",
+      "text": "guarding a dryer with a paperback and a laundry sack",
+      "tags": [
+        "calm_capable"
+      ],
+      "scene_type_bias": "candid_moment",
+      "indoor": true
+    },
+    {
+      "id": "fold_squares",
+      "text": "folding into neat squares on the long table",
+      "tags": [
+        "labor",
+        "calm_capable"
+      ],
+      "scene_type_bias": "at_work",
+      "indoor": true
+    },
+    {
+      "id": "basket_dispute",
+      "text": "a dispute over a vanished basket of whites",
+      "tags": [
+        "social",
+        "tense_capable"
+      ],
+      "scene_type_bias": "face_off",
+      "indoor": true
+    },
+    {
+      "id": "quarter_loan",
+      "text": "lending quarters to a stranger short at the change machine",
+      "tags": [
+        "social",
+        "calm_capable"
+      ],
+      "scene_type_bias": "close_group",
+      "indoor": true
+    },
+    {
+      "id": "two_am_hum",
+      "text": "fluorescents humming over the two a.m. wash",
+      "tags": [
+        "calm_capable"
+      ],
+      "scene_type_bias": "atmospheric",
+      "indoor": true
+    },
+    {
+      "id": "sock_hunt",
+      "text": "hunting a runaway sock behind the dryer bank",
+      "tags": [
+        "action"
+      ],
+      "scene_type_bias": "candid_moment",
+      "indoor": true
+    },
+    {
+      "id": "rain_dash",
+      "text": "dashing loads in from the rain under one jacket",
+      "tags": [
+        "action",
+        "social"
+      ],
+      "scene_type_bias": "candid_moment",
+      "indoor": true
+    },
+    {
+      "id": "machine_news",
+      "text": "trading the week's news between machines",
+      "tags": [
+        "social",
+        "calm_capable"
+      ],
+      "scene_type_bias": "gathering",
+      "indoor": true
+    }
+  ]
+}

@@ -1,0 +1,84 @@
+{
+  "name": "cul_de_sac",
+  "subject_label": "cul-de-sac neighbors",
+  "tags": [
+    "modern"
+  ],
+  "facet_tags": [
+    "suburban",
+    "street",
+    "small_crowd"
+  ],
+  "venue_archetype": "exterior_built",
+  "situations": [
+    {
+      "id": "driveway_hoops",
+      "text": "a pickup game rattling the driveway hoop",
+      "tags": [
+        "action",
+        "social"
+      ],
+      "scene_type_bias": "candid_moment"
+    },
+    {
+      "id": "sprinkler_kids",
+      "text": "kids cutting through the sprinkler spray",
+      "tags": [
+        "action"
+      ],
+      "scene_type_bias": "candid_moment"
+    },
+    {
+      "id": "open_garage",
+      "text": "lawn chairs out at an open garage, cooler sweating",
+      "tags": [
+        "social",
+        "calm_capable"
+      ],
+      "scene_type_bias": "gathering"
+    },
+    {
+      "id": "dog_walk",
+      "text": "dog walkers trading news at the curb",
+      "tags": [
+        "social",
+        "calm_capable"
+      ],
+      "scene_type_bias": "close_group"
+    },
+    {
+      "id": "dusk_lights",
+      "text": "porch lights coming on one house at a time",
+      "tags": [
+        "calm_capable"
+      ],
+      "scene_type_bias": "atmospheric"
+    },
+    {
+      "id": "hedge_dispute",
+      "text": "a dispute over a clipped hedge or a dented mailbox",
+      "tags": [
+        "social",
+        "tense_capable"
+      ],
+      "scene_type_bias": "face_off"
+    },
+    {
+      "id": "mower_heat",
+      "text": "pushing mowers through the Sunday heat",
+      "tags": [
+        "labor"
+      ],
+      "scene_type_bias": "at_work"
+    },
+    {
+      "id": "garage_sale",
+      "text": "a garage sale spreading across two driveways",
+      "tags": [
+        "social",
+        "calm_capable"
+      ],
+      "scene_type_bias": "gathering"
+    }
+  ]
+}
