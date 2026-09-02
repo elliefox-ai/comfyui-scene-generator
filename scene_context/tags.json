@@ -27,7 +27,7 @@
       "parents": [
         "historical"
       ]
-    },
+    , "inherit_pools": true},
     "age_of_sail": {
       "desc": "Wooden-ship maritime subgenre of historical — frigates, pirates, tall ships.",
       "parents": [

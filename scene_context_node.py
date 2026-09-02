@@ -134,19 +134,42 @@ def _pick_flourish(atmosphere, situation, rng):
 _ERA_TAGS_PATH = os.path.join(
     os.path.dirname(__file__), "scene_context", "tags.json"
 )
-_GENRE_PARENTS = None
+_GENRE_REGISTRY = None
+
+
+def _genre_registry():
+    """The genre section of tags.json — read once per process."""
+    global _GENRE_REGISTRY
+    if _GENRE_REGISTRY is None:
+        with open(_ERA_TAGS_PATH, encoding="utf-8") as f:
+            _GENRE_REGISTRY = json.load(f)["genre"]
+    return _GENRE_REGISTRY
 
 
 def _genre_parents():
-    """Genre registry parents (western -> historical, ...) — read once."""
-    global _GENRE_PARENTS
-    if _GENRE_PARENTS is None:
-        with open(_ERA_TAGS_PATH, encoding="utf-8") as f:
-            _GENRE_PARENTS = {
-                k: v.get("parents", [])
-                for k, v in json.load(f)["genre"].items()
-            }
-    return _GENRE_PARENTS
+    """Genre registry parents (western -> historical, ...)."""
+    return {k: v.get("parents", []) for k, v in _genre_registry().items()}
+
+
+def _pool_genres(genre):
+    """Genres whose venues are pool-eligible when drawing `genre`: the
+    genre itself plus, when it opts in via `inherit_pools`, its registry
+    parents (transitively). Opt-in, default OFF — pools stay tag-exact
+    unless a sub-flavor genre declares draw-through inheritance, so
+    post_apocalyptic (a treatment of modern, not a period sibling)
+    never drags pristine modern venues into apocalypse draws
+    (2026-09-01)."""
+    reg = _genre_registry()
+    wanted = {genre}
+    frontier = [genre]
+    while frontier:
+        entry = reg.get(frontier.pop(), {})
+        if entry.get("inherit_pools"):
+            for parent in entry.get("parents", []):
+                if parent not in wanted:
+                    wanted.add(parent)
+                    frontier.append(parent)
+    return wanted
 
 
 def _era_text(value, genre=None):
@@ -246,7 +269,10 @@ def _filter_by_genre(settings, genre, genre2):
     if g1 is None and g2 is None:
         return list(settings.values())
 
-    wanted = {g for g in (g1, g2) if g}
+    wanted = set()
+    for g in (g1, g2):
+        if g:
+            wanted |= _pool_genres(g)
     matches = [s for s in settings.values() if wanted & set(s.get("tags", []))]
     return matches or list(settings.values())
 
