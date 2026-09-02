@@ -1111,6 +1111,123 @@
         }
       ]
     },
+    "ranch_hands": {
+      "genre": "western",
+      "layers": {
+        "outer": [
+          "a sun-bleached canvas duster",
+          "a denim jacket gone white at the seams",
+          "leather chaps buckled over the work trousers"
+        ],
+        "torso": [
+          "a sweat-ringed work shirt",
+          "a red union-suit top, collar unbuttoned",
+          "a flour-sack shirt, faint lettering still printed at the pocket"
+        ],
+        "legs": [
+          "trousers worn soft as an old glove",
+          "dust-grey denims patched at the knee",
+          "a split riding skirt {|buttoned for the saddle}"
+        ],
+        "feet": [
+          "dust-caked riding boots",
+          "mule-eared boots, heels worn round"
+        ],
+        "head": [
+          "a sweat-darkened cattleman's hat",
+          "a low-crowned planter's hat",
+          "a neckerchief loose at the collar"
+        ]
+      },
+      "palettes": [
+        "sun-bleached tan and horse-sweat leather",
+        "dust-brown and washed-out indigo",
+        "sage canvas and tarnished brass"
+      ],
+      "wear": [
+        "sun-cracked",
+        "sweat-ringed",
+        "dust-hazed to a single shade"
+      ]
+    },
+    "sunday_best": {
+      "genre": "western",
+      "layers": {
+        "outer": [
+          "a black broadcloth frock coat",
+          "a fine wool shawl, silk-fringed",
+          "a linen duster too clean for the trail"
+        ],
+        "torso": [
+          "a white shirt with a celluloid collar",
+          "a boned silk bodice",
+          "a brocade waistcoat with a watch chain"
+        ],
+        "legs": [
+          "worsted trousers with a razor crease",
+          "a silk-striped walking skirt {|swishing at the hem}",
+          "a jet-black mourning skirt"
+        ],
+        "feet": [
+          "kid-leather button boots, barely scuffed",
+          "patent-leather Sunday shoes"
+        ],
+        "head": [
+          "a wide ribbon bonnet",
+          "a silk plug hat with a mourning band",
+          "a straw boater pinned with a sprig"
+        ]
+      },
+      "palettes": [
+        "jet black and button ivory",
+        "deep burgundy and watch gold",
+        "lavender grey and sachet white"
+      ],
+      "wear": [
+        "pressed to a knife edge",
+        "laid away in lavender",
+        "spotless but for the church walk"
+      ]
+    },
+    "drifters": {
+      "genre": "western",
+      "layers": {
+        "outer": [
+          "a dust-caked poncho",
+          "a coat worn shiny at the cuffs",
+          "a gunbelt slung low on the hips"
+        ],
+        "torso": [
+          "a shirt gone the color of the trail",
+          "a collarless shirt open at the throat",
+          "a wool pullover dense with reknits"
+        ],
+        "legs": [
+          "trousers bagged at the knee",
+          "trail-wool trousers, hems whipping loose",
+          "a patched riding skirt {|reeved with twine}"
+        ],
+        "feet": [
+          "boots held together with mended straps",
+          "one boot re-soled in rawhide"
+        ],
+        "head": [
+          "a hat reshaped by a thousand storms",
+          "a bandana knotted against the dust",
+          "a battered derby missing its ribbon"
+        ]
+      },
+      "palettes": [
+        "trail-dust brown and gunmetal",
+        "faded black and concho silver",
+        "buttermilk and dried-mud grey"
+      ],
+      "wear": [
+        "trail-worn",
+        "patched at every stress point",
+        "smelling of horse and rain"
+      ]
+    },
     "portside": {
       "genre": "age_of_sail",
       "layers": {
@@ -1199,6 +1316,122 @@
             "drifter"
           ]
         }
+      ]
+    },
+    "officers": {
+      "genre": "age_of_sail",
+      "layers": {
+        "outer": [
+          "a gold-laced captain's coat",
+          "a midshipman's jacket, sleeves let out twice",
+          "a boat-cloak thrown over one shoulder"
+        ],
+        "torso": [
+          "an embroidered white waistcoat",
+          "a linen shirt under a black stock",
+          "a drill shirt buttoned to the chin"
+        ],
+        "legs": [
+          "snow-white drill breeches",
+          "blue trousers with a gold seam",
+          "white stockings beneath knee breeches"
+        ],
+        "feet": [
+          "buckled dress shoes",
+          "flat black pumps"
+        ],
+        "head": [
+          "a gold-banded bicorne",
+          "a cocked hat with the ship's lace"
+        ]
+      },
+      "palettes": [
+        "regulation blue and braid gold",
+        "snow white and lacquer black",
+        "sea-faded blue and dulled brass"
+      ],
+      "wear": [
+        "regulation-crisp",
+        "braid-bright for inspection",
+        "salt-spotted but proud"
+      ]
+    },
+    "crew": {
+      "genre": "age_of_sail",
+      "layers": {
+        "outer": [
+          "a tarred pea coat",
+          "a pilot-cloth jacket",
+          "a canvas watch-jacket stiff with spray"
+        ],
+        "torso": [
+          "a checked cotton shirt",
+          "a striped sailor's jersey",
+          "a sailcloth frock bleached board-stiff"
+        ],
+        "legs": [
+          "wide-bottomed white duck trousers",
+          "patched blue dungarees",
+          "trousers rolled to the knee for the pumps"
+        ],
+        "feet": [
+          "bare feet, tar-blackened",
+          "plaited rope sandals"
+        ],
+        "head": [
+          "a tarpaulin hat shining with tar",
+          "a wool watch-cap",
+          "a spotted neckerchief knotted abaft"
+        ]
+      },
+      "palettes": [
+        "tar-black and check white",
+        "spray-blue and sun-bleached duck",
+        "rope-tan and iron rust"
+      ],
+      "wear": [
+        "tar-spotted",
+        "spray-stiffened",
+        "worn thin by the halyards"
+      ]
+    },
+    "passengers": {
+      "genre": "age_of_sail",
+      "layers": {
+        "outer": [
+          "a pelisse trimmed in swansdown",
+          "a caped traveling greatcoat",
+          "a plum-wool mantle"
+        ],
+        "torso": [
+          "a lace-edged muslin bodice",
+          "a high-necked silk blouse",
+          "a quilted waistcoat against the crossing chill"
+        ],
+        "legs": [
+          "a traveling gown, hem looped from the wet",
+          "a kerseymere walking dress",
+          "a muslin gown gone soft with sea air"
+        ],
+        "feet": [
+          "kid boots laced to the calf",
+          "silk slippers, salt-spotted"
+        ],
+        "head": [
+          "a poke bonnet tied under the chin",
+          "a chip-straw hat with a plume",
+          "a lace day-cap"
+        ]
+      },
+      "palettes": [
+        "plum wool and swansdown cream",
+        "sage muslin and straw gold",
+        "quaker grey and jet buttons"
+      ],
+      "wear": [
+        "travel-creased but genteel",
+        "sea-aired",
+        "brushed and freshened each morning"
       ]
     },
     "office": {
