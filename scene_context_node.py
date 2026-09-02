@@ -153,22 +153,27 @@ def _genre_parents():
 
 def _pool_genres(genre):
     """Genres whose venues are pool-eligible when drawing `genre`: the
-    genre itself plus, when it opts in via `inherit_pools`, its registry
-    parents (transitively). Opt-in, default OFF — pools stay tag-exact
-    unless a sub-flavor genre declares draw-through inheritance, so
-    post_apocalyptic (a treatment of modern, not a period sibling)
-    never drags pristine modern venues into apocalypse draws
+    genre itself plus the pools of CHILD genres the parent opts to
+    absorb via `absorb_children` (transitively). Direction is
+    parent-down only — children never draw from parent pools, so a
+    western draw stays frontier-tagged and pirate ships stay out;
+    parents draw from children pools, so historical absorbs its
+    sub-flavors. The opt-in lives on the parent because only some
+    parents broaden safely: historical absorbs anything, but modern
+    must not absorb post_apocalyptic (its registry child — a treatment,
+    not a period) or wrecked venues leak into pristine draws
     (2026-09-01)."""
     reg = _genre_registry()
     wanted = {genre}
     frontier = [genre]
     while frontier:
-        entry = reg.get(frontier.pop(), {})
-        if entry.get("inherit_pools"):
-            for parent in entry.get("parents", []):
-                if parent not in wanted:
-                    wanted.add(parent)
-                    frontier.append(parent)
+        parent = frontier.pop()
+        if not reg.get(parent, {}).get("absorb_children"):
+            continue
+        for child, entry in reg.items():
+            if parent in entry.get("parents", []) and child not in wanted:
+                wanted.add(child)
+                frontier.append(child)
     return wanted
 
 

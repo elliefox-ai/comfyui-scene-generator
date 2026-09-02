@@ -9,7 +9,7 @@
     "historical": {
       "desc": "Real-world past, pre-20th-century texture. Actions stay era-neutral; props belong to the renderer.",
       "parents": []
-    },
+    , "absorb_children": true},
     "modern": {
       "desc": "Present-day ordinary world.",
       "parents": []
@@ -27,7 +27,7 @@
       "parents": [
         "historical"
       ]
-    , "inherit_pools": true},
+    },
     "age_of_sail": {
       "desc": "Wooden-ship maritime subgenre of historical — frigates, pirates, tall ships.",
       "parents": [

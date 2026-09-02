@@ -61,11 +61,13 @@ if __name__ == "__main__":
     main()
 
 
-# --- pool draw-through regression (2026-09-01) ---
+# --- pool direction regression (2026-09-01) ---
 from scene_context_node import _pool_genres
 
-assert _pool_genres("western") == {"western", "historical"}
+assert _pool_genres("western") == {"western"}
+assert _pool_genres("historical") == {"historical", "western", "age_of_sail"}
 assert _pool_genres("post_apocalyptic") == {"post_apocalyptic"}
 assert _pool_genres("modern") == {"modern"}
 assert _pool_genres("fantasy") == {"fantasy"}
 assert _pool_genres("age_of_sail") == {"age_of_sail"}
+assert _pool_genres("sci_fi") == {"sci_fi"}
