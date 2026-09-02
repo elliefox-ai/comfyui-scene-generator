@@ -74,10 +74,7 @@
     {
       "id": "late_arrival",
       "text": "a frost-covered traveler pushing through the door after dark",
-      "tags": [
-        "action",
-        "tense_capable"
-      ],
+      "tags": ["menace_capable"],
       "scene_type_bias": "atmospheric",
       "env": "storm",
       "indoor": true,

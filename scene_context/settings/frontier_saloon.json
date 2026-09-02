@@ -91,10 +91,7 @@
     {
       "id": "newcomer_in_the_doorway",
       "text": "conversation dying as a newcomer fills the doorway",
-      "tags": [
-        "action",
-        "tense_capable"
-      ],
+      "tags": ["menace_capable"],
       "scene_type_bias": "atmospheric",
       "indoor": true,
       "role": "aside"

@@ -60,10 +60,7 @@
     {
       "id": "stranger_arrives",
       "text": "a rain-soaked stranger pushing through the door",
-      "tags": [
-        "action",
-        "tense_capable"
-      ],
+      "tags": ["menace_capable"],
       "scene_type_bias": "atmospheric",
       "env": "storm",
       "role": "aside"
@@ -81,10 +78,7 @@
     {
       "id": "candles_gutter",
       "text": "the room gone quiet as the candles gutter low",
-      "tags": [
-        "social",
-        "tense_capable"
-      ],
+      "tags": ["social", "calm_capable", "menace_capable"],
       "scene_type_bias": "atmospheric",
       "indoor": true,
       "role": "aside"

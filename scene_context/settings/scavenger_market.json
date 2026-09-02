@@ -75,10 +75,7 @@
     {
       "id": "new_arrivals_draw_stares",
       "text": "a group of newcomers drawing wary stares as they enter",
-      "tags": [
-        "action",
-        "tense_capable"
-      ],
+      "tags": ["social", "menace_capable"],
       "scene_type_bias": "atmospheric",
       "role": "aside"
     },

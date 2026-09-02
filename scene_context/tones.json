@@ -6,10 +6,7 @@
       "figures in a tense standoff, weapons half-drawn",
       "figures shouting openly, scrambling apart"
     ],
-    "compatible": [
-      "violent_capable",
-      "tense_capable"
-    ],
+    "compatible": ["violent_capable", "tense_capable", "menace_capable"],
     "summary": "tense"
   },
   "charming": {
@@ -40,10 +37,7 @@
       "subjects too still, gazes fixed on something out of view",
       "subjects with lips pressed shut, eyes tracking movement"
     ],
-    "compatible": [
-      "tense_capable",
-      "calm_capable"
-    ],
+    "compatible": ["tense_capable", "calm_capable", "menace_capable"],
     "summary": "eerie"
   },
   "mundane": {

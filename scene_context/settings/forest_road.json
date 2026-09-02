@@ -25,10 +25,7 @@
     {
       "id": "bandits_blocking_the_road",
       "text": "bandits stepping out to block the road ahead",
-      "tags": [
-        "action",
-        "violent_capable"
-      ],
+      "tags": ["violent_capable", "menace_capable"],
       "scene_type_bias": "face_off",
       "role": "aside"
     },

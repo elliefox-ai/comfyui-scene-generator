@@ -60,6 +60,7 @@
   "situation": {
     "calm_capable": "Skilled action at ease; unhurried competence.",
     "tense_capable": "Skilled action under strain; stakes present, motion contained.",
+    "menace_capable": "Menacing tension without depiction — hushes, wary crowds, encroaching threats.",
     "action": "Kinetic verbs — movement carries the read.",
     "labor": "Visible physical work.",
     "social": "People interacting: talk, trade, bargain, gathering.",

@@ -92,10 +92,7 @@
     {
       "id": "new_arrivals_at_the_gate",
       "text": "a wary crowd gathering as new arrivals reach the gate",
-      "tags": [
-        "action",
-        "tense_capable"
-      ],
+      "tags": ["social", "menace_capable"],
       "scene_type_bias": "atmospheric",
       "role": "aside"
     }

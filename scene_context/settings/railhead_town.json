@@ -96,10 +96,7 @@
     {
       "id": "children_racing_the_platform",
       "text": "children racing along the depot platform",
-      "tags": [
-        "social",
-        "calm_capable"
-      ],
+      "tags": ["social", "calm_capable", "action"],
       "scene_type_bias": "candid_moment",
       "role": "aside"
     }
